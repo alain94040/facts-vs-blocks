@@ -1,0 +1,12 @@
+{
+  "seed": 0,
+  "vocab_size": 4096,
+  "n_bios_for_tokenizer": 100000,
+  "train_docs": 2119489,
+  "train_tokens": 486863003,
+  "validation_docs": 21990,
+  "validation_tokens": 4894661,
+  "dropped_empty_train": 230,
+  "dropped_empty_validation": 0,
+  "wall_seconds": 55.7462477684021
+}

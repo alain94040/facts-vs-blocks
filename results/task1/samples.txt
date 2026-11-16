@@ -1,0 +1,80 @@
+# Task 1 samples (seed 0)
+
+## 5 random biographies (set A, training templates)
+
+Jousnound Styrrasa was born on July 28, 1979. Jousnound Styrrasa studied at Leackme Institute. Jousnound Styrrasa majored in social work. The employer of Jousnound Styrrasa is Braickheast. Jousnound Styrrasa commutes to work in Gredreris. Jousnound Styrrasa was born in Kynuxfo.
+  [115 tokens; roundtrip ok: True]
+
+Coutrol Rysean came into the world on December 27, 1984. Coutrol Rysean is employed by Dramorn Works. Coutrol Rysean received an education at Teaflax Academy. The job of Coutrol Rysean is based in Modrond. Coutrol Rysean was raised in the city of Dythouvund. Coutrol Rysean majored in Spanish.
+  [113 tokens; roundtrip ok: True]
+
+The field of study of Thoupra Byreryst was comparative literature. Thoupra Byreryst studied at Institute of Peregrox. Thoupra Byreryst was born on July 28, 1939. The office of Thoupra Byreryst is located in Saitrowith. Thoupra Byreryst works for Daistikreax. Thoupra Byreryst was raised in the city of Wiltgaclou.
+  [116 tokens; roundtrip ok: True]
+
+Naicle Nitycast was born on June 4, 1957. Naicle Nitycast is employed by Baiflothack Systems. The birthplace of Naicle Nitycast is Brouthkres. Naicle Nitycast received an education at Greakoufirn Academy. The field of study of Naicle Nitycast was political science. Naicle Nitycast commutes to work in Cavounurn.
+  [107 tokens; roundtrip ok: True]
+
+The job of Kidroun Clystsheth is based in Kruteacith. Kidroun Clystsheth spent early childhood in Dipyveas Falls. Kidroun Clystsheth specialized in journalism. Kidroun Clystsheth received an education at Mouneathum Institute. Kidroun Clystsheth has a job at Sivand Industries. Kidroun Clystsheth has a date of birth of June 19, 1905.
+  [128 tokens; roundtrip ok: True]
+
+## 5 random stories (TinyStories train)
+
+[train index 1529352, 226 tokens]
+Once upon a time there was a little girl. She was really nice and kind and loved doing lots of fun things. One day, she went to the park with her mommy. When she got there, she saw an object on the ground. It was red and sparkly and looked interesting. The girl walked over to the object to take a closer look.
+
+As she got nearer, she realized it was a red ball! The little girl was so happy she could barely contain herself. She picked up the ball and gave it a squeeze. The ball was soft and squishy and the girl loved it!
+
+The little girl was playing with the ball when a bunch of other children ran over. They all crowded around the ball and wanted to have a turn. The little girl was a bit sad, but she realized the best thing to do was to share the ball and let everyone have fun.
+
+So, she passed the ball around. Everyone laughed and played together and had a really fun time. The little girl was so glad she shared the red ball!
+
+[train index 1792181, 251 tokens]
+Once upon a time, there was a boy named Alex. He was very small and had bright eyes. He wanted to go to a special place. 
+
+One day, Alex and his Mommy went to the beach. The sky was pale and the water looked so blue and calm. Alex wanted to take a dip in the sea and his mom let him. 
+
+Alex loved swimming in the gentle waves. Suddenly, he heard a noise coming from the sand. It sounded like, "Come, little one. Come and join us."
+
+Alex looked around, but he couldn't find who was speaking. He asked his Mom, but she didn't know either. Then, he saw something shiny coming out from the sand.
+
+He walked closer and it was a big red starfish. "Come play with us!" said the starfish. Alex smiled and he happily went to the magical place with the starfish and his friends.
+
+They had so much fun playing and exploring the deep ocean. It was a wonderful day and Alex was sad when it was time to go. Nevertheless, he was grateful he had been able to come to this amazing place.
+
+[train index 1113603, 243 tokens]
+Molly was in the bathtub and she was so happy. She grabbed her colorful plastic boats and laughed as they sailed around her. Suddenly, she felt a splash of water and she looked down to find a cute, yellow duck. She smiled as it floated around her. Then she splashed and kicked her feet in the water. 
+
+Molly's mom came in with a thick, yellow towel. She softly wrapped it around Molly and said, "Time to get out of the bath." Molly smiled and put her towel on the floor. Then she jumped out of the tub and hopped to her bedroom. 
+
+Mom followed after with a big bowl of yummy fruit. She said, "Molly, let's get dressed so we can have lunch!" Molly giggled and picked out her favorite dress. She put it on while her mom gave her a big hug. They went downstairs and had lunch together. 
+
+Mom then showed Molly how to soak her towel in the sink. She told her that this would keep the towel nice and soft. Molly nodded and helped her mom fill the sink with water. When they were done, Molly said, "Mommy, this towel feels so yummy!"
+
+[train index 795777, 148 tokens]
+Once upon a time, there was a small girl. Her name was Lucy and she was very excited because it was the fourth of July.
+
+Lucy and her parents went outside to watch the fireworks. As they got outside they saw the sky was empty and dark. Suddenly, the fireworks started. They were so beautiful and colorful. Lucy was so happy watching them.
+
+Her dad then asked, "what do you think of the fireworks Lucy?"
+
+Lucy smiled and said "It's so pretty! I love it!"
+
+That night, Lucy couldn't stop talking about the amazing fireworks she had seen. She finally fell asleep with a big smile on her face.
+
+[train index 657625, 297 tokens]
+Anna loves to swing on the big swing in the park. She feels happy when she goes up and down, up and down. She likes to see the sky and the trees and the birds. She swings very fast and very high.
+
+One day, she sees a bug on the swing. It is small and green and has six legs. It crawls on the rope of the swing. Anna is curious. She wants to see the bug better. She stops swinging and leans forward.
+
+The bug is not afraid of Anna. It walks on her hand and tickles her fingers. Anna giggles. She thinks the bug is friendly and cute. She says hello to the bug and asks its name.
+
+The bug does not answer. It does not speak like Anna. But it makes a soft sound, like a buzz. Anna thinks the bug is saying hello back. She is enthusiastic. She wants to play with the bug. She swings gently and makes the bug fly.
+
+The bug likes to swing with Anna. It flies around her head and lands on her nose. Anna laughs. She thinks the bug is funny and smart. She says she likes the bug and wants to be its friend.
+
+The bug likes Anna too. It nods its head and makes a buzz. Anna thinks the bug is saying yes. She is happy. She has a new friend. She swings with the bug and they have fun.
+
+## Biography token length
+
+mean over 10000 biographies (training templates): 117.25 (min 87, max 157)
+mean over 10000 biographies (held-out template 5): 131.02

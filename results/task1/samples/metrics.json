@@ -1,0 +1,8 @@
+{
+  "seed": 0,
+  "n_bios_measured": 10000,
+  "bio_mean_tokens_train_templates": 117.2527,
+  "bio_min_tokens": 87,
+  "bio_max_tokens": 157,
+  "bio_mean_tokens_heldout_template": 131.0212
+}

@@ -1,0 +1,14 @@
+{
+  "seed": 0,
+  "n_A": 32000,
+  "n_B": 32000,
+  "pool_sizes": {
+    "first_names": 400,
+    "last_names": 400,
+    "cities": 200,
+    "universities": 300,
+    "majors": 100,
+    "employers": 250
+  },
+  "bits_per_person": 53.28272869768211
+}

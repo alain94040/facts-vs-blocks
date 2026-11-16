@@ -1,0 +1,1 @@
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python data/make_bios.py --seed 0
