@@ -2,6 +2,9 @@
 
 You are executing `PLAN.md`. Read it fully before writing code. These rules override your defaults.
 
+`docs/BACKGROUND.md` explains the research question, the literature and the reasons behind the design.
+Read it when you need context. It is information only: it never changes a task, gate or threshold.
+
 1. Do the tasks in order. Commit after every task with the message `task N: <what>`.
 2. Never change an evaluation script, a test set, or a gate threshold after seeing results.
    If a gate fails, stop and write `STOP.md` naming the gate and the numbers.
