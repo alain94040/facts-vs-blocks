@@ -29,3 +29,14 @@ Question: keep float32 for Task 2, or investigate fp16 (e.g. GradScaler / fp32 a
    ≈ 375M biography tokens for main-32k, more than its 300M story tokens (main-8k ≈ 94M,
    main-2k ≈ 23M). So runs differ a lot in total tokens/steps. Is this intended, or should the
    total token budget be held fixed?
+
+## Answers from Gate 1 review (2026-11-16)
+
+- **fp16:** keep float32. Good call; closed. Do not spend time on fp16.
+- **Task 1 choices 1 to 4:** all confirmed. Nested subsets (2k in 8k in 32k) and fork-A sharing
+  people with main-8k are what we want. Shared first-name and last-name pools are good: the model
+  must use the full name.
+- **Choice 5, data volume:** exposures stay fixed at 100 per person and stories fixed at 300M, so
+  run lengths differ. A control run `ctrl-8k-x4` is added to separate the number of facts from the
+  amount of biography text. See the updated Task 2 in `PLAN.md`.
+- **Gate 1:** passed. Proceed to Task 2 as rewritten in `PLAN.md`.

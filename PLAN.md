@@ -66,39 +66,55 @@ uniformly and independently:
 the embeddings). Each person carries about 53 bits, so 32k people is roughly 1.7M bits, well below
 the model's estimated capacity of 5 to 10M bits.
 
-**Data per run:** the same 300M story tokens in the same order for every run, plus the biographies,
-shuffled in at the document level.
+**Data per run (decided at Gate 1 review):** every run sees the same 300M story tokens in the same
+order. Every person appears exactly 100 times. Total tokens therefore differ per run; that is
+intended, because equal exposure per fact matters more than equal run length. Biographies are
+spread uniformly over the whole stream at the document level, each preceded by `<|endoftext|>`.
+Build one token stream file per run with `data/build_stream.py`; steps = stream length divided by
+tokens per step, with no wrap-around. Precision is float32 (fp16 is closed; do not revisit).
 
-| Run | People | Seeds | Purpose |
-| --- | --- | --- | --- |
-| main-0 | none | 0, 1 | Baseline: stories only |
-| main-2k | 2,000 from set A | 0, 1 | Small fact load |
-| main-8k | 8,000 from set A | 0, 1 | Medium fact load |
-| main-32k | 32,000 from set A | 0, 1 | Large fact load |
-| fork-A | 8,000 from set A | 0 | Swap experiment |
-| fork-B | 8,000 from set B | 0 | Swap experiment |
+| Run | People | Exposures | Seeds | About | Purpose |
+| --- | --- | --- | --- | --- | --- |
+| main-0 | none | - | 0, 1 | 300M tokens | Baseline: stories only |
+| main-2k | first 2,000 of set A | 100 | 0, 1 | 323M | Small fact load |
+| main-8k | first 8,000 of set A | 100 | 0, 1 | 394M | Medium fact load |
+| main-32k | all 32,000 of set A | 100 | 0, 1 | 675M | Large fact load |
+| ctrl-8k-x4 | first 8,000 of set A | 400 | 0 | 675M | Control: same biography volume and run length as main-32k, 4x fewer facts |
+| fork-A | first 8,000 of set A | 100 | 0 | 394M | Swap experiment |
+| fork-B | first 8,000 of set B | 100 | 0 | 394M | Swap experiment |
 
-The fork runs share a trunk. Train on stories only for 20% of the steps from seed 0 and save that
-checkpoint. Then continue it twice, once adding set A and once adding set B, with the same story
-order. A shared starting point keeps the two models in the same internal coordinates, so swapping
-parts is meaningful without extra alignment.
+`ctrl-8k-x4` separates "more facts" from "more biography text and more training steps". In Task 3,
+any difference claimed between main-8k and main-32k must also show between ctrl-8k-x4 and main-32k.
 
-**Evaluations, saved in each run's `metrics.json`:**
+**Fork runs.** Both have the same total steps as main-8k and one LR schedule over those steps.
+Trunk: the first 20% of steps read story tokens only (seed 0); save model and optimizer state.
+Then continue twice from that checkpoint, at the same step and LR position: the remaining story
+tokens in the same order, with set A (fork-A) or set B (fork-B) biographies mixed in uniformly.
+Add `--init_from <checkpoint>` to `train/train.py`, restoring model, optimizer and step.
 
-- Story validation loss in nats per token.
-- Fact recall: for each person and attribute, prompt with the sentence up to the attribute and check
-  whether greedy decoding produces it exactly. Report separately for training templates and for
-  held-out template 5.
-- Induction check: 1,000 sequences of 50 random tokens repeated twice. Report loss on the second
-  copy divided by loss on the first.
+**Evaluations.** Add `train/evaluate.py`. During training, log story validation loss on a fixed
+2,000-sequence sample every 5% of steps. At the end, save in each run's `metrics.json`:
 
-**Gate 2:** every run's loss curve is flat over its last 10% of steps; main-2k reaches at least 80%
-recall on training templates; every run's induction ratio is below 0.5. If any fails, stop and
-report.
+- Story validation loss in nats per token, on the full validation split.
+- Fact recall, exact match. Prompt = `<|endoftext|>` followed by the sentence prefix with its
+  trailing space removed. Expected continuation = token ids of `" " + answer + "."`, obtained by
+  tokenizing the full sentence and removing the prefix ids (do not tokenize the answer alone: the
+  byte-level tokenizer attaches the space to the following word). Correct if greedy decoding
+  reproduces those ids exactly. Report per attribute and overall, separately for training
+  templates and held-out template 5. Use all people for N up to 8k, a fixed random 8,000 for 32k.
+- Fact loss: mean teacher-forced loss on the answer tokens, same prompts, same split of templates.
+- For runs with no biographies or a different people set, still report recall and fact loss on
+  set A and set B. They should be at chance; this is the baseline for Task 4.
+- Induction check: 1,000 sequences of 50 random tokens repeated twice (random token ids excluding
+  `<|endoftext|>`). Report loss on the second copy divided by loss on the first.
 
-**Time:** each run is 300 to 600M tokens. Guess: 100k to 200k tokens per second, so 30 to 90 minutes
-per run and 6 to 12 hours for all ten. If Task 0 measures under 75k tokens per second, cut story
-tokens from 300M to 150M for every run and note it in the report.
+**Gate 2:** for every run, story validation loss changes by less than 0.02 nats between 90% and
+100% of steps; main-2k reaches at least 80% overall recall on training templates; every run's
+induction ratio is below 0.5. If any fails, stop and report.
+
+**Time:** about 4.8B tokens in total. At the measured 142k tokens per second that is roughly
+9 to 10 hours. Run order: main-2k seed 0 first, alone, and check its recall before starting the
+rest. If it is below 80%, stop there instead of spending the night on runs that will fail the gate.
 
 **End of Phase 1. Stop for human review.**
 
