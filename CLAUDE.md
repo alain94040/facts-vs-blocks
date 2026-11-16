@@ -16,6 +16,7 @@ Read it when you need context. It is information only: it never changes a task, 
 8. When unsure, write the question to `QUESTIONS.md` and stop rather than guess.
 9. Report numbers as measured. Do not interpret results beyond the decision table in `PLAN.md`. A negative result is a valid result.
 10. Do not commit datasets, tokenized data or checkpoints. Keep them under `data/cache/` and `checkpoints/`, both git-ignored. Do commit `results/` (JSON, CSV, plots).
+11. Gates in Phase 1 check that the models are properly trained. If one fails, the fix is a change to `PLAN.md` made by the human reviewer, never by you. Run only the recipes `PLAN.md` declares.
 
 ## Hardware
 

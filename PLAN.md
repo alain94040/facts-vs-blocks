@@ -66,6 +66,42 @@ uniformly and independently:
 the embeddings). Each person carries about 53 bits, so 32k people is roughly 1.7M bits, well below
 the model's estimated capacity of 5 to 10M bits.
 
+### Task 2a: fix the training recipe (added after attempt 1 failed)
+
+Attempt 1 (`results/task2_attempt1/`) failed Gate 2: main-2k reached 8% recall. The evaluation was
+checked and is correct; the model did not memorise the facts. See `docs/LOG.md`. Two changes:
+
+**Change 1: one token per entity.** In attempt 1 every invented word cost 4 to 5 tokens, so a name
+was about 10 tokens and every value had to be spelled out. Fix:
+
+- Add every pool word as its own token with `tokenizer.add_tokens`: the 400 first names, 400 last
+  names, 200 city root words, 300 university root words and 250 employer root words. Real words
+  (majors, months, "Bay", "Institute", "Systems" and so on) stay as they are. Keep the existing
+  4096-token vocabulary and ids unchanged; the new tokens get ids from 4096 up. Set `vocab_size`
+  in `configs/model_small.json` to the new total.
+- Do not regenerate the pools or the people: `data/make_bios.py --seed 0` output stays identical.
+- Requirement, checked by an assertion over every pool word in every template: each pool word
+  encodes to exactly one dedicated id (a separate bare-space token in front of it is acceptable),
+  and decoding round-trips to the original text.
+- Re-run `data/prepare.py` and `data/samples.py`. Story tokenization must be unchanged apart from
+  the tokenizer file; assert the story token counts equal those of Task 1.
+- Write results to `results/task2a/`. Record the new mean biography length in tokens.
+
+**Change 2: a declared pilot ladder.** Using main-2k seed 0 only, try these recipes in order and
+stop at the first one that passes. No other recipe may be tried.
+
+| Pilot | Exposures per person | Everything else |
+| --- | --- | --- |
+| P1 | 100 | as in Task 2 |
+| P2 | 300 | as in Task 2 |
+
+Pass = overall recall on training templates at least 0.80, and name-copy accuracy at least 0.90
+(defined under Evaluations). The first passing recipe is frozen and used for every Task 2 run;
+replace "100" exposures below by the frozen number (ctrl-8k-x4 uses four times it). If P2 also
+fails, write `STOP.md` with both sets of numbers and stop.
+
+Before each pilot, run 50 steps as usual. Each pilot is about 35 to 45 minutes.
+
 **Data per run (decided at Gate 1 review):** every run sees the same 300M story tokens in the same
 order. Every person appears exactly 100 times. Total tokens therefore differ per run; that is
 intended, because equal exposure per fact matters more than equal run length. Biographies are
@@ -105,16 +141,25 @@ Add `--init_from <checkpoint>` to `train/train.py`, restoring model, optimizer a
 - Fact loss: mean teacher-forced loss on the answer tokens, same prompts, same split of templates.
 - For runs with no biographies or a different people set, still report recall and fact loss on
   set A and set B. They should be at chance; this is the baseline for Task 4.
-- Induction check: 1,000 sequences of 50 random tokens repeated twice (random token ids excluding
-  `<|endoftext|>`). Report loss on the second copy divided by loss on the first.
+- Name-copy accuracy (in-distribution induction). Take people 16,000 to 16,999 of set B, who
+  appear in no run. Render one training-template biography each (fixed seed). At every mention
+  of the name after the first, check whether the model's top prediction after the first-name
+  token is the last-name token. The model has never seen these people, so it can only succeed by
+  copying from earlier in the context. Report the accuracy.
+- Random-token induction: 1,000 sequences of 50 random tokens repeated twice (random ids from the
+  original 4096 excluding `<|endoftext|>`). Report loss on the second copy divided by loss on the
+  first. Reported for every run, not a gate (see `docs/LOG.md` for why).
 
 **Gate 2:** for every run, story validation loss changes by less than 0.02 nats between 90% and
-100% of steps; main-2k reaches at least 80% overall recall on training templates; every run's
-induction ratio is below 0.5. If any fails, stop and report.
+100% of steps; every run with biographies reaches at least 80% overall recall on training
+templates for its own people (for main-32k, at least 60%: it is the hardest and is allowed to be
+partly unsaturated, and the number is reported either way); every run with biographies has
+name-copy accuracy of at least 0.90. If any fails, stop and report.
 
-**Time:** about 4.8B tokens in total. At the measured 142k tokens per second that is roughly
-9 to 10 hours. Run order: main-2k seed 0 first, alone, and check its recall before starting the
-rest. If it is below 80%, stop there instead of spending the night on runs that will fail the gate.
+**Time:** recompute from the new biography length and the frozen exposure count, and write the
+estimate to `results/task2/plan_time.json` before starting. Run order: main-2k seed 0 is the pilot
+result itself (do not retrain it); then the rest with `train/run_task2.sh`, updated for the new
+streams.
 
 **End of Phase 1. Stop for human review.**
 
