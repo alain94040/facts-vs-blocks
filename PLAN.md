@@ -102,22 +102,42 @@ fails, write `STOP.md` with both sets of numbers and stop.
 
 Before each pilot, run 50 steps as usual. Each pilot is about 35 to 45 minutes.
 
-**Data per run (decided at Gate 1 review):** every run sees the same 300M story tokens in the same
-order. Every person appears exactly 100 times. Total tokens therefore differ per run; that is
-intended, because equal exposure per fact matters more than equal run length. Biographies are
-spread uniformly over the whole stream at the document level, each preceded by `<|endoftext|>`.
-Build one token stream file per run with `data/build_stream.py`; steps = stream length divided by
-tokens per step, with no wrap-around. Precision is float32 (fp16 is closed; do not revisit).
+### Task 2b: final recipe (added after the Task 2a pilots)
+
+Pilot results are in `results/task2a/` and discussed in `docs/LOG.md`. P2 memorised the facts
+(recall 0.955). Its name-copy miss is explained by memorisation competing with copying and does
+not show a broken model. The held-out template test turned out to be badly designed. Changes:
+
+**Change 1: exposures are 300** for every run (ctrl-8k-x4: 1,200).
+
+**Change 2: template 5 is seen for half of the people.** In attempt 1 and Task 2a no model ever
+saw template 5 for anyone, so it could not know which attribute an unfamiliar phrasing asks for.
+New rule, for set A and set B alike: people with an **even** index in their set use all five
+templates in training (a uniform random choice among 5 per attribute per exposure). People with
+an **odd** index use templates 1 to 4 only, as before. Template 5 on odd-index people is the
+held-out test: the wording is known, but never for that person.
+
+**Change 3: one confirmation pilot, P3.** Build the main-2k stream with changes 1 and 2 and train
+seed 0 (about 45 minutes). Results go to `results/task2/main-2k-s0/`; if it passes, this run *is*
+main-2k seed 0. Pass = Gate 2 below applied to this run. If P3 passes, continue straight into the
+remaining Task 2 runs without waiting for review. If it fails, write `STOP.md` and stop; no other
+recipe may be tried.
+
+**Data per run:** every run sees the same 300M story tokens in the same order. Every person
+appears exactly 300 times (ctrl-8k-x4: 1,200). Total tokens differ per run; that is intended.
+Biographies are spread uniformly over the whole stream at the document level, each preceded by
+`<|endoftext|>`. Steps = stream length divided by tokens per step, with no wrap-around. Precision
+is float32. Token counts below assume 77 tokens per biography; record the real ones.
 
 | Run | People | Exposures | Seeds | About | Purpose |
 | --- | --- | --- | --- | --- | --- |
 | main-0 | none | - | 0, 1 | 300M tokens | Baseline: stories only |
-| main-2k | first 2,000 of set A | 100 | 0, 1 | 323M | Small fact load |
-| main-8k | first 8,000 of set A | 100 | 0, 1 | 394M | Medium fact load |
-| main-32k | all 32,000 of set A | 100 | 0, 1 | 675M | Large fact load |
-| ctrl-8k-x4 | first 8,000 of set A | 400 | 0 | 675M | Control: same biography volume and run length as main-32k, 4x fewer facts |
-| fork-A | first 8,000 of set A | 100 | 0 | 394M | Swap experiment |
-| fork-B | first 8,000 of set B | 100 | 0 | 394M | Swap experiment |
+| main-2k | first 2,000 of set A | 300 | 0, 1 | 346M | Small fact load |
+| main-8k | first 8,000 of set A | 300 | 0, 1 | 485M | Medium fact load |
+| main-32k | all 32,000 of set A | 300 | 0, 1 | 1,040M | Large fact load |
+| ctrl-8k-x4 | first 8,000 of set A | 1,200 | 0 | 1,040M | Control: same biography volume and run length as main-32k, 4x fewer facts |
+| fork-A | first 8,000 of set A | 300 | 0 | 485M | Swap experiment |
+| fork-B | first 8,000 of set B | 300 | 0 | 485M | Swap experiment |
 
 `ctrl-8k-x4` separates "more facts" from "more biography text and more training steps". In Task 3,
 any difference claimed between main-8k and main-32k must also show between ctrl-8k-x4 and main-32k.
@@ -136,30 +156,36 @@ Add `--init_from <checkpoint>` to `train/train.py`, restoring model, optimizer a
   trailing space removed. Expected continuation = token ids of `" " + answer + "."`, obtained by
   tokenizing the full sentence and removing the prefix ids (do not tokenize the answer alone: the
   byte-level tokenizer attaches the space to the following word). Correct if greedy decoding
-  reproduces those ids exactly. Report per attribute and overall, separately for training
-  templates and held-out template 5. Use all people for N up to 8k, a fixed random 8,000 for 32k.
-- Fact loss: mean teacher-forced loss on the answer tokens, same prompts, same split of templates.
+  reproduces those ids exactly. Report per attribute and overall, for three groups:
+  `train_templates` (templates 1 to 4, all of the run's people), `template5_seen` (template 5,
+  even-index people) and `template5_heldout` (template 5, odd-index people). Use all people for
+  N up to 8k, a fixed random 8,000 for 32k.
+- Fact loss: mean teacher-forced loss on the answer tokens, same prompts, same three groups.
 - For runs with no biographies or a different people set, still report recall and fact loss on
   set A and set B. They should be at chance; this is the baseline for Task 4.
 - Name-copy accuracy (in-distribution induction). Take people 16,000 to 16,999 of set B, who
   appear in no run. Render one training-template biography each (fixed seed). At every mention
   of the name after the first, check whether the model's top prediction after the first-name
   token is the last-name token. The model has never seen these people, so it can only succeed by
-  copying from earlier in the context. Report the accuracy.
+  copying from earlier in the context. Score at the bare-space position, as agreed in
+  `QUESTIONS.md`. Report the accuracy, and split the errors into "last name of a person this run
+  trained on" and "any other token" (the model's memory competing with the context).
 - Random-token induction: 1,000 sequences of 50 random tokens repeated twice (random ids from the
   original 4096 excluding `<|endoftext|>`). Report loss on the second copy divided by loss on the
   first. Reported for every run, not a gate (see `docs/LOG.md` for why).
 
 **Gate 2:** for every run, story validation loss changes by less than 0.02 nats between 90% and
-100% of steps; every run with biographies reaches at least 80% overall recall on training
-templates for its own people (for main-32k, at least 60%: it is the hardest and is allowed to be
-partly unsaturated, and the number is reported either way); every run with biographies has
-name-copy accuracy of at least 0.90. If any fails, stop and report.
+100% of steps; every run with biographies reaches at least 80% overall recall on
+`train_templates` for its own people (main-32k: at least 60%); every run with biographies has
+name-copy accuracy of at least 0.50. This last number is a floor that catches a model with no
+copying at all (chance is under 1%); it is not a quality bar. `template5_heldout` recall is
+reported and not gated. If any condition fails, stop and report.
 
-**Time:** recompute from the new biography length and the frozen exposure count, and write the
-estimate to `results/task2/plan_time.json` before starting. Run order: main-2k seed 0 is the pilot
-result itself (do not retrain it); then the rest with `train/run_task2.sh`, updated for the new
-streams.
+**Time:** about 6.3B tokens in total, roughly 12 to 13 hours at 136k tokens per second. Write the
+recomputed estimate to `results/task2/plan_time.json` before starting. Run order after P3:
+main-8k seed 0, main-32k seed 0, ctrl-8k-x4, main-0 seed 0, the fork trunk and both forks, then
+the seed 1 runs. This order means that if the batch is interrupted, Tasks 3 and 4 can still be
+done on seed 0. After each run, append its row to `results/task2/summary.csv` and commit.
 
 **End of Phase 1. Stop for human review.**
 

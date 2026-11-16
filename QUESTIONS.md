@@ -52,3 +52,8 @@ Question: keep float32 for Task 2, or investigate fp16 (e.g. GradScaler / fp32 a
    right after the first name is always the space. **Answer: score the prediction at the bare-space
    position** (it must be the last-name token). The first-name position predicting the space is
    reported separately as `first_name_predicts_space`, not gated.
+
+## Answers from Task 2a review (2026-11-16)
+
+- Both Task 2a answers above are confirmed by the reviewer.
+- Pilots: see `docs/LOG.md`. Proceed with Task 2b in `PLAN.md` (P3, then the full batch if it passes).
