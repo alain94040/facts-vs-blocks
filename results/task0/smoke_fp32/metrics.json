@@ -1,0 +1,16 @@
+{
+  "steps_run": 50,
+  "total_steps": 50,
+  "seed": 0,
+  "amp": "none",
+  "data": "random",
+  "tokens_per_step": 65536,
+  "loss_first": 8.368057250976562,
+  "loss_last": 8.319846153259277,
+  "loss_first10_mean": 8.34486427307129,
+  "loss_last10_mean": 8.320303821563721,
+  "tokens_per_second": 142539.10233076644,
+  "wall_seconds": 24.595272064208984,
+  "non_embedding_params": 4739072,
+  "total_params": 5853184
+}

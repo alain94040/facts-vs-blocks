@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python train/train.py --task task0 --run_name smoke_fp16 --seed 0 --steps 50 --amp fp16
