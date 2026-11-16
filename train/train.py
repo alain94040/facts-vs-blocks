@@ -6,7 +6,13 @@ and checkpoints/<task>/<run_name>/step_<n>.pt at the configured fractions of tot
 
 Data sources:
   --data random            uniform random tokens (smoke test)
-  --data <path.bin>        uint16 token stream, read sequentially in a fixed order
+  --stream <name>          data/cache/streams/<name>.bin built by data/build_stream.py, read
+                           sequentially in a fixed order with no wrap-around; total steps default
+                           to the stream's step count.
+
+--init_from <ckpt> restores model, optimizer and step (used by the fork runs).
+With a stream, story validation loss on a fixed 2,000-row sample is logged every 5% of steps and
+the full Task 2 evaluation (train/evaluate.py) is saved in metrics.json at the end.
 """
 import argparse
 import json
@@ -24,6 +30,7 @@ import torch
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from model.gpt import GPT, GPTConfig  # noqa: E402
+from train import evaluate  # noqa: E402
 
 
 def lr_at(step, total, cfg):
@@ -45,17 +52,17 @@ class RandomTokens:
 
 
 class TokenStream:
-    """Sequential, fixed-order reader over a uint16 token file (wraps around at the end)."""
+    """Sequential, fixed-order reader over a uint16 token file. Never wraps around."""
 
-    def __init__(self, path, batch_size, seq_len):
+    def __init__(self, path, batch_size, seq_len, start_step=0):
         self.data = np.memmap(path, dtype=np.uint16, mode="r")
         self.b, self.t = batch_size, seq_len
-        self.pos = 0
+        self.pos = start_step * batch_size * (seq_len + 1)
 
     def next(self):
         n = self.b * (self.t + 1)
         if self.pos + n > len(self.data):
-            self.pos = 0
+            raise RuntimeError("token stream exhausted (no wrap-around allowed)")
         chunk = np.asarray(self.data[self.pos:self.pos + n], dtype=np.int64)
         self.pos += n
         x = torch.from_numpy(chunk).view(self.b, self.t + 1)
@@ -70,7 +77,11 @@ def main():
     p.add_argument("--model_config", default="configs/model_small.json")
     p.add_argument("--train_config", default="configs/train.json")
     p.add_argument("--data", default="random")
-    p.add_argument("--steps", type=int, required=True, help="total steps (sets the LR schedule)")
+    p.add_argument("--stream", default=None, help="stream name under data/cache/streams/")
+    p.add_argument("--steps", type=int, default=None,
+                   help="total steps (sets the LR schedule); default: the stream's step count")
+    p.add_argument("--init_from", default=None, help="checkpoint to resume model/opt/step from")
+    p.add_argument("--no_eval", action="store_true", help="skip the final full evaluation")
     p.add_argument("--stop_after", type=int, default=None, help="stop early after this many steps")
     p.add_argument("--amp", choices=["none", "fp16"], default="none")
     p.add_argument("--device", default="mps")
@@ -98,19 +109,39 @@ def main():
     opt = model.configure_optimizer(tcfg["lr"], tuple(tcfg["betas"]), tcfg["weight_decay"])
 
     B, T = tcfg["batch_size"], tcfg["seq_len"]
-    if args.data == "random":
-        loader = RandomTokens(mcfg.vocab_size, B, T, args.seed)
-    else:
-        loader = TokenStream(args.data, B, T)
+    meta = {}
+    if args.stream:
+        with open(os.path.join("data", "cache", "streams", f"{args.stream}.json")) as f:
+            meta = json.load(f)
+        assert meta["tokens_per_step"] == B * (T + 1)
+    total = args.steps or meta.get("steps")
+    assert total, "--steps is required without --stream"
 
-    total = args.steps
+    start = 0
+    if args.init_from:
+        ck = torch.load(args.init_from, map_location="cpu")
+        assert ck["total_steps"] == total, (ck["total_steps"], total)
+        assert ck["model_config"] == vars(mcfg)
+        model.load_state_dict(ck["model"])
+        opt.load_state_dict(ck["opt"])
+        start = ck["step"]
+
+    if args.stream:
+        loader = TokenStream(os.path.join("data", "cache", "streams", f"{args.stream}.bin"),
+                             B, T, start_step=start)
+    else:
+        loader = RandomTokens(mcfg.vocab_size, B, T, args.seed)
+
     run_steps = min(total, args.stop_after) if args.stop_after else total
     ckpt_steps = {max(1, int(round(fr * total))) for fr in tcfg["checkpoint_fracs"]}
+    val_steps = {int(round(k * total / 20)) for k in range(1, 21)} if args.stream else set()
+    val_rows = evaluate.val_sample_rows(T) if args.stream else None
+    val_curve = []
 
     log_f = open(os.path.join(out_dir, "log.jsonl"), "w")
     losses, step_times = [], []
     t_start = time.time()
-    for step in range(run_steps):
+    for step in range(start, run_steps):
         lr = lr_at(step, total, tcfg)
         for g in opt.param_groups:
             g["lr"] = lr
@@ -132,11 +163,16 @@ def main():
 
         if not math.isfinite(loss_v):
             raise RuntimeError(f"non-finite loss at step {step}: {loss_v}")
+        if (step + 1) in val_steps:
+            vl = evaluate.story_loss(model, val_rows, device)
+            val_curve.append({"step": step + 1, "frac": (step + 1) / total, "val_sample_loss": vl})
+            log_f.write(json.dumps(val_curve[-1]) + "\n")
+            print(f"step {step+1} val_sample_loss {vl:.4f}", flush=True)
         losses.append(loss_v)
         step_times.append(dt)
         rec = {"step": step + 1, "loss": loss_v, "lr": lr, "grad_norm": float(gnorm), "dt": dt}
         log_f.write(json.dumps(rec) + "\n")
-        if (step + 1) % args.log_every == 0 or step == 0:
+        if (step + 1) % args.log_every == 0 or step == start:
             log_f.flush()
             print(f"step {step+1}/{run_steps} loss {loss_v:.4f} lr {lr:.2e} "
                   f"tok/s {B*T/dt:,.0f}", flush=True)
@@ -153,8 +189,10 @@ def main():
     steady = step_times[skip:]
     tok_per_s = B * T * len(steady) / sum(steady)
     metrics = {
-        "steps_run": run_steps, "total_steps": total, "seed": args.seed, "amp": args.amp,
-        "data": args.data, "tokens_per_step": B * T,
+        "steps_run": run_steps - start, "start_step": start, "end_step": run_steps,
+        "total_steps": total, "seed": args.seed, "amp": args.amp,
+        "data": args.stream or args.data, "init_from": args.init_from,
+        "tokens_per_step": B * T, "stream_tokens_per_step": B * (T + 1),
         "loss_first": losses[0], "loss_last": losses[-1],
         "loss_first10_mean": float(np.mean(losses[:10])),
         "loss_last10_mean": float(np.mean(losses[-10:])),
@@ -162,7 +200,11 @@ def main():
         "wall_seconds": time.time() - t_start,
         "non_embedding_params": model.n_params(True),
         "total_params": model.n_params(False),
+        "val_curve": val_curve,
     }
+    if args.stream and not args.no_eval:
+        metrics["eval"] = evaluate.full_eval(model, meta, device)
+        metrics["eval_step"] = run_steps
     with open(os.path.join(out_dir, "metrics.json"), "w") as f:
         json.dump(metrics, f, indent=2)
     print(json.dumps(metrics, indent=2))

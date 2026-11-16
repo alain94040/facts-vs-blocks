@@ -1,0 +1,21 @@
+{
+  "run": "fork-B",
+  "seed": 0,
+  "people_set": "B",
+  "n_people": 8000,
+  "exposures": 100,
+  "n_story_docs": 1302816,
+  "story_tokens": 300000032,
+  "n_bio_docs": 800000,
+  "bio_tokens": 94641474,
+  "mean_bio_tokens": 118.3018425,
+  "tokens_per_step": 65792,
+  "fork_of": "main-8k",
+  "steps": 5997,
+  "trunk_steps": 1199,
+  "trunk_tokens": 78884608,
+  "first_bio_token": 78884704,
+  "unused_tail_tokens": 86882,
+  "stream_tokens": 394641506,
+  "wall_seconds": 11.056473016738892
+}

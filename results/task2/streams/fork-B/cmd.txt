@@ -1,0 +1,1 @@
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python data/build_stream.py --run fork-B --people_set B --n_people 8000 --fork_of main-8k

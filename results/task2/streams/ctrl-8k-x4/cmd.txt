@@ -1,0 +1,1 @@
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python data/build_stream.py --run ctrl-8k-x4 --n_people 8000 --exposures 400

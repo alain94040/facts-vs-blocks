@@ -1,0 +1,26 @@
+{
+  "pass": false,
+  "checks": [
+    {
+      "run": "main-2k-s0",
+      "check": "flat_90_100",
+      "value": 0.011794647216796905,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s0",
+      "check": "induction_ratio",
+      "value": 0.932086706161499,
+      "threshold": 0.5,
+      "pass": false
+    },
+    {
+      "run": "main-2k-s0",
+      "check": "recall_A_train",
+      "value": 0.08270833333333333,
+      "threshold": 0.8,
+      "pass": false
+    }
+  ]
+}

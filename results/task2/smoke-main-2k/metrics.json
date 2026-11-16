@@ -1,0 +1,157 @@
+{
+  "steps_run": 50,
+  "start_step": 0,
+  "end_step": 50,
+  "total_steps": 4918,
+  "seed": 0,
+  "amp": "none",
+  "data": "main-2k",
+  "init_from": null,
+  "tokens_per_step": 65536,
+  "stream_tokens_per_step": 65792,
+  "loss_first": 8.371397018432617,
+  "loss_last": 4.685534954071045,
+  "loss_first10_mean": 7.905557870864868,
+  "loss_last10_mean": 4.998502540588379,
+  "tokens_per_second": 142934.4099033168,
+  "wall_seconds": 23.223860025405884,
+  "non_embedding_params": 4739072,
+  "total_params": 5853184,
+  "val_curve": [],
+  "eval": {
+    "story_val_loss": 4.716585379931269,
+    "story_val_sample_loss": 4.719956390380859,
+    "facts_set_A": {
+      "train_templates": {
+        "recall": 0.0,
+        "fact_loss": 6.014943934670904,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.775705619932075
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 6.041817680847123
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 5.89882556290796
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.475150034039824
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 6.0443928052153675
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 6.047552936499724
+          }
+        }
+      },
+      "heldout_template": {
+        "recall": 0.0,
+        "fact_loss": 6.004171677818896,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.753251158761711
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 5.983094502364973
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 5.931473977363481
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.486208810753142
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 5.9983194033101555
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 6.075086708203643
+          }
+        }
+      },
+      "n_people": 2000
+    },
+    "facts_set_B": {
+      "train_templates": {
+        "recall": 0.0,
+        "fact_loss": 6.015836096414177,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.769692795906021
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 6.055286345665214
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 5.907260634287955
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.483993539452873
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 6.040380640025678
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 6.041430727680579
+          }
+        }
+      },
+      "heldout_template": {
+        "recall": 0.0,
+        "fact_loss": 6.004912452262387,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.747138458019753
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 5.996194008942327
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 5.939529950270678
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.494214259431274
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 5.994478567863515
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 6.069921975602239
+          }
+        }
+      },
+      "n_people": 8000
+    },
+    "induction": {
+      "loss_first_copy": 9.660466194152832,
+      "loss_second_copy": 9.651833534240723,
+      "ratio": 0.9991064071655273
+    }
+  },
+  "eval_step": 50
+}
