@@ -153,6 +153,19 @@ def make_pools(rng):
             "universities": universities, "majors": list(MAJORS), "employers": employers}
 
 
+def entity_words(pools):
+    """The invented root words, each to become one dedicated token (Task 2a), by pool."""
+    def uni_root(u):
+        return [w for w in u.split() if w not in UNI_KINDS and w != "of"][0]
+    return {
+        "first_names": list(pools["first_names"]),
+        "last_names": list(pools["last_names"]),
+        "cities": [c.split()[0] for c in pools["cities"]],
+        "universities": [uni_root(u) for u in pools["universities"]],
+        "employers": [e.split()[0] for e in pools["employers"]],
+    }
+
+
 def format_date(d):
     return f"{MONTHS[d.month - 1]} {d.day}, {d.year}"
 

@@ -1,0 +1,17 @@
+{
+  "run": "P1-main-2k",
+  "seed": 0,
+  "people_set": "A",
+  "n_people": 2000,
+  "exposures": 100,
+  "n_story_docs": 1302816,
+  "story_tokens": 300000032,
+  "n_bio_docs": 200000,
+  "bio_tokens": 15632033,
+  "mean_bio_tokens": 78.160165,
+  "tokens_per_step": 65792,
+  "steps": 4797,
+  "stream_tokens": 315632065,
+  "unused_tail_tokens": 27841,
+  "wall_seconds": 3.9588840007781982
+}

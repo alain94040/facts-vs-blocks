@@ -1,0 +1,163 @@
+{
+  "steps_run": 50,
+  "start_step": 0,
+  "end_step": 50,
+  "total_steps": 4797,
+  "seed": 0,
+  "amp": "none",
+  "data": "P1-main-2k",
+  "init_from": null,
+  "tokens_per_step": 65536,
+  "stream_tokens_per_step": 65792,
+  "loss_first": 8.656314849853516,
+  "loss_last": 4.6702189445495605,
+  "loss_first10_mean": 8.189830255508422,
+  "loss_last10_mean": 5.008077669143677,
+  "tokens_per_second": 133937.56218592107,
+  "wall_seconds": 24.774274110794067,
+  "non_embedding_params": 4739072,
+  "total_params": 6249984,
+  "val_curve": [],
+  "eval": {
+    "story_val_loss": 4.772642522297621,
+    "story_val_sample_loss": 4.775626968383789,
+    "facts_set_A": {
+      "train_templates": {
+        "recall": 0.0,
+        "fact_loss": 5.397717887065374,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.795767881794607
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 4.537097831657776
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 4.685080448814196
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.806075576386263
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 4.879302739159801
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 4.543154090499353
+          }
+        }
+      },
+      "heldout_template": {
+        "recall": 0.0,
+        "fact_loss": 5.39944632260216,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.824888215110126
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 4.461850695041112
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 4.692724682797811
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.843858473942654
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 4.779846599824526
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 4.608536933457859
+          }
+        }
+      },
+      "n_people": 2000
+    },
+    "facts_set_B": {
+      "train_templates": {
+        "recall": 0.0,
+        "fact_loss": 5.401439769866511,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.804965057290331
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 4.540457037073621
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 4.68500840029903
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.814067836595126
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 4.88092985730869
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 4.53439891120735
+          }
+        }
+      },
+      "heldout_template": {
+        "recall": 0.0,
+        "fact_loss": 5.403662723822167,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 5.834336827182283
+          },
+          "birth_city": {
+            "recall": 0.0,
+            "fact_loss": 4.46411130462882
+          },
+          "university": {
+            "recall": 0.0,
+            "fact_loss": 4.693138550636694
+          },
+          "major": {
+            "recall": 0.0,
+            "fact_loss": 6.853710769874943
+          },
+          "employer": {
+            "recall": 0.0,
+            "fact_loss": 4.782132161717836
+          },
+          "employer_city": {
+            "recall": 0.0,
+            "fact_loss": 4.600234442900661
+          }
+        }
+      },
+      "n_people": 8000
+    },
+    "name_copy": {
+      "accuracy": 0.0,
+      "n_checks": 5000,
+      "n_people": 1000,
+      "first_name_predicts_space": 0.7736
+    },
+    "induction": {
+      "loss_first_copy": 9.938769340515137,
+      "loss_second_copy": 9.932487487792969,
+      "ratio": 0.9993679523468018
+    }
+  },
+  "eval_step": 50
+}

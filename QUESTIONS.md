@@ -40,3 +40,15 @@ Question: keep float32 for Task 2, or investigate fp16 (e.g. GradScaler / fp32 a
   run lengths differ. A control run `ctrl-8k-x4` is added to separate the number of facts from the
   amount of biography text. See the updated Task 2 in `PLAN.md`.
 - **Gate 1:** passed. Proceed to Task 2 as rewritten in `PLAN.md`.
+
+## Task 2a: questions asked and answered before any pilot ran (2026-11-16)
+
+1. **Pool words that are also story words.** 4 of the 1,550 pool root words occur as real words
+   in TinyStories train: Toto, Sora, Mater, Damon (146 stories; none in validation). Adding them as
+   tokens would change those stories' tokenization and break "story token counts unchanged".
+   **Answer: keep the Task 1 story tokens.** Story streams are bit-identical to Task 1 (asserted);
+   biographies use the new tokenizer. Recorded in `results/task2a/prepare/metrics.json`.
+2. **Name-copy position.** With `add_tokens` a name is `[First] [bare space] [Last]`, so the token
+   right after the first name is always the space. **Answer: score the prediction at the bare-space
+   position** (it must be the last-name token). The first-name position predicting the space is
+   reported separately as `first_name_predicts_space`, not gated.

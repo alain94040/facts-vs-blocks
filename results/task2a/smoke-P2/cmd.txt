@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python train/train.py --task task2a --run_name smoke-P2 --seed 0 --stream P2-main-2k --stop_after 50 --no_ckpt --no_eval

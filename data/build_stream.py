@@ -80,6 +80,7 @@ def main():
     p.add_argument("--story_tokens", type=int, default=300_000_000)
     p.add_argument("--fork_of", default=None, help="parent run whose total steps the fork uses")
     p.add_argument("--trunk_frac", type=float, default=0.2)
+    p.add_argument("--results_task", default="task2")
     args = p.parse_args()
     t0 = time.time()
 
@@ -137,7 +138,7 @@ def main():
     with open(os.path.join(STREAM_DIR, f"{args.run}.json"), "w") as f:
         json.dump(meta, f, indent=2)
 
-    res = os.path.join(ROOT, "results", "task2", "streams", args.run)
+    res = os.path.join(ROOT, "results", args.results_task, "streams", args.run)
     os.makedirs(res, exist_ok=True)
     with open(os.path.join(res, "cmd.txt"), "w") as f:
         f.write(shlex.join([sys.executable] + sys.argv) + "\n")

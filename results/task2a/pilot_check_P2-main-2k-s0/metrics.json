@@ -1,0 +1,10 @@
+{
+  "pilot": "P2-main-2k-s0",
+  "recall_A_train": 0.9550208333333333,
+  "recall_threshold": 0.8,
+  "recall_pass": true,
+  "name_copy": 0.8698,
+  "name_copy_threshold": 0.9,
+  "name_copy_pass": false,
+  "pass": false
+}

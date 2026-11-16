@@ -23,6 +23,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--n_len", type=int, default=10000)
+    p.add_argument("--results_dir", default="results/task1")
     args = p.parse_args()
     rng = np.random.default_rng(args.seed)
 
@@ -40,7 +41,8 @@ def main():
     held = [len(tok.encode(render_bio(people[i], rng, heldout=True)).ids)
             for i in rng.integers(len(people), size=args.n_len)]
 
-    lines = ["# Task 1 samples (seed %d)" % args.seed, "", "## 5 random biographies (set A, training templates)", ""]
+    lines = ["# Samples (seed %d, tokenizer %s, vocab %d)" % (args.seed, "data/tokenizer.json",
+                                                              tok.get_vocab_size()), "", "## 5 random biographies (set A, training templates)", ""]
     for b in bios:
         ids = tok.encode(b).ids
         lines += [b, f"  [{len(ids)} tokens; roundtrip ok: {tok.decode(ids) == b}]", ""]
@@ -51,7 +53,8 @@ def main():
               f"mean over {args.n_len} biographies (training templates): {np.mean(lens):.2f} "
               f"(min {min(lens)}, max {max(lens)})",
               f"mean over {args.n_len} biographies (held-out template 5): {np.mean(held):.2f}", ""]
-    out = os.path.join(ROOT, "results", "task1")
+    out = os.path.join(ROOT, args.results_dir)
+    os.makedirs(out, exist_ok=True)
     with open(os.path.join(out, "samples.txt"), "w") as f:
         f.write("\n".join(lines))
 

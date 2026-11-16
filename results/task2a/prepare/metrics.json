@@ -1,0 +1,35 @@
+{
+  "seed": 0,
+  "base_vocab_size": 4096,
+  "vocab_size": 5646,
+  "n_entity_tokens": 1550,
+  "entity_tokens_by_pool": {
+    "first_names": 400,
+    "last_names": 400,
+    "cities": 200,
+    "universities": 300,
+    "employers": 250
+  },
+  "entity_id_range": [
+    4096,
+    5645
+  ],
+  "template_word_checks_passed": 28750,
+  "train_docs": 2119489,
+  "train_tokens": 486863003,
+  "validation_docs": 21990,
+  "validation_tokens": 4894661,
+  "story_tokens_identical_to_task1": true,
+  "stories_new_tokenizer_would_change": {
+    "train": 146,
+    "train_words": [
+      "Damon",
+      "Mater",
+      "Sora",
+      "Toto"
+    ],
+    "validation": 0,
+    "validation_words": []
+  },
+  "wall_seconds": 68.76176881790161
+}

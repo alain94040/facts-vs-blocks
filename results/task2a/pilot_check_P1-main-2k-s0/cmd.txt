@@ -1,0 +1,1 @@
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python analysis/pilot_check.py --pilot P1-main-2k-s0 --seed 0

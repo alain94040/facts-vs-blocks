@@ -10,8 +10,14 @@
   compute it that way in one forward pass. Fact loss = mean teacher-forced loss per answer token.
   Reported per attribute and overall, for training templates (1-4) and held-out template 5,
   on set A and set B.
-- Induction: 1,000 sequences of 50 random tokens (ids 1..vocab-1, i.e. excluding <|endoftext|>)
-  repeated twice. Ratio = mean loss on tokens 2..50 of the second copy / mean loss on tokens 2..50
+- Name-copy accuracy (Task 2a): people 16,000-16,999 of set B (in no run), one training-template
+  biography each (seed 0), prefixed by <|endoftext|>. A full name tokenizes as
+  [first] [bare space] [last]. At every mention after the first, the scored prediction is the one
+  made at the bare-space position after the first-name token, which must be the last-name token
+  (decided at Task 2a review). Also reported, not gated: how often the first-name position itself
+  predicts the bare space.
+- Induction: 1,000 sequences of 50 random tokens (ids 1..4095 of the original vocabulary, i.e.
+  excluding <|endoftext|> and the Task 2a entity tokens) repeated twice. Ratio = mean loss on tokens 2..50 of the second copy / mean loss on tokens 2..50
   of the first copy (the first token of each copy is unpredictable from context and excluded).
 
 All evaluation sets are fixed (seed 0) and independent of the run's training seed.
@@ -34,12 +40,14 @@ from tokenizers import Tokenizer
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from data.make_bios import (ATTRIBUTES, HELDOUT_TEMPLATE, N_TRAIN_TEMPLATES,  # noqa: E402
-                            TEMPLATES)
+                            TEMPLATES, render_bio)
 from model.gpt import GPT, GPTConfig  # noqa: E402
 
 EVAL_SEED = 0
 N_RECALL_PEOPLE = 8000
 N_VAL_SAMPLE = 2000
+BASE_VOCAB = 4096
+NAME_COPY_PEOPLE = (16000, 17000)
 
 _tok = None
 
@@ -159,7 +167,7 @@ def fact_eval(model, prompts, device, batch=512):
 def induction_ratio(model, device, vocab_size, n=1000, length=50):
     model.eval()
     g = np.random.default_rng(EVAL_SEED)
-    seq = g.integers(1, vocab_size, size=(n, length))
+    seq = g.integers(1, BASE_VOCAB, size=(n, length))
     x = torch.from_numpy(np.concatenate([seq, seq], axis=1)).to(device)
     tot = torch.zeros(2 * length - 1, device=device)
     for i in range(0, n, 250):
@@ -176,6 +184,41 @@ def induction_ratio(model, device, vocab_size, n=1000, length=50):
             "ratio": float(second / first)}
 
 
+@torch.no_grad()
+def name_copy(model, device, batch=250):
+    tok = tokenizer()
+    vocab = tok.get_vocab()
+    eot, space = vocab["<|endoftext|>"], tok.encode(" ").ids[0]
+    with open(os.path.join(ROOT, "data", "cache", "bios", "people_B.json")) as f:
+        people = json.load(f)[NAME_COPY_PEOPLE[0]:NAME_COPY_PEOPLE[1]]
+    rng = np.random.default_rng(EVAL_SEED)
+    seqs, checks = [], []  # checks: (row, first-name pos, last-name id)
+    for r, p in enumerate(people):
+        ids = [eot] + tok.encode(render_bio(p, rng)).ids
+        first, last = p["name"].split(" ")
+        fid, lid = vocab[first], vocab[last]
+        pos = [i for i in range(len(ids) - 2)
+               if ids[i] == fid and ids[i + 1] == space and ids[i + 2] == lid]
+        assert len(pos) == len(ATTRIBUTES), (p["name"], len(pos))
+        checks += [(r, i, lid) for i in pos[1:]]
+        seqs.append(ids)
+    model.eval()
+    hit_last, hit_space = [], []
+    for b0 in range(0, len(seqs), batch):
+        rows = seqs[b0:b0 + batch]
+        x = torch.zeros((len(rows), max(map(len, rows))), dtype=torch.long)
+        for r, ids in enumerate(rows):
+            x[r, :len(ids)] = torch.tensor(ids)
+        pred = model(x.to(device))[0].argmax(-1).cpu().numpy()
+        for r, i, lid in checks:
+            if b0 <= r < b0 + batch:
+                hit_last.append(pred[r - b0, i + 1] == lid)
+                hit_space.append(pred[r - b0, i] == space)
+    model.train()
+    return {"accuracy": float(np.mean(hit_last)), "n_checks": len(hit_last),
+            "n_people": len(people), "first_name_predicts_space": float(np.mean(hit_space))}
+
+
 def full_eval(model, run_meta, device):
     seq_len = model.cfg.ctx_len
     out = {"story_val_loss": story_loss(model, val_rows(seq_len), device),
@@ -185,6 +228,7 @@ def full_eval(model, run_meta, device):
         r = fact_eval(model, build_prompts(people), device)
         r["n_people"] = len(people)
         out[f"facts_set_{s}"] = r
+    out["name_copy"] = name_copy(model, device)
     out["induction"] = induction_ratio(model, device, model.cfg.vocab_size)
     return out
 
