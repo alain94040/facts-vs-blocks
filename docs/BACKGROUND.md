@@ -158,3 +158,28 @@ Depending on the result (see the decision table in `PLAN.md`):
 - If facts and procedures are entangled: try a weight-sparse model or an architecture with an
   explicit memory layer, and test whether the split can be imposed by design.
 - In both cases, measure coverage before making any compression claim.
+
+## 8. Research directions from the literature
+
+Ideas adjacent to this experiment. None is part of the current plan.
+
+| Direction | What it suggests | Source |
+| --- | --- | --- |
+| Separate memory by design | Do not search for the split; build it. Put facts in a lookup table or retrieval store and train a small dense core beside it | Memory layers (2412.09764), RETRO (2112.04426) |
+| Facts as rank-one edits | A fact can be written into an MLP as a rank-one update, so knowledge may be a sum of key-value terms that can be counted or subtracted | ROME (2202.05262), MEMIT (2210.07229) |
+| Caution on localisation | Where a fact shows up under causal tracing is not where editing works best, so "where is the fact" has several answers | Hase et al. (2301.04213) |
+| Memorisation is spread out | In vision models memorised examples depend on a small set of neurons scattered over layers, not on particular layers | Maini et al. (2307.09542) |
+| Relations as reusable blocks | A relation such as "works in" is often one linear map shared by all subjects. The block is the relation; the entries are the data | Hernandez et al. (2308.09124) |
+| Memorising versus generalising circuits | Both compete inside one model; weight decay favours whichever is cheaper per unit of loss. Gives a quantitative reason for when a model stores and when it computes | Varma et al. (2309.02390), Nanda et al. (2301.05217) |
+| Shared random bases | One frozen random matrix shared by all layers plus tiny per-layer vectors can replace per-layer adapters. Sharing can work without the shared thing being learned | VeRA (2310.11454) |
+| Subnetworks of random weights | Good networks exist inside untrained random ones, so selection may matter more than values | Ramanujan et al. (1911.13299) |
+| Shared layers plus corrections | The most direct compression test of the block idea: one shared layer, a low-rank correction per depth | Relaxed Recursive Transformers (2410.20672) |
+| Mechanisms in weight space | Decompose weights into components that each do one thing, then compare components across layers and models | APD (2501.14926), SPD (2506.20790) |
+| Disentangling by training | Force most weights to zero and circuits become small and separable | Weight-sparse transformers (2511.13653) |
+| Compression view | A language model is a compressor; ask how many bits each parameter carries and which bits are shared | Delétang et al. (2309.10668), Allen-Zhu and Li (2404.05405) |
+
+Two of these connect directly to results already seen here. The pilots showed stored facts
+overriding in-context copying (name-copy errors that are memorised last names), which is the
+competition described by the circuit-efficiency work. And the "relation as a shared map" idea
+predicts that the six attributes here are six blocks, with the people as data, which Task 3 could
+be extended to test.

@@ -80,3 +80,25 @@ because the check I designed did not measure what I intended. Both changes are t
 "is the model fit to analyse", and both are recorded here with the numbers that prompted them.
 No Phase 2 measurement or threshold has been run or changed. If P3 fails, the right move is to
 stop and rethink the setup rather than adjust a third time.
+
+## 2026-11-16: Phase 2 audited and rewritten before it ran
+
+Two Phase 1 checks failed today because they did not measure what was intended. Phase 2 was
+re-read with that in mind while the Task 2 batch trained. Nothing in Phase 2 had been run.
+
+| Problem in the first version | Fix |
+| --- | --- |
+| "Biography importance" mixed stored facts with the procedure of writing a biography, so procedure neurons would have been counted as knowledge | Three datasets: STORY, FACT, FORMAT (unseen people, no value tokens) |
+| Importance was "weight times gradient summed over a component's weights", which is ambiguous and unrelated to the mean-ablation used next to it | Activation-level estimate of the mean-ablation effect, used only for ranking; claims rest on real ablations |
+| The knowledge set was defined per layer and required a story-loss bound that might have no solution | One global ranking, K at the point where recall halves, story and format damage reported next to a random-neuron baseline |
+| No baseline for ablation damage | Random sets of the same size |
+| Swaps assumed two forks stay in the same coordinates after 80% of training apart | Measured with a weight-interpolation barrier (Frankle et al., arXiv 1912.05671) |
+| Swaps did not say what happens to LayerNorms and embeddings, and only went one way | Specified, and mirrored |
+| Head scores used random-token sequences, which Phase 1 showed are out of distribution (loss 13 against 8.3 for a uniform guess) | Scores computed on biographies of unseen people |
+| "Controls give no clean clusters" was ill-posed: random heads all look alike and form one tight cluster | Recurrence across seeds against a shuffled null |
+| A blanket "shuffled weights" control was required for every analysis, although attribution on a model at chance loss means nothing | Each task names its own control |
+| Methods could be tuned on the real models | All scripts are developed on the throwaway pilot model first |
+
+**Known limits that remain.** Two seeds for the main runs and one for the forks, so no error
+bars. Neurons are an imperfect unit because of superposition. Facts here are random by
+construction. A clean result is an upper bound and needs a repeat on real text.

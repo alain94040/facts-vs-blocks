@@ -191,73 +191,133 @@ done on seed 0. After each run, append its row to `results/task2/summary.csv` an
 
 ## Phase 2: analysis
 
-Every analysis also runs on two controls: the untrained initial weights, and a trained model whose
-entries have been shuffled within each matrix. A finding counts only if it is clearly stronger in
-the trained models than in both controls.
+Rewritten on 2026-11-16 before any Phase 2 code existed; see `docs/LOG.md` for what was wrong
+with the first version.
 
-### Task 3: which parts grow with facts
+**Rules for this phase**
 
-Use the main runs. For each component (each attention head, each MLP neuron):
+- Write and debug every analysis script on the throwaway pilot model `P2-main-2k-s0` from Task 2a.
+  Only when a script runs end to end there, run it once on the real Task 2 models. Do not adjust
+  a method after seeing real-model results; write to `QUESTIONS.md` instead.
+- Each task names its own control. A finding counts only if it clearly beats that control.
+- All evaluation data below is fixed with seed 0 and shared by every model.
+- Linear algebra on CPU in float64.
 
-1. **Importance per data type.** Attribution = absolute value of the sum of weight times gradient
-   over the component's weights, averaged over 2,000 examples. Compute once on story validation
-   loss and once on the loss of answer tokens in biography prompts.
-2. **Ablation curves.** In each MLP layer, replace neurons with their mean activation, in order of
-   falling biography importance, at 1%, 2%, 5%, 10% and 20% of the layer. Record recall and story
-   loss. The knowledge set is the smallest set of neurons whose ablation halves recall while
-   raising story loss by less than 0.05 nats.
-3. **Effective rank.** For each weight matrix, the exponential of the entropy of its normalised
-   singular values.
+**Datasets**
 
-Prediction if the split is real: the knowledge set sits in a few middle MLP layers and grows roughly
-in proportion to the number of people; attention heads and story-critical neurons stay about the
-same across main-0 to main-32k.
+| Name | Content | What it needs from the model |
+| --- | --- | --- |
+| STORY | 2,000 fixed rows of the story validation split, loss on all tokens | Story language |
+| FACT | Recall prompts (training templates) for the first 1,000 people of set A, loss on answer tokens. For fork-B use the first 1,000 people of set B | Stored facts |
+| FORMAT | One biography each of set B people 16,000 to 16,999 (in no run). Loss on every token except attribute values and the first mention of the name | Biography wording and copying the name from context; no stored facts |
 
-Output: `results/task3/summary.json` and three plots (biography importance by layer per N;
-knowledge-set size against N; effective rank by layer per N).
+FORMAT exists because "important for biographies" mixes two things: the facts, and the procedure
+of writing a biography. Only the first is knowledge.
+
+**Components and ablation**
+
+- MLP neuron: one of the 1,024 post-GELU activations in a layer (6,144 in the model).
+- Attention head: its 32-dimensional output before the `out` projection (48 in the model).
+- Ablating a component means replacing its activation at every position by its mean over a fixed
+  reference sample (1,000 STORY rows plus the FORMAT biographies). Conclusions rest on real
+  ablations with real forward passes.
+- Importance of component c on dataset D, used only to rank components:
+  `I_D(c) = | mean over tokens of (mean_c - a_c) * dL/da_c |`, a first-order estimate of the loss
+  change from ablating c.
+
+### Task 3: which parts hold the facts
+
+Models: main-2k, main-8k, main-32k, ctrl-8k-x4, fork-A, fork-B (all seeds available). main-0 has
+no facts and is used in Task 5 only.
+
+1. **Rankings.** Compute `I_FACT`, `I_FORMAT`, `I_STORY` for all 6,144 neurons and 48 heads.
+2. **Neuron ablation curves.** Ablate the top k neurons by `I_FACT`, over all layers together,
+   for k = 8, 16, 32, ..., 4096. At each k record: recall on FACT, FORMAT loss, name-copy
+   accuracy, STORY loss. Repeat with the top k by `I_STORY`, and with k random neurons (3 draws).
+3. **Knowledge set.** K = the smallest k on the grid at which recall on FACT falls to half of its
+   unablated value or below. The knowledge set is the top K neurons by `I_FACT`. Record K, its
+   distribution over layers, and at that k the change in STORY loss and FORMAT loss, next to the
+   same two numbers for K random neurons.
+4. **Overlap.** Jaccard overlap between the knowledge set and the top K neurons by `I_STORY`, and
+   by `I_FORMAT`. Report with the overlap expected for two random sets of size K.
+5. **Head ablations.** Ablate each head alone: change in recall, FORMAT loss, name-copy accuracy,
+   STORY loss.
+6. **Effective rank** of each weight matrix: exp of the entropy of its normalised singular values.
+
+Control: the random-neuron curves, and `ctrl-8k-x4` against main-32k.
+
+Predictions if the split is real: K grows roughly in proportion to the number of people from 2k
+to 32k; `ctrl-8k-x4` has K near main-8k, not near main-32k; ablating the knowledge set raises
+STORY and FORMAT loss no more than ablating K random neurons; overlaps are near the random
+expectation; no single head ablation removes most of the recall.
+
+Output: `results/task3/<run>/metrics.json`, `results/task3/summary.csv`, and plots: ablation
+curves per run; K against number of people; knowledge set by layer; effective rank by layer.
 
 ### Task 4: swapping parts between models
 
-Use fork-A and fork-B. Build hybrids that take most weights from A and some from B. Measure recall
-on set A, recall on set B, and story loss.
+Models: fork-A and fork-B (shared trunk), and main-8k seed 1 as the unrelated model.
 
-| Hybrid | Weights taken from B | Expected if the split is real |
+1. **Same-basin check.** Interpolate all weights between fork-A and fork-B at
+   0, 0.25, 0.5, 0.75, 1 and record STORY loss at each point. Do the same between fork-A and
+   main-8k seed 1. Report the barrier (highest loss on the path minus the mean of the two ends).
+   If the fork-A to fork-B barrier is above 0.1 nats, the two forks have drifted apart: still run
+   the hybrids, and flag that row in the report.
+2. **Hybrids.** Base model A with parts from B, and the mirror image (base B, parts from A).
+   "Attention" means the `qkv` and `out` weights and biases of each block. "MLP" means `up` and
+   `down` weights and biases. Token embeddings, position embeddings and all LayerNorms stay with
+   the base model. For every hybrid record recall on the base model's people, recall on the
+   donor's people, FORMAT loss and STORY loss.
+
+| Hybrid | Parts from the donor | Expected if the split is real |
 | --- | --- | --- |
-| H1 | All attention layers | A's facts kept above 80% of original, story loss up less than 0.1 nats |
-| H2 | All MLP layers | A's facts lost, set B facts appear |
-| H3 | Only the MLP layers where Task 3 found the knowledge set | Facts swap from A to B, little story damage |
+| H1 | All attention | Base facts kept above 80% of original, STORY loss up less than 0.1 nats |
+| H2 | All MLP | Base facts lost, donor facts appear |
+| H3 | Only the MLP layers that hold 80% of the base model's knowledge set (Task 3) | Facts swap, little story damage |
 | H4 to H9 | One MLP layer at a time | Shows which layers hold facts |
-| Control | All attention layers, from main-8k seed 1 instead | Should fail: unrelated coordinates |
+| H10 | Token embeddings only | Reported separately |
 
-Keep A's token embeddings in every hybrid. Run one extra hybrid that swaps only the embeddings and
-report it separately.
+Control: H1 and H2 with main-8k seed 1 as the donor. They should damage the model far more.
 
-Output: `results/task4/swaps.json` and one bar chart.
+Output: `results/task4/interpolation.json`, `results/task4/swaps.json`, one bar chart.
 
-### Task 5: catalogue of attention heads
+### Task 5: do the same components recur
 
-For every head in every model and both controls, on 500 story sequences:
+**Head features** (every head, every model including main-0, and the untrained initial weights):
 
-- Previous-token score: average attention to the position just before.
-- Induction score: on repeated random sequences, attention from a token to the token just after its
-  earlier copy.
-- Duplicate-token score: attention to earlier copies of the same token.
-- Sink score: average attention to the first position.
-- Copying score: share of positive eigenvalues of the head's OV circuit passed through the
-  embeddings (Elhage et al. 2021, "A Mathematical Framework for Transformer Circuits").
-- Spectral signature: top 16 singular values of W_Q W_K^T and of W_V W_O, each scaled by its largest.
+- Previous-token score: mean attention to the position just before, on STORY.
+- Sink score: mean attention to position 0, on STORY.
+- Induction score: on FORMAT biographies, at each bare-space position after a repeated first
+  name, the attention mass on earlier last-name tokens of that biography.
+- Duplicate-token score: at each repeated first-name position, attention mass on its earlier
+  copies.
+- Copying score: with `W_OV` the head's 256 by 256 value-output map, take the eigenvalues of
+  `W_OV W_E^T W_E` and report the sum of their real parts divided by the sum of their absolute
+  values (Elhage et al. 2021).
+- Spectral signature: the top 16 singular values of `W_Q W_K^T` and of `W_V W_O`, each divided by
+  its largest.
+- The four ablation effects from Task 3 step 5 (trained models only; zero for the untrained one).
 
-Standardise all features, cluster heads with agglomerative clustering (Ward linkage), and report the
-number of clusters K at distance thresholds 0.5, 1, 2 and 4. Name each cluster by its highest score.
+No score uses random-token sequences: Phase 1 showed these are far outside what the models know.
 
-For neurons: correlate each neuron's activations in seed 0 with every neuron of the same N in
-seed 1 and record the best match. Report the fraction with best correlation above 0.8, by layer.
+**Head matching.** Standardise features over all heads of all trained models. For each head of
+seed 0, find the nearest head (Euclidean) in seed 1 of the same run. Null distribution: the same
+nearest-distance computed after shuffling each feature column independently across the seed 1
+heads, 100 times. A head recurs if its distance is below the 5th percentile of the null. Report
+the fraction that recur, for each run with two seeds, and between main-2k and main-32k of seed 0.
+Also describe the pooled heads: k-means with 8 clusters, and per cluster its mean features and
+how many models contribute at least one head.
 
-Prediction if the split is real: the same head types appear at every N with K roughly constant,
-controls give no clean clusters, and neurons in knowledge layers are less universal across seeds.
+**Neuron matching.** On a fixed 200,000 token positions (STORY and FORMAT mixed), correlate every
+neuron of seed 0 with every neuron in the same layer of seed 1 and keep the best match. Report
+the fraction with best correlation above 0.5 and above 0.8, by layer, and separately for neurons
+inside and outside the knowledge set. Null: best matches between seed 0 and the untrained model.
 
-Output: `results/task5/heads.csv`, `results/task5/clusters.json`, a plot of K against threshold per
-model and control, and a plot of neuron universality by layer.
+Predictions if the split is real: most heads recur across seeds and across fact loads; neurons
+in the knowledge set recur less than the others; the null gives low recurrence.
+
+Output: `results/task5/heads.csv`, `results/task5/head_matching.json`,
+`results/task5/neuron_matching.json`, and plots of both recurrence measures.
 
 ### Task 6: report
 
@@ -266,10 +326,12 @@ marking which rows of this table apply:
 
 | Result | What it means | Next step |
 | --- | --- | --- |
-| Knowledge set grows with N, attention and story parts stay fixed, H1 keeps facts, H3 moves facts | The split is real at this scale | Count block classes in the fixed part; repeat on real text |
-| Knowledge spread across all layers, H1 or H3 damage both facts and stories | Facts and procedures share weights | Revise hypothesis: sparse model or separate memory layer |
-| Head clusters recur at every N, controls show none | Reusable attention blocks exist | Measure what share of parameters they cover |
-| Controls cluster as well as trained models | The method finds its own structure | Fix the method before concluding anything |
+| K grows with people, ctrl-8k-x4 near main-8k, knowledge-set ablation spares stories and format, H1 keeps facts, H3 moves facts | The split is real at this scale | Count block classes in the fixed part; repeat on real text |
+| Knowledge-set ablation damages stories or format as much as it damages facts, or H1 and H3 damage everything | Facts and procedures share weights | Revise hypothesis: sparse model or separate memory layer |
+| K does not grow with people, or ctrl-8k-x4 looks like main-32k | "Knowledge set" tracks amount of text, not number of facts | The measure is not isolating facts; rethink it |
+| Heads recur across seeds well above the null | Reusable attention blocks exist | Measure what share of parameters they cover |
+| Recurrence is no better than the null | No evidence of shared blocks at this scale | Report as a negative result |
+| Fork barrier above 0.1 nats | Swap results are not interpretable | Shorter fork, or align the models first |
 | Gate 2 failed | Models undertrained or broken | Fix training; no analysis is valid yet |
 
 **End of Phase 2. Stop for human review.**
