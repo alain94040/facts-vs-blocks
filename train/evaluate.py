@@ -8,14 +8,17 @@
   ids of " " + answer + ".". Greedy decoding reproduces the expected ids exactly iff, under teacher
   forcing on the expected ids, the argmax at every answer position equals the expected token; we
   compute it that way in one forward pass. Fact loss = mean teacher-forced loss per answer token.
-  Reported per attribute and overall, for training templates (1-4) and held-out template 5,
-  on set A and set B.
+  Reported per attribute and overall, on set A and set B, for three groups (Task 2b):
+  train_templates (templates 1-4, all people), template5_seen (template 5, people with an even
+  index in their set, who train on it) and template5_heldout (template 5, odd-index people, who
+  never train on it).
 - Name-copy accuracy (Task 2a): people 16,000-16,999 of set B (in no run), one training-template
   biography each (seed 0), prefixed by <|endoftext|>. A full name tokenizes as
   [first] [bare space] [last]. At every mention after the first, the scored prediction is the one
   made at the bare-space position after the first-name token, which must be the last-name token
   (decided at Task 2a review). Also reported, not gated: how often the first-name position itself
-  predicts the bare space.
+  predicts the bare space. Errors are split into "last name of a person this run trained on" and
+  "any other token".
 - Induction: 1,000 sequences of 50 random tokens (ids 1..4095 of the original vocabulary, i.e.
   excluding <|endoftext|> and the Task 2a entity tokens) repeated twice. Ratio = mean loss on tokens 2..50 of the second copy / mean loss on tokens 2..50
   of the first copy (the first token of each copy is unpredictable from context and excluded).
@@ -86,26 +89,26 @@ def story_loss(model, rows, device, batch=128):
 
 
 def eval_people(people_set, run_meta):
-    """People to test on set A or B, as in PLAN.md Task 2."""
+    """People to test on set A or B, as (index in set, person) pairs, as in PLAN.md Task 2."""
     with open(os.path.join(ROOT, "data", "cache", "bios", f"people_{people_set}.json")) as f:
         people = json.load(f)
     n = N_RECALL_PEOPLE
     if run_meta.get("people_set") == people_set and run_meta.get("n_people", 0) > 0:
         n = run_meta["n_people"]
-    people = people[:n]
-    if len(people) > N_RECALL_PEOPLE:
-        idx = np.sort(np.random.default_rng(EVAL_SEED).choice(len(people), N_RECALL_PEOPLE,
+    idx = np.arange(min(n, len(people)))
+    if len(idx) > N_RECALL_PEOPLE:
+        idx = np.sort(np.random.default_rng(EVAL_SEED).choice(len(idx), N_RECALL_PEOPLE,
                                                               replace=False))
-        people = [people[i] for i in idx]
-    return people
+    return [(int(i), people[i]) for i in idx]
 
 
 def build_prompts(people):
-    """Return list of (attribute, template_idx, prompt_ids, answer_ids)."""
+    """people: (index in set, person) pairs.
+    Return list of (attribute, template_idx, prompt_ids, answer_ids, index in set)."""
     tok = tokenizer()
     eot = tok.token_to_id("<|endoftext|>")
     out = []
-    for p in people:
+    for pi, p in people:
         for a in ATTRIBUTES:
             for t in range(len(TEMPLATES[a])):
                 tmpl = TEMPLATES[a][t]
@@ -114,24 +117,24 @@ def build_prompts(people):
                 full_ids = [eot] + tok.encode(full).ids
                 pre_ids = [eot] + tok.encode(prefix).ids
                 assert full_ids[:len(pre_ids)] == pre_ids, (full, prefix)
-                out.append((a, t, pre_ids, full_ids[len(pre_ids):]))
+                out.append((a, t, pre_ids, full_ids[len(pre_ids):], pi))
     return out
 
 
 @torch.no_grad()
 def fact_eval(model, prompts, device, batch=512):
     model.eval()
-    order = np.argsort([len(p) + len(a) for _, _, p, a in prompts])
+    order = np.argsort([len(p) + len(a) for _, _, p, a, _ in prompts])
     correct = np.zeros(len(prompts), dtype=bool)
     loss_sum = np.zeros(len(prompts))
-    n_ans = np.array([len(a) for _, _, _, a in prompts])
+    n_ans = np.array([len(a) for _, _, _, a, _ in prompts])
     for i in range(0, len(order), batch):
         idx = order[i:i + batch]
         L = max(len(prompts[j][2]) + len(prompts[j][3]) for j in idx)
         x = torch.zeros((len(idx), L), dtype=torch.long)
         y = torch.full((len(idx), L), -1, dtype=torch.long)
         for r, j in enumerate(idx):
-            _, _, p, a = prompts[j]
+            _, _, p, a, _ = prompts[j]
             seq = p + a
             x[r, :len(seq)] = torch.tensor(seq)
             # position k predicts token k+1; answer tokens sit at len(p) .. len(seq)-1
@@ -147,11 +150,14 @@ def fact_eval(model, prompts, device, batch=512):
         loss_sum[idx] = tl.sum(dim=1).cpu().numpy()
     model.train()
 
-    attrs = np.array([a for a, _, _, _ in prompts])
-    tmpl = np.array([t for _, t, _, _ in prompts])
+    attrs = np.array([x[0] for x in prompts])
+    tmpl = np.array([x[1] for x in prompts])
+    even = np.array([x[4] % 2 == 0 for x in prompts])
     res = {}
+    t5 = tmpl == HELDOUT_TEMPLATE
     for split, sel in [("train_templates", tmpl < N_TRAIN_TEMPLATES),
-                       ("heldout_template", tmpl == HELDOUT_TEMPLATE)]:
+                       ("template5_seen", t5 & even),
+                       ("template5_heldout", t5 & ~even)]:
         d = {"recall": float(correct[sel].mean()),
              "fact_loss": float(loss_sum[sel].sum() / n_ans[sel].sum()),
              "per_attribute": {}}
@@ -185,12 +191,18 @@ def induction_ratio(model, device, vocab_size, n=1000, length=50):
 
 
 @torch.no_grad()
-def name_copy(model, device, batch=250):
+def name_copy(model, device, run_meta=None, batch=250):
     tok = tokenizer()
     vocab = tok.get_vocab()
     eot, space = vocab["<|endoftext|>"], tok.encode(" ").ids[0]
     with open(os.path.join(ROOT, "data", "cache", "bios", "people_B.json")) as f:
         people = json.load(f)[NAME_COPY_PEOPLE[0]:NAME_COPY_PEOPLE[1]]
+    trained_last = set()
+    if run_meta and run_meta.get("n_people", 0) > 0:
+        with open(os.path.join(ROOT, "data", "cache", "bios",
+                               f"people_{run_meta['people_set']}.json")) as f:
+            trained = json.load(f)[:run_meta["n_people"]]
+        trained_last = {vocab[q["name"].split(" ")[1]] for q in trained}
     rng = np.random.default_rng(EVAL_SEED)
     seqs, checks = [], []  # checks: (row, first-name pos, last-name id)
     for r, p in enumerate(people):
@@ -203,7 +215,7 @@ def name_copy(model, device, batch=250):
         checks += [(r, i, lid) for i in pos[1:]]
         seqs.append(ids)
     model.eval()
-    hit_last, hit_space = [], []
+    hit_last, hit_space, err_trained, err_other = [], [], 0, 0
     for b0 in range(0, len(seqs), batch):
         rows = seqs[b0:b0 + batch]
         x = torch.zeros((len(rows), max(map(len, rows))), dtype=torch.long)
@@ -212,11 +224,18 @@ def name_copy(model, device, batch=250):
         pred = model(x.to(device))[0].argmax(-1).cpu().numpy()
         for r, i, lid in checks:
             if b0 <= r < b0 + batch:
-                hit_last.append(pred[r - b0, i + 1] == lid)
+                q = int(pred[r - b0, i + 1])
+                hit_last.append(q == lid)
+                if q != lid:
+                    if q in trained_last:
+                        err_trained += 1
+                    else:
+                        err_other += 1
                 hit_space.append(pred[r - b0, i] == space)
     model.train()
     return {"accuracy": float(np.mean(hit_last)), "n_checks": len(hit_last),
-            "n_people": len(people), "first_name_predicts_space": float(np.mean(hit_space))}
+            "n_people": len(people), "first_name_predicts_space": float(np.mean(hit_space)),
+            "errors_trained_last_name": err_trained, "errors_other_token": err_other}
 
 
 def full_eval(model, run_meta, device):
@@ -228,7 +247,7 @@ def full_eval(model, run_meta, device):
         r = fact_eval(model, build_prompts(people), device)
         r["n_people"] = len(people)
         out[f"facts_set_{s}"] = r
-    out["name_copy"] = name_copy(model, device)
+    out["name_copy"] = name_copy(model, device, run_meta)
     out["induction"] = induction_ratio(model, device, model.cfg.vocab_size)
     return out
 

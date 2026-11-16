@@ -1,0 +1,18 @@
+{
+  "run": "main-0",
+  "seed": 0,
+  "people_set": null,
+  "n_people": 0,
+  "exposures": 0,
+  "template5_even": false,
+  "n_story_docs": 1302816,
+  "story_tokens": 300000032,
+  "n_bio_docs": 0,
+  "bio_tokens": 0,
+  "mean_bio_tokens": 0.0,
+  "tokens_per_step": 65792,
+  "steps": 4559,
+  "stream_tokens": 300000032,
+  "unused_tail_tokens": 54304,
+  "wall_seconds": 1.9446437358856201
+}

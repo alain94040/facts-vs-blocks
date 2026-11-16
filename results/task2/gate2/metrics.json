@@ -1,0 +1,29 @@
+{
+  "pass": true,
+  "runs_checked": [
+    "main-2k-s0"
+  ],
+  "checks": [
+    {
+      "run": "main-2k-s0",
+      "check": "flat_90_100",
+      "value": 0.01136620330810545,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.9599791666666667,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s0",
+      "check": "name_copy",
+      "value": 0.8968,
+      "threshold": 0.5,
+      "pass": true
+    }
+  ]
+}

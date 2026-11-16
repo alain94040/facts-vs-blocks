@@ -1,0 +1,82 @@
+{
+  "basis": "measured tokens/s of main-2k-s0 (P3)",
+  "tokens_per_second": 135433.76461756366,
+  "tokens_per_step_consumed": 65792,
+  "already_done": {
+    "run": "main-2k-s0",
+    "steps": 5285,
+    "wall_minutes": 42.9
+  },
+  "remaining_runs": [
+    {
+      "run": "main-8k-s0",
+      "steps": 7460,
+      "tokens": 490808320,
+      "hours": 1.006659194842789
+    },
+    {
+      "run": "main-32k-s0",
+      "steps": 16159,
+      "tokens": 1063132928,
+      "hours": 2.1805101782124168
+    },
+    {
+      "run": "ctrl-8k-x4-s0",
+      "steps": 16163,
+      "tokens": 1063396096,
+      "hours": 2.181049941855764
+    },
+    {
+      "run": "main-0-s0",
+      "steps": 4559,
+      "tokens": 299945728,
+      "hours": 0.6151956125051307
+    },
+    {
+      "run": "fork-trunk-s0",
+      "steps": 1492,
+      "tokens": 98161664,
+      "hours": 0.20133183896855783
+    },
+    {
+      "run": "fork-A-s0",
+      "steps": 5968,
+      "tokens": 392646656,
+      "hours": 0.8053273558742313
+    },
+    {
+      "run": "fork-B-s0",
+      "steps": 5968,
+      "tokens": 392646656,
+      "hours": 0.8053273558742313
+    },
+    {
+      "run": "main-2k-s1",
+      "steps": 5285,
+      "tokens": 347710720,
+      "hours": 0.7131627137726728
+    },
+    {
+      "run": "main-8k-s1",
+      "steps": 7460,
+      "tokens": 490808320,
+      "hours": 1.006659194842789
+    },
+    {
+      "run": "main-32k-s1",
+      "steps": 16159,
+      "tokens": 1063132928,
+      "hours": 2.1805101782124168
+    },
+    {
+      "run": "main-0-s1",
+      "steps": 4559,
+      "tokens": 299945728,
+      "hours": 0.6151956125051307
+    }
+  ],
+  "remaining_tokens": 6002335744,
+  "eval_minutes_per_run_assumed": 1.5,
+  "remaining_hours_estimate": 12.56,
+  "total_tokens_including_P3": 6350046464
+}

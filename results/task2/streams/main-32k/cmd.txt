@@ -1,0 +1,1 @@
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python data/build_stream.py --run main-32k --n_people 32000 --exposures 300 --template5_even

@@ -28,7 +28,7 @@ from tokenizers import Tokenizer
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-from data.make_bios import render_bio  # noqa: E402
+from data.make_bios import N_TRAIN_TEMPLATES, n_templates_for, render_bio  # noqa: E402
 
 STREAM_DIR = os.path.join(ROOT, "data", "cache", "streams")
 TOK_DIR = os.path.join(ROOT, "data", "cache", "tokens")
@@ -47,10 +47,12 @@ def load_people(people_set, n):
     return people[:n]
 
 
-def render_bios(people, exposures, rng, tok):
+def render_bios(people, exposures, rng, tok, template5_even=False):
+    """people[i] must be the person with index i in its set (we always take a prefix of a set)."""
     eot = tok.token_to_id("<|endoftext|>")
     order = rng.permutation(np.repeat(np.arange(len(people)), exposures))
-    texts = [render_bio(people[i], rng) for i in order]
+    nt = [n_templates_for(i) if template5_even else N_TRAIN_TEMPLATES for i in range(len(people))]
+    texts = [render_bio(people[i], rng, n_templates=nt[i]) for i in order]
     out = []
     for i in range(0, len(texts), 50000):
         out += [np.asarray([eot] + e.ids, np.uint16) for e in tok.encode_batch(texts[i:i + 50000])]
@@ -81,6 +83,8 @@ def main():
     p.add_argument("--fork_of", default=None, help="parent run whose total steps the fork uses")
     p.add_argument("--trunk_frac", type=float, default=0.2)
     p.add_argument("--results_task", default="task2")
+    p.add_argument("--template5_even", action="store_true",
+                   help="Task 2b: even-index people also train on template 5")
     args = p.parse_args()
     t0 = time.time()
 
@@ -96,11 +100,13 @@ def main():
     n_story_tok = int(ends[n_story - 1])
 
     people = load_people(args.people_set, args.n_people) if args.n_people else []
-    bio_docs = render_bios(people, args.exposures, rng, tok) if people else []
+    bio_docs = (render_bios(people, args.exposures, rng, tok, args.template5_even)
+                if people else [])
     n_bio_tok = int(sum(len(d) for d in bio_docs))
 
     meta = {"run": args.run, "seed": args.seed, "people_set": args.people_set if people else None,
             "n_people": len(people), "exposures": args.exposures if people else 0,
+            "template5_even": bool(args.template5_even and people),
             "n_story_docs": n_story, "story_tokens": n_story_tok,
             "n_bio_docs": len(bio_docs), "bio_tokens": n_bio_tok,
             "mean_bio_tokens": n_bio_tok / max(1, len(bio_docs)), "tokens_per_step": tps}
