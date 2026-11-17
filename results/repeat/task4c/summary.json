@@ -1,0 +1,645 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "outliers": [
+    458,
+    2570,
+    2718,
+    2730,
+    3110,
+    1427,
+    2107,
+    3197,
+    3206,
+    32,
+    1803,
+    1923,
+    1451,
+    608,
+    1041,
+    1111
+  ],
+  "n_ordered_pairs": 288,
+  "n_unordered_pairs": 172,
+  "by_distance": {
+    "raw/all": {
+      "1": {
+        "neuron_match_frac": 0.9495313055654336,
+        "neuron_mutual_frac": 0.30280938833570414,
+        "neuron_mutual_frac_null": 0.35585909717283065,
+        "neuron_median_best": 0.340531624853611,
+        "neuron_median_best_null": 0.14863156997843793,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.35996240601503765,
+        "head_mutual_frac_null": 0.3721804511278195,
+        "head_assigned_match_frac": 0.972744360902256
+      },
+      "2": {
+        "neuron_match_frac": 0.9236544830192033,
+        "neuron_mutual_frac": 0.3132987531116643,
+        "neuron_mutual_frac_null": 0.37019914651493596,
+        "neuron_median_best": 0.3239820787781163,
+        "neuron_median_best_null": 0.14560568215031372,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.35526315789473684,
+        "head_mutual_frac_null": 0.3919172932330827,
+        "head_assigned_match_frac": 0.9624060150375942
+      },
+      "3": {
+        "neuron_match_frac": 0.8571926675853485,
+        "neuron_mutual_frac": 0.30501394692389755,
+        "neuron_mutual_frac_null": 0.3755862153271692,
+        "neuron_median_best": 0.27888526336142894,
+        "neuron_median_best_null": 0.14217511956629,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.37030075187969924,
+        "head_mutual_frac_null": 0.37124060150375937,
+        "head_assigned_match_frac": 0.951127819548872
+      },
+      "4": {
+        "neuron_match_frac": 0.7855743798897583,
+        "neuron_mutual_frac": 0.2938272359530584,
+        "neuron_mutual_frac_null": 0.3782533561522049,
+        "neuron_median_best": 0.24525734037160873,
+        "neuron_median_best_null": 0.1402963382240973,
+        "head_match_frac": 0.9887218045112783,
+        "head_mutual_frac": 0.3327067669172933,
+        "head_mutual_frac_null": 0.3909774436090226,
+        "head_assigned_match_frac": 0.9342105263157895
+      },
+      "5": {
+        "neuron_match_frac": 0.6766772050766984,
+        "neuron_mutual_frac": 0.28520903716216217,
+        "neuron_mutual_frac_null": 0.38398951104821044,
+        "neuron_median_best": 0.21162238918446205,
+        "neuron_median_best_null": 0.13714909070246928,
+        "head_match_frac": 0.9932432432432432,
+        "head_mutual_frac": 0.3146718146718147,
+        "head_mutual_frac_null": 0.3947876447876447,
+        "head_assigned_match_frac": 0.9121621621621622
+      },
+      "6": {
+        "neuron_match_frac": 0.5768113537644788,
+        "neuron_mutual_frac": 0.2871847852316602,
+        "neuron_mutual_frac_null": 0.39220559845559844,
+        "neuron_median_best": 0.18852449910981314,
+        "neuron_median_best_null": 0.13470244790826524,
+        "head_match_frac": 0.9826530612244897,
+        "head_mutual_frac": 0.3010204081632653,
+        "head_mutual_frac_null": 0.4020408163265306,
+        "head_assigned_match_frac": 0.9153061224489796
+      },
+      "7": {
+        "neuron_match_frac": 0.5042421683046684,
+        "neuron_mutual_frac": 0.29270001535626533,
+        "neuron_mutual_frac_null": 0.40530782913595415,
+        "neuron_median_best": 0.1711730401624333,
+        "neuron_median_best_null": 0.1331217395085277,
+        "head_match_frac": 0.9816017316017315,
+        "head_mutual_frac": 0.2824675324675325,
+        "head_mutual_frac_null": 0.4069264069264069,
+        "head_assigned_match_frac": 0.9058441558441559
+      },
+      "8": {
+        "neuron_match_frac": 0.4304741989973844,
+        "neuron_mutual_frac": 0.3058454119442023,
+        "neuron_mutual_frac_null": 0.40874121349171755,
+        "neuron_median_best": 0.16059809827035473,
+        "neuron_median_best_null": 0.13191132391652755,
+        "head_match_frac": 0.9700460829493087,
+        "head_mutual_frac": 0.29032258064516137,
+        "head_mutual_frac_null": 0.38940092165898615,
+        "head_assigned_match_frac": 0.8859447004608294
+      }
+    },
+    "raw/no_outliers": {
+      "1": {
+        "neuron_match_frac": 0.9441636846550496,
+        "neuron_mutual_frac": 0.30481946790540543,
+        "neuron_mutual_frac_null": 0.40569712393314367,
+        "neuron_median_best": 0.3339560027969511,
+        "neuron_median_best_null": 0.14317223468893453,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.3637218045112782,
+        "head_mutual_frac_null": 0.3646616541353383,
+        "head_assigned_match_frac": 0.9727443609022558
+      },
+      "2": {
+        "neuron_match_frac": 0.9273565300497867,
+        "neuron_mutual_frac": 0.31433365931721197,
+        "neuron_mutual_frac_null": 0.42537145492532014,
+        "neuron_median_best": 0.3177969949810128,
+        "neuron_median_best_null": 0.14017768517920845,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.35526315789473684,
+        "head_mutual_frac_null": 0.39285714285714285,
+        "head_assigned_match_frac": 0.9595864661654135
+      },
+      "3": {
+        "neuron_match_frac": 0.8673528071657184,
+        "neuron_mutual_frac": 0.30754356330014226,
+        "neuron_mutual_frac_null": 0.4358205347617354,
+        "neuron_median_best": 0.2724895253777504,
+        "neuron_median_best_null": 0.1368068225289646,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.37124060150375937,
+        "head_mutual_frac_null": 0.3825187969924812,
+        "head_assigned_match_frac": 0.9483082706766919
+      },
+      "4": {
+        "neuron_match_frac": 0.801202158161451,
+        "neuron_mutual_frac": 0.2984613931365576,
+        "neuron_mutual_frac_null": 0.43964482574679936,
+        "neuron_median_best": 0.23889206741985522,
+        "neuron_median_best_null": 0.13517927848979047,
+        "head_match_frac": 0.9840225563909774,
+        "head_mutual_frac": 0.3327067669172932,
+        "head_mutual_frac_null": 0.37969924812030065,
+        "head_assigned_match_frac": 0.9276315789473686
+      },
+      "5": {
+        "neuron_match_frac": 0.6866354318845874,
+        "neuron_mutual_frac": 0.2932184190102265,
+        "neuron_mutual_frac_null": 0.44275303597516436,
+        "neuron_median_best": 0.20609404831319242,
+        "neuron_median_best_null": 0.13324870249709567,
+        "head_match_frac": 0.9932432432432432,
+        "head_mutual_frac": 0.31756756756756754,
+        "head_mutual_frac_null": 0.40540540540540543,
+        "head_assigned_match_frac": 0.9111969111969113
+      },
+      "6": {
+        "neuron_match_frac": 0.5825033180501931,
+        "neuron_mutual_frac": 0.29913278233590734,
+        "neuron_mutual_frac_null": 0.44949022683397677,
+        "neuron_median_best": 0.1835232138633728,
+        "neuron_median_best_null": 0.13119100523846491,
+        "head_match_frac": 0.9857142857142858,
+        "head_mutual_frac": 0.2969387755102041,
+        "head_mutual_frac_null": 0.40306122448979587,
+        "head_assigned_match_frac": 0.9081632653061226
+      },
+      "7": {
+        "neuron_match_frac": 0.5067071688165439,
+        "neuron_mutual_frac": 0.30945913953726456,
+        "neuron_mutual_frac_null": 0.4606351735257985,
+        "neuron_median_best": 0.16619489274241708,
+        "neuron_median_best_null": 0.12962513620203192,
+        "head_match_frac": 0.9826839826839827,
+        "head_mutual_frac": 0.2748917748917749,
+        "head_mutual_frac_null": 0.40151515151515144,
+        "head_assigned_match_frac": 0.8993506493506493
+      },
+      "8": {
+        "neuron_match_frac": 0.4292634998910201,
+        "neuron_mutual_frac": 0.3267576422188317,
+        "neuron_mutual_frac_null": 0.4641966815605928,
+        "neuron_median_best": 0.1561013090033685,
+        "neuron_median_best_null": 0.12871581075652952,
+        "head_match_frac": 0.967741935483871,
+        "head_mutual_frac": 0.2891705069124425,
+        "head_mutual_frac_null": 0.39400921658986177,
+        "head_assigned_match_frac": 0.8755760368663593
+      }
+    },
+    "centred/all": {
+      "1": {
+        "neuron_match_frac": 0.9479351884779517,
+        "neuron_mutual_frac": 0.30482224617709813,
+        "neuron_mutual_frac_null": 0.3857241287339972,
+        "neuron_median_best": 0.3331216758019046,
+        "neuron_median_best_null": 0.1399429232666367,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.35996240601503765,
+        "head_mutual_frac_null": 0.37218045112781956,
+        "head_assigned_match_frac": 0.972744360902256
+      },
+      "2": {
+        "neuron_match_frac": 0.929784739509246,
+        "neuron_mutual_frac": 0.31384607263513514,
+        "neuron_mutual_frac_null": 0.40287856730085353,
+        "neuron_median_best": 0.3172585125032224,
+        "neuron_median_best_null": 0.13711555066861605,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.3515037593984962,
+        "head_mutual_frac_null": 0.3947368421052632,
+        "head_assigned_match_frac": 0.9624060150375942
+      },
+      "3": {
+        "neuron_match_frac": 0.8681737864509247,
+        "neuron_mutual_frac": 0.3074393781116644,
+        "neuron_mutual_frac_null": 0.411285617443101,
+        "neuron_median_best": 0.272400826215744,
+        "neuron_median_best_null": 0.13463466771339117,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.37030075187969924,
+        "head_mutual_frac_null": 0.37124060150375937,
+        "head_assigned_match_frac": 0.9530075187969925
+      },
+      "4": {
+        "neuron_match_frac": 0.8035303498399716,
+        "neuron_mutual_frac": 0.296170708125889,
+        "neuron_mutual_frac_null": 0.4139930432076813,
+        "neuron_median_best": 0.2388681494875958,
+        "neuron_median_best_null": 0.1327732975937818,
+        "head_match_frac": 0.987781954887218,
+        "head_mutual_frac": 0.33082706766917297,
+        "head_mutual_frac_null": 0.3900375939849625,
+        "head_assigned_match_frac": 0.9360902255639099
+      },
+      "5": {
+        "neuron_match_frac": 0.6931582131117604,
+        "neuron_mutual_frac": 0.2858396297479912,
+        "neuron_mutual_frac_null": 0.4140282596785975,
+        "neuron_median_best": 0.20660370024474892,
+        "neuron_median_best_null": 0.13133461712985425,
+        "head_match_frac": 0.9932432432432432,
+        "head_mutual_frac": 0.3146718146718147,
+        "head_mutual_frac_null": 0.39575289575289574,
+        "head_assigned_match_frac": 0.9131274131274133
+      },
+      "6": {
+        "neuron_match_frac": 0.5871274734555985,
+        "neuron_mutual_frac": 0.2914861848455599,
+        "neuron_mutual_frac_null": 0.4170608108108108,
+        "neuron_median_best": 0.1850502703871046,
+        "neuron_median_best_null": 0.13259008548089435,
+        "head_match_frac": 0.9836734693877551,
+        "head_mutual_frac": 0.3010204081632653,
+        "head_mutual_frac_null": 0.41122448979591836,
+        "head_assigned_match_frac": 0.916326530612245
+      },
+      "7": {
+        "neuron_match_frac": 0.5110709075552826,
+        "neuron_mutual_frac": 0.29963432893120395,
+        "neuron_mutual_frac_null": 0.4318549728705978,
+        "neuron_median_best": 0.16701601174744693,
+        "neuron_median_best_null": 0.12873885170979935,
+        "head_match_frac": 0.9794372294372293,
+        "head_mutual_frac": 0.2824675324675325,
+        "head_mutual_frac_null": 0.4058441558441558,
+        "head_assigned_match_frac": 0.9047619047619049
+      },
+      "8": {
+        "neuron_match_frac": 0.43909723735832595,
+        "neuron_mutual_frac": 0.31260387151264163,
+        "neuron_mutual_frac_null": 0.43581762205754143,
+        "neuron_median_best": 0.15692126895150832,
+        "neuron_median_best_null": 0.1278785988688469,
+        "head_match_frac": 0.9711981566820277,
+        "head_mutual_frac": 0.2868663594470047,
+        "head_mutual_frac_null": 0.390552995391705,
+        "head_assigned_match_frac": 0.8882488479262671
+      }
+    },
+    "centred/no_outliers": {
+      "1": {
+        "neuron_match_frac": 0.9493326591394026,
+        "neuron_mutual_frac": 0.30643920030227595,
+        "neuron_mutual_frac_null": 0.426824491020626,
+        "neuron_median_best": 0.3304244664154555,
+        "neuron_median_best_null": 0.13912144813098407,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.3637218045112782,
+        "head_mutual_frac_null": 0.3712406015037594,
+        "head_assigned_match_frac": 0.9727443609022558
+      },
+      "2": {
+        "neuron_match_frac": 0.9331658961593171,
+        "neuron_mutual_frac": 0.31579503022759603,
+        "neuron_mutual_frac_null": 0.44811855440967274,
+        "neuron_median_best": 0.31465682112856913,
+        "neuron_median_best_null": 0.1363531641269985,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.35526315789473684,
+        "head_mutual_frac_null": 0.3909774436090226,
+        "head_assigned_match_frac": 0.9595864661654135
+      },
+      "3": {
+        "neuron_match_frac": 0.8737025471194879,
+        "neuron_mutual_frac": 0.3108219238975818,
+        "neuron_mutual_frac_null": 0.4605027004800853,
+        "neuron_median_best": 0.2694262285765849,
+        "neuron_median_best_null": 0.13386599954805875,
+        "head_match_frac": 1.0,
+        "head_mutual_frac": 0.37124060150375937,
+        "head_mutual_frac_null": 0.38345864661654133,
+        "head_assigned_match_frac": 0.9539473684210527
+      },
+      "4": {
+        "neuron_match_frac": 0.8083117554231863,
+        "neuron_mutual_frac": 0.3020800920163585,
+        "neuron_mutual_frac_null": 0.46767480885490764,
+        "neuron_median_best": 0.2357715011427277,
+        "neuron_median_best_null": 0.13204017850129227,
+        "head_match_frac": 0.9840225563909774,
+        "head_mutual_frac": 0.3289473684210526,
+        "head_mutual_frac_null": 0.393796992481203,
+        "head_assigned_match_frac": 0.9295112781954888
+      },
+      "5": {
+        "neuron_match_frac": 0.694375171201607,
+        "neuron_mutual_frac": 0.2932155656501096,
+        "neuron_mutual_frac_null": 0.46440433254200153,
+        "neuron_median_best": 0.20375744192986875,
+        "neuron_median_best_null": 0.13080358787162885,
+        "head_match_frac": 0.9932432432432432,
+        "head_mutual_frac": 0.31756756756756754,
+        "head_mutual_frac_null": 0.42084942084942084,
+        "head_assigned_match_frac": 0.9111969111969113
+      },
+      "6": {
+        "neuron_match_frac": 0.5862210424710425,
+        "neuron_mutual_frac": 0.3027947031853282,
+        "neuron_mutual_frac_null": 0.4673413368725869,
+        "neuron_median_best": 0.18265860549041202,
+        "neuron_median_best_null": 0.13223276713064738,
+        "head_match_frac": 0.9846938775510204,
+        "head_mutual_frac": 0.2969387755102041,
+        "head_mutual_frac_null": 0.41428571428571426,
+        "head_assigned_match_frac": 0.9030612244897961
+      },
+      "7": {
+        "neuron_match_frac": 0.5069455108517609,
+        "neuron_mutual_frac": 0.3154368857493858,
+        "neuron_mutual_frac_null": 0.4815020986895987,
+        "neuron_median_best": 0.1648157835006714,
+        "neuron_median_best_null": 0.12835712053559042,
+        "head_match_frac": 0.9826839826839827,
+        "head_mutual_frac": 0.2759740259740259,
+        "head_mutual_frac_null": 0.40909090909090906,
+        "head_assigned_match_frac": 0.8939393939393938
+      },
+      "8": {
+        "neuron_match_frac": 0.43021196599825634,
+        "neuron_mutual_frac": 0.33279070401046207,
+        "neuron_mutual_frac_null": 0.48363257410636445,
+        "neuron_median_best": 0.15485426447083872,
+        "neuron_median_best_null": 0.12751773384309584,
+        "head_match_frac": 0.967741935483871,
+        "head_mutual_frac": 0.2868663594470047,
+        "head_mutual_frac_null": 0.3905529953917051,
+        "head_assigned_match_frac": 0.8801843317972349
+      }
+    }
+  },
+  "link_to_task4": {
+    "raw/all/neuron_match_frac": {
+      "mean_within_distance": -0.7100476737406948,
+      "within_distance": {
+        "1": -0.4874712769449612,
+        "2": -0.7130977130977131,
+        "3": -0.7632126053178684,
+        "4": -0.8560017507385929,
+        "5": -0.8086770981507824,
+        "6": -0.7419287083114864,
+        "7": -0.7289438502673797,
+        "8": -0.5810483870967743
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "raw/all/neuron_mutual_frac": {
+      "mean_within_distance": -0.5968606164138962,
+      "within_distance": {
+        "1": -0.4820374740726016,
+        "2": -0.7060952624369071,
+        "3": -0.7765855570670812,
+        "4": -0.8312985336908606,
+        "5": -0.7764862091541047,
+        "6": -0.6271818682727771,
+        "7": -0.4603548655315299,
+        "8": -0.11484516108530697
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "raw/all/head_match_frac": {
+      "mean_within_distance": -0.23659858398450737,
+      "within_distance": {
+        "1": NaN,
+        "2": NaN,
+        "3": NaN,
+        "4": -0.3313420454769386,
+        "5": -0.17662088672545545,
+        "6": -0.22972904786658793,
+        "7": -0.20521917696677322,
+        "8": -0.2400817628867815
+      },
+      "perm_p_one_sided_negative": 0.001,
+      "perm_p_two_sided": 0.001,
+      "n_pairs": 288
+    },
+    "raw/all/head_mutual_frac": {
+      "mean_within_distance": -0.4647072122243429,
+      "within_distance": {
+        "1": -0.39021613458271465,
+        "2": -0.22636833391953,
+        "3": -0.4876252048437494,
+        "4": -0.31413454903137633,
+        "5": -0.3883321624142853,
+        "6": -0.7588682006684033,
+        "7": -0.47991512338817405,
+        "8": -0.67219798894651
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "raw/no_outliers/neuron_match_frac": {
+      "mean_within_distance": -0.7135754585874118,
+      "within_distance": {
+        "1": -0.476091476091476,
+        "2": -0.7238209869788818,
+        "3": -0.7837837837837838,
+        "4": -0.8673815515920779,
+        "5": -0.810573731626363,
+        "6": -0.7366946778711486,
+        "7": -0.7296122994652406,
+        "8": -0.5806451612903226
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "raw/no_outliers/neuron_mutual_frac": {
+      "mean_within_distance": -0.556694514693091,
+      "within_distance": {
+        "1": -0.4951809634815342,
+        "2": -0.7157332930084052,
+        "3": -0.7862230593970634,
+        "4": -0.7962549912351794,
+        "5": -0.678728434311785,
+        "6": -0.5444734860016688,
+        "7": -0.3830714542395361,
+        "8": -0.0538904358695553
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "raw/no_outliers/head_match_frac": {
+      "mean_within_distance": -0.2375663696651948,
+      "within_distance": {
+        "1": NaN,
+        "2": NaN,
+        "3": NaN,
+        "4": -0.3313420454769386,
+        "5": -0.1814598151288926,
+        "6": -0.22972904786658793,
+        "7": -0.20521917696677322,
+        "8": -0.2400817628867815
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.001,
+      "n_pairs": 288
+    },
+    "raw/no_outliers/head_mutual_frac": {
+      "mean_within_distance": -0.4593667798001791,
+      "within_distance": {
+        "1": -0.40210471382704516,
+        "2": -0.19509614726398664,
+        "3": -0.4876252048437494,
+        "4": -0.3184316051397273,
+        "5": -0.3918249592459483,
+        "6": -0.70453710545488,
+        "7": -0.49962979831324406,
+        "8": -0.675684704312852
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/all/neuron_match_frac": {
+      "mean_within_distance": -0.6955331238354275,
+      "within_distance": {
+        "1": -0.43149485922629877,
+        "2": -0.7039833703785897,
+        "3": -0.7303862567020462,
+        "4": -0.8549075391180654,
+        "5": -0.7954006638217164,
+        "6": -0.7285714285714286,
+        "7": -0.7316176470588236,
+        "8": -0.5879032258064517
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/all/neuron_mutual_frac": {
+      "mean_within_distance": -0.5750988397216673,
+      "within_distance": {
+        "1": -0.47764676996028066,
+        "2": -0.7047809855407937,
+        "3": -0.7925750495690971,
+        "4": -0.8227566702172884,
+        "5": -0.698185078819237,
+        "6": -0.6008273329050341,
+        "7": -0.4125127537793432,
+        "8": -0.09150607698226483
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/all/head_match_frac": {
+      "mean_within_distance": -0.23659858398450737,
+      "within_distance": {
+        "1": NaN,
+        "2": NaN,
+        "3": NaN,
+        "4": -0.3313420454769386,
+        "5": -0.17662088672545545,
+        "6": -0.22972904786658793,
+        "7": -0.20521917696677322,
+        "8": -0.2400817628867815
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/all/head_mutual_frac": {
+      "mean_within_distance": -0.46569805619141147,
+      "within_distance": {
+        "1": -0.39021613458271465,
+        "2": -0.2647085474741677,
+        "3": -0.4876252048437494,
+        "4": -0.30712094811075813,
+        "5": -0.3883321624142853,
+        "6": -0.7588682006684033,
+        "7": -0.47991512338817405,
+        "8": -0.6487981280490388
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/no_outliers/neuron_match_frac": {
+      "mean_within_distance": -0.7076347219348142,
+      "within_distance": {
+        "1": -0.4319325917743345,
+        "2": -0.7183499288762447,
+        "3": -0.7752489331436699,
+        "4": -0.8674290104355238,
+        "5": -0.8065433854907539,
+        "6": -0.7366946778711486,
+        "7": -0.7349598930481284,
+        "8": -0.5899193548387097
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/no_outliers/neuron_mutual_frac": {
+      "mean_within_distance": -0.5348096726740448,
+      "within_distance": {
+        "1": -0.4954000216383498,
+        "2": -0.7128856930668263,
+        "3": -0.8015554494674895,
+        "4": -0.7721625557968987,
+        "5": -0.6426624591272398,
+        "6": -0.5102686635031087,
+        "7": -0.30378068161528277,
+        "8": -0.039761857177162525
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    },
+    "centred/no_outliers/head_match_frac": {
+      "mean_within_distance": -0.2375663696651948,
+      "within_distance": {
+        "1": NaN,
+        "2": NaN,
+        "3": NaN,
+        "4": -0.3313420454769386,
+        "5": -0.1814598151288926,
+        "6": -0.22972904786658793,
+        "7": -0.20521917696677322,
+        "8": -0.2400817628867815
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.002,
+      "n_pairs": 288
+    },
+    "centred/no_outliers/head_mutual_frac": {
+      "mean_within_distance": -0.45924050055000076,
+      "within_distance": {
+        "1": -0.40210471382704516,
+        "2": -0.19509614726398664,
+        "3": -0.4876252048437494,
+        "4": -0.3417538730075326,
+        "5": -0.3918249592459483,
+        "6": -0.70453710545488,
+        "7": -0.4989575752411778,
+        "8": -0.6520244255156862
+      },
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0,
+      "n_pairs": 288
+    }
+  },
+  "wall_seconds": 2890.961091041565
+}
