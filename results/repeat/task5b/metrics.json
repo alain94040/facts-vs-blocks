@@ -1,0 +1,96 @@
+{
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "source_model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "split": "REPORT",
+  "load_seconds": 25.27820897102356,
+  "n_layers": 48,
+  "exactness_float16": {
+    "dtype": "torch.float16",
+    "base_vs_library": 0.0,
+    "gain1_vs_base": 0.0,
+    "partial0_vs_base": 0.0,
+    "partial1_vs_repeat": 0.0,
+    "swap_ii_vs_base": 0.0,
+    "block_gain1_vs_base": 0.0,
+    "tolerance": 0.05,
+    "pass": true
+  },
+  "speed": {
+    "tokens": 55392,
+    "seconds": 29.943784952163696,
+    "tokens_per_second": 1849.866344167605
+  },
+  "skipped": false,
+  "source_layers": 28,
+  "mid_layer": 24,
+  "source_selection": {
+    "layer": {
+      "start": 14,
+      "end": 15
+    },
+    "block": {
+      "start": 8,
+      "end": 12
+    },
+    "mid_layer": 14,
+    "layer_best_dose": "partial(0.75)",
+    "block_best_dose": "partial(0.75)"
+  },
+  "moved": {
+    "layer:repeat": [
+      24,
+      25
+    ],
+    "layer:gain(2)": [
+      24,
+      25
+    ],
+    "layer:attn2": [
+      24,
+      25
+    ],
+    "layer:mlp2": [
+      24,
+      25
+    ],
+    "layer:partial(0.75) best dose": [
+      24,
+      25
+    ],
+    "block:repeat": [
+      14,
+      21
+    ],
+    "block:gain(2)": [
+      14,
+      21
+    ],
+    "block:partial(0.75) best dose": [
+      14,
+      21
+    ],
+    "block:partial(0.25)": [
+      14,
+      21
+    ],
+    "mid:repeat": [
+      24,
+      25
+    ],
+    "mid:gain(2)": [
+      24,
+      25
+    ]
+  },
+  "base_report": {
+    "TEXT_loss": 2.3719071435928343,
+    "REASON_logprob": -1.9052399907415383,
+    "REASON_acc": 0.47,
+    "RECALL_logprob": -0.019893413992823454,
+    "RECALL_acc": 1.0,
+    "RECALL-HARD_logprob": -0.03717887327313561,
+    "RECALL-HARD_acc": 0.9826086956521739
+  },
+  "wall_seconds": 405.40677976608276
+}
