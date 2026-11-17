@@ -1,0 +1,42 @@
+{
+  "steps_run": 1492,
+  "start_step": 0,
+  "end_step": 1492,
+  "total_steps": 7460,
+  "seed": 0,
+  "amp": "none",
+  "data": "fork-A",
+  "init_from": null,
+  "tokens_per_step": 65536,
+  "stream_tokens_per_step": 65792,
+  "loss_first": 8.652680397033691,
+  "loss_last": 1.7565629482269287,
+  "loss_first10_mean": 8.24165449142456,
+  "loss_last10_mean": 2.017955458164215,
+  "tokens_per_second": 136370.59709688197,
+  "wall_seconds": 721.3504729270935,
+  "non_embedding_params": 4739072,
+  "total_params": 6249984,
+  "val_curve": [
+    {
+      "step": 373,
+      "frac": 0.05,
+      "val_sample_loss": 2.8829800872802736
+    },
+    {
+      "step": 746,
+      "frac": 0.1,
+      "val_sample_loss": 2.3530289306640624
+    },
+    {
+      "step": 1119,
+      "frac": 0.15,
+      "val_sample_loss": 2.109222717285156
+    },
+    {
+      "step": 1492,
+      "frac": 0.2,
+      "val_sample_loss": 1.9880173721313477
+    }
+  ]
+}

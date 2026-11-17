@@ -1,0 +1,21 @@
+{
+  "steps_run": 50,
+  "start_step": 0,
+  "end_step": 50,
+  "total_steps": 7460,
+  "seed": 0,
+  "amp": "none",
+  "data": "fork-A",
+  "init_from": null,
+  "tokens_per_step": 65536,
+  "stream_tokens_per_step": 65792,
+  "loss_first": 8.652680397033691,
+  "loss_last": 5.021620750427246,
+  "loss_first10_mean": 8.241654443740845,
+  "loss_last10_mean": 5.346319484710693,
+  "tokens_per_second": 136170.09780563082,
+  "wall_seconds": 24.439316034317017,
+  "non_embedding_params": 4739072,
+  "total_params": 6249984,
+  "val_curve": []
+}
