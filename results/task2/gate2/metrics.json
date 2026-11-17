@@ -1,27 +1,27 @@
 {
   "pass": true,
   "runs_checked": [
-    "fork-B-s0"
+    "main-2k-s1"
   ],
   "checks": [
     {
-      "run": "fork-B-s0",
+      "run": "main-2k-s1",
       "check": "flat_90_100",
-      "value": 0.01220806884765624,
+      "value": 0.012612693786620888,
       "threshold": 0.02,
       "pass": true
     },
     {
-      "run": "fork-B-s0",
+      "run": "main-2k-s1",
       "check": "recall_own_train_templates",
-      "value": 0.9830625,
+      "value": 0.951375,
       "threshold": 0.8,
       "pass": true
     },
     {
-      "run": "fork-B-s0",
+      "run": "main-2k-s1",
       "check": "name_copy",
-      "value": 0.9998,
+      "value": 0.8528,
       "threshold": 0.5,
       "pass": true
     }
