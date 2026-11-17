@@ -1,0 +1,52 @@
+{
+  "head_fraction_recur": {
+    "main-0": 1.0,
+    "main-2k": 1.0,
+    "main-8k": 0.9791666666666666,
+    "main-32k": 1.0,
+    "main-2k-s0 vs main-32k-s0": 1.0
+  },
+  "neuron": {
+    "main-0": {
+      "seed1": {
+        "frac_above_0.5": 0.02490234375,
+        "frac_above_0.8": 0.0026041666666666665
+      },
+      "null_untrained": {
+        "frac_above_0.5": 0.0003255208333333333,
+        "frac_above_0.8": 0.0
+      }
+    },
+    "main-2k": {
+      "seed1": {
+        "frac_above_0.5": 0.054361979166666664,
+        "frac_above_0.8": 0.0032552083333333335
+      },
+      "null_untrained": {
+        "frac_above_0.5": 0.00048828125,
+        "frac_above_0.8": 0.0
+      }
+    },
+    "main-8k": {
+      "seed1": {
+        "frac_above_0.5": 0.07698567708333333,
+        "frac_above_0.8": 0.00830078125
+      },
+      "null_untrained": {
+        "frac_above_0.5": 0.0003255208333333333,
+        "frac_above_0.8": 0.0
+      }
+    },
+    "main-32k": {
+      "seed1": {
+        "frac_above_0.5": 0.07080078125,
+        "frac_above_0.8": 0.009602864583333334
+      },
+      "null_untrained": {
+        "frac_above_0.5": 0.0003255208333333333,
+        "frac_above_0.8": 0.0
+      }
+    }
+  },
+  "wall_seconds": 197.79021525382996
+}

@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python analysis/task3.py --runs P2-main-2k-s0 --out results/task3_pilot --seed 0

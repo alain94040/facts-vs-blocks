@@ -124,3 +124,32 @@ of the same update, attention-only against MLP-only, fractional doses, reasoning
 questions, and a layer interchangeability map. Guards: configurations are chosen on one half of
 each question set and confirmed on the other, with paired bootstrap intervals; the difficulty of
 the reasoning set is calibrated on the unmodified model only.
+
+## 2026-11-17: Phase 1 complete, Gate 2 passed on every run
+
+Numbers as reported by the executing agent (`results/task2/summary.csv`). Not yet interpreted
+beyond what is needed to judge readiness for Phase 2.
+
+| Run | Story loss | Recall, train templates | Template 5, held out | Name-copy |
+| --- | --- | --- | --- | --- |
+| main-0 s0 / s1 | 1.692 / 1.699 | - | - | 0.000 (not gated) |
+| main-2k s0 / s1 | 1.692 / 1.693 | 0.960 / 0.951 | 0.940 / 0.927 | 0.897 / 0.853 |
+| main-8k s0 / s1 | 1.696 / 1.696 | 0.973 / 0.970 | 0.961 / 0.959 | 1.000 / 1.000 |
+| main-32k s0 / s1 | 1.747 / 1.747 | 0.688 / 0.773 | 0.685 / 0.763 | 0.999 / 1.000 |
+| ctrl-8k-x4 s0 | 1.693 | 0.997 | 0.994 | 1.000 |
+| fork-A s0 | 1.701 | 0.987 | 0.982 | 1.000 |
+| fork-B s0 | 1.700 | 0.983 | 0.979 | 1.000 |
+
+**Notes for Phase 2.**
+
+- Facts are stored in a usable form: held-out wording is within 2 points of trained wording.
+- main-32k is not saturated (0.69 and 0.77, a large seed gap) and its story loss is 0.05 nats
+  worse than every other run. ctrl-8k-x4, with the same volume of biography text, shows no such
+  cost, so the cost tracks the number of facts. This is the first sign that facts and stories
+  compete for capacity at this model size; Phase 2 should check where.
+- main-2k name-copy is lower than every larger run. With 2,000 people a first name predicts a
+  few trained last names; with 8,000 or more it predicts too many to be useful, and the model
+  copies from context. Consistent with memory competing with context when memory is cheap.
+- main-0 scores 0 on name-copy because the entity tokens are untrained in that model. Phase 2
+  Task 5 used FORMAT data for main-0, which would have been meaningless. Fixed in `PLAN.md`
+  before Phase 2 started.

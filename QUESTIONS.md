@@ -57,3 +57,37 @@ Question: keep float32 for Task 2, or investigate fp16 (e.g. GradScaler / fp32 a
 
 - Both Task 2a answers above are confirmed by the reviewer.
 - Pilots: see `docs/LOG.md`. Proceed with Task 2b in `PLAN.md` (P3, then the full batch if it passes).
+
+## Task 5: questions asked and answered before any Task 5 code ran on real models (2026-11-17)
+
+1. **STORY-based features** (for comparisons that include main-0 or the untrained model).
+   **Answer:** the four STORY attention scores (story induction, story duplicate, previous-token,
+   sink), the weight-based copying score and spectral signature with `W_E` restricted to the 4,096
+   base tokens, and the STORY-loss single-head ablation effect. FORMAT induction/duplicate and the
+   recall, FORMAT and name-copy ablation effects are dropped.
+2. **Null positions for neuron matching** on runs with biographies. **Answer:** the same 200,000
+   mixed positions as the seed 0 vs seed 1 comparison it is a null for.
+3. **Head recurrence null and k-means.** **Answer:** per-head null (100 shuffled nearest distances
+   for that head; recurs if below their 5th percentile). k-means (8) on the full features over the
+   heads of the biography-trained models; a second k-means on the STORY features including main-0
+   and the untrained model.
+4. **Mix of the 200,000 positions.** First answer: 100,000 STORY + 100,000 FORMAT. This was based on
+   a wrong count from me: the FORMAT biographies hold only 78,047 positions. **Corrected answer:**
+   all 78,047 FORMAT positions plus 121,953 random STORY positions (seed 0).
+
+Decision made without asking, following answer 1: for main-0, the reference sample for the
+mean-ablation of heads (STORY-loss effect) is the first 1,000 STORY rows only, since FORMAT
+biographies are meaningless input for a model that never trained the entity tokens.
+
+## Raised after the real Task 5 run (2026-11-17); method not changed
+
+- **Head-matching null may be weak.** The plan's null shuffles every feature column independently
+  across the seed-1 heads. That breaks the correlations among the 30 spectral values, so shuffled
+  "heads" sit far from any real head (null median distance 5.4 to 6.8, against 2.1 to 3.5 for the
+  real nearest match). The recurrence fraction is 0.98 to 1.00 for every pair, including main-2k s0
+  against main-32k s0. The pilot pair also gave 1.00. I saw that number before the real run and
+  did not flag it then. I should have. A stricter null (for example, nearest distance to a head of
+  the untrained model, or to a head of another layer) would be a method change, so it is left to
+  the reviewer.
+- **The knowledge set sits in layer 0** for every run. fork-A and fork-B have K = 8, with all 8
+  neurons in layer 0, so H3 is the same hybrid as H4 for both forks.

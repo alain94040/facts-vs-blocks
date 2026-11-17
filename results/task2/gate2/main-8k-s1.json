@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "run": "main-8k-s1",
+      "check": "flat_90_100",
+      "value": 0.011785842895507992,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s1",
+      "check": "recall_own_train_templates",
+      "value": 0.9699114583333334,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s1",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    }
+  ]
+}

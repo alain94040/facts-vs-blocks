@@ -1,0 +1,21 @@
+{
+  "steps_run": 50,
+  "start_step": 1492,
+  "end_step": 1542,
+  "total_steps": 7460,
+  "seed": 0,
+  "amp": "none",
+  "data": "fork-B",
+  "init_from": "checkpoints/task2/fork-trunk-s0/step_1492.pt",
+  "tokens_per_step": 65536,
+  "stream_tokens_per_step": 65792,
+  "loss_first": 5.4688191413879395,
+  "loss_last": 2.0101046562194824,
+  "loss_first10_mean": 3.6326749324798584,
+  "loss_last10_mean": 1.9914515376091004,
+  "tokens_per_second": 136139.91547453633,
+  "wall_seconds": 24.450393199920654,
+  "non_embedding_params": 4739072,
+  "total_params": 6249984,
+  "val_curve": []
+}

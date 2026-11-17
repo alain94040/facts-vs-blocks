@@ -191,14 +191,21 @@ def make_people(rng, pools, n, used_names):
     return people
 
 
-def render_bio(person, rng, heldout=False):
+def n_templates_for(index):
+    """Task 2b: people with an even index in their set train on all 5 templates, odd-index people
+    on templates 1-4 only (template 5 is their held-out test)."""
+    return 5 if index % 2 == 0 else N_TRAIN_TEMPLATES
+
+
+def render_bio(person, rng, heldout=False, n_templates=N_TRAIN_TEMPLATES):
     """One biography: one sentence per attribute, random template, shuffled sentence order.
 
-    Training data uses templates 1-4 (heldout=False). heldout=True uses only template 5.
+    Each sentence uses a template drawn uniformly from the first n_templates (default 4, i.e.
+    templates 1-4). heldout=True uses only template 5.
     """
     sents = []
     for a in ATTRIBUTES:
-        t = HELDOUT_TEMPLATE if heldout else int(rng.integers(N_TRAIN_TEMPLATES))
+        t = HELDOUT_TEMPLATE if heldout else int(rng.integers(n_templates))
         sents.append(TEMPLATES[a][t].format(name=person["name"], v=person[a]))
     order = rng.permutation(len(sents))
     return " ".join(sents[i] for i in order)
