@@ -1,9 +1,215 @@
 {
   "pass": true,
   "runs_checked": [
+    "main-2k-s0",
+    "main-8k-s0",
+    "main-32k-s0",
+    "ctrl-8k-x4-s0",
+    "main-0-s0",
+    "fork-A-s0",
+    "fork-B-s0",
+    "main-2k-s1",
+    "main-8k-s1",
+    "main-32k-s1",
     "main-0-s1"
   ],
   "checks": [
+    {
+      "run": "main-2k-s0",
+      "check": "flat_90_100",
+      "value": 0.01136620330810545,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.9599791666666667,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s0",
+      "check": "name_copy",
+      "value": 0.8968,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s0",
+      "check": "flat_90_100",
+      "value": 0.011449714660644483,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.9730052083333334,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s0",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "main-32k-s0",
+      "check": "flat_90_100",
+      "value": 0.015249961853027516,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-32k-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.6880677083333333,
+      "threshold": 0.6,
+      "pass": true
+    },
+    {
+      "run": "main-32k-s0",
+      "check": "name_copy",
+      "value": 0.9992,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "ctrl-8k-x4-s0",
+      "check": "flat_90_100",
+      "value": 0.014047752380371259,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "ctrl-8k-x4-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.997328125,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "ctrl-8k-x4-s0",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "main-0-s0",
+      "check": "flat_90_100",
+      "value": 0.012361419677734409,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "fork-A-s0",
+      "check": "flat_90_100",
+      "value": 0.012365097045898388,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "fork-A-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.9867239583333334,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "fork-A-s0",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "fork-B-s0",
+      "check": "flat_90_100",
+      "value": 0.01220806884765624,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "fork-B-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.9830625,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "fork-B-s0",
+      "check": "name_copy",
+      "value": 0.9998,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s1",
+      "check": "flat_90_100",
+      "value": 0.012612693786620888,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s1",
+      "check": "recall_own_train_templates",
+      "value": 0.951375,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "main-2k-s1",
+      "check": "name_copy",
+      "value": 0.8528,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s1",
+      "check": "flat_90_100",
+      "value": 0.011785842895507992,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s1",
+      "check": "recall_own_train_templates",
+      "value": 0.9699114583333334,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "main-8k-s1",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    },
+    {
+      "run": "main-32k-s1",
+      "check": "flat_90_100",
+      "value": 0.013062248229980256,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "main-32k-s1",
+      "check": "recall_own_train_templates",
+      "value": 0.77325,
+      "threshold": 0.6,
+      "pass": true
+    },
+    {
+      "run": "main-32k-s1",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    },
     {
       "run": "main-0-s1",
       "check": "flat_90_100",
