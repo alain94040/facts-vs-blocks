@@ -1,0 +1,34 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "split": "REPORT",
+  "selection": {
+    "layer": {
+      "start": 14,
+      "end": 15
+    },
+    "block": {
+      "start": 8,
+      "end": 12
+    },
+    "mid_layer": 14,
+    "layer_best_dose": "partial(0.75)",
+    "block_best_dose": "partial(0.75)"
+  },
+  "base_report": {
+    "TEXT_loss": 2.6149508500099183,
+    "REASON_logprob": -2.9175230149768003,
+    "REASON_acc": 0.39,
+    "RECALL_logprob": -0.05892334244947419,
+    "RECALL_acc": 0.9847328244274809,
+    "RECALL-HARD_logprob": -0.29958549498047643,
+    "RECALL-HARD_acc": 0.9043478260869565
+  },
+  "n_report_items": {
+    "TEXT": 100,
+    "REASON": 200,
+    "RECALL": 131,
+    "RECALL-HARD": 115
+  },
+  "wall_seconds": 193.12144303321838
+}
