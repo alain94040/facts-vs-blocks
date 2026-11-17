@@ -54,7 +54,7 @@ matrix `Q_l` (d by d, seed = layer index) to the residual side: `W_l → Q_l W_l
 layer's singular values and own-basis energy exactly, and destroys any directions the layers
 share. Recompute the shared basis and the sharing efficiency on the rotated layers.
 
-**Outlier coordinates.** Use the 16 outlier coordinates found in Repeat task 4b. Every energy
+**Outlier coordinates.** On 7B, use the 16 outlier coordinates found in Repeat task 4b. On 14B, find them the same way (Repeat task 4b step 1) in task 3. Every energy
 measurement is reported twice: on all coordinates, and with those 16 residual rows set to zero.
 
 ## 2. Tasks
