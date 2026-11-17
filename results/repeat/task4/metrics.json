@@ -1,0 +1,14 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "n_layers": 28,
+  "n_text_chunks": 50,
+  "base_loss": 2.521931731700897,
+  "n_pairs": 288,
+  "i_range": [
+    5,
+    23
+  ],
+  "max_dist": 8,
+  "wall_seconds": 1024.3509829044342
+}
