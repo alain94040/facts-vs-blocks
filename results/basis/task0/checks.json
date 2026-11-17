@@ -1,0 +1,39 @@
+{
+  "seed": 0,
+  "Qwen/Qwen2.5-0.5B-Instruct": {
+    "zone": {
+      "FAMILY": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    "n_curves": 140,
+    "k_eq_d_minus_1": 5.551115123125783e-15,
+    "own_minus_shared_min": -6.661338147750939e-15,
+    "rotation_own_change": 9.992007221626409e-16,
+    "pass": true
+  },
+  "Qwen/Qwen2.5-7B-Instruct": {
+    "zone": {
+      "FAMILY": [
+        10,
+        11
+      ]
+    },
+    "n_curves": 14,
+    "k_eq_d_minus_1": 3.9968028886505635e-15,
+    "own_minus_shared_min": -5.10702591327572e-15,
+    "rotation_own_change": 9.992007221626409e-16,
+    "pass": true
+  },
+  "pass": true,
+  "wall_seconds": 222.27646708488464
+}
