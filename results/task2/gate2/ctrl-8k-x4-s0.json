@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "run": "ctrl-8k-x4-s0",
+      "check": "flat_90_100",
+      "value": 0.014047752380371259,
+      "threshold": 0.02,
+      "pass": true
+    },
+    {
+      "run": "ctrl-8k-x4-s0",
+      "check": "recall_own_train_templates",
+      "value": 0.997328125,
+      "threshold": 0.8,
+      "pass": true
+    },
+    {
+      "run": "ctrl-8k-x4-s0",
+      "check": "name_copy",
+      "value": 1.0,
+      "threshold": 0.5,
+      "pass": true
+    }
+  ]
+}
