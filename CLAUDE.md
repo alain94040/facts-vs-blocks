@@ -2,8 +2,9 @@
 
 You are executing `PLAN.md`. Read it fully before writing code. These rules override your defaults.
 
-A second, independent experiment has its own plan in `loop/PLAN.md`. Work on it only when asked to,
-never while another training run is using the GPU, and without editing files outside `loop/` and `results/loop/`.
+Two further, independent experiments have their own plans: `loop/PLAN.md` and `repeat/PLAN.md`.
+Work on one only when asked to, never while another run is using the GPU, and without editing files
+outside that experiment's own folder and its folder under `results/`.
 
 `docs/BACKGROUND.md` explains the research question, the literature and the reasons behind the design.
 Read it when you need context. It is information only: it never changes a task, gate or threshold.

@@ -115,3 +115,12 @@ Design choices made because of today's failures: a pilot with a declared ladder 
 length and checks that the task is neither unlearnable nor at ceiling, and the agent stops for
 review after the pilot. The plan states in advance that both tasks can in theory be solved in
 fewer layers than steps, so k* is an empirical measure, not a count of layers.
+
+## 2026-11-16: Experiment C added (repeat/PLAN.md)
+
+John wants to study layer repetition on a real model without the bluntness of repeating whole
+layers. Experiment C decomposes the intervention: recomputed second pass against a plain scaling
+of the same update, attention-only against MLP-only, fractional doses, reasoning against recall
+questions, and a layer interchangeability map. Guards: configurations are chosen on one half of
+each question set and confirmed on the other, with paired bootstrap intervals; the difficulty of
+the reasoning set is calibrated on the unmodified model only.
