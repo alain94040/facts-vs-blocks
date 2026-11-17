@@ -138,7 +138,8 @@ def shared_bases(W, layers_by_zone, outliers, rotate=True, log=print):
     return own, U, Un
 
 
-def energies(W, layers_by_zone, outliers, own, U, Un, cross_zone="FAMILY", log=print):
+def energies(W, layers_by_zone, outliers, own, U, Un, cross_zone="FAMILY", log=print,
+             null_own=True):
     """Pass 2: kept-energy curves (k = 1..d) per layer, type and setting:
     own, shared (own zone), null (rotated layer, rotated-null basis of its zone), null_own
     (own basis of the rotated layer, for the invariance check), and for the cross zone the other
@@ -156,7 +157,8 @@ def energies(W, layers_by_zone, outliers, own, U, Un, cross_zone="FAMILY", log=p
                     if Un:
                         Gr = rot[t][s]
                         r["null"] = basis_curve(Un[(z, t, s)], Gr)
-                        r["null_own"] = own_curve(Gr)
+                        if null_own:
+                            r["null_own"] = own_curve(Gr)
                     if z == cross_zone:
                         for z2 in layers_by_zone:
                             if z2 != z and (z2, t, s) in U:
