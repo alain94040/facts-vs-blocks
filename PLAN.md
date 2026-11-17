@@ -492,3 +492,54 @@ beyond marking which rows of this table apply:
 | Trained silhouette within 0.05 of the null at every k | No evidence of head types |
 
 **End of Phase 2b. Stop for human review.**
+
+## Phase 2c: fix the read-out probes (added after the Phase 2b review)
+
+Task 3b step 5 found almost no linearly decodable attribute at END, even at the last layer point.
+That cannot be right as stated: the model itself turns the last residual into the answer with a
+linear map (final LayerNorm, then the tied unembedding) at 0.96 recall. The probes had about 4
+training examples per class and no positive control, so they most likely memorised instead of
+finding the read-out. Phase 2c measures the read-out with the model's own output map. Same rules
+as Phase 2. Commit as `task 3c: ...`. Models: main-2k, main-8k, main-32k (seed 0), ctrl-8k-x4,
+fork-A, fork-B, and main-0 seed 0 as control. Reuse the residuals of Task 3b step 5 (END
+position, 7 layer points, people 0 to 999, five attributes) or recompute them identically.
+
+For attribute a, its candidate set is the first answer token of each of its possible values (200
+cities, 300 universities, 100 majors, 250 employers). If two values share a first token, merge
+them into one class and report the number of classes.
+
+1. **Logit lens (positive control and depth profile).** At each layer point, apply the model's
+   own final LayerNorm and unembedding to the END residual, keep only the logits of the
+   candidate set, and take the top one. Report accuracy per attribute and layer point for
+   people 800 to 999. At the last layer point this must equal the model's first-token recall on
+   those prompts to within 0.01; if it does not, stop and write `STOP.md` (the residuals are
+   wrong).
+2. **Shared affine lens.** For each layer point except the last, fit one matrix `A` (256 by 256)
+   and bias `b`, shared by all five attributes and all values: prediction = top candidate of
+   `unembed(final_ln(A x + b))`. Fit on people 0 to 799 with cross-entropy over each attribute's
+   candidate set, all five attributes pooled (4,000 examples), Adam learning rate 1e-3, 2,000
+   full-batch steps, `A` initialised to the identity and `b` to zero. Test on people 800 to 999.
+   This asks whether the answer is already present at an earlier depth in a form one shared map
+   can bring out, using the model's own per-value vectors rather than learning one per value.
+3. **Fork transfer.** Apply fork-A's lens (step 2) to fork-B's residuals for set-B people 800 to
+   999, with fork-B's own unembedding, and the reverse.
+4. **Class-mean probe (replaces the Task 3b probe).** For each attribute and layer point:
+   standardise with people 0 to 799, compute each class's mean vector over training people, and
+   classify a test person by the nearest class mean (cosine). Report next to the Task 3b numbers.
+   Values with no training person count as errors.
+
+Output: `results/task3c/<run>/metrics.json`, `results/task3c/summary.csv`, and one plot per
+attribute of test accuracy against layer point (logit lens, affine lens, class-mean probe), one
+line style per method and one colour per run.
+
+Report in `results/REPORT_2c.md`, marking which rows apply:
+
+| Result | What it means |
+| --- | --- |
+| Logit-lens control fails | Residuals were extracted wrongly; Task 3b step 5 is void |
+| Affine-lens accuracy above 0.5 for at least 3 attributes at a layer point before the last, and main-0 near chance | The answer is in place before the last layer and one shared map reads every attribute |
+| Logit-lens accuracy rises from near 0 to its final value within one layer point | The answer is produced by one layer, not built up gradually |
+| Fork transfer within 0.1 of each fork's own lens | The read-out is shared by the two forks |
+| Class-mean probe still near chance at the last layer point while the logit lens is high | The Task 3b probe design, not the model, caused the Task 3b result |
+
+**End of Phase 2c. Stop for human review.** Expected time: under 15 minutes.
