@@ -153,3 +153,45 @@ beyond what is needed to judge readiness for Phase 2.
 - main-0 scores 0 on name-copy because the entity tokens are untrained in that model. Phase 2
   Task 5 used FORMAT data for main-0, which would have been meaningless. Fixed in `PLAN.md`
   before Phase 2 started.
+
+## 2026-11-17: Phase 2 reviewed; Phase 2b added
+
+Results in `results/REPORT.md` (commits e57c2e6 to 422ee15). The agent marked the decision table
+literally and left two points to the reviewer. Reviewer's calls:
+
+- **"Facts and procedures share weights": yes.** The forks sit in one basin (barrier 0.006), yet
+  no partial swap moves any donor fact: donor recall stays at or below 0.017 even when every MLP
+  is swapped, and swapping only the token embeddings removes base recall (0.006). Facts are a
+  joint code over embeddings, attention and MLPs, not a module that can be lifted out.
+- **The Task 3 knowledge set is an entry stage, not storage.** Each first-name token is shared by
+  5 (2k) to 80 (32k) people, so the model must bind first and last name into one person before
+  any lookup. The knowledge set sits in layer 0, shrinks as people grow, recurs across seeds more
+  than other neurons (0.63 above 0.5 at 32k, against 0.07 outside), damages FORMAT and name-copy,
+  and one layer-0 head can remove 93% of recall. All of that fits a shared binding stage. The
+  random baseline was not layer-matched, which exaggerated the contrast. Per-person content is
+  more likely in MLP layers 3 and 4: swapping either alone drops base recall to 0.25 to 0.29.
+  Nanda, Rajamanoharan et al. (2023, "Fact Finding") describe the same staging in real models.
+- **The head null was too weak** (raised by the agent). Shuffling each feature column breaks the
+  correlations among the 32 spectral values, so any real head beats it, and every pair recurred
+  at 0.98 to 1.00. The STORY clustering is still informative: the untrained heads formed their
+  own cluster, and each of the other 7 clusters has heads from all 11 trained models.
+- **Task 5 choices made during the run** (positions split, story-only mean reference for main-0):
+  accepted.
+- **Neuron universality** is 2.5 to 8% above 0.5 correlation, in line with the 1 to 5% reported
+  for GPT-2 (arXiv 2401.12181).
+
+**What it means for the hypothesis.** A clean "random knowledge part plus block library" split
+does not appear even with perfectly random facts, the easiest case for it. What appears instead
+is a pipeline: a shared stage that binds a name to a person, middle MLPs that carry per-person
+content, and a read-out stage. The stages may be the reusable blocks, with the facts written
+across them.
+
+**Phase 2b** tests that reading directly: where per-person content sits (layer-matched baseline,
+per-person attribution and ablation), whether each attribute has a shared linear read-out
+(probes on unseen people, and transfer between forks), where new facts can be written (fine-tune
+one part of fork-A on new people), and a fair head null with a data-driven count of head types.
+
+**Repo note.** During Phase 2 a local merge of `loop-plan` into `main` stopped on a conflict in
+this file, and the Task 4 commit staged files into it by mistake. The agent restored them from
+git's stored copies without rerunning anything. The merge was not completed; `loop-plan` (PR #5)
+was later updated to merge cleanly on GitHub.
