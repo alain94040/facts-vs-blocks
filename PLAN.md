@@ -283,7 +283,16 @@ Output: `results/task4/interpolation.json`, `results/task4/swaps.json`, one bar 
 
 ### Task 5: do the same components recur
 
-**Head features** (every head, every model including main-0, and the untrained initial weights):
+**Head features** (every head, every model including main-0, and the untrained initial weights).
+main-0 and the untrained model never trained the 1,550 entity tokens, so any score computed on
+FORMAT is meaningless for them. Compute the two STORY scores below for every model, and the FORMAT
+scores only for models trained on biographies. Comparisons that include main-0 or the untrained
+model use STORY-based features only:
+
+- Story induction score: on STORY, at each position whose token occurred earlier in the same row,
+  the attention mass on the positions right after those earlier occurrences.
+- Story duplicate-token score: on STORY, at the same positions, attention mass on the earlier
+  occurrences themselves.
 
 - Previous-token score: mean attention to the position just before, on STORY.
 - Sink score: mean attention to position 0, on STORY.
@@ -308,7 +317,8 @@ the fraction that recur, for each run with two seeds, and between main-2k and ma
 Also describe the pooled heads: k-means with 8 clusters, and per cluster its mean features and
 how many models contribute at least one head.
 
-**Neuron matching.** On a fixed 200,000 token positions (STORY and FORMAT mixed), correlate every
+**Neuron matching.** On a fixed 200,000 token positions (STORY and FORMAT mixed; STORY only for
+main-0 and the untrained model), correlate every
 neuron of seed 0 with every neuron in the same layer of seed 1 and keep the best match. Report
 the fraction with best correlation above 0.5 and above 0.8, by layer, and separately for neurons
 inside and outside the knowledge set. Null: best matches between seed 0 and the untrained model.
