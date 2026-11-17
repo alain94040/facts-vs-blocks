@@ -102,3 +102,16 @@ re-read with that in mind while the Task 2 batch trained. Nothing in Phase 2 had
 **Known limits that remain.** Two seeds for the main runs and one for the forks, so no error
 bars. Neurons are an imperfect unit because of superposition. Facts here are random by
 construction. A clean result is an upper bound and needs a repeat on real text.
+
+## 2026-11-16: Experiment B added (loop/PLAN.md)
+
+John reframed the goal: not only compression, but more "thinking" at the same or a smaller number
+of weights, by understanding what a block does well enough to reuse it deliberately rather than
+repeating layers blindly. Experiment B is the smallest test of the reuse half: can one looped
+block replace several different layers on tasks with a dial for the number of reasoning steps.
+"Thinking strength" is defined there as k*, the longest chain of steps solved at 90% accuracy.
+
+Design choices made because of today's failures: a pilot with a declared ladder sets the training
+length and checks that the task is neither unlearnable nor at ceiling, and the agent stops for
+review after the pilot. The plan states in advance that both tasks can in theory be solved in
+fewer layers than steps, so k* is an empirical measure, not a count of layers.

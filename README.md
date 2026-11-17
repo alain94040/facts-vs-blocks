@@ -9,6 +9,7 @@ recognising and re-using a small library of functional blocks?
 
 - `PLAN.md` is the full task list, with a deliverable and a numeric gate per task.
 - `CLAUDE.md` holds the rules for any coding agent working here. Read it first.
+- `loop/PLAN.md` is a second experiment: more reasoning steps per weight by looping a block.
 - `docs/BACKGROUND.md` is the research background: hypothesis, literature, known building blocks.
 - `results/` is where every run writes its metrics.
 
