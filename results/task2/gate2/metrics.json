@@ -1,28 +1,14 @@
 {
   "pass": true,
   "runs_checked": [
-    "ctrl-8k-x4-s0"
+    "main-0-s0"
   ],
   "checks": [
     {
-      "run": "ctrl-8k-x4-s0",
+      "run": "main-0-s0",
       "check": "flat_90_100",
-      "value": 0.014047752380371259,
+      "value": 0.012361419677734409,
       "threshold": 0.02,
-      "pass": true
-    },
-    {
-      "run": "ctrl-8k-x4-s0",
-      "check": "recall_own_train_templates",
-      "value": 0.997328125,
-      "threshold": 0.8,
-      "pass": true
-    },
-    {
-      "run": "ctrl-8k-x4-s0",
-      "check": "name_copy",
-      "value": 1.0,
-      "threshold": 0.5,
       "pass": true
     }
   ]

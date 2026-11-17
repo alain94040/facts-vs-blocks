@@ -1,0 +1,21 @@
+{
+  "steps_run": 50,
+  "start_step": 0,
+  "end_step": 50,
+  "total_steps": 4559,
+  "seed": 0,
+  "amp": "none",
+  "data": "main-0",
+  "init_from": null,
+  "tokens_per_step": 65536,
+  "stream_tokens_per_step": 65792,
+  "loss_first": 8.652680397033691,
+  "loss_last": 4.617743015289307,
+  "loss_first10_mean": 8.166907167434692,
+  "loss_last10_mean": 4.958822584152221,
+  "tokens_per_second": 136246.2582686581,
+  "wall_seconds": 24.428080081939697,
+  "non_embedding_params": 4739072,
+  "total_params": 6249984,
+  "val_curve": []
+}
