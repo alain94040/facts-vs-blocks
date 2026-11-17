@@ -45,13 +45,15 @@ one contiguous block of layers; for a block, `L` is the whole block and `u` its 
 
 ## 3. Model
 
-Main model: `Qwen/Qwen2.5-14B-Instruct` (48 layers) in float16 on MPS, used as a plain text
-predictor with no chat template. Development model: `Qwen/Qwen2.5-0.5B-Instruct`. Write and debug
-everything on the development model; its numbers are not results.
+Main model: `Qwen/Qwen2.5-7B-Instruct` (28 layers, about 15 GB in float16) on MPS, used as a
+plain text predictor with no chat template. It runs about twice as fast as the 14B model, which
+matters because tasks 1 to 4 evaluate hundreds of configurations. Development model:
+`Qwen/Qwen2.5-0.5B-Instruct`. Write and debug everything on the development model; its numbers
+are not results.
 
-Fallback, decided once in Repeat task 0: if the main model does not load, or runs the evaluation
-below at under 500 tokens per second, use `Qwen/Qwen2.5-7B-Instruct` (28 layers) and say so in
-the report. Layer ranges in this plan are given as fractions of depth for that reason.
+Confirmation model: `Qwen/Qwen2.5-14B-Instruct` (48 layers), used only in Repeat task 5b to check
+whether the 7B findings carry over to a deeper model. Layer ranges in this plan are given as
+fractions of depth so that a configuration can be moved from one model to the other.
 
 ## 4. Measurements
 
@@ -93,7 +95,7 @@ interval excludes zero.
      `base`.
 2. Write `repeat/data.py` (the three sets and the splits) and `repeat/evaluate.py`.
 3. Load the main model, repeat the exactness check in float16 (tolerance 5e-2 on logits), and
-   measure tokens per second on the SEARCH half of all three sets. Apply the fallback rule.
+   measure tokens per second on the SEARCH half of all three sets.
 4. **Difficulty of REASON.** The unmodified model's accuracy on SEARCH must be between 30% and
    70% so that both gains and losses are visible. Try k = 3 steps; if accuracy is above 70% try
    k = 4, then 5, then 6; if below 30% at k = 3 try k = 2. Freeze the first k in range. If none
@@ -133,7 +135,7 @@ runs no evaluation set except one short measurement in step 1, so it uses neithe
 REPORT items for selection.
 
 **What may and may not differ between two layers.** All layers read from and write to the same
-residual stream, so the 5,120 residual coordinates (896 on the development model) mean the same
+residual stream, so the 3,584 residual coordinates (896 on the development model) mean the same
 thing in every layer, and no alignment is needed on that side. What is arbitrary is the order of
 the hidden units inside a layer: the MLP neurons, the attention heads, and the KV groups. Inside
 a head, only the products `W_Q W_K^T` and `W_V W_O` are free of internal basis choices. So the
@@ -160,7 +162,7 @@ in chunks for the large products. Never hold more than two layers in memory.
    For each neuron of layer i, record its best match in layer j (the m with the largest s), and
    whether the match is mutual (n is also m's best match in layer i).
 3. **Attention heads.** For Q head h, with `W_V` from its KV group:
-   - `OV_h = W_V^T W_O,h`, a 5,120 by 5,120 matrix of rank 128. Never form it: the cosine
+   - `OV_h = W_V^T W_O,h`, a 3,584 by 3,584 matrix of rank 128. Never form it: the cosine
      between two such products, `<A, B> / (|A| |B|)` with `<A, B> = trace((U_A^T U_B)(V_B V_A^T))`
      for `A = U_A V_A`, needs only 128 by 128 products.
    - `QK_h = W_Q,h^T W_K` in the same way. Rotary position embedding means this is the attention
@@ -201,7 +203,7 @@ Output: `results/repeat/task4b/pairs.csv` (one row per ordered pair and outlier 
 neuron match fraction and head match fraction next to the task 4 swap map, and a histogram of
 best-match similarity for real and null at |i - j| = 1, 4 and 8.
 
-Expected cost on the main model: about 270 unordered pairs, each a few large matrix products,
+Expected cost on the main model: about 150 unordered pairs, each a few large matrix products,
 so roughly 30 to 60 minutes, mostly reading weights from disk. Weight reading dominates: read
 each layer once per neighbourhood and reuse it, rather than once per pair.
 
@@ -216,6 +218,21 @@ Evaluate on the REPORT halves, with paired bootstrap intervals against `base`:
 
 Also the paired difference `repeat` minus `gain(2)` for the layer and for the block (QB), and
 `attn2` minus `mlp2` (QC).
+
+### Repeat task 5b: carry over to the 14B model (REPORT)
+
+Load `Qwen/Qwen2.5-14B-Instruct` once, after task 5 is committed. Rerun the exactness check from
+task 0 on it (float16, tolerance 5e-2). Then evaluate on the REPORT halves, with the same paired
+bootstrap against its own `base`:
+
+- the task 5 configurations, moved to the 14B model by fraction of depth: layer i of 28 becomes
+  the 14B layer nearest to i × 48 / 28; a block keeps its start fraction and its length fraction,
+  rounded to whole layers;
+- the selection-free reference: `repeat` and `gain(2)` on the layer at 50% of depth.
+
+No search is done on the 14B model, so nothing about it is selected on its own data. Output
+`results/repeat/task5b/confirm.csv`. If the 14B model does not load or runs under 300 tokens per
+second, skip this task and say so in the report.
 
 ### Repeat task 6: report
 
@@ -233,6 +250,8 @@ which rows apply:
 | Similar change on REASON and RECALL | No evidence it is specific to reasoning |
 | Any gain on REASON comes with a loss on TEXT | It trades general quality for the task |
 | Swap heat map shows bands of low loss increase | Groups of layers are interchangeable (QE) |
+| A task 5 effect that counts on 7B has the same sign and an interval excluding zero on 14B (task 5b) | The effect carries over to a deeper model |
+| The same effect is absent or reversed on 14B | The effect is specific to the 7B model |
 | Task 4b positive control failed | The weight comparison cannot find matches; no row below applies |
 | Neuron or head match fraction above 0.2 for neighbouring layers with the outlier set removed | Neighbouring layers share many neurons or heads in weight space (QF) |
 | Match fractions near the null level (below 0.05) at every distance, outlier set removed | Interchangeable or not, layers do not share recognisable neurons or heads (QF no) |
@@ -245,14 +264,15 @@ Stop for review.
 ## 6. Budget
 
 Unknown until task 0. Rough count: task 1 is 5 configurations per layer, task 2 about 60 to 70,
-task 4 about 500 on a small set, task 4b 30 to 60 minutes of weight comparison. At a guessed 25 seconds per full configuration this is 3 to 5
-hours on the 14B model. If task 0 measures more than 60 seconds per configuration, halve the
+task 4 about 300 on a small set, task 4b 20 to 40 minutes of weight comparison, task 5b about
+10 configurations on the 14B model. At a guessed 12 seconds per full configuration on the 7B
+model this is 1.5 to 3 hours. If task 0 measures more than 60 seconds per configuration, halve the
 SEARCH items for tasks 1, 2 and 4 and say so.
 
 ## 7. Limits
 
-- One model family, one size. The original reports used larger models with more layers; a null
-  result on a smaller one does not refute them.
+- One model family. Search is done on 7B only; 14B only confirms. The original reports used
+  larger models with more layers; a null result on smaller ones does not refute them.
 - The model was never trained to be run this way. This measures slack in an existing model, not
   what a model trained with a loop could do (that is Experiment B).
 - REASON is arithmetic only. A gain there is not a gain in "reasoning" in general.

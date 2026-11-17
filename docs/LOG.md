@@ -237,3 +237,13 @@ Results in `results/REPORT_2b.md` (commits 195a037 to a9122f9). Reviewer's readi
 split, but Task 4b shows the split can be imposed: facts go where training puts them. The next
 step in that direction is a model built with a designated memory, studied with its facts held
 apart.
+
+## 2026-11-17: Experiment C switches its main model to 7B
+
+John pointed out that the 7B model runs about twice as fast. Tasks 1 to 4 evaluate hundreds of
+configurations, so speed matters more than depth for the search. The 7B model (28 layers) still
+gives enough middle layers to map. 14B (48 layers) moves to a confirmation step (Repeat task 5b):
+the configurations selected on 7B are moved by fraction of depth and evaluated once on the REPORT
+halves, with no search on 14B. Also recorded: `transformers`, `safetensors` and
+`huggingface_hub` are allowed for Experiment C only, to load Qwen; the forward pass stays in
+`repeat/flow.py`, and no quantisation or `accelerate`.
