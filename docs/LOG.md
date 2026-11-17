@@ -270,3 +270,28 @@ and partial combinations are computed in float32 for exactness. `transformers` 5
   Spearman -0.72, p < 0.001). Absolute match fractions are not trusted: the shuffled-coordinate
   null was too weak (flagged by the agent; the same flaw as Phase 2 Task 5, repeated by the
   reviewer). Task 4c adds a covariance-matched null and a mean-removed comparison.
+
+## 2026-11-17: Experiment C reviewed; Experiment D added
+
+Report in `results/repeat/REPORT.md`. Reviewer's calls on the two open points:
+
+- **QC: accuracy decides.** Log-probability is a secondary score. On REPORT, re-running layer
+  14's MLP lowers REASON accuracy (−0.09) and re-running its attention does not (+0.03, not
+  significant). So repeating the MLP harms answers; neither half improves them.
+- **"Neighbours share units": read as no.** The match measures higher-than-chance similarity,
+  and mutual best matches are rarer than under the covariance null. Layers share directions,
+  not units. The head result is uninformative: matched cosines of 0.05 to 0.07 cannot support
+  "match fractions near 1". What stands is the link: weight similarity predicts swap cost
+  (within-distance Spearman about −0.70).
+
+**Overall.** On 7B, repeating layer 14 or block 8–11 raises the answer's log-probability but
+never accuracy. None of the REASON gains carry over to 14B at the mapped depth; they reverse.
+What carries over is smaller and structural: recomputing beats scaling the update, and a quarter
+pass through the family lowers TEXT loss slightly on both models. Repetition tricks are
+model-specific; the zone structure (entry, a swappable family, a specialised output stretch) is
+the more durable finding, and it is not yet tested on 14B.
+
+**Experiment D** (`basis/PLAN.md`) measures the family's shared directions directly: one
+residual-side basis per matrix type, its kept energy against each layer's own basis and against
+a rotated null, the effect of projecting all family layers onto it, and the compression that
+implies, on 7B and 14B. Weights only, about 1.5 hours.
