@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "selected": {
+    "layer": {
+      "start": 14,
+      "end": 15,
+      "repeat_d_REASON_logprob": 0.3975308111400955,
+      "positive": true
+    },
+    "block": {
+      "start": 8,
+      "end": 12,
+      "repeat_d_REASON_logprob": 0.4947920319250716,
+      "positive": true
+    }
+  },
+  "n_configurations": 14,
+  "wall_seconds": 237.46320509910583
+}

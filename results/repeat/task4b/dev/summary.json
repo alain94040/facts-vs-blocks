@@ -1,0 +1,252 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "seed": 0,
+  "outlier_layer": 12,
+  "outliers": [
+    62,
+    490,
+    570,
+    646,
+    173,
+    208,
+    262,
+    757,
+    53,
+    591,
+    56,
+    483,
+    386,
+    263,
+    697,
+    773
+  ],
+  "outlier_mean_abs": [
+    6.850606441497803,
+    6.320767402648926,
+    4.139679431915283,
+    2.502384662628174,
+    2.0316884517669678,
+    1.97532057762146,
+    1.922893762588501,
+    1.5393059253692627,
+    1.4195263385772705,
+    1.3107671737670898,
+    1.1828773021697998,
+    1.1784658432006836,
+    1.1488893032073975,
+    1.1014474630355835,
+    1.0907831192016602,
+    1.02524733543396
+  ],
+  "median_mean_abs": 0.2226622849702835,
+  "positive_control": {
+    "all": {
+      "neuron_recovered": 1.0,
+      "head_recovered": 1.0,
+      "median_neuron_similarity": 2.858302593231201
+    },
+    "no_outliers": {
+      "neuron_recovered": 1.0,
+      "head_recovered": 1.0,
+      "median_neuron_similarity": 2.858035087585449
+    },
+    "layer": 12,
+    "noise": 0.3,
+    "pass": true
+  },
+  "n_ordered_pairs": 247,
+  "n_unordered_pairs": 147,
+  "link_to_task4": {
+    "all/neuron_match_frac": {
+      "n_pairs": 247,
+      "spearman_overall": -0.41968661668607155,
+      "spearman_overall_p": 5.86631595409191e-12,
+      "within_distance": {
+        "1": -0.8062643239113826,
+        "2": -0.8707212815599352,
+        "3": -0.7573720397249809,
+        "4": -0.5835561497326204,
+        "5": -0.48049198752099886,
+        "6": -0.4123152709359605,
+        "7": -0.37606837606837606,
+        "8": -0.3230769230769231
+      },
+      "mean_within_distance": -0.5762332940663972,
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0
+    },
+    "all/head_match_frac": {
+      "n_pairs": 247,
+      "spearman_overall": 0.14521032821365773,
+      "spearman_overall_p": 0.022448323782082582,
+      "within_distance": {
+        "1": 0.09803374626136156,
+        "2": 0.25731689505415783,
+        "3": 0.3000863215482622,
+        "4": 0.23984739051119983,
+        "5": -0.03351940476003421,
+        "6": 0.1115891485047842,
+        "7": 0.29785585277770826,
+        "8": 0.16606185080939465
+      },
+      "mean_within_distance": 0.1796589750883543,
+      "perm_p_one_sided_negative": 0.998,
+      "perm_p_two_sided": 0.005
+    },
+    "no_outliers/neuron_match_frac": {
+      "n_pairs": 247,
+      "spearman_overall": -0.3834578742276633,
+      "spearman_overall_p": 4.4905193230759256e-10,
+      "within_distance": {
+        "1": -0.8031784934852614,
+        "2": -0.8359052711993887,
+        "3": -0.7170359052711993,
+        "4": -0.5344251336898396,
+        "5": -0.4056451612903226,
+        "6": -0.3088669950738916,
+        "7": -0.27568310502843835,
+        "8": -0.26
+      },
+      "mean_within_distance": -0.5175925081297927,
+      "perm_p_one_sided_negative": 0.0,
+      "perm_p_two_sided": 0.0
+    },
+    "no_outliers/head_match_frac": {
+      "n_pairs": 247,
+      "spearman_overall": 0.09964542144030565,
+      "spearman_overall_p": 0.11828874216574603,
+      "within_distance": {
+        "1": -0.10914541467902945,
+        "2": -0.09263234452789855,
+        "3": 0.29517180092075157,
+        "4": 0.1930995000114771,
+        "5": 0.12936417324680022,
+        "6": -0.0161696194920081,
+        "7": 0.3943576408376823,
+        "8": 0.1771068805823595
+      },
+      "mean_within_distance": 0.12139407711251683,
+      "perm_p_one_sided_negative": 0.972,
+      "perm_p_two_sided": 0.054
+    }
+  },
+  "by_distance": {
+    "all": {
+      "1": {
+        "neuron_match_frac": 0.9316043440402477,
+        "neuron_mutual_frac": 0.32154000580495357,
+        "head_match_frac": 0.98109243697479,
+        "neuron_median_best": 0.40101802173782797,
+        "neuron_median_best_null": 0.2200039853067959
+      },
+      "2": {
+        "neuron_match_frac": 0.8696062306501549,
+        "neuron_mutual_frac": 0.32929203753869973,
+        "head_match_frac": 0.9600840336134455,
+        "neuron_median_best": 0.36419019891935234,
+        "neuron_median_best_null": 0.2200261867221664
+      },
+      "3": {
+        "neuron_match_frac": 0.771702060758514,
+        "neuron_mutual_frac": 0.33232754450464397,
+        "head_match_frac": 0.9369747899159664,
+        "neuron_median_best": 0.32526589141172524,
+        "neuron_median_best_null": 0.22004016225828843
+      },
+      "4": {
+        "neuron_match_frac": 0.683930173444976,
+        "neuron_mutual_frac": 0.33694054027113235,
+        "head_match_frac": 0.9242424242424242,
+        "neuron_median_best": 0.3055336949500171,
+        "neuron_median_best_null": 0.2200078426888495
+      },
+      "5": {
+        "neuron_match_frac": 0.5743845500848896,
+        "neuron_mutual_frac": 0.3494070988964346,
+        "head_match_frac": 0.9539170506912441,
+        "neuron_median_best": 0.28452710855391716,
+        "neuron_median_best_null": 0.21995319522196247
+      },
+      "6": {
+        "neuron_match_frac": 0.48411978221415614,
+        "neuron_mutual_frac": 0.35648253176043554,
+        "head_match_frac": 0.938423645320197,
+        "neuron_median_best": 0.2724986518251485,
+        "neuron_median_best_null": 0.2199951179068664
+      },
+      "7": {
+        "neuron_match_frac": 0.3957800316764133,
+        "neuron_mutual_frac": 0.3696013036062378,
+        "head_match_frac": 0.9232804232804233,
+        "neuron_median_best": 0.2642620857115145,
+        "neuron_median_best_null": 0.2200866965232072
+      },
+      "8": {
+        "neuron_match_frac": 0.33953125,
+        "neuron_mutual_frac": 0.3777713815789474,
+        "head_match_frac": 0.8514285714285714,
+        "neuron_median_best": 0.25942819952964785,
+        "neuron_median_best_null": 0.21995795547962188
+      }
+    },
+    "no_outliers": {
+      "1": {
+        "neuron_match_frac": 0.9031540247678018,
+        "neuron_mutual_frac": 0.3227735584365325,
+        "head_match_frac": 0.9621848739495799,
+        "neuron_median_best": 0.39151883826536293,
+        "neuron_median_best_null": 0.2219529423643561
+      },
+      "2": {
+        "neuron_match_frac": 0.8228098393962847,
+        "neuron_mutual_frac": 0.33149308243034054,
+        "head_match_frac": 0.9411764705882353,
+        "neuron_median_best": 0.3549365602871951,
+        "neuron_median_best_null": 0.22199235505917492
+      },
+      "3": {
+        "neuron_match_frac": 0.7052111551857586,
+        "neuron_mutual_frac": 0.3382171536377709,
+        "head_match_frac": 0.9264705882352942,
+        "neuron_median_best": 0.31627119814648347,
+        "neuron_median_best_null": 0.22199966714662664
+      },
+      "4": {
+        "neuron_match_frac": 0.6060045354864433,
+        "neuron_mutual_frac": 0.3476687101275917,
+        "head_match_frac": 0.8722943722943722,
+        "neuron_median_best": 0.2968475619951884,
+        "neuron_median_best_null": 0.2219164655967192
+      },
+      "5": {
+        "neuron_match_frac": 0.48997904286926997,
+        "neuron_mutual_frac": 0.3657284592529711,
+        "head_match_frac": 0.9354838709677417,
+        "neuron_median_best": 0.2767397396026119,
+        "neuron_median_best_null": 0.22191240902869933
+      },
+      "6": {
+        "neuron_match_frac": 0.39246115018148825,
+        "neuron_mutual_frac": 0.37921109346642473,
+        "head_match_frac": 0.9014778325123153,
+        "neuron_median_best": 0.2654417583654667,
+        "neuron_median_best_null": 0.22204989092103367
+      },
+      "7": {
+        "neuron_match_frac": 0.306020041423002,
+        "neuron_mutual_frac": 0.3972953216374269,
+        "head_match_frac": 0.8888888888888888,
+        "neuron_median_best": 0.2577615154010278,
+        "neuron_median_best_null": 0.22205202667801469
+      },
+      "8": {
+        "neuron_match_frac": 0.2576480263157894,
+        "neuron_mutual_frac": 0.40716282894736844,
+        "head_match_frac": 0.8142857142857143,
+        "neuron_median_best": 0.25324460208415983,
+        "neuron_median_best_null": 0.22190197348594665
+      }
+    }
+  },
+  "wall_seconds": 45.80064797401428
+}
