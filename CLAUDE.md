@@ -2,7 +2,7 @@
 
 You are executing `PLAN.md`. Read it fully before writing code. These rules override your defaults.
 
-Two further, independent experiments have their own plans: `loop/PLAN.md` and `repeat/PLAN.md`.
+Further, independent experiments have their own plans: `loop/PLAN.md`, `repeat/PLAN.md` and `basis/PLAN.md`.
 Work on one only when asked to, never while another run is using the GPU, and without editing files
 outside that experiment's own folder and its folder under `results/`.
 
