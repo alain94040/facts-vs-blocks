@@ -1,0 +1,18 @@
+{
+  "head_fraction_recur": {
+    "pilot-story": 1.0
+  },
+  "neuron": {
+    "pilot": {
+      "seed1": {
+        "frac_above_0.5": 0.08154296875,
+        "frac_above_0.8": 0.00439453125
+      },
+      "null_untrained": {
+        "frac_above_0.5": 0.0008138020833333334,
+        "frac_above_0.8": 0.0
+      }
+    }
+  },
+  "wall_seconds": 110.95532417297363
+}

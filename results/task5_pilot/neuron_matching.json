@@ -1,0 +1,116 @@
+{
+  "pilot": {
+    "seed0": "P2-main-2k-s0",
+    "positions": {
+      "story": 121953,
+      "format": 78047
+    },
+    "seed1": {
+      "other": "P1-main-2k-s0",
+      "by_layer": [
+        {
+          "layer": 0,
+          "frac_above_0.5": 0.2255859375,
+          "frac_above_0.8": 0.0087890625,
+          "median_best_corr": 0.41846661763083337
+        },
+        {
+          "layer": 1,
+          "frac_above_0.5": 0.0244140625,
+          "frac_above_0.8": 0.0009765625,
+          "median_best_corr": 0.2284888195413564
+        },
+        {
+          "layer": 2,
+          "frac_above_0.5": 0.0390625,
+          "frac_above_0.8": 0.001953125,
+          "median_best_corr": 0.21711438623376933
+        },
+        {
+          "layer": 3,
+          "frac_above_0.5": 0.029296875,
+          "frac_above_0.8": 0.001953125,
+          "median_best_corr": 0.2097861507233867
+        },
+        {
+          "layer": 4,
+          "frac_above_0.5": 0.0654296875,
+          "frac_above_0.8": 0.0048828125,
+          "median_best_corr": 0.23523325548063634
+        },
+        {
+          "layer": 5,
+          "frac_above_0.5": 0.10546875,
+          "frac_above_0.8": 0.0078125,
+          "median_best_corr": 0.2913032761418799
+        }
+      ],
+      "frac_above_0.5": 0.08154296875,
+      "frac_above_0.8": 0.00439453125,
+      "inside_knowledge_set": {
+        "n": 256,
+        "frac_above_0.5": 0.31640625,
+        "frac_above_0.8": 0.03125
+      },
+      "outside_knowledge_set": {
+        "n": 5888,
+        "frac_above_0.5": 0.07133152173913043,
+        "frac_above_0.8": 0.0032269021739130435
+      }
+    },
+    "null_untrained": {
+      "other": "untrained-s0",
+      "by_layer": [
+        {
+          "layer": 0,
+          "frac_above_0.5": 0.0048828125,
+          "frac_above_0.8": 0.0,
+          "median_best_corr": 0.16424692088013945
+        },
+        {
+          "layer": 1,
+          "frac_above_0.5": 0.0,
+          "frac_above_0.8": 0.0,
+          "median_best_corr": 0.086792090761308
+        },
+        {
+          "layer": 2,
+          "frac_above_0.5": 0.0,
+          "frac_above_0.8": 0.0,
+          "median_best_corr": 0.08528702183277857
+        },
+        {
+          "layer": 3,
+          "frac_above_0.5": 0.0,
+          "frac_above_0.8": 0.0,
+          "median_best_corr": 0.0856943703486456
+        },
+        {
+          "layer": 4,
+          "frac_above_0.5": 0.0,
+          "frac_above_0.8": 0.0,
+          "median_best_corr": 0.09300524479545383
+        },
+        {
+          "layer": 5,
+          "frac_above_0.5": 0.0,
+          "frac_above_0.8": 0.0,
+          "median_best_corr": 0.11003017668543112
+        }
+      ],
+      "frac_above_0.5": 0.0008138020833333334,
+      "frac_above_0.8": 0.0,
+      "inside_knowledge_set": {
+        "n": 256,
+        "frac_above_0.5": 0.01171875,
+        "frac_above_0.8": 0.0
+      },
+      "outside_knowledge_set": {
+        "n": 5888,
+        "frac_above_0.5": 0.00033967391304347825,
+        "frac_above_0.8": 0.0
+      }
+    }
+  },
+  "seed": 0
+}

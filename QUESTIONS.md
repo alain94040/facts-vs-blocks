@@ -78,3 +78,16 @@ Question: keep float32 for Task 2, or investigate fp16 (e.g. GradScaler / fp32 a
 Decision made without asking, following answer 1: for main-0, the reference sample for the
 mean-ablation of heads (STORY-loss effect) is the first 1,000 STORY rows only, since FORMAT
 biographies are meaningless input for a model that never trained the entity tokens.
+
+## Raised after the real Task 5 run (2026-11-17); method not changed
+
+- **Head-matching null may be weak.** The plan's null shuffles every feature column independently
+  across the seed-1 heads. That breaks the correlations among the 30 spectral values, so shuffled
+  "heads" sit far from any real head (null median distance 5.4 to 6.8, against 2.1 to 3.5 for the
+  real nearest match). The recurrence fraction is 0.98 to 1.00 for every pair, including main-2k s0
+  against main-32k s0. The pilot pair also gave 1.00. I saw that number before the real run and
+  did not flag it then. I should have. A stricter null (for example, nearest distance to a head of
+  the untrained model, or to a head of another layer) would be a method change, so it is left to
+  the reviewer.
+- **The knowledge set sits in layer 0** for every run. fork-A and fork-B have K = 8, with all 8
+  neurons in layer 0, so H3 is the same hybrid as H4 for both forks.
