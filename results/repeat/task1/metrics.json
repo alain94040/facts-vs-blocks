@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "k": 3,
+  "n_layers": 28,
+  "n_configurations": 140,
+  "base_search": {
+    "TEXT_loss": 2.6041370379924773,
+    "REASON_logprob": -2.5100744818666136,
+    "REASON_acc": 0.38,
+    "RECALL_logprob": -0.02566728665769303,
+    "RECALL_acc": 1.0,
+    "RECALL-HARD_logprob": -0.2495270268782672,
+    "RECALL-HARD_acc": 0.9391304347826087
+  },
+  "n_search_items": {
+    "TEXT": 100,
+    "REASON": 200,
+    "RECALL": 130,
+    "RECALL-HARD": 115
+  },
+  "wall_seconds": 2118.8483798503876
+}
