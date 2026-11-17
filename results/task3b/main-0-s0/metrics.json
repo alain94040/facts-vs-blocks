@@ -1,0 +1,400 @@
+{
+  "run": "main-0-s0",
+  "seed": 0,
+  "ckpt": "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/checkpoints/task2/main-0-s0/step_4559.pt",
+  "fact_set": "A",
+  "n_people": 0,
+  "probes": {
+    "birth_city": {
+      "n_classes": 200,
+      "chance": 0.005,
+      "NAME": [
+        {
+          "point": 0,
+          "train_acc": 0.42875,
+          "test_acc": 0.005
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        }
+      ],
+      "END": [
+        {
+          "point": 0,
+          "train_acc": 0.01375,
+          "test_acc": 0.01
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        }
+      ]
+    },
+    "university": {
+      "n_classes": 300,
+      "chance": 0.0033333333333333335,
+      "NAME": [
+        {
+          "point": 0,
+          "train_acc": 0.4275,
+          "test_acc": 0.005
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        }
+      ],
+      "END": [
+        {
+          "point": 0,
+          "train_acc": 0.01,
+          "test_acc": 0.0
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        }
+      ]
+    },
+    "major": {
+      "n_classes": 100,
+      "chance": 0.01,
+      "NAME": [
+        {
+          "point": 0,
+          "train_acc": 0.42625,
+          "test_acc": 0.02
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        }
+      ],
+      "END": [
+        {
+          "point": 0,
+          "train_acc": 0.02,
+          "test_acc": 0.015
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.015
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        }
+      ]
+    },
+    "employer": {
+      "n_classes": 250,
+      "chance": 0.004,
+      "NAME": [
+        {
+          "point": 0,
+          "train_acc": 0.425,
+          "test_acc": 0.01
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        }
+      ],
+      "END": [
+        {
+          "point": 0,
+          "train_acc": 0.01375,
+          "test_acc": 0.005
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.01
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.005
+        }
+      ]
+    },
+    "employer_city": {
+      "n_classes": 200,
+      "chance": 0.005,
+      "NAME": [
+        {
+          "point": 0,
+          "train_acc": 0.43125,
+          "test_acc": 0.0
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        }
+      ],
+      "END": [
+        {
+          "point": 0,
+          "train_acc": 0.0125,
+          "test_acc": 0.005
+        },
+        {
+          "point": 1,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 2,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 3,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 4,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 5,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        },
+        {
+          "point": 6,
+          "train_acc": 1.0,
+          "test_acc": 0.0
+        }
+      ]
+    }
+  },
+  "wall_seconds": 17.25220489501953
+}

@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python analysis/task3b.py --runs main-2k-s0 main-2k-s1 main-8k-s0 main-8k-s1 main-32k-s0 main-32k-s1 ctrl-8k-x4-s0 fork-A-s0 fork-B-s0 main-0-s0 --transfer fork-A-s0 fork-B-s0 --task3 results/task3 --out results/task3b --seed 0
