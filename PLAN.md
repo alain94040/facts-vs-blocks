@@ -345,3 +345,150 @@ marking which rows of this table apply:
 | Gate 2 failed | Models undertrained or broken | Fix training; no analysis is valid yet |
 
 **End of Phase 2. Stop for human review.**
+
+## Phase 2b: follow-up analysis (added after the Phase 2 review)
+
+Phase 2 results and the reviewer's reading are in `results/REPORT.md` and `docs/LOG.md`. In short:
+the Task 3 "knowledge set" turned out to be a shared entry stage in layer 0 (it shrinks as people
+grow and recurs across seeds), no partial swap in Task 4 moved any donor fact, and the Task 5 head
+null was too weak. Phase 2b asks three narrower questions on the same models. No new model is
+trained from scratch.
+
+**Rules for this phase:** the same as Phase 2. Develop every script on the pilot `P2-main-2k-s0`
+(or `P1-main-2k-s0` where two models are needed), then run it once on the real models. Do not
+adjust a method after seeing real-model results; write to `QUESTIONS.md` instead. Reuse STORY,
+FACT, FORMAT, the mean reference sample and `I_D` from Phase 2 unchanged. Commit after each task
+as `task 3b: ...`, `task 4b: ...`, `task 5b: ...`, `task 6b: ...`.
+
+**Time:** Task 3b and 5b take minutes per model. Task 4b trains six short fine-tunes of about
+10 minutes each.
+
+### Task 3b: where the per-person content is stored
+
+Models: main-2k, main-8k, main-32k (both seeds), ctrl-8k-x4, fork-A, fork-B.
+
+1. **Layer-matched random baseline.** For each run's Task 3 knowledge set, draw 3 random neuron
+   sets with exactly the same number of neurons in each layer (seed 0). Ablate each and record
+   FACT recall, STORY loss, FORMAT loss, name-copy accuracy. Report next to the knowledge-set
+   numbers from Task 3.
+2. **Per-layer curves.** For each layer L separately, ablate the top k neurons of layer L by
+   `I_FACT`, for k = 8, 16, 32, ..., 1024, and record the same four numbers. `K_L` = the smallest
+   k at which FACT recall falls to half or below (write `none` if it never does). Report `K_L`
+   per layer per run.
+3. **Per-person attribution.** Take people 0 to 199 of the run's FACT set (for fork-B, set B).
+   For person p, `I_p(c)` is `I_D(c)` computed on that person's 24 FACT prompts only (6
+   attributes times templates 1 to 4). For every neuron, compute the participation ratio
+   `PR(c) = (sum_p I_p(c))^2 / sum_p I_p(c)^2`, a number from 1 (the neuron matters for one person)
+   to 200 (it matters equally for all). Keep only neurons whose `sum_p I_p(c)` is in the top 20%
+   of their run. Report, per layer and per run, the median PR and the count of kept neurons with
+   PR below 10.
+4. **Own-person ablation.** For people 0 to 49: ablate that person's top 32 neurons by `I_p`
+   (all layers together). Record recall on that person's 24 prompts, and mean recall on the 24
+   prompts of each of 49 other people (people 50 to 249, a fixed draw of 49 per person, seed 0).
+   Repeat with the top 32 neurons restricted to layers 1 to 5. Report mean own-recall drop and
+   mean other-recall drop, for both variants. Specific storage shows as an own drop much larger
+   than the other drop.
+5. **Linear read-out probes.** For people 0 to 999 of the run's FACT set and the five attributes
+   other than birth date, take the residual stream (after the embeddings and after each of the
+   6 blocks, so 7 points) at two positions of the template 1 FACT prompt: NAME (the last-name
+   token) and END (the last prompt token, just before the answer). Fit one linear classifier per
+   attribute, layer point and position, in PyTorch: a linear layer to the attribute's number of
+   values, cross-entropy, Adam with learning rate 1e-2, weight decay 1e-3, 500 full-batch steps,
+   inputs standardised with training-set statistics. Train on people 0 to 799, test on 800 to
+   999. Report test accuracy. Chance is 1 / (number of values), at most 1/100. A probe can only
+   score above chance on unseen people if the model writes the value in a shared linear
+   coordinate, which is the "relation as a shared read-out" idea in `docs/BACKGROUND.md`
+   section 8.
+6. **Probe transfer between forks.** Apply each fork-A probe (fitted on set-A people 0 to 799 in
+   fork-A) to fork-B's residuals for set-B people 800 to 999, and the reverse. Report accuracy.
+7. **Fork knowledge set.** For the 8 knowledge-set neurons of each fork: mean activation on
+   entity tokens (the 1,550 added ids), on other tokens of FORMAT, and on STORY tokens. Also the
+   same three numbers for 8 random layer-0 neurons.
+
+Control: steps 1 and 7 contain their own random draws. For steps 3 and 5, also run them on
+`main-0` seed 0 where possible: step 5 with the same FACT inputs gives the probe accuracy of a
+model that knows no facts (expected near chance). Skip step 3 for main-0.
+
+Output: `results/task3b/<run>/metrics.json`, `results/task3b/summary.csv`, and plots: per-layer
+`K_L`; PR histograms by layer for main-2k, main-8k, main-32k seed 0; probe accuracy against layer
+point, one panel per attribute, NAME and END as two lines per run.
+
+### Task 4b: where new facts can be written
+
+Start from fork-A. Fine-tune it on 1,000 new people, set B people 0 to 999, while only one part
+of the model may change. All other weights are frozen.
+
+| Variant | Trainable |
+| --- | --- |
+| F-all | All weights (reference) |
+| F-attn | Attention `qkv` and `out` of every block |
+| F-mlp | MLP `up` and `down` of every block |
+| F-mlp34 | MLP `up` and `down` of layers 3 and 4 only |
+| F-L0 | Attention and MLP of layer 0 only |
+| F-emb | Token embeddings only (tied with the output) |
+
+LayerNorms and position embeddings are frozen in every variant except F-all.
+
+**Data.** Build with `data/build_stream.py` logic: the 1,000 people rendered 300 times each with
+the Task 2b template rules (set-B people indices 0 to 999 keep their even/odd template-5 rule),
+interleaved at the document level with the Task 2 story stream starting from its beginning, with
+equal numbers of story and biography tokens. Same stream for every variant (seed 0).
+
+**Training.** AdamW, betas 0.9 and 0.95, weight decay 0.1 on trainable weights only, learning
+rate 3e-4 with 1% warmup and cosine decay to 3e-5, batch 256 by 256, float32, clipping 1.0, one
+pass over the stream. Before the first variant run 50 steps as usual (CLAUDE.md rule 5).
+
+**Measures,** at the end of each variant: recall on set-B people 0 to 999 (training templates,
+and template 5 held out for odd indices), recall on set-A people 0 to 999 (retention), STORY
+loss, FORMAT loss, name-copy accuracy. Also record the number of trainable parameters.
+
+Prediction if facts can be confined to a separate memory region: F-mlp34 (or F-mlp) reaches at
+least 80% of F-all's new-people recall, keeps set-A recall within 0.05 of fork-A, and raises
+STORY loss by less than 0.02.
+
+Output: `results/task4b/<variant>/metrics.json`, `results/task4b/summary.csv`, one bar chart.
+
+### Task 5b: a fair test for recurring heads
+
+Use the head feature table `results/task5/heads.csv` from Task 5 without recomputing it.
+
+1. **Gaussian null.** For a comparison of model X against model Y, fit the mean and full
+   covariance of Y's 48 standardised feature vectors (add 1e-3 times the identity to the
+   covariance). Draw 48 null heads from that Gaussian, 100 times (seed 0). For each head of X,
+   the null distribution is its nearest distance to the null heads in each draw; it recurs if
+   its real nearest distance in Y is below the 5th percentile. Report the fraction of heads that
+   recur, for the same pairs as Task 5, plus main-8k s0 against main-0 s0 (STORY features; a
+   model with facts against one without) and a sanity pair, main-8k s0 against the untrained
+   model (STORY features), which should not recur.
+2. **One-to-one matching.** Match the 48 heads of X to the 48 heads of Y with
+   `scipy.optimize.linear_sum_assignment` on Euclidean distance. Report the median matched
+   distance, the same for X against each of the 100 null draws (median and 5th percentile), and
+   the fraction of matched pairs in the same layer (chance 1/6).
+3. **How many head types.** Pool the STORY features of the 11 trained models (528 heads). Run
+   k-means for k = 2 to 20 (10 restarts each, seed 0) and compute the mean silhouette score with
+   `scipy.spatial.distance`. Do the same on 528 heads drawn from one Gaussian fitted to the
+   pooled heads. Report both curves and the k with the best trained silhouette. For that k,
+   report per cluster: size, mean of the four STORY attention scores, the layers it occupies,
+   and how many of the 11 models contribute at least one head.
+
+Output: `results/task5b/metrics.json`, plots of recurrence fraction per pair (old null and new
+null side by side) and of silhouette against k (trained and null).
+
+### Task 6b: report
+
+Write `results/REPORT_2b.md` with the numbers and plots of Tasks 3b to 5b. No interpretation
+beyond marking which rows of this table apply:
+
+| Result | What it means |
+| --- | --- |
+| Own-person ablation (layers 1 to 5 variant) drops own recall at least 3 times more than other people's, and the count of kept neurons with PR below 10 grows with N | Per-person content sits in identifiable neurons outside layer 0 |
+| Own and other drops within a factor of 1.5, and median PR above 50 in every layer | Per-person content is spread thinly over many shared neurons |
+| Probe test accuracy above 0.5 for at least 3 attributes at some END layer point, and main-0 near chance | Each attribute has a shared linear read-out (a reusable block); people are data |
+| Fork-A probes score above 0.5 on fork-B people | That read-out is shared between the two forks |
+| F-mlp34 or F-mlp meets the Task 4b prediction | New facts can be confined to the MLPs |
+| F-emb reaches at least 50% of F-all's new-people recall | Much of a person's identity can live in the name embeddings |
+| Under the Gaussian null, recurrence for trained pairs is above 0.5 and for the untrained sanity pair below 0.2 | Heads recur across seeds and fact loads |
+| Trained silhouette beats the null's at its best k by at least 0.1 | Heads fall into a small number of types |
+| Trained silhouette within 0.05 of the null at every k | No evidence of head types |
+
+**End of Phase 2b. Stop for human review.**
