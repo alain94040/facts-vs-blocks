@@ -196,6 +196,19 @@ this file, and the Task 4 commit staged files into it by mistake. The agent rest
 git's stored copies without rerunning anything. The merge was not completed; `loop-plan` (PR #5)
 was later updated to merge cleanly on GitHub.
 
+## 2026-11-17: Experiment C gets a weight comparison (Repeat task 4b)
+
+John asked whether layer repetition is the best evidence of something abstract in the middle
+layers, and proposed looking for what those layers have in common. A gain from repeating a layer
+mainly shows that the layers share one residual format, so one layer's output is valid input for
+another; it is weak evidence about reasoning. Task 4 already tests interchangeability by
+behaviour. Task 4b adds the direct test: align the neurons and heads of two layers (their order
+is arbitrary, the residual coordinates are shared), compare the aligned weights against a
+shuffled null, guard against a few outlier residual coordinates, check with a planted positive
+control that the method can find matches at all, and ask whether the layers that swap well are
+the ones whose weights match, beyond the effect of distance. Weights only; about an hour on the
+Mac.
+
 ## 2026-11-17: Phase 2b reviewed; Phase 2c fixes the probes
 
 Results in `results/REPORT_2b.md` (commits 195a037 to a9122f9). Reviewer's reading:

@@ -25,6 +25,7 @@ The rules in `CLAUDE.md` apply. In addition:
 | QC | Which half of a layer matters? | attention-only repeat vs MLP-only repeat |
 | QD | Does repetition help reasoning more than recall? | gain on multi-step questions vs gain on single facts |
 | QE | Which layers can stand in for each other? | layer j run in place of layer i |
+| QF | Do layers that can stand in for each other also have matching weights, once the order of their neurons and heads is ignored? | aligned weights of layer i and layer j, against a shuffled null and against QE |
 
 ## 2. Notation and interventions
 
@@ -125,6 +126,85 @@ in tasks 1 and 2 (if nothing has a positive gain, take the least negative and sa
 For layers i between 15% and 85% of depth and every j with |i - j| at most 8: `swap(i,j)`, scored
 on 50 TEXT chunks. Output `results/repeat/task4/swap.csv` and a heat map of loss increase.
 
+### Repeat task 4b: do interchangeable layers share weights? (weights only)
+
+Task 4 measures interchangeability by behaviour. This task compares the weights themselves. It
+runs no evaluation set except one short measurement in step 1, so it uses neither SEARCH nor
+REPORT items for selection.
+
+**What may and may not differ between two layers.** All layers read from and write to the same
+residual stream, so the 5,120 residual coordinates (896 on the development model) mean the same
+thing in every layer, and no alignment is needed on that side. What is arbitrary is the order of
+the hidden units inside a layer: the MLP neurons, the attention heads, and the KV groups. Inside
+a head, only the products `W_Q W_K^T` and `W_V W_O` are free of internal basis choices. So the
+comparison matches neurons to neurons and heads to heads, and compares vectors in residual
+coordinates.
+
+Load weights one layer at a time from the safetensors files on CPU. Compute in float32, on MPS
+in chunks for the large products. Never hold more than two layers in memory.
+
+1. **Preparation.**
+   - Fold each RMSNorm gain into the weights that read from it: multiply the columns of
+     `q_proj`, `k_proj`, `v_proj` by the input norm's gain, and those of `gate_proj` and
+     `up_proj` by the post-attention norm's gain.
+   - **Outlier dimensions.** Run the unmodified model on the first 20 TEXT SEARCH chunks and
+     record the mean absolute value of each residual coordinate at the input of the layer at 50%
+     of depth. The 16 largest are the outlier set `O`. Every measurement below is done twice:
+     on all coordinates, and with the coordinates in `O` set to zero in every vector. A few huge
+     shared coordinates can make unrelated vectors look alike; the second version removes that.
+2. **MLP neuron vectors.** Neuron n of a layer has three vectors in residual coordinates: its
+   gate row `g_n`, its up row `u_n` (rows of `gate_proj` and `up_proj`), and its output column
+   `d_n` (column of `down_proj`). The similarity of neuron n in layer i and neuron m in layer j is
+   `s(n,m) = cos(g_n, g_m) + |cos(u_n, u_m) + cos(d_n, d_m)|`, between -1 and 3. The absolute
+   value is there because flipping the signs of both `u` and `d` leaves the neuron unchanged.
+   For each neuron of layer i, record its best match in layer j (the m with the largest s), and
+   whether the match is mutual (n is also m's best match in layer i).
+3. **Attention heads.** For Q head h, with `W_V` from its KV group:
+   - `OV_h = W_V^T W_O,h`, a 5,120 by 5,120 matrix of rank 128. Never form it: the cosine
+     between two such products, `<A, B> / (|A| |B|)` with `<A, B> = trace((U_A^T U_B)(V_B V_A^T))`
+     for `A = U_A V_A`, needs only 128 by 128 products.
+   - `QK_h = W_Q,h^T W_K` in the same way. Rotary position embedding means this is the attention
+     pattern at relative offset 0 only; say so in the report.
+   Head similarity = mean of the OV cosine and the QK cosine. Match the heads of layer i to those
+   of layer j one to one with `scipy.optimize.linear_sum_assignment`, maximising total similarity.
+4. **Null.** Build a shuffled copy of layer j: apply an independent random permutation of the
+   residual coordinates to every vector (each `g_m`, `u_m`, `d_m`, and each head's factor
+   matrices, seed 0). It keeps every value and every norm but breaks the alignment with the
+   residual stream. Recompute steps 2 and 3 against it. A neuron of layer i "has a match" if its
+   best similarity in the real layer j is above the 99th percentile of its best similarity
+   against the null. Same rule for matched heads.
+5. **Positive control.** Make a copy of one layer at 50% of depth with its neurons and heads
+   randomly reordered, and Gaussian noise added to every weight at 30% of that weight matrix's
+   standard deviation. Compare it with the original. At least 90% of neurons and heads must be
+   recovered (best match = the true partner). If not, the method cannot find real matches; write
+   `STOP.md`. Do this on the development model first, then on the main model.
+6. **Pairs.** Exactly the (i, j) pairs of task 4: i between 15% and 85% of depth, j with
+   |i - j| at most 8, j different from i. Similarities are symmetric in the summary but the
+   best-match fraction is not, so compute both directions.
+7. **Per pair, record:** fraction of neurons of i with a match in j, fraction of mutual matches,
+   median best-match similarity, the same median against the null, fraction of heads with a
+   match, mean matched OV cosine, mean matched QK cosine, and the same two means against the
+   null. Each with and without the outlier set.
+8. **Link to task 4.** Across all pairs, the Spearman correlation between the fraction of
+   neurons with a match and the task 4 loss increase of `swap(i,j)`; the same for the fraction
+   of heads with a match. Distance alone drives both (neighbouring layers are more alike in both
+   respects), so also compute it within each distance |i - j| = 1 to 8, and report the mean of
+   the eight within-distance correlations. Its p-value comes from a permutation test: within each
+   distance, shuffle the similarity values across pairs 1,000 times (seed 0) and recompute the
+   mean.
+9. **Groups of layers.** From the pair table, build a layer-by-layer matrix of neuron match
+   fraction (mean of the two directions; pairs further than 8 apart left empty). Plot it next
+   to the task 4 heat map, on the same axes.
+
+Output: `results/repeat/task4b/pairs.csv` (one row per ordered pair and outlier setting),
+`results/repeat/task4b/summary.json` (positive control, correlations, p-values), heat maps of
+neuron match fraction and head match fraction next to the task 4 swap map, and a histogram of
+best-match similarity for real and null at |i - j| = 1, 4 and 8.
+
+Expected cost on the main model: about 270 unordered pairs, each a few large matrix products,
+so roughly 30 to 60 minutes, mostly reading weights from disk. Weight reading dominates: read
+each layer once per neighbourhood and reuse it, rather than once per pair.
+
 ### Repeat task 5: confirm on REPORT
 
 Evaluate on the REPORT halves, with paired bootstrap intervals against `base`:
@@ -153,13 +233,19 @@ which rows apply:
 | Similar change on REASON and RECALL | No evidence it is specific to reasoning |
 | Any gain on REASON comes with a loss on TEXT | It trades general quality for the task |
 | Swap heat map shows bands of low loss increase | Groups of layers are interchangeable (QE) |
+| Task 4b positive control failed | The weight comparison cannot find matches; no row below applies |
+| Neuron or head match fraction above 0.2 for neighbouring layers with the outlier set removed | Neighbouring layers share many neurons or heads in weight space (QF) |
+| Match fractions near the null level (below 0.05) at every distance, outlier set removed | Interchangeable or not, layers do not share recognisable neurons or heads (QF no) |
+| Matches above 0.05 only with the outlier set kept | Apparent sharing comes from a few large residual coordinates, not from shared units |
+| Mean within-distance correlation between match fraction and swap loss increase is negative, permutation p below 0.05 | Layers that can stand in for each other are the ones whose weights match (QE and QF agree) |
+| Correlation near zero or p above 0.05 | Interchangeability is not explained by shared units |
 
 Stop for review.
 
 ## 6. Budget
 
 Unknown until task 0. Rough count: task 1 is 5 configurations per layer, task 2 about 60 to 70,
-task 4 about 500 on a small set. At a guessed 25 seconds per full configuration this is 3 to 5
+task 4 about 500 on a small set, task 4b 30 to 60 minutes of weight comparison. At a guessed 25 seconds per full configuration this is 3 to 5
 hours on the 14B model. If task 0 measures more than 60 seconds per configuration, halve the
 SEARCH items for tasks 1, 2 and 4 and say so.
 
@@ -171,3 +257,8 @@ SEARCH items for tasks 1, 2 and 4 and say so.
   what a model trained with a loop could do (that is Experiment B).
 - REASON is arithmetic only. A gain there is not a gain in "reasoning" in general.
 - Interventions apply to every token position. Selecting positions is a possible follow-up.
+- Task 4b compares units one to one. Two layers can compute the same function with different
+  neurons in superposition, which a one-to-one comparison misses; matching subspaces (for
+  example with an SVD of the stacked weights, as in Basis Sharing, arXiv 2410.03765) is the
+  next step if units do not match. It also ignores rotations inside a head beyond the two
+  invariant products.
