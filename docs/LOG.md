@@ -208,3 +208,32 @@ shuffled null, guard against a few outlier residual coordinates, check with a pl
 control that the method can find matches at all, and ask whether the layers that swap well are
 the ones whose weights match, beyond the effect of distance. Weights only; about an hour on the
 Mac.
+
+## 2026-11-17: Phase 2b reviewed; Phase 2c fixes the probes
+
+Results in `results/REPORT_2b.md` (commits 195a037 to a9122f9). Reviewer's reading:
+
+- **Per-person content is a distributed code.** Important neurons each serve 25 to 45% of the
+  people (median participation ratio 50 to 90 of 200); person-specific neurons barely exist (0 to
+  2 per model). Removing a person's own top 32 neurons in layers 1 to 5 costs that person 10 to
+  30% of recall and others about 3%. More repetition sharpens the code: ctrl-8k-x4 (4x exposures)
+  has median PR 21 to 39 and an own-to-other ratio of 22.
+- **Facts can be written almost anywhere after layer 0** (Task 4b). Training only MLP layers 3
+  and 4 (1.05M weights) stores 1,000 new people at 0.987 with no story cost; attention alone
+  reaches 0.93, embeddings alone 0.79, layer 0 alone 0.02. Where facts live is decided by training,
+  not fixed by the architecture. Every variant forgot the old people (0.987 to 0.02 to 0.16).
+  That was guaranteed by the design, which had no replay of old people, so the retention
+  criterion was unfair; it is a planning error, not a finding.
+- **The probe result is not trusted.** The last residual is linearly decodable by construction
+  (the model's own unembedding does it at 0.96), yet the probes scored about 0.01. With about 4
+  examples per class and no positive control, the probe design is the likely cause. Phase 2c
+  remeasures with the model's own read-out.
+- **Heads.** With the Gaussian null about half the heads recur across seeds (0.46 to 0.67), 0.25
+  across fact loads, none against the untrained model; matched heads share a layer 2.5 to 3
+  times more often than chance. Silhouettes beat the null by only 0.03 to 0.09: a continuum with
+  weak structure, not a small set of discrete types.
+
+**What it means.** Dissecting a trained model does not reveal a clean facts-versus-procedures
+split, but Task 4b shows the split can be imposed: facts go where training puts them. The next
+step in that direction is a model built with a designated memory, studied with its facts held
+apart.
