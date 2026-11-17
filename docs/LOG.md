@@ -257,3 +257,16 @@ RECALL-HARD (atomic numbers in both directions, 236 items), is added and QD is j
 Accepted as reported: RECALL has 261 items (disputed or ambiguous capitals removed), and the gain
 and partial combinations are computed in float32 for exactness. `transformers` 5.23.0 and
 `safetensors` 0.8.0 are pinned in `repeat/requirements.txt`.
+
+## 2026-11-17: Experiment C tasks 1 to 4b reviewed
+
+- **Blocks.** Repeating layers 8 to 11 raises REASON log-probability by 0.5 with no cost to TEXT
+  or recall; doubling their update (`gain(2)`) hurts instead. The dose curve is smooth, and a
+  quarter of a second pass (`partial(0.25)`) is the only SEARCH setting that improves REASON
+  accuracy, TEXT and RECALL-HARD together. Added to task 5 before REPORT was opened.
+- **Swaps.** Layers 7 to 11 can run in place of layers 12 to 17 almost for free (+0.005 to +0.018
+  nats), the same region where repetition helps. Layers 18 and later are not interchangeable.
+- **Weights.** Within each distance, pairs with more neuron matches swap more cheaply (mean
+  Spearman -0.72, p < 0.001). Absolute match fractions are not trusted: the shuffled-coordinate
+  null was too weak (flagged by the agent; the same flaw as Phase 2 Task 5, repeated by the
+  reviewer). Task 4c adds a covariance-matched null and a mean-removed comparison.

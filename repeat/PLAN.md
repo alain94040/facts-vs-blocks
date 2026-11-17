@@ -230,10 +230,36 @@ Evaluate on the REPORT halves, with paired bootstrap intervals against `base`:
 - the best single layer and the best block from task 3 under `repeat`;
 - for the same layer and block: `gain(2)`, and for the layer `attn2` and `mlp2`;
 - the best dose found in task 3 for each;
+- added after task 3, before any REPORT item was seen: block 8–11 under `partial(0.25)`, the
+  only SEARCH setting where REASON, TEXT and RECALL-HARD all improved significantly;
 - as a selection-free reference, `repeat` and `gain(2)` on the single layer at 50% of depth.
 
 Also the paired difference `repeat` minus `gain(2)` for the layer and for the block (QB), and
 `attn2` minus `mlp2` (QC).
+
+### Repeat task 4c: a fair null for the weight comparison (added after task 4b)
+
+Task 4b's shuffled-coordinate null destroys the structure that all vectors of a layer share (a
+common mean direction, the outlier coordinates, a dominant low-rank part), so almost any real
+neuron beats it: match fractions were 0.99 at distance 1 and still 0.55–0.60 at distance 8.
+Weights only, reusing task 4b's code; do not change task 4b's outputs.
+
+1. **Covariance-matched null.** For each layer j and each vector type (`g`, `u`, `d`, after
+   folding the norm gains), compute the mean and covariance of its vectors over all neurons of
+   that layer in float64 on CPU. Draw as many null vectors as the layer has neurons from that
+   Gaussian (seed 0). A null "neuron" takes one draw of each type. For heads, draw each factor
+   matrix's rows the same way from the layer's own row distribution. This keeps what a whole
+   layer has in common and breaks only the identity of individual units.
+2. **Mean removed.** Repeat task 4b's real comparison after subtracting each layer's mean vector
+   (per type) from its neurons' vectors, so shared direction cannot create matches.
+3. **Headline measure.** Per pair, report: the fraction of neurons with a match against the new
+   null (99th percentile rule, as before), the fraction of mutual best matches, and the same
+   mutual fraction for layer i against the null layer. Same for heads.
+4. **Link to task 4 again.** Recompute the mean within-distance Spearman correlation and its
+   permutation p-value with the new match fraction, and with the mutual fraction.
+
+Output: `results/repeat/task4c/pairs.csv`, `summary.json`, and the two heat maps redrawn.
+About 30 minutes.
 
 ### Repeat task 5b: carry over to the 14B model (REPORT)
 
@@ -269,6 +295,9 @@ which rows apply:
 | A task 5 effect that counts on 7B has the same sign and an interval excluding zero on 14B (task 5b) | The effect carries over to a deeper model |
 | The same effect is absent or reversed on 14B | The effect is specific to the 7B model |
 | Task 4b positive control failed | The weight comparison cannot find matches; no row below applies |
+| Task 4c: neuron match fraction against the covariance null above 0.2 at distance 1, and the within-distance correlation with swap cost still has p below 0.05 | Neighbouring layers share individual units beyond what any layer shares, and that sharing predicts interchangeability |
+| Task 4c: match fractions near 0.01 against the covariance null, but the correlation survives | Interchangeable layers are alike as wholes (shared directions), not unit by unit |
+| Task 4c: correlation gone (p above 0.05) | Task 4b's link to swap cost came from layer-wide structure the old null missed |
 | Neuron or head match fraction above 0.2 for neighbouring layers with the outlier set removed | Neighbouring layers share many neurons or heads in weight space (QF) |
 | Match fractions near the null level (below 0.05) at every distance, outlier set removed | Interchangeable or not, layers do not share recognisable neurons or heads (QF no) |
 | Matches above 0.05 only with the outlier set kept | Apparent sharing comes from a few large residual coordinates, not from shared units |
