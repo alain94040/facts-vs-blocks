@@ -57,13 +57,14 @@ fractions of depth so that a configuration can be moved from one model to the ot
 
 ## 4. Measurements
 
-Every configuration is scored on three sets with one teacher-forced forward pass per item.
+Every configuration is scored on four sets with one teacher-forced forward pass per item.
 
 | Set | Items | Score |
 | --- | --- | --- |
 | TEXT | 200 chunks of 256 tokens from the validation split of `wikitext-103-raw-v1` | Mean loss per token (lower is better) |
 | REASON | 400 generated multi-step arithmetic questions | Mean log-probability of the correct answer; accuracy (every answer token is the top prediction) |
 | RECALL | 300 single-fact questions: about 200 country capitals and 100 chemical element symbols | Same two scores |
+| RECALL-HARD | 236 single-fact questions: the atomic number of each of the 118 elements, and the element with each atomic number (added by Repeat task 0b) | Same two scores |
 
 REASON item format, with three fixed worked examples in front and k steps on small integers:
 
@@ -74,6 +75,8 @@ Start with 7. Add 5. Multiply by 3. Subtract 4. The result is 32.
 The answer is the number after "The result is". Operations: add, subtract, multiply by 2 to 5;
 all intermediate values between 0 and 999. RECALL format, with three fixed examples in front:
 `The capital of France is Paris.` and `The chemical symbol for gold is Au.`
+RECALL-HARD format, with three fixed examples in front (elements excluded from the items):
+`The atomic number of gold is 79.` and `The element with atomic number 79 is gold.`
 
 **Splits.** Each set is split in half with seed 0 into SEARCH and REPORT. Every choice of
 configuration is made on SEARCH. REPORT is touched only in Repeat task 5. This is the guard
@@ -104,10 +107,23 @@ interval excludes zero.
 
 Stop for review. Report speed, chosen model, chosen k, baseline scores.
 
+### Repeat task 0b: a recall set below the ceiling (added after task 0)
+
+Task 0 found RECALL at 100% accuracy on SEARCH, so accuracy cannot rise and the reasoning versus
+recall comparison (QD) would rest on log-probability alone. RECALL stays as it is. Add
+RECALL-HARD (section 4) to `repeat/data.py`, split it into SEARCH and REPORT with seed 0 like the
+others, and record the unmodified model's SEARCH scores. Use the standard element names
+(IUPAC English spelling, "aluminium" and "caesium" accepted as written in your table; pick one
+spelling per element and keep it).
+
+Report its baseline accuracy. If it is above 0.9, also report it and continue: do not change the
+set again. From task 1 onward every configuration is scored on all four sets. QD is judged on
+RECALL-HARD; RECALL is reported next to it.
+
 ### Repeat task 1: single-layer map (SEARCH)
 
 For every layer: `repeat`, `gain(2)`, `gain(0)`, `attn2`, `mlp2`. Five configurations per layer,
-all three sets. Output `results/repeat/task1/layers.csv` and one plot per set of score change
+all four sets. Output `results/repeat/task1/layers.csv` and one plot per set of score change
 against layer for the five interventions.
 
 ### Repeat task 2: blocks (SEARCH)
@@ -246,8 +262,8 @@ which rows apply:
 | `repeat` beats `base`, but `gain(2)` does as well or better | The benefit is a larger step, not recomputation (QB: volume) |
 | `attn2` minus `mlp2` excludes zero in favour of `attn2` | Repeating routing matters, repeating lookup does not (QC) |
 | `mlp2` as good as or better than `attn2` | The facts-versus-procedure reading of the two halves is not supported here |
-| Gain on REASON with no gain or a loss on RECALL | Repetition helps multi-step work specifically (QD) |
-| Similar change on REASON and RECALL | No evidence it is specific to reasoning |
+| Gain on REASON with no gain or a loss on RECALL-HARD | Repetition helps multi-step work specifically (QD) |
+| Similar change on REASON and RECALL-HARD | No evidence it is specific to reasoning |
 | Any gain on REASON comes with a loss on TEXT | It trades general quality for the task |
 | Swap heat map shows bands of low loss increase | Groups of layers are interchangeable (QE) |
 | A task 5 effect that counts on 7B has the same sign and an interval excluding zero on 14B (task 5b) | The effect carries over to a deeper model |

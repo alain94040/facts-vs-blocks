@@ -247,3 +247,13 @@ the configurations selected on 7B are moved by fraction of depth and evaluated o
 halves, with no search on 14B. Also recorded: `transformers`, `safetensors` and
 `huggingface_hub` are allowed for Experiment C only, to load Qwen; the forward pass stays in
 `repeat/flow.py`, and no quantisation or `accelerate`.
+
+## 2026-11-17: Experiment C task 0 reviewed; RECALL-HARD added
+
+Task 0 on Qwen2.5-7B passed: exact against the library, 3,669 tokens per second (13.8 s per
+configuration), REASON at k = 3 gives 38% accuracy, TEXT loss 2.604. RECALL is at 100% accuracy,
+so a gain could not show in accuracy. Changed before task 1, with REPORT untouched: a fourth set,
+RECALL-HARD (atomic numbers in both directions, 236 items), is added and QD is judged on it.
+Accepted as reported: RECALL has 261 items (disputed or ambiguous capitals removed), and the gain
+and partial combinations are computed in float32 for exactness. `transformers` 5.23.0 and
+`safetensors` 0.8.0 are pinned in `repeat/requirements.txt`.
