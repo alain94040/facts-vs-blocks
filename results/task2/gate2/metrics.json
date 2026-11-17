@@ -1,25 +1,25 @@
 {
   "pass": true,
   "runs_checked": [
-    "main-8k-s1"
+    "main-32k-s1"
   ],
   "checks": [
     {
-      "run": "main-8k-s1",
+      "run": "main-32k-s1",
       "check": "flat_90_100",
-      "value": 0.011785842895507992,
+      "value": 0.013062248229980256,
       "threshold": 0.02,
       "pass": true
     },
     {
-      "run": "main-8k-s1",
+      "run": "main-32k-s1",
       "check": "recall_own_train_templates",
-      "value": 0.9699114583333334,
-      "threshold": 0.8,
+      "value": 0.77325,
+      "threshold": 0.6,
       "pass": true
     },
     {
-      "run": "main-8k-s1",
+      "run": "main-32k-s1",
       "check": "name_copy",
       "value": 1.0,
       "threshold": 0.5,
