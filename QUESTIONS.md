@@ -57,3 +57,24 @@ Question: keep float32 for Task 2, or investigate fp16 (e.g. GradScaler / fp32 a
 
 - Both Task 2a answers above are confirmed by the reviewer.
 - Pilots: see `docs/LOG.md`. Proceed with Task 2b in `PLAN.md` (P3, then the full batch if it passes).
+
+## Task 5: questions asked and answered before any Task 5 code ran on real models (2026-11-17)
+
+1. **STORY-based features** (for comparisons that include main-0 or the untrained model).
+   **Answer:** the four STORY attention scores (story induction, story duplicate, previous-token,
+   sink), the weight-based copying score and spectral signature with `W_E` restricted to the 4,096
+   base tokens, and the STORY-loss single-head ablation effect. FORMAT induction/duplicate and the
+   recall, FORMAT and name-copy ablation effects are dropped.
+2. **Null positions for neuron matching** on runs with biographies. **Answer:** the same 200,000
+   mixed positions as the seed 0 vs seed 1 comparison it is a null for.
+3. **Head recurrence null and k-means.** **Answer:** per-head null (100 shuffled nearest distances
+   for that head; recurs if below their 5th percentile). k-means (8) on the full features over the
+   heads of the biography-trained models; a second k-means on the STORY features including main-0
+   and the untrained model.
+4. **Mix of the 200,000 positions.** First answer: 100,000 STORY + 100,000 FORMAT. This was based on
+   a wrong count from me: the FORMAT biographies hold only 78,047 positions. **Corrected answer:**
+   all 78,047 FORMAT positions plus 121,953 random STORY positions (seed 0).
+
+Decision made without asking, following answer 1: for main-0, the reference sample for the
+mean-ablation of heads (STORY-loss effect) is the first 1,000 STORY rows only, since FORMAT
+biographies are meaningless input for a model that never trained the entity tokens.
