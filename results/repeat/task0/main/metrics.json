@@ -1,0 +1,56 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "seed": 0,
+  "load_seconds": 3.5105459690093994,
+  "n_layers": 28,
+  "exactness_float16": {
+    "dtype": "torch.float16",
+    "base_vs_library": 0.0,
+    "gain1_vs_base": 0.0,
+    "partial0_vs_base": 0.0,
+    "partial1_vs_repeat": 0.0,
+    "swap_ii_vs_base": 0.0,
+    "block_gain1_vs_base": 0.0,
+    "tolerance": 0.05,
+    "pass": true
+  },
+  "recall_counts": {
+    "capital": 161,
+    "element": 100
+  },
+  "text_info": {
+    "n_tokens": 262210,
+    "n_chunks_available": 1024
+  },
+  "speed": {
+    "tokens": 50683,
+    "seconds": 13.813710689544678,
+    "tokens_per_second": 3669.0358687156345,
+    "seconds_per_full_configuration_search": 13.813710689544678
+  },
+  "difficulty": {
+    "tried": [
+      {
+        "k": 3,
+        "reason_search_acc": 0.38
+      }
+    ],
+    "chosen_k": 3,
+    "range": [
+      0.3,
+      0.7
+    ]
+  },
+  "baseline_search": {
+    "TEXT_loss": 2.6041370379924773,
+    "REASON_logprob": -2.5100744818666136,
+    "REASON_acc": 0.38,
+    "RECALL_logprob": -0.02566728665769303,
+    "RECALL_acc": 1.0
+  },
+  "baseline_search_by_kind": {
+    "capital": 1.0,
+    "element": 1.0
+  },
+  "wall_seconds": 33.52985095977783
+}
