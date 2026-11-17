@@ -1,1 +1,1 @@
-/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python analysis/gate2.py --seed 0 --runs main-32k-s1
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python analysis/gate2.py --seed 0 --runs main-0-s1

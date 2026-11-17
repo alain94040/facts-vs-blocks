@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "run": "main-0-s1",
+      "check": "flat_90_100",
+      "value": 0.01183261871337904,
+      "threshold": 0.02,
+      "pass": true
+    }
+  ]
+}
