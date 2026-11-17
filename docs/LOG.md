@@ -295,3 +295,14 @@ the more durable finding, and it is not yet tested on 14B.
 residual-side basis per matrix type, its kept energy against each layer's own basis and against
 a rotated null, the effect of projecting all family layers onto it, and the compression that
 implies, on 7B and 14B. Weights only, about 1.5 hours.
+
+## 2026-11-17: Experiment E added (middle/PLAN.md)
+
+John's reading of Experiment C: repetition only sharpened what was already in the stream, RYS was
+not reproduced, and the question is how to find patterns in the middle layers at all. Weights show
+what a layer could do; activations show what it does. Experiment E looks at activations in two
+ways. Part 1 fits one linear operator per layer (input to update, from accumulated statistics)
+and asks whether one layer's operator explains another's update, against a rotated null. Part 2
+follows two-hop questions through the layers with the logit lens, tests whether the second hop
+reuses the one-hop update directions at a later depth, and tries back-patching (Biran et al.
+2024), a targeted version of re-running the middle. About 1.5 hours; runs after Experiment D.
