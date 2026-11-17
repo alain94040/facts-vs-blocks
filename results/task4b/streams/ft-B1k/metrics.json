@@ -1,0 +1,18 @@
+{
+  "run": "ft-B1k",
+  "seed": 0,
+  "people_set": "B",
+  "n_people": 1000,
+  "exposures": 300,
+  "template5_even": true,
+  "n_story_docs": 105924,
+  "story_tokens": 23886551,
+  "n_bio_docs": 300000,
+  "bio_tokens": 23886467,
+  "mean_bio_tokens": 79.62155666666666,
+  "tokens_per_step": 65792,
+  "stream_tokens": 47773018,
+  "steps": 726,
+  "unused_tail_tokens": 8026,
+  "wall_seconds": 3.8608338832855225
+}

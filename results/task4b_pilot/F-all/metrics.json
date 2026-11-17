@@ -1,0 +1,294 @@
+{
+  "variant": "F-all",
+  "init": "P2-main-2k-s0",
+  "init_ckpt": "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/checkpoints/task2a/P2-main-2k-s0/step_5272.pt",
+  "seed": 0,
+  "config": {
+    "lr": 0.0003,
+    "min_lr": 3e-05,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.1,
+    "warmup_frac": 0.01,
+    "grad_clip": 1.0,
+    "batch_size": 256,
+    "seq_len": 256
+  },
+  "trainable_params": 6249984,
+  "trainable_tensors": [
+    "blocks.0.attn.out.bias",
+    "blocks.0.attn.out.weight",
+    "blocks.0.attn.qkv.bias",
+    "blocks.0.attn.qkv.weight",
+    "blocks.0.ln1.bias",
+    "blocks.0.ln1.weight",
+    "blocks.0.ln2.bias",
+    "blocks.0.ln2.weight",
+    "blocks.0.mlp.down.bias",
+    "blocks.0.mlp.down.weight",
+    "blocks.0.mlp.up.bias",
+    "blocks.0.mlp.up.weight",
+    "blocks.1.attn.out.bias",
+    "blocks.1.attn.out.weight",
+    "blocks.1.attn.qkv.bias",
+    "blocks.1.attn.qkv.weight",
+    "blocks.1.ln1.bias",
+    "blocks.1.ln1.weight",
+    "blocks.1.ln2.bias",
+    "blocks.1.ln2.weight",
+    "blocks.1.mlp.down.bias",
+    "blocks.1.mlp.down.weight",
+    "blocks.1.mlp.up.bias",
+    "blocks.1.mlp.up.weight",
+    "blocks.2.attn.out.bias",
+    "blocks.2.attn.out.weight",
+    "blocks.2.attn.qkv.bias",
+    "blocks.2.attn.qkv.weight",
+    "blocks.2.ln1.bias",
+    "blocks.2.ln1.weight",
+    "blocks.2.ln2.bias",
+    "blocks.2.ln2.weight",
+    "blocks.2.mlp.down.bias",
+    "blocks.2.mlp.down.weight",
+    "blocks.2.mlp.up.bias",
+    "blocks.2.mlp.up.weight",
+    "blocks.3.attn.out.bias",
+    "blocks.3.attn.out.weight",
+    "blocks.3.attn.qkv.bias",
+    "blocks.3.attn.qkv.weight",
+    "blocks.3.ln1.bias",
+    "blocks.3.ln1.weight",
+    "blocks.3.ln2.bias",
+    "blocks.3.ln2.weight",
+    "blocks.3.mlp.down.bias",
+    "blocks.3.mlp.down.weight",
+    "blocks.3.mlp.up.bias",
+    "blocks.3.mlp.up.weight",
+    "blocks.4.attn.out.bias",
+    "blocks.4.attn.out.weight",
+    "blocks.4.attn.qkv.bias",
+    "blocks.4.attn.qkv.weight",
+    "blocks.4.ln1.bias",
+    "blocks.4.ln1.weight",
+    "blocks.4.ln2.bias",
+    "blocks.4.ln2.weight",
+    "blocks.4.mlp.down.bias",
+    "blocks.4.mlp.down.weight",
+    "blocks.4.mlp.up.bias",
+    "blocks.4.mlp.up.weight",
+    "blocks.5.attn.out.bias",
+    "blocks.5.attn.out.weight",
+    "blocks.5.attn.qkv.bias",
+    "blocks.5.attn.qkv.weight",
+    "blocks.5.ln1.bias",
+    "blocks.5.ln1.weight",
+    "blocks.5.ln2.bias",
+    "blocks.5.ln2.weight",
+    "blocks.5.mlp.down.bias",
+    "blocks.5.mlp.down.weight",
+    "blocks.5.mlp.up.bias",
+    "blocks.5.mlp.up.weight",
+    "ln_f.bias",
+    "ln_f.weight",
+    "pos_emb.weight",
+    "tok_emb.weight"
+  ],
+  "stream": "ft-B1k",
+  "total_steps": 726,
+  "steps_run": 50,
+  "loss_first10_mean": 1.6235919713973999,
+  "loss_last10_mean": 1.2548467755317687,
+  "tokens_per_second": 78872.31505302055,
+  "train_seconds": 42.341038942337036,
+  "eval": {
+    "set_A_0_999": {
+      "train_templates": {
+        "recall": 0.06204166666666667,
+        "fact_loss": 1.076218387596291,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.002,
+            "fact_loss": 1.0267395245920108
+          },
+          "birth_city": {
+            "recall": 0.0505,
+            "fact_loss": 1.332673911511367
+          },
+          "university": {
+            "recall": 0.13375,
+            "fact_loss": 1.0743110837516285
+          },
+          "major": {
+            "recall": 0.06475,
+            "fact_loss": 0.7844057149922533
+          },
+          "employer": {
+            "recall": 0.0715,
+            "fact_loss": 1.1252677781063722
+          },
+          "employer_city": {
+            "recall": 0.04975,
+            "fact_loss": 1.333780494600264
+          }
+        }
+      },
+      "template5_seen": {
+        "recall": 0.032,
+        "fact_loss": 1.1324050682792064,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.002,
+            "fact_loss": 1.04121583340152
+          },
+          "birth_city": {
+            "recall": 0.018,
+            "fact_loss": 1.4234523273497786
+          },
+          "university": {
+            "recall": 0.036,
+            "fact_loss": 1.2273325796978014
+          },
+          "major": {
+            "recall": 0.068,
+            "fact_loss": 0.8219613027060663
+          },
+          "employer": {
+            "recall": 0.046,
+            "fact_loss": 1.1838817221556612
+          },
+          "employer_city": {
+            "recall": 0.022,
+            "fact_loss": 1.3770870989261392
+          }
+        }
+      },
+      "template5_heldout": {
+        "recall": 0.03766666666666667,
+        "fact_loss": 1.1105296865835945,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 1.0456638577352166
+          },
+          "birth_city": {
+            "recall": 0.016,
+            "fact_loss": 1.4141508564933123
+          },
+          "university": {
+            "recall": 0.042,
+            "fact_loss": 1.1709166604898984
+          },
+          "major": {
+            "recall": 0.08,
+            "fact_loss": 0.7915376952920864
+          },
+          "employer": {
+            "recall": 0.058,
+            "fact_loss": 1.164112519003727
+          },
+          "employer_city": {
+            "recall": 0.03,
+            "fact_loss": 1.3238135447809356
+          }
+        }
+      }
+    },
+    "set_B_0_999": {
+      "train_templates": {
+        "recall": 0.022708333333333334,
+        "fact_loss": 1.1281752069192101,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.001,
+            "fact_loss": 1.0079683039924379
+          },
+          "birth_city": {
+            "recall": 0.02325,
+            "fact_loss": 1.401803932264406
+          },
+          "university": {
+            "recall": 0.0285,
+            "fact_loss": 1.2370944293866841
+          },
+          "major": {
+            "recall": 0.032,
+            "fact_loss": 0.8438766299370656
+          },
+          "employer": {
+            "recall": 0.02325,
+            "fact_loss": 1.211521092496027
+          },
+          "employer_city": {
+            "recall": 0.02825,
+            "fact_loss": 1.3712183246606087
+          }
+        }
+      },
+      "template5_seen": {
+        "recall": 0.020666666666666667,
+        "fact_loss": 1.142097428014585,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.002,
+            "fact_loss": 1.0114515693223756
+          },
+          "birth_city": {
+            "recall": 0.03,
+            "fact_loss": 1.432759441603272
+          },
+          "university": {
+            "recall": 0.016,
+            "fact_loss": 1.2676853075825538
+          },
+          "major": {
+            "recall": 0.024,
+            "fact_loss": 0.8690693639218807
+          },
+          "employer": {
+            "recall": 0.026,
+            "fact_loss": 1.2270556048213934
+          },
+          "employer_city": {
+            "recall": 0.026,
+            "fact_loss": 1.3488503909187686
+          }
+        }
+      },
+      "template5_heldout": {
+        "recall": 0.016666666666666666,
+        "fact_loss": 1.1455183639996727,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 1.020407254539593
+          },
+          "birth_city": {
+            "recall": 0.022,
+            "fact_loss": 1.4586317443794645
+          },
+          "university": {
+            "recall": 0.024,
+            "fact_loss": 1.2582274438943966
+          },
+          "major": {
+            "recall": 0.01,
+            "fact_loss": 0.860638147288308
+          },
+          "employer": {
+            "recall": 0.026,
+            "fact_loss": 1.202181010008738
+          },
+          "employer_city": {
+            "recall": 0.018,
+            "fact_loss": 1.400396328354091
+          }
+        }
+      }
+    },
+    "story_loss": 1.738412007331848,
+    "format_loss": 0.3138511744022171,
+    "name_copy": 0.9924
+  }
+}

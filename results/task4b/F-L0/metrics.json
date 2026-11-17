@@ -1,0 +1,226 @@
+{
+  "variant": "F-L0",
+  "init": "fork-A-s0",
+  "init_ckpt": "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/checkpoints/task2/fork-A-s0/step_7460.pt",
+  "seed": 0,
+  "config": {
+    "lr": 0.0003,
+    "min_lr": 3e-05,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.1,
+    "warmup_frac": 0.01,
+    "grad_clip": 1.0,
+    "batch_size": 256,
+    "seq_len": 256
+  },
+  "trainable_params": 788736,
+  "trainable_tensors": [
+    "blocks.0.attn.out.bias",
+    "blocks.0.attn.out.weight",
+    "blocks.0.attn.qkv.bias",
+    "blocks.0.attn.qkv.weight",
+    "blocks.0.mlp.down.bias",
+    "blocks.0.mlp.down.weight",
+    "blocks.0.mlp.up.bias",
+    "blocks.0.mlp.up.weight"
+  ],
+  "stream": "ft-B1k",
+  "total_steps": 726,
+  "steps_run": 726,
+  "loss_first10_mean": 1.5821048498153687,
+  "loss_last10_mean": 1.2176150321960448,
+  "tokens_per_second": 157544.18882281167,
+  "train_seconds": 302.49618101119995,
+  "eval": {
+    "set_A_0_999": {
+      "train_templates": {
+        "recall": 0.014791666666666667,
+        "fact_loss": 1.2922960611456613,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 1.423670980139518
+          },
+          "birth_city": {
+            "recall": 0.01025,
+            "fact_loss": 1.4796799682163715
+          },
+          "university": {
+            "recall": 0.017,
+            "fact_loss": 1.3234090720083314
+          },
+          "major": {
+            "recall": 0.02725,
+            "fact_loss": 0.839493639345955
+          },
+          "employer": {
+            "recall": 0.01725,
+            "fact_loss": 1.2525604334940392
+          },
+          "employer_city": {
+            "recall": 0.017,
+            "fact_loss": 1.4517004857982356
+          }
+        }
+      },
+      "template5_seen": {
+        "recall": 0.019333333333333334,
+        "fact_loss": 1.3000843189353155,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 1.4245889314869107
+          },
+          "birth_city": {
+            "recall": 0.02,
+            "fact_loss": 1.4890991296523657
+          },
+          "university": {
+            "recall": 0.022,
+            "fact_loss": 1.3197370908629726
+          },
+          "major": {
+            "recall": 0.034,
+            "fact_loss": 0.8525916672070704
+          },
+          "employer": {
+            "recall": 0.018,
+            "fact_loss": 1.2645617350797707
+          },
+          "employer_city": {
+            "recall": 0.022,
+            "fact_loss": 1.473644864092992
+          }
+        }
+      },
+      "template5_heldout": {
+        "recall": 0.013,
+        "fact_loss": 1.275693695680546,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 1.4057698120725617
+          },
+          "birth_city": {
+            "recall": 0.004,
+            "fact_loss": 1.4887447707247283
+          },
+          "university": {
+            "recall": 0.014,
+            "fact_loss": 1.291720542645887
+          },
+          "major": {
+            "recall": 0.028,
+            "fact_loss": 0.8263660635911728
+          },
+          "employer": {
+            "recall": 0.02,
+            "fact_loss": 1.2474643145446425
+          },
+          "employer_city": {
+            "recall": 0.012,
+            "fact_loss": 1.4153570670596187
+          }
+        }
+      }
+    },
+    "set_B_0_999": {
+      "train_templates": {
+        "recall": 0.023125,
+        "fact_loss": 1.0662149064850708,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.007,
+            "fact_loss": 0.7705339925688086
+          },
+          "birth_city": {
+            "recall": 0.0205,
+            "fact_loss": 1.4378161216355476
+          },
+          "university": {
+            "recall": 0.0195,
+            "fact_loss": 1.2612249175883405
+          },
+          "major": {
+            "recall": 0.03825,
+            "fact_loss": 0.8211389513621601
+          },
+          "employer": {
+            "recall": 0.02625,
+            "fact_loss": 1.265732018506311
+          },
+          "employer_city": {
+            "recall": 0.02725,
+            "fact_loss": 1.377488226473816
+          }
+        }
+      },
+      "template5_seen": {
+        "recall": 0.027333333333333334,
+        "fact_loss": 1.0620602093830966,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.012,
+            "fact_loss": 0.783489422068435
+          },
+          "birth_city": {
+            "recall": 0.032,
+            "fact_loss": 1.414809444305856
+          },
+          "university": {
+            "recall": 0.026,
+            "fact_loss": 1.2401635854140571
+          },
+          "major": {
+            "recall": 0.042,
+            "fact_loss": 0.8210181403195574
+          },
+          "employer": {
+            "recall": 0.024,
+            "fact_loss": 1.2634767694268079
+          },
+          "employer_city": {
+            "recall": 0.028,
+            "fact_loss": 1.351393986744896
+          }
+        }
+      },
+      "template5_heldout": {
+        "recall": 0.019,
+        "fact_loss": 1.0823676120858023,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.012,
+            "fact_loss": 0.7908841422395577
+          },
+          "birth_city": {
+            "recall": 0.006,
+            "fact_loss": 1.4980608274566922
+          },
+          "university": {
+            "recall": 0.014,
+            "fact_loss": 1.258449895626658
+          },
+          "major": {
+            "recall": 0.04,
+            "fact_loss": 0.8238159214996075
+          },
+          "employer": {
+            "recall": 0.022,
+            "fact_loss": 1.2602940456893612
+          },
+          "employer_city": {
+            "recall": 0.02,
+            "fact_loss": 1.4152552857995033
+          }
+        }
+      }
+    },
+    "story_loss": 1.7033069133758545,
+    "format_loss": 0.2976947521893681,
+    "name_copy": 1.0
+  }
+}

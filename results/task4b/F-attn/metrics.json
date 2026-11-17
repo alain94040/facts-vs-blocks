@@ -1,0 +1,242 @@
+{
+  "variant": "F-attn",
+  "init": "fork-A-s0",
+  "init_ckpt": "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/checkpoints/task2/fork-A-s0/step_7460.pt",
+  "seed": 0,
+  "config": {
+    "lr": 0.0003,
+    "min_lr": 3e-05,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.1,
+    "warmup_frac": 0.01,
+    "grad_clip": 1.0,
+    "batch_size": 256,
+    "seq_len": 256
+  },
+  "trainable_params": 1579008,
+  "trainable_tensors": [
+    "blocks.0.attn.out.bias",
+    "blocks.0.attn.out.weight",
+    "blocks.0.attn.qkv.bias",
+    "blocks.0.attn.qkv.weight",
+    "blocks.1.attn.out.bias",
+    "blocks.1.attn.out.weight",
+    "blocks.1.attn.qkv.bias",
+    "blocks.1.attn.qkv.weight",
+    "blocks.2.attn.out.bias",
+    "blocks.2.attn.out.weight",
+    "blocks.2.attn.qkv.bias",
+    "blocks.2.attn.qkv.weight",
+    "blocks.3.attn.out.bias",
+    "blocks.3.attn.out.weight",
+    "blocks.3.attn.qkv.bias",
+    "blocks.3.attn.qkv.weight",
+    "blocks.4.attn.out.bias",
+    "blocks.4.attn.out.weight",
+    "blocks.4.attn.qkv.bias",
+    "blocks.4.attn.qkv.weight",
+    "blocks.5.attn.out.bias",
+    "blocks.5.attn.out.weight",
+    "blocks.5.attn.qkv.bias",
+    "blocks.5.attn.qkv.weight"
+  ],
+  "stream": "ft-B1k",
+  "total_steps": 726,
+  "steps_run": 726,
+  "loss_first10_mean": 1.5643220663070678,
+  "loss_last10_mean": 1.0165654063224792,
+  "tokens_per_second": 95961.74148879481,
+  "train_seconds": 496.5360050201416,
+  "eval": {
+    "set_A_0_999": {
+      "train_templates": {
+        "recall": 0.021625,
+        "fact_loss": 2.1451265315045327,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0015,
+            "fact_loss": 2.2144753508333093
+          },
+          "birth_city": {
+            "recall": 0.018,
+            "fact_loss": 2.7275663887761246
+          },
+          "university": {
+            "recall": 0.01975,
+            "fact_loss": 2.2718508908993926
+          },
+          "major": {
+            "recall": 0.0585,
+            "fact_loss": 1.1381020579208783
+          },
+          "employer": {
+            "recall": 0.01375,
+            "fact_loss": 2.216575707742889
+          },
+          "employer_city": {
+            "recall": 0.01825,
+            "fact_loss": 2.662700051330655
+          }
+        }
+      },
+      "template5_seen": {
+        "recall": 0.021,
+        "fact_loss": 2.1160683045511655,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.0,
+            "fact_loss": 2.1705585966424255
+          },
+          "birth_city": {
+            "recall": 0.014,
+            "fact_loss": 2.7190135157933932
+          },
+          "university": {
+            "recall": 0.024,
+            "fact_loss": 2.26597767076302
+          },
+          "major": {
+            "recall": 0.054,
+            "fact_loss": 1.1112142740433324
+          },
+          "employer": {
+            "recall": 0.014,
+            "fact_loss": 2.1838996879590575
+          },
+          "employer_city": {
+            "recall": 0.02,
+            "fact_loss": 2.622809031972006
+          }
+        }
+      },
+      "template5_heldout": {
+        "recall": 0.022333333333333334,
+        "fact_loss": 2.1530516784032137,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.004,
+            "fact_loss": 2.2501829855339475
+          },
+          "birth_city": {
+            "recall": 0.018,
+            "fact_loss": 2.6909103276409017
+          },
+          "university": {
+            "recall": 0.016,
+            "fact_loss": 2.309331421258007
+          },
+          "major": {
+            "recall": 0.068,
+            "fact_loss": 1.1323850206897872
+          },
+          "employer": {
+            "recall": 0.014,
+            "fact_loss": 2.252109607067649
+          },
+          "employer_city": {
+            "recall": 0.014,
+            "fact_loss": 2.5992132840455224
+          }
+        }
+      }
+    },
+    "set_B_0_999": {
+      "train_templates": {
+        "recall": 0.9306666666666666,
+        "fact_loss": 0.07433587889670916,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.895,
+            "fact_loss": 0.05194556522013464
+          },
+          "birth_city": {
+            "recall": 0.92725,
+            "fact_loss": 0.0975943791226451
+          },
+          "university": {
+            "recall": 0.90975,
+            "fact_loss": 0.10803828622535615
+          },
+          "major": {
+            "recall": 0.97175,
+            "fact_loss": 0.055025905624846716
+          },
+          "employer": {
+            "recall": 0.9375,
+            "fact_loss": 0.09012540712950802
+          },
+          "employer_city": {
+            "recall": 0.94275,
+            "fact_loss": 0.08098740765410362
+          }
+        }
+      },
+      "template5_seen": {
+        "recall": 0.9206666666666666,
+        "fact_loss": 0.08194619940149477,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.852,
+            "fact_loss": 0.06239304060321228
+          },
+          "birth_city": {
+            "recall": 0.94,
+            "fact_loss": 0.1033680215716022
+          },
+          "university": {
+            "recall": 0.91,
+            "fact_loss": 0.10574490552861288
+          },
+          "major": {
+            "recall": 0.966,
+            "fact_loss": 0.059056596076559456
+          },
+          "employer": {
+            "recall": 0.924,
+            "fact_loss": 0.09916647332726992
+          },
+          "employer_city": {
+            "recall": 0.932,
+            "fact_loss": 0.09762722029522139
+          }
+        }
+      },
+      "template5_heldout": {
+        "recall": 0.8976666666666666,
+        "fact_loss": 0.09407837173133897,
+        "per_attribute": {
+          "birth_date": {
+            "recall": 0.834,
+            "fact_loss": 0.06877397458135896
+          },
+          "birth_city": {
+            "recall": 0.884,
+            "fact_loss": 0.12887530991653698
+          },
+          "university": {
+            "recall": 0.908,
+            "fact_loss": 0.11460285726047903
+          },
+          "major": {
+            "recall": 0.972,
+            "fact_loss": 0.06059014970134732
+          },
+          "employer": {
+            "recall": 0.9,
+            "fact_loss": 0.11169696834996838
+          },
+          "employer_city": {
+            "recall": 0.888,
+            "fact_loss": 0.1323271849903808
+          }
+        }
+      }
+    },
+    "story_loss": 1.7073281288146973,
+    "format_loss": 0.30175257055664984,
+    "name_copy": 1.0
+  }
+}

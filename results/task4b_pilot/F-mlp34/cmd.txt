@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python train/finetune.py --init P2-main-2k-s0 --variant F-mlp34 --stream ft-B1k --seed 0 --task task4b_pilot --stop_after 50 --log_every 50

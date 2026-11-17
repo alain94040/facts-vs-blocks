@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python train/finetune.py --init fork-A-s0 --variant F-emb --stream ft-B1k --seed 0
