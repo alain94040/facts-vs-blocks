@@ -6,6 +6,7 @@ TEXT   : 200 chunks of 256 tokens from wikitext-103-raw-v1 validation (the split
 REASON : 400 multi-step arithmetic questions with k steps, three fixed worked examples (also k
          steps) in front, one per line. Start value 1..20; operations add 1..20, subtract 1..20,
          multiply by 2..5; every intermediate value in 0..999. Answer = " <number>".
+RECALL-HARD : atomic number of each element and element with each atomic number (task 0b).
 RECALL : country capitals and chemical element symbols, three fixed examples of the same kind in
          front. Countries whose capital is disputed, recently moved or commonly spelled several
          ways are left out. Elements: atomic numbers 1-103 minus the three example elements.
@@ -103,8 +104,12 @@ ELEMENTS = [
     ("protactinium", "Pa"), ("uranium", "U"), ("neptunium", "Np"), ("plutonium", "Pu"),
     ("americium", "Am"), ("curium", "Cm"), ("berkelium", "Bk"), ("californium", "Cf"),
     ("einsteinium", "Es"), ("fermium", "Fm"), ("mendelevium", "Md"), ("nobelium", "No"),
-    ("lawrencium", "Lr"),
-]
+    ("lawrencium", "Lr"), ("rutherfordium", "Rf"), ("dubnium", "Db"), ("seaborgium", "Sg"),
+    ("bohrium", "Bh"), ("hassium", "Hs"), ("meitnerium", "Mt"), ("darmstadtium", "Ds"),
+    ("roentgenium", "Rg"), ("copernicium", "Cn"), ("nihonium", "Nh"), ("flerovium", "Fl"),
+    ("moscovium", "Mc"), ("livermorium", "Lv"), ("tennessine", "Ts"), ("oganesson", "Og"),
+]  # in order of atomic number (index + 1)
+N_RECALL_ELEMENTS = 103  # RECALL uses atomic numbers 1-103
 ELEMENT_EXAMPLES = [("gold", "Au"), ("oxygen", "O"), ("iron", "Fe")]
 
 
@@ -119,7 +124,7 @@ def capitals():
 
 def elements():
     ex = {e[0] for e in ELEMENT_EXAMPLES}
-    return [e for e in ELEMENTS if e[0] not in ex]
+    return [e for e in ELEMENTS[:N_RECALL_ELEMENTS] if e[0] not in ex]
 
 
 def _cap_line(c, cap):
@@ -188,6 +193,23 @@ def recall_items():
     eh = "\n".join(_el_line(*e) for e in ELEMENT_EXAMPLES) + "\n"
     out = [(ch + f"The capital of {c} is", f" {cap}", "capital") for c, cap in capitals()]
     out += [(eh + f"The chemical symbol for {n} is", f" {s}", "element") for n, s in elements()]
+    return out
+
+
+def recall_hard_items():
+    """RECALL-HARD (Repeat task 0b): atomic number of each element, and element with each atomic
+    number, three fixed examples of the same direction in front. Example elements (gold, oxygen,
+    iron) are excluded from the items in both directions: 2 x 115 = 230 items.
+    (prompt text, answer text, direction)."""
+    assert len(ELEMENTS) == 118
+    z = {n: i + 1 for i, (n, _) in enumerate(ELEMENTS)}
+    ex = [n for n, _ in ELEMENT_EXAMPLES]
+    h1 = "\n".join(f"The atomic number of {n} is {z[n]}." for n in ex) + "\n"
+    h2 = "\n".join(f"The element with atomic number {z[n]} is {n}." for n in ex) + "\n"
+    out = [(h1 + f"The atomic number of {n} is", f" {z[n]}", "name_to_number")
+           for n, _ in ELEMENTS if n not in ex]
+    out += [(h2 + f"The element with atomic number {z[n]} is", f" {n}", "number_to_name")
+            for n, _ in ELEMENTS if n not in ex]
     return out
 
 

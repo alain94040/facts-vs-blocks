@@ -1,0 +1,24 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "seed": 0,
+  "n_items": 230,
+  "n_search": 115,
+  "n_report": 115,
+  "baseline_search": {
+    "RECALL-HARD_logprob": -4.540623403158047,
+    "RECALL-HARD_acc": 0.24347826086956523
+  },
+  "baseline_search_by_direction": {
+    "name_to_number": {
+      "acc": 0.45614035087719296,
+      "logprob": -2.2416192533937487,
+      "n": 57
+    },
+    "number_to_name": {
+      "acc": 0.034482758620689655,
+      "logprob": -6.799989550340201,
+      "n": 58
+    }
+  },
+  "seconds": 0.5799858570098877
+}

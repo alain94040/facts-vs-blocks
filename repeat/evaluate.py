@@ -34,10 +34,14 @@ def build_sets(tok, k):
     reason = D.tokenize_qa(tok, D.reason_items(k))
     rec_items = D.recall_items()
     recall = D.tokenize_qa(tok, rec_items)
-    return {"TEXT": text, "REASON": reason, "RECALL": recall,
-            "RECALL_kind": [x[2] for x in rec_items], "text_info": tinfo, "k": k,
+    hard_items = D.recall_hard_items()
+    hard = D.tokenize_qa(tok, hard_items)
+    return {"TEXT": text, "REASON": reason, "RECALL": recall, "RECALL-HARD": hard,
+            "RECALL_kind": [x[2] for x in rec_items],
+            "RECALL-HARD_kind": [x[2] for x in hard_items], "text_info": tinfo, "k": k,
             "splits": {s: D.split(len(v)) for s, v in [("TEXT", text), ("REASON", reason),
-                                                        ("RECALL", recall)]}}
+                                                        ("RECALL", recall),
+                                                        ("RECALL-HARD", hard)]}}
 
 
 @torch.no_grad()
@@ -86,7 +90,11 @@ def _text(flow, chunks, iv, batch):
     return {"loss": loss}, len(chunks) * (len(chunks[0]) - 1)
 
 
-def score(flow, sets, split, iv=None, which=("TEXT", "REASON", "RECALL"), n_text=None,
+SETS = ("TEXT", "REASON", "RECALL", "RECALL-HARD")
+K_FROZEN = 3  # chosen in Repeat task 0
+
+
+def score(flow, sets, split, iv=None, which=SETS, n_text=None,
           batch_qa=16, batch_text=4):
     """Per-item scores on the given split. n_text: use only the first n_text TEXT items of the
     split (Repeat task 4)."""
@@ -111,7 +119,7 @@ def summarise(sc):
     d = {}
     if "TEXT" in sc:
         d["TEXT_loss"] = float(sc["TEXT"]["loss"].mean())
-    for s in ("REASON", "RECALL"):
+    for s in ("REASON", "RECALL", "RECALL-HARD"):
         if s in sc:
             d[f"{s}_logprob"] = float(sc[s]["logprob"].mean())
             d[f"{s}_acc"] = float(sc[s]["correct"].mean())
@@ -187,7 +195,7 @@ def task0(args):
                             "element": sets["RECALL_kind"].count("element")}
     res["text_info"] = sets["text_info"]
     t1 = time.time()
-    sc = score(flow, sets, "SEARCH")
+    sc = score(flow, sets, "SEARCH", which=("TEXT", "REASON", "RECALL"))
     dt = time.time() - t1
     res["speed"] = {"tokens": sc["_tokens"], "seconds": dt, "tokens_per_second": sc["_tokens"] / dt,
                     "seconds_per_full_configuration_search": dt}
@@ -208,7 +216,7 @@ def task0(args):
                 break
     res["difficulty"] = {"tried": tried, "chosen_k": chosen, "range": ACC_RANGE}
     if chosen is not None:
-        sc = score(flow, sets, "SEARCH")
+        sc = score(flow, sets, "SEARCH", which=("TEXT", "REASON", "RECALL"))
         res["baseline_search"] = summarise(sc)
         save_scores(os.path.join(out, "baseline_search.npz"), sc)
         res["baseline_search_by_kind"] = {
@@ -221,14 +229,49 @@ def task0(args):
     print(json.dumps(res, indent=1))
 
 
+def task0b(args):
+    """RECALL-HARD baseline on SEARCH with the unmodified main model."""
+    out = os.path.join(ROOT, "results", "repeat", "task0b", args.model)
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(out, "cmd.txt"), "w") as f:
+        f.write("PYTORCH_ENABLE_MPS_FALLBACK=1 " + shlex.join([sys.executable] + sys.argv) + "\n")
+    torch.manual_seed(args.seed)
+    m, tok = FL.load(MODELS[args.model])
+    flow = FL.Flow(m)
+    sets = build_sets(tok, K_FROZEN)
+    t0 = time.time()
+    sc = score(flow, sets, "SEARCH", which=("RECALL-HARD",))
+    idx = sc["RECALL-HARD"]["index"]
+    kinds = [sets["RECALL-HARD_kind"][i] for i in idx]
+    res = {"model": MODELS[args.model], "seed": args.seed,
+           "n_items": len(sets["RECALL-HARD"]), "n_search": len(idx),
+           "n_report": len(sets["splits"]["RECALL-HARD"]["REPORT"]),
+           "baseline_search": summarise(sc),
+           "baseline_search_by_direction": {
+               k: {"acc": float(np.mean([c for c, kk in zip(sc["RECALL-HARD"]["correct"], kinds)
+                                         if kk == k])),
+                   "logprob": float(np.mean([v for v, kk in zip(sc["RECALL-HARD"]["logprob"], kinds)
+                                             if kk == k])),
+                   "n": kinds.count(k)}
+               for k in ("name_to_number", "number_to_name")},
+           "seconds": time.time() - t0}
+    save_scores(os.path.join(out, "baseline_search.npz"), sc)
+    with open(os.path.join(out, "metrics.json"), "w") as f:
+        json.dump(res, f, indent=2)
+    print(json.dumps(res, indent=1))
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--task0", action="store_true")
+    p.add_argument("--task0b", action="store_true")
     p.add_argument("--model", choices=list(MODELS), default="dev")
     p.add_argument("--seed", type=int, default=0)
     args = p.parse_args()
     if args.task0:
         task0(args)
+    if args.task0b:
+        task0b(args)
 
 
 if __name__ == "__main__":
