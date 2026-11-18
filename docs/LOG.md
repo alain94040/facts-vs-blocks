@@ -343,3 +343,25 @@ moves down to features, on the toy model, where every person and fact is known.
   ctrl-8k-x4, and tests whether shared STORY units recur across fact loads.
 - Task 4 measures each unit's fan-in and AND index.
 - Together, these make the facts-vs-blocks split a count rather than an ablation.
+
+## 2026-11-18: Experiment F revision 1 (after Task 1 and the Task 2 STOP)
+
+**Middle task 8.** Real minus the same-answer null:
+- 0.19 [0.15, 0.24] for language, which survives the answer-token confound;
+- 0.06 [0.03, 0.10] for continent, which mostly does not.
+The reuse finding holds for language only.
+
+**F Task 1.** Name pairs interact strongly at the last-name position (IR 0.12 → 0.37 across
+layers), but a known person interacts exactly like an unknown pair: real − control is at most
+about 0.01, and binding neurons per real quadruple are about 12 against a control of 10. The
+model builds the same generic pair code for every name pair. The person-specific part is either
+elsewhere (most likely at the answer position, where Phase 2b showed facts can be written into
+MLP layers 3–4) or too small for whole-vector norms. Assuming binding happens at the name, as in
+Nanda et al. on real LLMs, was the reviewer's mistake. Task 1b adds the interaction at END and
+causal tracing, residual and MLP-only, position by layer.
+
+**F Task 2.** T2 failed gate F1 only on dead units on layers 1–5, and on recall at layer 0. Dead
+units do not make live units unfaithful, so T3 adds the standard auxiliary loss rather than
+lowering the 30% threshold. Gate F1 is now required on layers 1–5 only. Layer 0 is the entry
+stage where the Phase 2 knowledge set sits and is reported and flagged. This is a gate change
+after results, made by the reviewer. If T3 fails on layers 1–5, F stops for good.
