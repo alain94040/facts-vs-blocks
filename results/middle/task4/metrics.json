@@ -1,0 +1,45 @@
+{
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "seed": 0,
+ "n_rows": 88,
+ "n_excluded": 102,
+ "examples": [
+  "France",
+  "Japan",
+  "Argentina"
+ ],
+ "n_items": 85,
+ "prompt_example": {
+  "HOP1": "The country whose capital is Paris is France.\nThe country whose capital is Tokyo is Japan.\nThe country whose capital is Buenos Aires is Argentina.\nThe country whose capital is Berlin is ->  Germany",
+  "HOP2-language": "The official language of France is French.\nThe official language of Japan is Japanese.\nThe official language of Argentina is Spanish.\nThe official language of Germany is ->  German",
+  "HOP2-continent": "France is in the continent of Europe.\nJapan is in the continent of Asia.\nArgentina is in the continent of South America.\nGermany is in the continent of ->  Europe",
+  "TWO-language": "The official language of the country whose capital is Paris is French.\nThe official language of the country whose capital is Tokyo is Japanese.\nThe official language of the country whose capital is Buenos Aires is Spanish.\nThe official language of the country whose capital is Berlin is ->  German",
+  "TWO-continent": "The country whose capital is Paris is in the continent of Europe.\nThe country whose capital is Tokyo is in the continent of Asia.\nThe country whose capital is Buenos Aires is in the continent of South America.\nThe country whose capital is Berlin is in the continent of ->  Europe"
+ },
+ "accuracy": {
+  "HOP1": 0.9882352941176471,
+  "HOP2-language": 1.0,
+  "HOP2-continent": 1.0,
+  "TWO-language": 0.9294117647058824,
+  "TWO-continent": 1.0
+ },
+ "two_hop": {
+  "language": {
+   "n_items": 85,
+   "n_eligible": 84,
+   "TWO_acc_all": 0.9294117647058824,
+   "TWO_acc_eligible": 0.9285714285714286,
+   "n_TWO_solved_eligible": 78,
+   "n_TWO_failed_eligible": 6
+  },
+  "continent": {
+   "n_items": 85,
+   "n_eligible": 84,
+   "TWO_acc_all": 1.0,
+   "TWO_acc_eligible": 1.0,
+   "n_TWO_solved_eligible": 84,
+   "n_TWO_failed_eligible": 0
+  }
+ },
+ "wall_seconds": 11.190301895141602
+}
