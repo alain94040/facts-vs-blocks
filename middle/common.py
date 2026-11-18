@@ -31,6 +31,10 @@ def zones(n):
     return {"ENTRY": list(range(0, a)), "FAMILY": list(range(a, b)), "OUTPUT": list(range(b, n))}
 
 
+def zone_of(l, z):
+    return next(k for k, v in z.items() if l in v)
+
+
 def outliers(model):
     p = {"dev": os.path.join(ROOT, "results", "repeat", "task4b", "dev", "summary.json"),
          "main": os.path.join(ROOT, "results", "repeat", "task4b", "summary.json")}[model]
