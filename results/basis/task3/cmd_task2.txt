@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python basis/task2.py --model confirm --configs base own:4 shared:4 --seed 0

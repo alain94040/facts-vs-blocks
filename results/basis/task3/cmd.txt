@@ -1,0 +1,1 @@
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python basis/task1.py --model confirm --seed 0

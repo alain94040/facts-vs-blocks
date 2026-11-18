@@ -1,0 +1,40 @@
+{
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "seed": 0,
+  "family": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "d": 5120,
+  "n_per_type": {
+    "q": 5120,
+    "k": 1024,
+    "v": 1024,
+    "o": 5120,
+    "gate": 13824,
+    "up": 13824,
+    "down": 13824
+  },
+  "n_configurations": 5,
+  "projection_precision": "bases float64 CPU; projection float32 MPS; stored float16",
+  "wall_seconds": 1466.6161708831787
+}
