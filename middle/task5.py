@@ -10,8 +10,9 @@ vocabulary tokens with a strictly larger logit (0 = top). "After layer l in the 
 Reuse: S(L) = sum of the updates of layers L-2, L-1, L = stream after L minus stream before L-2
 (needs L >= 2). Cosine between S_HOP2(L_answer1) and S_TWO(L_answer2) of the same item, outlier
 coordinates removed. Null: an item's TWO sum against the HOP2 sum of a different item with a
-different answer (one fixed random pairing, seed 0: for each item, the first such item in a
-seeded permutation).
+different answer (one fixed random pairing, seed 0: items are put in a seeded random cycle and
+each item's partner is the next item after it with a different answer. A first version took the
+first such item of the whole permutation, which gave nearly every item the same partner).
 
   python middle/task5.py --model dev --seed 0
 """
@@ -115,11 +116,12 @@ def main():
         sums_T = [block_sum(sT[k], L2[k]) for k in range(len(idx))]
         sums_P = [block_sum(sP[k], L1[k]) for k in range(len(idx))]
         rng = np.random.default_rng(args.seed)
-        perm = rng.permutation(len(idx))
+        perm = list(rng.permutation(len(idx)))
         partner = []
-        for k in range(len(idx)):
-            c = [q for q in perm if q != k and T[q]["answer"] != T[k]["answer"]
-                 and sums_P[q] is not None]
+        for k in range(len(idx)):  # next suitable item after k in the seeded cycle
+            pos = perm.index(k)
+            c = [perm[(pos + s) % len(perm)] for s in range(1, len(perm))]
+            c = [q for q in c if T[q]["answer"] != T[k]["answer"] and sums_P[q] is not None]
             partner.append(int(c[0]) if c else None)
         real, null = [], []
         for k in range(len(idx)):
