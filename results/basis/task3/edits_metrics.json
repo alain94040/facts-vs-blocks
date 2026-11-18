@@ -36,5 +36,5 @@
   },
   "n_configurations": 5,
   "projection_precision": "bases float64 CPU; projection float32 MPS; stored float16",
-  "wall_seconds": 1466.6161708831787
+  "wall_seconds": 170.91619777679443
 }

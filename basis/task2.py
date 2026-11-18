@@ -5,8 +5,11 @@ on their residual side, W -> U U^T W, with
   own(k)    : that layer's own top-k basis (eigenvectors of its folded W W^T, float64 CPU);
   shared(k) : the family's shared top-k basis (task 1, all coordinates);
   null(k)   : the rotated-null shared basis rotated back for each layer, Q_l^T U_null.
-The projection is applied to the folded matrix and the norm gain divided out again, so the
-model computes exactly with U U^T W_folded. Projections run on MPS in float32 and are written back
+The projection is applied to the folded matrix, which is stored as is, and the norm gain that
+feeds the group's reading matrices (input_layernorm for q, k, v; post_attention_layernorm for gate,
+up) is set to 1, so the model computes with U U^T W_folded. (A first version divided the gain out
+again after projecting; with RMSNorm gains near zero that overflowed float16 on 14B and lost
+precision on 7B, so it was replaced; see results/basis/REPORT.md.) Projections run on MPS in float32 and are written back
 in float16; original weights are restored after every configuration. Evaluation: Experiment C's
 SEARCH halves of TEXT, REASON and RECALL-HARD, paired bootstrap against base.
 
@@ -66,11 +69,17 @@ def project(layer, t, U):
         w = module(layer, READ[t]).weight
         g = gain(layer, t).float()
         wf = w.float() * g[None, :]                  # folded, (n, d): residual side = columns
-        new = ((wf @ U) @ U.T) / g[None, :]
+        new = (wf @ U) @ U.T                         # stored folded; the gain is set to 1 below
     else:
         w = module(layer, WRITE[t]).weight            # (d, n): residual side = rows
         new = U @ (U.T @ w.float())
     w.copy_(new.to(w.dtype))
+
+
+@torch.no_grad()
+def unit_gains(layer, grp):
+    """After all reading matrices of the group are projected (folded), set their norm gain to 1."""
+    gain(layer, "q" if grp == "attn" else "gate").fill_(1.0)
 
 
 def own_bases(W, model, family, types, kmax):
@@ -139,6 +148,8 @@ def main():
           "down": W.cfg["intermediate_size"]}
     orig = {(l, t): (module(layers[l], READ.get(t) or WRITE[t]).weight.detach().cpu().clone())
             for l in family for t in C.TYPES}
+    orig_g = {(l, n): getattr(layers[l], n).weight.detach().cpu().clone()
+              for l in family for n in ("input_layernorm", "post_attention_layernorm")}
     kmax = d // 2
     ownp = own_bases(W, args.model, family, C.TYPES,
                      kmax) if any(c[0] == "own" for c in cfgs) else {}
@@ -150,6 +161,8 @@ def main():
     def restore():
         for (l, t), w in orig.items():
             module(layers[l], READ.get(t) or WRITE[t]).weight.data.copy_(w.to(w.dtype))
+        for (l, n), g in orig_g.items():
+            getattr(layers[l], n).weight.data.copy_(g)
 
     base = None
     rows = []
@@ -169,6 +182,7 @@ def main():
                         else:
                             U = rot[l].T @ null[t][:, :k]
                         project(layers[l], t, U)
+                    unit_gains(layers[l], grp)
             sc = E.score(flow, sets, "SEARCH", which=SETS)
             restore()
             if scheme == "base":
