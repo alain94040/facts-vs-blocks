@@ -1,0 +1,139 @@
+kind,country,answer,TWO_solved,L_bridge,L_answer2,L_answer1,delay,reuse_cos,null_partner,null_cos
+language,Germany,German,True,,20,20,0,0.927226379858775,Lebanon,0.5927739865549589
+language,Italy,Italian,True,,21,21,0,0.8704060913234569,Lebanon,0.22855167489084463
+language,Spain,Spanish,True,,18,18,0,0.9365347153091063,Lebanon,0.5852886074722221
+language,Portugal,Portuguese,True,,19,18,1,0.660836129422416,Lebanon,0.8587950976647843
+language,Poland,Polish,True,23,21,21,0,0.9393751505766337,Lebanon,0.18920979753597922
+language,Hungary,Hungarian,True,,21,21,0,0.9235082041136855,Lebanon,0.18082583064899876
+language,Austria,German,True,,20,20,0,0.9473708632736514,Lebanon,0.5932620808041452
+language,Greece,Greek,True,,20,20,0,0.9499669101189588,Lebanon,0.5883012245210532
+language,Sweden,Swedish,True,21,21,21,0,0.8973941877602735,Lebanon,0.20165030018690008
+language,Norway,Norwegian,True,,21,21,0,0.9229505422264931,Lebanon,0.23786395838213206
+language,Denmark,Danish,True,,21,21,0,0.899688889631785,Lebanon,0.19334483130771635
+language,Iceland,Icelandic,True,22,21,21,0,0.8717208404439261,Lebanon,0.18128502185038142
+language,Slovakia,Slovak,False,23,21,21,0,0.8615376840173119,Lebanon,0.18256742053775465
+language,Croatia,Croatian,True,21,21,21,0,0.8513559749056083,Lebanon,0.19083157324461505
+language,Serbia,Serbian,True,21,21,21,0,0.8561645250542068,Lebanon,0.1787363968741266
+language,Albania,Albanian,True,21,21,21,0,0.8407163207849829,Lebanon,0.23832735003404407
+language,Bulgaria,Bulgarian,True,,21,21,0,0.8932145383408451,Lebanon,0.258832291442132
+language,Romania,Romanian,True,23,21,21,0,0.8455601832374195,Lebanon,0.16457807283694723
+language,Ukraine,Ukrainian,True,23,21,21,0,0.9319099218724183,Lebanon,0.17817496474086858
+language,Lithuania,Lithuanian,True,23,21,21,0,0.9130640850683246,Lebanon,0.15283137450157244
+language,Latvia,Latvian,False,23,22,21,1,0.6897687388039482,Lebanon,-0.0030617292482659894
+language,Estonia,Estonian,True,,21,21,0,0.8631214429987832,Lebanon,0.1931511353382401
+language,South Korea,Korean,True,21,21,21,0,0.9318114487621023,Lebanon,0.17868575599452122
+language,North Korea,Korean,True,21,21,21,0,0.8626570928323677,Lebanon,0.21266648398447133
+language,Mongolia,Mongolian,True,21,21,21,0,0.906719064832374,Lebanon,0.2055604664057585
+language,Vietnam,Vietnamese,True,,21,20,1,0.5324111533625333,Lebanon,0.20498256686343735
+language,Thailand,Thai,True,,21,21,0,0.9285647219915275,Lebanon,0.21266473774833947
+language,Cambodia,Khmer,True,23,21,21,0,0.9102720224167141,Lebanon,0.21042575303759803
+language,Nepal,Nepali,True,21,21,21,0,0.9238272275197369,Lebanon,0.1999951621634395
+language,Saudi Arabia,Arabic,True,21,19,18,1,0.6213274954418434,Latvia,0.22352172865691097
+language,Oman,Arabic,False,,19,19,0,0.9244750696077967,Latvia,0.25993043119116294
+language,Qatar,Arabic,True,23,19,18,1,0.5680953580266496,Latvia,0.21136417793711595
+language,Bahrain,Arabic,True,,19,18,1,0.6019885077238604,Latvia,0.2299345653608243
+language,Jordan,Arabic,True,21,19,19,0,0.9094448174115372,Latvia,0.2219575954849736
+language,Syria,Arabic,True,,19,18,1,0.6325452356944109,Latvia,0.24016440643699002
+language,Lebanon,Arabic,True,23,19,19,0,0.9319820729515084,Latvia,0.20538538137737838
+language,Uzbekistan,Uzbek,True,21,21,21,0,0.899234819880444,Lebanon,0.21982246303646266
+language,Tajikistan,Tajik,False,21,21,21,0,0.8673468415711423,Lebanon,0.2181696852545985
+language,Egypt,Arabic,True,,19,19,0,0.9539011458255018,Latvia,0.21062753919537106
+language,Libya,Arabic,True,,19,19,0,0.9336518129732041,Latvia,0.2232857176190901
+language,Tunisia,Arabic,True,,19,19,0,0.9618732906034357,Latvia,0.23380495413248129
+language,Mauritania,Arabic,False,,21,19,2,0.3346894465288978,Latvia,0.31366992615957673
+language,Senegal,French,True,21,21,20,1,0.5110944972355864,Lebanon,0.25478197513990086
+language,Guinea,French,False,23,21,21,0,0.7600373586176703,Lebanon,0.2102420632264298
+language,Ghana,English,True,21,18,18,0,0.9267512644798324,Lebanon,0.5947369966603188
+language,Nigeria,English,True,,18,18,0,0.9140126109303145,Lebanon,0.547880578792823
+language,Angola,Portuguese,True,,21,21,0,0.8952887765183676,Lebanon,0.22052502852900135
+language,Mozambique,Portuguese,True,21,21,21,0,0.8574864366493121,Lebanon,0.2978127389110375
+language,Malawi,English,False,22,18,18,0,0.9409289820897246,Lebanon,0.5930271398122483
+language,Botswana,English,False,,18,18,0,0.9109699044492203,Lebanon,0.5981038204549142
+language,Namibia,English,False,,18,18,0,0.9279233558866316,Lebanon,0.5757393725293127
+language,Liberia,English,True,,18,18,0,0.9106874508518649,Lebanon,0.5810025180924135
+language,Sierra Leone,English,True,23,18,18,0,0.9300879872452749,Lebanon,0.59119921068265
+language,Belize,English,False,,18,18,0,0.8665003545346179,Lebanon,0.5765925308768146
+language,Honduras,Spanish,True,,19,20,-1,0.6507411067823816,Lebanon,0.8578200189546872
+language,El Salvador,Spanish,True,,20,19,1,0.6269742536384731,Lebanon,0.5711533835703198
+language,Nicaragua,Spanish,True,,21,20,1,0.5263212327950308,Lebanon,0.22178157934083628
+language,Costa Rica,Spanish,True,,18,19,-1,0.6528944714246961,Lebanon,0.5845192241744303
+language,Cuba,Spanish,True,,20,19,1,0.6432490713347155,Lebanon,0.5962655617442314
+language,Jamaica,English,True,,18,18,0,0.9119183643505488,Lebanon,0.5642758357604772
+language,Trinidad and Tobago,English,False,,18,18,0,0.890228060605157,Lebanon,0.5968171406905423
+language,Barbados,English,True,,18,18,0,0.9074694160310489,Lebanon,0.5615267528732606
+language,Saint Lucia,English,False,,18,18,0,0.8870690487148092,Lebanon,0.61713531984323
+language,Saint Vincent and the Grenadines,English,True,,18,18,0,0.8917080168771767,Lebanon,0.5306936087070793
+language,Peru,Spanish,False,23,20,20,0,0.9298926773731294,Lebanon,0.5949792680329237
+language,Chile,Spanish,True,23,20,20,0,0.9230530861517682,Lebanon,0.6067264186987587
+language,Colombia,Spanish,True,,19,19,0,0.9351725711674141,Lebanon,0.8503921828147811
+language,Venezuela,Spanish,True,,18,19,-1,0.6207998779453358,Lebanon,0.5914948988602279
+language,Ecuador,Spanish,False,23,21,20,1,0.5349830701960183,Lebanon,0.22222877437359284
+language,Uruguay,Spanish,True,23,19,19,0,0.9189993793557556,Lebanon,0.878453688591968
+language,Brazil,Portuguese,True,,20,21,-1,0.5762082330449522,Lebanon,0.547607583025506
+language,Suriname,Dutch,False,,23,21,2,0.21545230736470503,Lebanon,-0.05477714228059
+continent,Germany,Europe,True,23,18,18,0,0.9391860969306554,Suriname,0.09444430191817711
+continent,Italy,Europe,True,21,18,19,-1,0.6018330379239812,Suriname,0.09166543658317422
+continent,Spain,Europe,True,23,18,18,0,0.9451698983481713,Suriname,0.10086796003855583
+continent,Portugal,Europe,True,23,19,19,0,0.9621062479450736,Suriname,0.057560432540272974
+continent,Poland,Europe,True,23,18,19,-1,0.5922421347923461,Suriname,0.08016810139072088
+continent,Hungary,Europe,True,,18,19,-1,0.593960933975053,Suriname,0.08690092982835343
+continent,Austria,Europe,True,23,18,19,-1,0.6119943081728937,Suriname,0.09790305726963444
+continent,Greece,Europe,True,23,18,19,-1,0.6091548431054907,Suriname,0.08960395958842071
+continent,Sweden,Europe,True,,18,18,0,0.9376540633030644,Suriname,0.10922111757401813
+continent,Norway,Europe,True,,18,18,0,0.9395781423337499,Suriname,0.0965755158847074
+continent,Denmark,Europe,True,,18,19,-1,0.6056333053008031,Suriname,0.10376524545931713
+continent,Iceland,Europe,False,,19,19,0,0.9451382010459618,Suriname,0.06962080553901803
+continent,Slovakia,Europe,False,,19,19,0,0.9620104257600699,Suriname,0.04409521939028566
+continent,Croatia,Europe,True,,19,19,0,0.9561903394424462,Suriname,0.0475745783193743
+continent,Serbia,Europe,True,,19,19,0,0.960336062402189,Suriname,0.04499641957549017
+continent,Albania,Europe,False,,19,19,0,0.9594792987055043,Suriname,0.04635301038087235
+continent,Bulgaria,Europe,True,,19,19,0,0.9599643866261139,Suriname,0.0498664426227288
+continent,Romania,Europe,True,,19,19,0,0.9610512935409583,Suriname,0.05216627662803733
+continent,Ukraine,Europe,True,,19,19,0,0.9512955740634694,Suriname,0.04478657422759116
+continent,Lithuania,Europe,True,23,19,19,0,0.9556382275905788,Suriname,0.0617893975590165
+continent,Latvia,Europe,True,,19,19,0,0.9660213465293861,Suriname,0.06443868724257433
+continent,Estonia,Europe,True,,19,19,0,0.9657924021059037,Suriname,0.05771037070379179
+continent,Andorra,Europe,True,,19,19,0,0.9430441643352527,Suriname,0.05473997223455482
+continent,South Korea,Asia,True,22,19,19,0,0.9543297390516947,Lithuania,0.8662195860416532
+continent,North Korea,Asia,True,20,19,19,0,0.9466209871281116,Lithuania,0.8916887967562735
+continent,Mongolia,Asia,True,21,19,19,0,0.9455476930040164,Lithuania,0.8813610373718864
+continent,Vietnam,Asia,False,23,19,19,0,0.9578542732690472,Lithuania,0.8676625989581714
+continent,Cambodia,Asia,False,,19,19,0,0.9539852770235171,Lithuania,0.8854240924519997
+continent,Bhutan,Asia,True,,19,19,0,0.9543565094184598,Lithuania,0.8801040401692034
+continent,Nepal,Asia,True,23,19,19,0,0.9570225186065144,Lithuania,0.8728545662148881
+continent,Uzbekistan,Asia,False,,19,19,0,0.9546522102646136,Lithuania,0.9045245054307262
+continent,Tajikistan,Asia,False,,19,19,0,0.9483623028097854,Lithuania,0.9171790198673199
+continent,Egypt,Africa,True,,20,20,0,0.9768989837462404,Lithuania,0.5305407469777922
+continent,Libya,Africa,True,,20,20,0,0.9740120083045415,Lithuania,0.5591587278489262
+continent,Tunisia,Africa,True,,21,20,1,0.7134599972423616,Lithuania,0.2821790920891779
+continent,Mauritania,Africa,True,,20,19,1,0.5994146272620264,Lithuania,0.577087710853725
+continent,Senegal,Africa,True,,20,19,1,0.5700805837622934,Lithuania,0.5601067129226855
+continent,Guinea,Africa,True,,20,19,1,0.5660156664754917,Lithuania,0.5689671521790443
+continent,Ghana,Africa,True,,20,19,1,0.5680928143442843,Lithuania,0.5544931831262798
+continent,Nigeria,Africa,True,22,19,19,0,0.9368364012348526,Lithuania,0.7703577534985784
+continent,Angola,Africa,True,,20,20,0,0.9650841324520316,Lithuania,0.5724340929994463
+continent,Mozambique,Africa,True,,20,19,1,0.5925860154857183,Lithuania,0.5688083388957864
+continent,Zambia,Africa,True,,20,19,1,0.5738129669902368,Lithuania,0.558785147926753
+continent,Malawi,Africa,True,,20,19,1,0.5864330322905865,Lithuania,0.5729313963318473
+continent,Botswana,Africa,True,,20,19,1,0.6078850737992292,Lithuania,0.5861728723054063
+continent,Namibia,Africa,True,21,20,20,0,0.9638504821380386,Lithuania,0.5710972718793176
+continent,Liberia,Africa,True,,20,19,1,0.5991754634139248,Lithuania,0.5732913392432046
+continent,Sierra Leone,Africa,True,,20,19,1,0.5889947125594608,Lithuania,0.5637341333611225
+continent,Belize,North America,True,,20,20,0,0.9372669037822652,Lithuania,0.5788476204959542
+continent,Honduras,North America,False,,20,20,0,0.9550726554600828,Lithuania,0.534721973827721
+continent,El Salvador,North America,True,,20,20,0,0.969334725417545,Lithuania,0.5343852795193601
+continent,Nicaragua,North America,True,,20,20,0,0.9711216729583518,Lithuania,0.5510487356213714
+continent,Costa Rica,North America,True,,20,19,1,0.5865215275056581,Lithuania,0.5595311241744441
+continent,Cuba,North America,True,,20,20,0,0.9645395334181492,Lithuania,0.5318695745039294
+continent,Jamaica,North America,True,,20,20,0,0.9588530357480373,Lithuania,0.5836314403682055
+continent,Trinidad and Tobago,North America,True,,20,20,0,0.9498472706116009,Lithuania,0.5634304378645256
+continent,Barbados,North America,True,,20,20,0,0.9546905039222311,Lithuania,0.5814706665756924
+continent,Saint Lucia,North America,False,,20,20,0,0.9590554822015571,Lithuania,0.5992313513573452
+continent,Peru,South America,True,23,21,21,0,0.9662028620759366,Lithuania,0.2907428317644298
+continent,Chile,South America,True,23,21,21,0,0.9540175873156647,Lithuania,0.3029215358760564
+continent,Colombia,South America,True,23,22,21,1,0.6465173189035681,Lithuania,0.006916283973577489
+continent,Venezuela,South America,True,23,21,21,0,0.9279814190965506,Lithuania,0.27398366501748583
+continent,Ecuador,South America,True,,22,22,0,0.9389255126979325,Lithuania,0.043167855783408586
+continent,Uruguay,South America,True,,21,21,0,0.9536764015907168,Lithuania,0.29659227242363345
+continent,Brazil,South America,True,21,21,20,1,0.6460155496024104,Lithuania,0.24435706763919765
+continent,Suriname,South America,True,,22,22,0,0.9069053804200057,Lithuania,0.027045798685643475
