@@ -309,3 +309,95 @@ Stop for review.
   describes how a unit combines what reaches it, not where that came from.
 - The toy model's facts are random and its people are invented. A clean table here is an upper
   bound for real models.
+
+## Revision 1 (after the Task 1 and Task 2 results)
+
+Results so far are in `results/binding/task1/` and `binding/STOP.md`. Two findings change the plan.
+
+**Task 1.** Name pairs interact strongly at the last-name position, with IR rising from about 0.12
+after layer 0's attention to about 0.37 after layer 5. But a known person and an unknown pair
+interact the same way: real − control is at most about 0.01, and binding neurons per real
+quadruple are about 12 against 10 for control. So the last-name position computes the same
+nonlinear pair code for any two names. Whatever singles out a known person happens somewhere
+else, or is too small to see in these norms. The plan assumed it happens at the last-name
+position; that assumption was the reviewer's, not the data's. **Task 1b** finds where it happens.
+
+**Task 2.** T2 passed FVU, recall and STORY loss on layers 1–5 and failed only on dead units
+(36–63%). Dead units waste dictionary capacity; they do not make the live units wrong. The
+standard remedy from the same paper (Gao et al. 2024) is an auxiliary loss, which T3 adds. Layer 0
+failed recall under both recipes. Phase 2 found the knowledge set there, so the transcoder is
+judged on layers 1–5 and layer 0 is reported and flagged. This is a gate change after seeing
+results, made by the reviewer and logged in `docs/LOG.md`. The dead-unit threshold itself is not
+lowered.
+
+The STOP is lifted. Run Task 1b first, then Task 2 with T3, then Tasks 3 to 5 as revised below.
+
+### Task 1b: where a known person is told apart
+
+Models: the same 8 runs as Task 1. Develop on `P2-main-2k-s0` first.
+
+**END prompts.** Two recall prefixes that end just before the answer:
+- CITY: birth_city template 1, `<|endoftext|>F L was born in`;
+- EMPLOYER: employer template 4, `<|endoftext|>The employer of F L is`.
+
+END is the last prompt token.
+
+1. **Interaction at END.** Repeat Task 1 steps 1 and 4 (IR by point, real − control with CI,
+   binding neurons) at the END position of both prompts, with the same quadruples. Report
+   `P_bind_END` defined as in Task 1.
+2. **Causal tracing** (Meng et al. 2022). Take people 0 to 199 of the run and both END prompts.
+   - The clean run is the person's prompt.
+   - The corrupted run is the same prompt with F1 L1 replaced by the F2 L2 of that person's real
+     quadruple (an unknown pair).
+   - For each token position from the first name to END, and each of the 13 points, run the
+     corrupted prompt with the clean residual written in at that one position and point only.
+   - Record the probability of the person's correct first answer token. Score =
+     `(p_restored − p_corrupt) / (p_clean − p_corrupt)`, averaged over items with
+     `p_clean − p_corrupt ≥ 0.1` (report how many).
+   - Also run an **MLP-only** variant: write in only the clean MLP output of layer l at that
+     position, leaving the rest of the residual corrupted. This shows which MLPs, at which
+     positions, supply the person-specific part.
+   - Control: the same with a second unknown pair as "clean" (both runs unknown). Its scores
+     have no meaning as recovery, so report `p_restored − p_corrupt` for the control next to the
+     real one.
+
+Output: `results/binding/task1b/<run>/metrics.json`, `results/binding/task1b/summary.csv`, and per
+run and prompt two heat maps (position × point; residual and MLP-only), plus the IR plot at END.
+
+### Task 2, revised: recipe T3
+
+T3 is T2 (32,768 units, k = 64, 40M positions) plus the auxiliary loss of Gao et al. 2024
+(section A.2):
+- a unit is dead if it has not been active in the last 10M training positions;
+- the auxiliary loss is the normalised MSE of reconstructing the main residual error
+  `y − ŷ` using only the top 512 dead units' pre-activations;
+- it is added with coefficient 1/32.
+
+Everything else, including evaluation, is unchanged.
+
+Gate F1 now applies to layers 1–5. Each must pass FVU ≤ 0.15, recall ≥ 0.85× unedited, STORY ≤
++0.10 nats and dead units ≤ 30%. Layer 0 is reported with the same numbers and flagged. Task 3
+counts for layer 0 are kept but marked as coming from a layer that failed F1.
+
+Run T3 on the pilot. If T3 fails F1 on any of layers 1–5, write `STOP.md` and stop; no other
+recipe may be tried. If it passes, freeze T3 and run Task 2 on every model as planned.
+
+### Task 3, revised: two positions
+
+Compute everything in Task 3 twice, and report both:
+- at the last-name position (START context), as written;
+- at the END position of the CITY prompt.
+
+Each position has its own `P(u)`, `P_unseen(u)` and classes. STORY rate, name share and the STORY-unit
+recurrence do not depend on position and are computed once.
+
+### Task 5, revised: extra rows
+
+Add these rows to the decision table:
+
+| Result | What it means |
+| --- | --- |
+| Real − control at END reaches 0.1 with CI above 0 at some point (`P_bind_END` exists) | The known person is told apart at the answer position, not at the name |
+| MLP-only causal tracing: the largest score sits at END in a layer ≥ 1, and scores at name positions are below half of it | Facts are looked up when they are asked for, from a pair code built at the name |
+| MLP-only causal tracing: the largest score sits at the last-name position | Facts are attached at the name, but in a part too small to see in Task 1's norms |
+| T3 passes F1 on layers 1–5 | Tasks 3 and 4 are valid for those layers |
