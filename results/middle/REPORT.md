@@ -163,3 +163,23 @@ Only the 6 failed TWO-language items can be fixed; continent has no failed items
 - Back-patching rests on 6 failed items of one kind.
 - One implementation fix was made after seeing results, to the pairing of the reuse null in task
   5, as described above. No metric, threshold or test set was changed.
+
+## Task 8 (follow-up): reuse null with the same answer
+
+`task8/metrics.json`, per item in `task8/items.csv`. A new null pairs each item with a different
+item that has the **same** answer. Items are put in a seeded random cycle, and each takes the
+next same-answer item after it, with no partner used more than 3 times (in practice each was used
+once). Items whose answer no other eligible item shares are excluded: 30 of 84 language items and
+0 of 84 continent items. All three cosines are computed on the remaining items, with outlier
+coordinates removed. Task 8 recomputes task 5's real and different-answer cosines and reproduces
+them exactly (max |difference| 0.0).
+
+| Kind | n | real | same-answer null | different-answer null | real − same-answer null [95% CI] |
+| --- | --- | --- | --- | --- | --- |
+| language | 54 | 0.715 | 0.522 | 0.349 | 0.193 [0.146, 0.240] |
+| continent | 84 | 0.865 | 0.804 | 0.698 | 0.062 [0.028, 0.097] |
+
+| Result | Mark | Numbers |
+| --- | --- | --- |
+| Real minus same-answer null is at least 0.1 with a CI above 0, for both kinds | **Does not apply** | Language 0.193 [0.146, 0.240] meets it. Continent 0.062 [0.028, 0.097] does not. |
+| Real minus same-answer null is below 0.05 | **Does not apply** | Both kinds are above 0.05, and both CIs exclude 0. |
