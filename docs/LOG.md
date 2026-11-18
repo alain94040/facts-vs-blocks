@@ -306,3 +306,40 @@ and asks whether one layer's operator explains another's update, against a rotat
 follows two-hop questions through the layers with the logit lens, tests whether the second hop
 reuses the one-hop update directions at a later depth, and tries back-patching (Biran et al.
 2024), a targeted version of re-running the middle. About 1.5 hours; runs after Experiment D.
+
+## 2026-11-18: Experiments D and E reviewed; Experiment F added (binding/PLAN.md)
+
+**Experiment D** (`results/basis/REPORT.md`) is a clean negative result on 7B and 14B.
+- The family shares more directions than a rotated null (MLP efficiency 0.82 vs 0.64 at d/4 on 7B),
+  but barely more than OUTPUT does (+0.05).
+- Each zone has its own directions.
+- Even each layer's own best quarter-rank MLP costs over 1.2 nats, so training-free compression by
+  basis sharing is ruled out.
+- The 14B NaN fix (unit norm gain, exact by construction) is accepted.
+
+**Experiment E** (`results/middle/REPORT.md`), Part 1:
+- A per-token linear map explains about 36% of each family layer's update.
+- A neighbour's map explains nothing beyond predicting zero (largest pair ratio 0.01).
+- Read/write overlaps are only slightly above the null (0.25 vs 0.11 for neighbours).
+- Together with D, this rules out "the family is one block repeated".
+
+**Experiment E**, Part 2:
+- Qwen 7B answers nearly all two-hop country questions, with no delay, so back-patching has only 6
+  failures to work on and does not beat its control.
+- The control itself is informative. A foreign last-token state written in at a family layer
+  breaks 8% of solved items, against 79% at layer 20. So the last token carries little
+  item-specific information until about layer 18–20.
+- The reuse cosine (0.78 vs 0.37 null) is confounded by the shared answer token, which is the
+  reviewer's design flaw. Middle task 8 adds a same-answer null.
+- 16 of 28 layers chose the largest ridge penalty in the grid. That can inflate similarity between
+  maps, which does not change the negative reading.
+
+**Experiment F.** Three experiments at whole-layer level found no repeated block, so the next step
+moves down to features, on the toy model, where every person and fact is known.
+- Task 1 finds where two name tokens become one person, via the four-name interaction against
+  control quadruples, the routing head and per-neuron interactions.
+- Task 2 trains top-k transcoders on every MLP (with a fidelity gate and a declared ladder).
+- Task 3 counts person-specific units against an unseen-people null across 2k/8k/32k and
+  ctrl-8k-x4, and tests whether shared STORY units recur across fact loads.
+- Task 4 measures each unit's fan-in and AND index.
+- Together, these make the facts-vs-blocks split a count rather than an ablation.

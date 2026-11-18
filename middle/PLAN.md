@@ -176,3 +176,31 @@ about 20 minutes. Total about 1.5 hours.
   estimates; they are used for timing, not as proof that a step happened.
 - Countries are well-known facts; the second hop is easy for the model once the bridge is known,
   which is the condition the method needs.
+
+## Follow-up (added after the review of the report)
+
+### Middle task 8: reuse null with the same answer
+
+Task 5's reuse null pairs items with **different** answers, while the real pair always shares the
+answer. A high real cosine can therefore mean only that both sums write the same answer token,
+not that the same machinery is reused. Add a second null:
+
+- For each eligible item, pair it with a different item that has the **same** answer (same
+  language or same continent). Use a seeded random cycle as in the fixed task 5 null: each item
+  takes the next item after it with the same answer, and no partner is used more than 3 times.
+  Items whose answer is unique are excluded; report how many.
+- Cosine between the item's TWO sum (ending at its `L_answer2`) and the partner's HOP2 sum (ending
+  at the partner's `L_answer1`), outlier coordinates removed, exactly as in task 5.
+- Report per kind: real, same-answer null, different-answer null (task 5), and real minus
+  same-answer null with a bootstrap 95% CI. All three are computed on the same items, so restrict
+  real and the task 5 null to the items that have a same-answer partner.
+
+Add one row to the report's decision table:
+
+| Result | What it means |
+| --- | --- |
+| Real minus same-answer null is at least 0.1 with a CI above 0, for both kinds | The second step reuses item-specific one-step machinery, beyond writing the same answer |
+| Real minus same-answer null is below 0.05 | The reuse cosine reflects the shared answer only |
+
+Output `results/middle/task8/metrics.json` and append a section to `results/middle/REPORT.md`.
+Minutes of compute. Commit as `middle task 8: <what>`.
