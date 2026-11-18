@@ -1,4 +1,4 @@
-# Experiment G: tracing one impressive answer, and which of its parts are reused
+# Experiment G: tracing one impressive answer, and whether it is built from copies of small templates
 
 An independent experiment on an existing open model. It runs forward passes, patches activations
 and builds attribution graphs with pretrained transcoders. It trains nothing.
@@ -6,7 +6,8 @@ and builds attribution graphs with pretrained transcoders. It trains nothing.
 **Why.** Experiments C, D and E looked for building blocks at the level of whole layers of Qwen and
 found none: no layer reuses another layer's operation. This experiment starts from the other end.
 It takes one answer that looks clever, finds the parts of the model that actually produce it, and
-then asks which of those parts also produce answers to *other, different-looking* tasks.
+then asks whether those parts are **copies of a few small templates**: many parts that do the same
+job, wired the same way, each with a different "setting" (which variable, which number).
 
 The clever answer is **running a short program in the head**, with no written steps:
 
@@ -23,13 +24,26 @@ overwritten, look up the latest value of each variable, and do arithmetic, all i
 pass.
 
 **What "building block" means here, and what it does not.** A part is an attention head or a
-transcoder feature (one sparse direction that a layer reads and writes). A part is a **block** for
-this experiment if it is needed for program tracing *and* is needed for at least one task that
-looks different on the surface (the same problem told as a story, ordering people by height, a
-two-hop question), more than a frequency-matched random part is. The experiment cannot produce a
-complete list of the model's blocks, and a part that is shared is not proof of a general
-"reasoning module": it may be a generic part (for example "this token is a number") that every
-task touches. The nulls below exist to separate the two.
+transcoder feature (one sparse direction that a layer reads and writes). Two pictures are tested:
+
+- **Reuse:** one part serves many uses. The feature for "the value held by a variable" is the same
+  whichever variable it is.
+- **Copies:** many parts do the same job for different settings. There is one feature for "the
+  value held by `a`", another for "held by `b`", and so on, and each copy is wired to the next
+  stage the same way. This is the picture in which the model is built from many similar instances
+  of a small template, possibly spanning several layers.
+
+A single feature is already a tiny template ("detect a pattern, write a direction") repeated tens
+of thousands of times; that is true of every model and is not what is tested. A **template** here
+is a group of at least four features that do the same job for different settings *and* connect to
+the next stage in a pattern that follows the setting. Program tracing suits this test because
+every program makes the model do the same jobs several times, each time with a different variable
+or number.
+
+The experiment cannot count every template in the model; it counts those that program tracing
+uses. With 8 variable letters and 10 digits, a family has at most 8, 10 or 80 members. Shared or
+selective features may also be generic parts (for example "this token is a number"); the nulls
+below exist to separate the two.
 
 The rules in `CLAUDE.md` apply. In addition:
 
@@ -46,7 +60,7 @@ The rules in `CLAUDE.md` apply. In addition:
 - Develop every script on the development model first. Its numbers are not results.
 - Commit messages: `circuit task N: <what>`.
 - Seed 0 for every random choice unless stated.
-- Two review stops: after Task 1 and at the end (Task 7).
+- Two review stops: after Task 1 and at the end (Task 8).
 
 ## 1. Models
 
@@ -153,6 +167,8 @@ dropped and listed in the report.
 **Gate G1.** PROG has a chosen level of P2 or higher. If not, the main task becomes the next family
 in the order ORDER, TWOHOP that has a chosen level, every PROG step below is run on that family
 instead, and the report says so in its first line. If none qualifies, write `STOP.md`.
+Tasks 5 to 7 are written for PROG; if the main task is not PROG, stop after Task 4 and write the
+question to `QUESTIONS.md` so the reviewer can adapt them.
 
 Output `results/circuit/task1/accuracy.csv` (model, family, level, n, accuracy, mean log-prob) and
 one plot. Stop for review.
@@ -191,7 +207,14 @@ On TEST pairs of type `on-path` and `overwrite` (100 each):
 4. **Control:** the same patches on `off-path` and `rename` pairs must restore nothing because
    nothing changes; report the mean absolute change in the clean logit as the noise level.
 
-Output heat maps and `results/circuit/task3/heads.csv`.
+5. **Lookup heads.** On 200 TEST items, for every head, the mean attention from the final position
+   to the literal token of the **latest** assignment of the printed variable, and to the literal of
+   its **earlier** assignment when there is one. A **lookup head** has mean attention ≥ 0.3 to the
+   latest literal and at most half that to the earlier one. Report the number of lookup heads,
+   their layers, and their Task 3.2 restoration. Several lookup heads are copies at the level of
+   heads.
+
+Output heat maps, `results/circuit/task3/heads.csv` and `results/circuit/task3/lookup_heads.csv`.
 
 ### Circuit task 4: attribution graphs
 
@@ -212,37 +235,114 @@ patching results of Task 3 stand on their own.
    Report core accuracy, the random sets' mean and 5th–95th percentile.
 4. Also report the accuracy after zeroing the core set restricted to each third of the layers.
 
-### Circuit task 5: reuse across tasks
+### Circuit task 5: copies or one shared part (PROG)
 
-1. Repeat Task 4 steps 1–2 for STORY, ORDER, TWOHOP and ARITH (40 items each, chosen level), giving
-   one core set per family. Skip any family dropped in Task 1.
-2. **Overlap.** For each family `T`, the overlap `|core(PROG) ∩ core(T)| / |core(PROG)|`, and the
-   same overlap for 1,000 random sets drawn like the matched random sets of Task 4.3. Report the
-   overlap, the null mean and its 95th percentile.
-3. **Causal reuse.** Zero core(PROG) and measure accuracy on 200 TEST items of every other family,
-   and on TEXT (mean next-token loss). Compare with the 20 matched random sets. Then zero
-   core(PROG) ∩ core(T) and core(PROG) \ core(T) separately and measure both PROG and T.
-4. **Generic parts.** A feature is **generic** if it is active (non-zero) on more than 5% of TEXT
-   positions. Report every overlap number twice: with all features and with generic features
-   removed.
+**Data.** FACT: 600 fresh PROG items at the chosen level (seeds 2001–2600) that the model answers
+correctly. Run each once and record every transcoder feature's activation at every layer, at four
+**roles**:
 
-Output `results/circuit/task5/overlap.csv` and `results/circuit/task5/ablation.csv`.
+| Role | Position | Labels |
+| --- | --- | --- |
+| VAR-W | the variable name on an assignment line | its letter; the value it is assigned |
+| LIT | a literal | its digit |
+| VAR-R | a variable name read on the right-hand side | its letter; the value it holds at that point |
+| FINAL | the last position | the printed letter; the answer |
 
-### Circuit task 6: what the shared parts look like
+Values are known from the program. Values above 9 are labelled "10+" (one extra class).
 
-For each feature in core(PROG) ∩ core(STORY) after removing generic features (if more than 30,
-take the 30 with the largest summed attribution in the PROG graphs):
+A feature is **active** for a role at a layer if it is non-zero on at least 5% of that role's
+positions. Drop **generic** features (non-zero on more than 5% of TEXT positions) from everything
+in this task, and report how many were dropped per layer.
 
+**5.1 Classify every active feature.** For a label with `k` classes, the **share** of a feature is
+`max_c m(c) / Σ_c m(c)`, where `m(c)` is its mean activation on positions with class `c`. A share
+is **significant** if it is above the 99.9th percentile of 1,000 shares with the labels shuffled
+across positions. Classify each active feature, in this order:
+
+1. **conjunction**: on the letter × value table, share ≥ 0.5 and significant;
+2. **letter-selective**: letter share ≥ 0.5 and significant;
+3. **value-selective**: value share ≥ 0.5 and significant;
+4. **shared**: otherwise.
+
+Its **preferred class** is the class (or cell) with the largest `m`. Report counts per layer, role
+and type in `results/circuit/task5/classes.csv`.
+
+**5.2 Families.** For each (layer, role, type) with at least 4 distinct preferred classes among its
+selective features, those features form one **family**; its **coverage** is the number of distinct
+preferred classes (at most 8 letters, 11 values or 88 cells). Report every family with its size and
+coverage. If more than 40 families exist, keep the 40 with the largest summed node influence in the
+Task 4 PROG graphs for steps 5.3–5.5 and say so.
+
+**5.3 Same wiring, following the setting?** For two families X (layer `l`) and Y (layer `l'`,
+`l < l' ≤ l + 4`) with the same type of label (letters or values), the **connection matrix**
+`M[c, c']` is the mean virtual weight from members of X preferring `c` to members of Y preferring
+`c'`. Virtual weights use the transcoder encoder of the target and decoder of the source, through
+two paths, reported separately:
+- **direct**: `w = enc_Y · dec_X` (residual stream only);
+- **through a head**: `w = enc_Y · W_OV(h) · dec_X` for every head `h` in layers `l+1 … l'`; keep the
+  head with the largest score below, and compute its null the same way (maximum over heads).
+
+The **diagonal score** is the mean of `M` on matching classes minus the mean off them, divided by
+the standard deviation of `M`. Its null is 1,000 shuffles of Y's preferred classes. A family pair is
+**wired by setting** if its score is above the null's 99th percentile. Report every pair tested, the
+number that pass, and the number expected by chance (1% of pairs tested).
+
+**5.4 A common part?** For each family, the **template fraction** `T = |mean of unit decoder
+vectors|²`. It is 1 if all members write the same direction and near 0 if they are unrelated.
+Compare with 1,000 sets of the same size drawn from active non-generic features of the same layer,
+matched in TEXT frequency within ×2. For value families, also fit the top 6 principal components
+of the members' decoder vectors with `cos(2πv/P)` and `sin(2πv/P)` for `P` = 2, 5, 10 (Kantamneni
+and Tegmark 2025); report R² and its 99th percentile under 1,000 label shuffles.
+
+**5.5 Does the setting do what it says?** For each of the 3 letter-selective VAR-W families with
+the largest node influence, on 100 TEST items: at the variable name of one on-path assignment line
+(variable `v`), set the activations of members preferring `v` to 0 and set those preferring another
+letter `u` used in the program to their mean active value in FACT. The **predicted answer** is the
+program's output with `v` renamed `u` on that line only; keep items where it differs from the
+original and is 0–9. Report the fraction of items whose top answer becomes the predicted one, and
+the same for 20 swaps of matched random features (same counts, same layers, TEXT frequency within
+×2).
+
+**5.6 In the actual graphs.** In the 40 PROG graphs of Task 4: the share of total node influence
+carried by family members; and, over edges between members of two families, the share whose source
+and target have the same preferred class, against 1,000 shuffles of preferred classes.
+
+Output `results/circuit/task5/` (`classes.csv`, `families.csv`, `wiring.csv`, `template.csv`,
+`swap.csv`, `graphs.json`) and one plot per family pair that passes 5.3 showing `M`.
+
+### Circuit task 6: the same templates in other tasks
+
+1. Build 40 attribution graphs each for STORY and ARITH (chosen level) as in Task 4.1, with the
+   same G2 report (not a gate here).
+2. Repeat Task 5.1–5.4 on STORY with roles NAME-W (person name where a count is set), NUM (number
+   word or digit), NAME-R (person name read), FINAL, and letters replaced by person names. 600 items,
+   seeds 3001–3600.
+3. **Same template, different surface?** For each PROG family and each STORY family of the same
+   layer and value type (values), match members by preferred class and report the mean cosine of
+   their decoder vectors; for letter and person families, which have no common classes, find the
+   best one-to-one matching (Hungarian algorithm on cosines). Null: the same for 1,000 matched
+   random sets.
+4. **Arithmetic or variables?** Repeat 5.1–5.2 on ARITH (roles LIT and FINAL only, 600 items,
+   seeds 4001–4600). Report which PROG value families have a counterpart in ARITH (same layer,
+   member decoder cosines above the null's 99th percentile as in step 3).
+5. The old reuse question, kept as one number: for STORY and ARITH, the overlap
+   `|core(PROG) ∩ core(T)| / |core(PROG)|` with generic features removed, against the matched null of
+   Task 4.3 (1,000 sets).
+
+ORDER and TWOHOP are screened in Task 1 only; they get no further analysis.
+
+### Circuit task 7: what the families look like
+
+For each family that passes 5.3 (if more than 10, the 10 with the largest node influence), and for
+up to 5 of its members:
 - its 20 top-activating TEXT positions with 10 tokens of context each;
-- its mean activation per token role in PROG (literal, variable name on assignment, variable name
-  on read, operator, `print` line, final position) and in STORY (number, person name on first
-  mention, person name on later mention, final position);
+- its mean activation per class and role;
 - its top 5 output tokens through the unembedding.
 
-Write these to `results/circuit/task6/features.md` as plain tables. Do not label the features:
+Write these to `results/circuit/task7/families.md` as plain tables. Do not label the features:
 the labels are for the human review.
 
-### Circuit task 7: report (review stop)
+### Circuit task 8: report (review stop)
 
 `results/circuit/REPORT.md` with every number above, the plots, and this decision table. Report
 which rows hold; do not interpret beyond them.
@@ -250,16 +350,21 @@ which rows hold; do not interpret beyond them.
 | Result | What it means |
 | --- | --- |
 | Task 4.3: zeroing core(PROG) drops accuracy below the random sets' 5th percentile | The graph found parts the answer needs |
-| Task 5.2: overlap with STORY above the null's 95th percentile, after removing generic features | Code and story share specific parts: candidate blocks |
-| Task 5.3: zeroing core(PROG) hurts STORY (or ORDER, TWOHOP) beyond random, but leaves TEXT within 0.05 nats of random | The shared parts are task-relevant, not general text machinery |
-| Overlap with ARITH is as large as with STORY | What is shared may be the arithmetic, not the variable tracking |
-| Overlap above null only before removing generic features | What is shared is generic: no evidence for blocks |
-| No overlap above null for any family | Each task has its own parts at this resolution: a negative result |
-| Task 3: restoration for `overwrite` pairs concentrated in a few heads at the final position (top 5 heads ≥ 50% of the best single-layer residual restoration) | Looking up the latest value of a variable is done by a few heads |
+| Task 5.2: no family anywhere; selective features are few next to shared ones | Variables and values are handled by shared parts (reuse): no copies at this scale |
+| Task 5.2: families exist, but no pair passes 5.3 beyond the chance count | Look-alike features without a common wiring: no evidence of templates |
+| Task 5.3: pairs wired by setting, more than twice the chance count | Copies of a template whose wiring follows the setting: the "copies" picture holds for these jobs |
+| Task 5.5: swap moves the answer to the predicted one in ≥ 50% of items, above every random swap | The setting is causal: changing which copy fires changes which variable the model uses |
+| Task 5.4: template fraction above the null's 99th percentile | Copies share a common part plus a setting-specific part |
+| Task 5.4: value-family R² above the null for P = 10 | The digit copies lie on a circle or helix, as in Kantamneni and Tegmark |
+| Many conjunction features covering ≥ 40 of the 88 letter × value cells | One copy per binding: a lookup table of (variable, value) pairs |
+| Task 6.3: STORY families match PROG families above null | The same templates serve code and story |
+| Task 6.4: the PROG value families all have ARITH counterparts | The value copies are arithmetic machinery, not variable tracking |
+| Task 3.5: three or more lookup heads | Looking up the latest value is done by several copies at the level of heads |
 
 ## 4. Budget
 
-About 2–4 hours on the Mac, most of it in attribution graphs (40 graphs × 5 families plus Task 0).
+About 2–4 hours on the Mac, most of it in attribution graphs (40 graphs × 3 families plus Task 0)
+and in the FACT runs of Tasks 5 and 6 (1,800 forward passes with all transcoders).
 If Task 0 shows one graph takes more than 5 minutes, reduce every "40 items" above to 20 before
 starting Task 4, and say so in the report. That change is decided by Task 0 timing only, never by
 results.
