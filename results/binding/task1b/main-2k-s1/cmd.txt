@@ -1,0 +1,1 @@
+PYTORCH_ENABLE_MPS_FALLBACK=1 /Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/.venv/bin/python binding/task1b.py --run main-2k-s1 --seed 0
