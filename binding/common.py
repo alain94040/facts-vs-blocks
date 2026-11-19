@@ -240,7 +240,10 @@ class Transcoder(nn.Module):
 
 
 RECIPES = {"T1": {"n_units": 16384, "k": 32, "positions": 20_000_000},
-           "T2": {"n_units": 32768, "k": 64, "positions": 40_000_000}}
+           "T2": {"n_units": 32768, "k": 64, "positions": 40_000_000},
+           # T3 (Revision 1): T2 + the auxiliary loss of Gao et al. 2024, A.2
+           "T3": {"n_units": 32768, "k": 64, "positions": 40_000_000,
+                  "aux_k": 512, "aux_coef": 1 / 32, "dead_positions": 10_000_000}}
 
 
 def load_transcoders(run, tc=0, device=DEVICE):

@@ -21,7 +21,9 @@ Per active unit and position (u among the position's top-k with a > 0):
               the 33rd-largest pre-activation;
   inhibition  total negative contribution / total absolute contribution.
 Averaged over the positions where u is active; units active on >= 100 positions are kept.
-Report per layer and task 3 class: median and IQR.
+Report per layer and task 3 class: median and IQR. Task 3 (Revision 1) assigns classes at two
+positions (START last name, CITY END); signatures are reported for both class assignments.
+The threshold is the (k+1)-th largest pre-activation (the 33rd for k = 32, the 65th for T3's k = 64).
 
   python binding/task4.py --run main-8k-s0 --seed 0
   python binding/task4.py --run untrained-s0 --people_of main-8k-s0 --seed 0
@@ -81,7 +83,7 @@ def batch_signatures(model, tcs, x, acc, err_acc):
         tc = tcs[l]
         h = caps[("h", l)].reshape(P, -1)
         pre = tc.pre(h)
-        thr = pre.topk(tc.k + 1, dim=1).values[:, -1]                       # 33rd largest
+        thr = pre.topk(tc.k + 1, dim=1).values[:, -1]                       # (k+1)-th largest
         v, u = pre.topk(tc.k, dim=1)
         act = v > 0
         ln = blk.ln2
@@ -140,24 +142,30 @@ def main():
         if i % 400 == 0:
             print(f"{time.time() - t0:.0f}s rows {i}/{len(rows)}", flush=True)
     with open(os.path.join(B.RES, "task3", args.run, "units.csv")) as f:
-        cls = {(int(r["layer"]), int(r["unit"])): r["class"] for r in csv.DictReader(f)}
+        cls = {(int(r["layer"]), int(r["unit"])): (r["class_START"], r["class_END"])
+               for r in csv.DictReader(f)}
+    with open(os.path.join(B.RES, "task3", args.run, "metrics.json")) as f:
+        f1 = json.load(f)["F1_pass_per_layer"]
     units, summary = [], []
     for l in range(B.N_LAYER):
         a = {k: v.cpu().numpy() for k, v in acc[l].items()}
         keep = np.where(a["n"] >= MIN_ACTIVE)[0]
         for u in keep:
-            units.append({"layer": l, "unit": int(u), "class": cls[(l, int(u))],
+            cs, ce = cls[(l, int(u))]
+            units.append({"layer": l, "unit": int(u), "class_START": cs, "class_END": ce,
                           "n_active": int(a["n"][u]),
                           **{s: float(a[s][u] / a["n"][u]) for s in SIGS}})
-        for c in ["ALL"] + sorted({x["class"] for x in units if x["layer"] == l}):
-            U = [x for x in units if x["layer"] == l and (c == "ALL" or x["class"] == c)]
-            row = {"run": args.run, "layer": l, "class": c, "n_units": len(U)}
-            for s in SIGS:
-                v = np.array([x[s] for x in U])
-                row.update({f"{s}_median": float(np.median(v)) if len(v) else None,
-                            f"{s}_q25": float(np.quantile(v, 0.25)) if len(v) else None,
-                            f"{s}_q75": float(np.quantile(v, 0.75)) if len(v) else None})
-            summary.append(row)
+        for key in ("class_START", "class_END"):
+            for c in ["ALL"] + sorted({x[key] for x in units if x["layer"] == l}):
+                U = [x for x in units if x["layer"] == l and (c == "ALL" or x[key] == c)]
+                row = {"run": args.run, "position": key[6:], "layer": l, "F1_pass": f1[l],
+                       "class": c, "n_units": len(U)}
+                for s in SIGS:
+                    v = np.array([x[s] for x in U])
+                    row.update({f"{s}_median": float(np.median(v)) if len(v) else None,
+                                f"{s}_q25": float(np.quantile(v, 0.25)) if len(v) else None,
+                                f"{s}_q75": float(np.quantile(v, 0.75)) if len(v) else None})
+                summary.append(row)
     with open(os.path.join(out, "units.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(units[0].keys()))
         w.writeheader()
@@ -173,19 +181,20 @@ def main():
            "wall_seconds": time.time() - t0}
     with open(os.path.join(out, "metrics.json"), "w") as f:
         json.dump(res, f, indent=1)
-    plot(units, out)
+    for key in ("class_START", "class_END"):
+        plot(units, out, key)
     print(json.dumps(res), flush=True)
 
 
-def plot(units, out):
+def plot(units, out, key):
     classes = [c for c in ["STORY", "NAME", "PERSON", "BIO", "OTHER"]
-               if any(x["class"] == c for x in units)]
+               if any(x[key] == c for x in units)]
     for s in SIGS:
         fig, ax = plt.subplots(figsize=(12, 4))
         pos, data, labels = [], [], []
         for l in range(B.N_LAYER):
             for ci, c in enumerate(classes):
-                v = [x[s] for x in units if x["layer"] == l and x["class"] == c]
+                v = [x[s] for x in units if x["layer"] == l and x[key] == c]
                 if v:
                     pos.append(l * (len(classes) + 1) + ci)
                     data.append(v)
@@ -196,10 +205,11 @@ def plot(units, out):
         ax.set_xticks([l * (len(classes) + 1) + (len(classes) - 1) / 2 for l in range(B.N_LAYER)],
                       [f"L{l}" for l in range(B.N_LAYER)])
         ax.set_ylabel(s)
+        ax.set_title(f"classes from task 3 at {key[6:]}", fontsize=9)
         ax.legend([plt.Rectangle((0, 0), 1, 1, fc=f"C{i}") for i in range(len(classes))],
                   classes, fontsize=7)
         fig.tight_layout()
-        fig.savefig(os.path.join(out, f"{s}.png"), dpi=110)
+        fig.savefig(os.path.join(out, f"{s}_{key[6:]}.png"), dpi=110)
         plt.close(fig)
 
 

@@ -14,6 +14,10 @@ Training (recipe T1: 16,384 units, k = 32, 20M positions; T2: 32,768, k = 64, 40
   drawn with seed + 1000 before training;
 - loss = mean squared error / variance of y; Adam lr 5e-4, linear warmup over the first 1% of
   steps, then constant.
+- T3 adds the auxiliary loss of Gao et al. 2024 (A.2): a unit is dead if it has not been active
+  (a > 0) in the last 10M training positions; e = y - y_hat (detached); e_hat = W_dec z, z = ReLU
+  of the top 512 dead units' pre-activations (no bias); aux = mean over positions of
+  |e_hat - e|^2 / |e|^2 (normalised MSE as in the paper's code); total += aux / 32 per layer.
 
 Fidelity (--eval), on held-out data:
 - FVU per layer on 1,000 held-out STORY rows (validation split) and the FACT prompts of people
@@ -127,6 +131,11 @@ def train(args):
     opt = torch.optim.Adam([p for tc in tcs for p in tc.parameters()], lr=LR)
     warm = max(1, int(WARM * n_steps))
     stream = Stream(args.run, args.tc)
+    aux_k = rec.get("aux_k")
+    if aux_k:
+        dead_steps = rec["dead_positions"] // (N_SEQ * SEQ)
+        last_active = [torch.zeros(rec["n_units"], dtype=torch.long, device=B.DEVICE)
+                       for _ in tcs]
     t0 = time.time()
     log = []
     for step in range(n_steps):
@@ -134,13 +143,34 @@ def train(args):
             g["lr"] = LR * min(1.0, (step + 1) / warm)
         with torch.no_grad(), Capture(model) as cap:
             model(stream.batch())
-        loss_l = []
+        loss_l, dead_l = [], []
         tot = 0
         for l, tc in enumerate(tcs):
             h = cap.hs[l].reshape(-1, B.D_MODEL)
             y = cap.ys[l].reshape(-1, B.D_MODEL)
-            loss = ((tc(h) - y) ** 2).sum(1).mean() / var[l]
+            pre = tc.pre(h)
+            v, i = pre.topk(tc.k, dim=-1)
+            v = torch.relu(v)
+            yh = tc.decode(v, i)
+            loss = ((yh - y) ** 2).sum(1).mean() / var[l]
             tot = tot + loss
+            if aux_k:
+                with torch.no_grad():
+                    act = torch.zeros(rec["n_units"], dtype=torch.bool, device=B.DEVICE)
+                    act[i[v > 0]] = True
+                    last_active[l][act] = step
+                    dead = (step - last_active[l]) >= dead_steps
+                nd = int(dead.sum())
+                if nd > 0:
+                    e = (y - yh).detach()
+                    # fixed shapes every step (variable-size gathers made the MPS allocator grow
+                    # and swap); with fewer than aux_k dead units the extra slots are -inf -> 0
+                    va, ia = pre.masked_fill(~dead, float("-inf")).topk(aux_k, dim=-1)
+                    eh = (torch.relu(va).unsqueeze(-1) * tc.dec[ia]).sum(-2)
+                    aux = (((eh - e) ** 2).sum(1) / (e ** 2).sum(1).clamp(min=1e-12)).mean()
+                    tot = tot + rec["aux_coef"] * aux
+                if step % 100 == 0 or step == n_steps - 1:
+                    dead_l.append(nd)
             loss_l.append(loss.item() if step % 100 == 0 or step == n_steps - 1 else None)
         opt.zero_grad(set_to_none=True)
         tot.backward()
@@ -149,10 +179,11 @@ def train(args):
             tc.renorm()
         if step % 100 == 0 or step == n_steps - 1:
             el = time.time() - t0
-            log.append({"step": step, "loss": loss_l, "seconds": el,
+            log.append({"step": step, "loss": loss_l, "seconds": el, "n_dead_train": dead_l,
                         "positions_per_s": (step + 1) * N_SEQ * SEQ / el})
             print(f"{el:.0f}s step {step}/{n_steps} nmse " +
                   " ".join(f"{x:.3f}" for x in loss_l) +
+                  (f" dead {dead_l}" if dead_l else "") +
                   f"  {(step + 1) * N_SEQ * SEQ / el:.0f} pos/s", flush=True)
     d = os.path.join(B.CKPT, args.run, f"tc{args.tc}" + ("_smoke" if args.max_steps else ""))
     os.makedirs(d, exist_ok=True)
@@ -246,13 +277,16 @@ def evaluate(args):
            "fvu": fvu, "dead_frac": dead, "dead_frac_story_only": dead_story,
            "unedited": base, "replaced": rep, "gate_F1": gate,
            "gate_F1_all_layers_pass": all(g["pass"] for g in gate.values()),
+           # Revision 1: gate F1 applies to layers 1-5; layer 0 is reported and flagged
+           "gate_F1_layers_1_5_pass": all(gate[f"L{l}"]["pass"] for l in range(1, B.N_LAYER)),
            "recall_meaningful": bool(meta.get("n_people")),
            "wall_seconds": time.time() - t0}
     out = B.out_dir("task2", args.run)
     with open(os.path.join(out, f"metrics_tc{args.tc}.json" if args.tc else "metrics.json"),
               "w") as f:
         json.dump(res, f, indent=1)
-    print(json.dumps({k: res[k] for k in ("fvu", "dead_frac", "unedited", "gate_F1_all_layers_pass")}),
+    print(json.dumps({k: res[k] for k in ("fvu", "dead_frac", "unedited", "gate_F1_all_layers_pass",
+                                          "gate_F1_layers_1_5_pass")}),
           flush=True)
     for l in range(B.N_LAYER):
         print(f"  L{l} recall {rep[f'L{l}']['recall']:.3f} story {rep[f'L{l}']['story_loss']:.4f}"

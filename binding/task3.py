@@ -1,4 +1,9 @@
-"""Binding task 3: person units and shared units (binding/PLAN.md).
+"""Binding task 3: person units and shared units (binding/PLAN.md; Revision 1: two positions).
+
+Everything that depends on people is computed at two positions, each with its own P, P_unseen,
+name_share and classes: START = the last-name position of <eot>F L; END = the last token of the
+CITY prompt <eot>F L was born in. S, DEAD and the recurrence do not depend on position.
+Layers whose transcoder failed gate F1 (task 2 metrics) are flagged in every table.
 
 Per run (its transcoder tc0, or --tc), per layer, per unit u:
   P(u)       trained people for which u is active (a > 0) at the last-name position in START
@@ -35,6 +40,7 @@ import torch
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from analysis import common as ac  # noqa: E402
 from binding import common as B  # noqa: E402
+from binding.task1b import prompt_ids  # noqa: E402
 from binding.task2 import Capture, fact_rows  # noqa: E402
 
 import matplotlib  # noqa: E402
@@ -44,6 +50,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 N_SAMPLE = 8000
 CACHE = os.path.join(B.ROOT, "data", "cache", "binding")
 CLASSES = ["DEAD", "STORY", "NAME", "PERSON", "BIO", "OTHER"]
+POSITIONS = ["START", "END"]
 PAIRS = [("main-8k-s0:0", "main-8k-s0:1", "ceiling: transcoder seed"),
          ("main-8k-s0:0", "main-8k-s1:0", "model seed"),
          ("main-2k-s0:0", "main-32k-s0:0", "fact load"),
@@ -63,10 +70,15 @@ def sampled_people(run):
     return [tp[i] for i in idx], idx, label
 
 
+def position_ids(pos, first, last):
+    return B.context_ids("START", first, last) if pos == "START" else prompt_ids("CITY", first, last)
+
+
 @torch.no_grad()
-def start_active(model, tcs, plist):
-    """Per layer: (n_people, k) unit indices and values at the last-name position in START."""
-    ids = torch.tensor([B.context_ids("START", *p["name"].split(" ")) for p in plist],
+def start_active(model, tcs, plist, pos="START"):
+    """Per layer: (n_people, k) unit indices and values at the last position of the START
+    prompt (last name) or the CITY prompt (END)."""
+    ids = torch.tensor([position_ids(pos, *p["name"].split(" ")) for p in plist],
                        device=B.DEVICE)
     out = [[] for _ in range(B.N_LAYER)]
     for i in range(0, len(ids), 4000):
@@ -157,9 +169,8 @@ def main_run(args):
     plist, pidx, plabel = sampled_people(run)
     unseen = B.unseen_people()
     sub = np.sort(np.random.default_rng(0).choice(len(plist), 1000, replace=False))
-    act_t = start_active(model, tcs, plist)
-    act_u = start_active(model, tcs, unseen)
     cnt, fcnt, n_story = story_counts(model, tcs, n_units, run, args.tc)
+    f1 = flagged_layers(run, args.tc)
 
     def names(pl):
         f = np.array([p["name"].split(" ")[0] for p in pl])
@@ -168,44 +179,62 @@ def main_run(args):
 
     ft, lt = names(plist)
     fu, lu = names(unseen)
-    rows, per_layer = [], []
-    for l in range(B.N_LAYER):
-        dead = (cnt[l] == 0) & (fcnt[l] == 0)
-        S = cnt[l] / n_story
-        Pt = people_sets(*act_t[l], n_units)
-        Pu = people_sets(*act_u[l], n_units)
-        cls, size, share = classify(dead, S, Pt, ft, lt)
-        P1k = people_sets(act_t[l][0][sub], act_t[l][1][sub], n_units)
-        cls1k, _, _ = classify(dead, S, P1k, ft[sub], lt[sub])
-        clsu, size_u, _ = classify(dead, S, Pu, fu, lu)
-        person = cls == "PERSON"
-        u_t = act_t[l][0]
-        has_person = (person[u_t] & (act_t[l][1] > 0)).any(1)
-        counts = {c: int((cls == c).sum()) for c in CLASSES}
-        per_layer.append({
-            "layer": l, "counts": counts,
-            "person_on_1000_trained": int((cls1k == "PERSON").sum()),
-            "person_on_1000_unseen": int((clsu == "PERSON").sum()),
-            "ratio_trained_to_unseen": (int((cls1k == "PERSON").sum())
-                                        / max(1, int((clsu == "PERSON").sum()))),
-            "frac_people_with_person_unit": float(has_person.mean()),
-            "median_S_story_units": float(np.median(S[cls == "STORY"])) if counts["STORY"] else None})
-        for u in range(n_units):
-            rows.append({"layer": l, "unit": u, "class": cls[u], "P": int(size[u]),
-                         "P_unseen": int(size_u[u]), "S": float(S[u]),
-                         "name_share": float(share[u])})
-        print(f"{time.time() - t0:.0f}s {tag} L{l} {counts} PERSON 1k trained/unseen "
-              f"{per_layer[-1]['person_on_1000_trained']}/{per_layer[-1]['person_on_1000_unseen']}"
-              f" covered {per_layer[-1]['frac_people_with_person_unit']:.3f}", flush=True)
+    cols = {l: {"layer": np.full(n_units, l), "unit": np.arange(n_units)} for l in range(B.N_LAYER)}
+    per_pos = {}
+    for pos in POSITIONS:
+        act_t = start_active(model, tcs, plist, pos)
+        act_u = start_active(model, tcs, unseen, pos)
+        per_layer = []
+        for l in range(B.N_LAYER):
+            dead = (cnt[l] == 0) & (fcnt[l] == 0)
+            S = cnt[l] / n_story
+            Pt = people_sets(*act_t[l], n_units)
+            Pu = people_sets(*act_u[l], n_units)
+            cls, size, share = classify(dead, S, Pt, ft, lt)
+            P1k = people_sets(act_t[l][0][sub], act_t[l][1][sub], n_units)
+            cls1k, _, _ = classify(dead, S, P1k, ft[sub], lt[sub])
+            clsu, size_u, _ = classify(dead, S, Pu, fu, lu)
+            person = cls == "PERSON"
+            has_person = (person[act_t[l][0]] & (act_t[l][1] > 0)).any(1)
+            counts = {c: int((cls == c).sum()) for c in CLASSES}
+            n1k, nu = int((cls1k == "PERSON").sum()), int((clsu == "PERSON").sum())
+            per_layer.append({
+                "layer": l, "F1_pass": f1[l], "counts": counts,
+                "person_on_1000_trained": n1k, "person_on_1000_unseen": nu,
+                "ratio_trained_to_unseen": n1k / max(1, nu),
+                "frac_people_with_person_unit": float(has_person.mean()),
+                "median_S_story_units": float(np.median(S[cls == "STORY"])) if counts["STORY"]
+                else None})
+            c = cols[l]
+            c["S"], c["dead"] = S, dead
+            c[f"class_{pos}"], c[f"P_{pos}"] = cls, size
+            c[f"P_unseen_{pos}"], c[f"name_share_{pos}"] = size_u, share
+            print(f"{time.time() - t0:.0f}s {tag} {pos} L{l}{'' if f1[l] else ' (F1 fail)'} "
+                  f"{counts} PERSON 1k trained/unseen {n1k}/{nu} "
+                  f"covered {per_layer[-1]['frac_people_with_person_unit']:.3f}", flush=True)
+        per_pos[pos] = per_layer
+    keys = list(cols[0].keys())
     with open(os.path.join(out, "units.csv"), "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader()
-        w.writerows(rows)
+        w = csv.writer(f)
+        w.writerow(keys)
+        for l in range(B.N_LAYER):
+            for u in range(n_units):
+                w.writerow([int(cols[l][k][u]) if k in ("layer", "unit") or k.startswith("P")
+                            else (f"{cols[l][k][u]:.6g}" if k in ("S",) or k.startswith("name")
+                                  else cols[l][k][u]) for k in keys])
     res = {"run": run, "tc": args.tc, "recipe": rec["name"], "n_units": n_units,
            "people": plabel, "n_people_sampled": len(plist), "n_unseen": len(unseen),
-           "n_story_positions": n_story, "per_layer": per_layer, "wall_seconds": time.time() - t0}
+           "n_story_positions": n_story, "F1_pass_per_layer": f1, "positions": per_pos,
+           "wall_seconds": time.time() - t0}
     with open(os.path.join(out, "metrics.json"), "w") as f:
         json.dump(res, f, indent=1)
+
+
+def flagged_layers(run, tc):
+    p = os.path.join(B.RES, "task2", run, f"metrics_tc{tc}.json" if tc else "metrics.json")
+    with open(p) as f:
+        g = json.load(f)["gate_F1"]
+    return [bool(g[f"L{l}"]["pass"]) for l in range(B.N_LAYER)]
 
 
 def load_rec(spec, l):
@@ -214,13 +243,19 @@ def load_rec(spec, l):
         return f[f"u{l}"], f[f"v{l}"]
 
 
+def n_units_of(spec):
+    run, tc = spec.split(":")
+    with open(os.path.join(B.CKPT, run, f"tc{tc}", "recipe.json")) as f:
+        return json.load(f)["n_units"]
+
+
 def story_units(spec):
     run, tc = spec.split(":")
     tag = run if tc == "0" else f"{run}-tc{tc}"
     with open(os.path.join(B.RES, "task3", tag, "units.csv")) as f:
         R = list(csv.DictReader(f))
     return {l: np.array([int(r["unit"]) for r in R if int(r["layer"]) == l
-                         and r["class"] == "STORY"]) for l in range(B.N_LAYER)}
+                         and r["class_START"] == "STORY"]) for l in range(B.N_LAYER)}
 
 
 def sparse(u, v, n_units):
@@ -254,7 +289,7 @@ def recurrence():
     t0 = time.time()
     res = []
     for a, b, role in PAIRS:
-        n_units = 16384
+        n_units = max(n_units_of(a), n_units_of(b))
         su_a, su_b = story_units(a), story_units(b)
         for l in range(B.N_LAYER):
             if not len(su_a[l]) or not len(su_b[l]):
@@ -277,52 +312,58 @@ def plots(runs):
     for tag in runs:
         with open(os.path.join(B.RES, "task3", tag, "metrics.json")) as f:
             M[tag] = json.load(f)
-        for pl in M[tag]["per_layer"]:
-            rows.append({"run": tag, "layer": pl["layer"], **pl["counts"],
-                         "person_on_1000_trained": pl["person_on_1000_trained"],
-                         "person_on_1000_unseen": pl["person_on_1000_unseen"],
-                         "ratio_trained_to_unseen": pl["ratio_trained_to_unseen"],
-                         "frac_people_with_person_unit": pl["frac_people_with_person_unit"]})
+        for pos in POSITIONS:
+            for pl in M[tag]["positions"][pos]:
+                rows.append({"run": tag, "position": pos, "layer": pl["layer"],
+                             "F1_pass": pl["F1_pass"], **pl["counts"],
+                             "person_on_1000_trained": pl["person_on_1000_trained"],
+                             "person_on_1000_unseen": pl["person_on_1000_unseen"],
+                             "ratio_trained_to_unseen": pl["ratio_trained_to_unseen"],
+                             "frac_people_with_person_unit": pl["frac_people_with_person_unit"]})
     with open(os.path.join(B.out_dir("task3"), "summary.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
-    # PERSON count vs number of people (seed 0 runs), unseen null alongside
-    fig, axs = plt.subplots(1, 2, figsize=(12, 4.5), sharey=True)
     ns = {"main-2k-s0": 2000, "main-8k-s0": 8000, "main-32k-s0": 32000}
-    for key, ax, title in (("person_on_1000_trained", axs[0], "PERSON units (P on 1,000 trained)"),
-                           ("person_on_1000_unseen", axs[1], "null: PERSON units (1,000 unseen)")):
-        for l in range(B.N_LAYER):
-            xs = [n for r, n in ns.items() if r in M]
-            ys = [M[r]["per_layer"][l][key] for r in ns if r in M]
-            ax.plot(xs, ys, "o-", label=f"L{l}", color=f"C{l}")
-            if "ctrl-8k-x4-s0" in M:
-                ax.plot([8000], [M["ctrl-8k-x4-s0"]["per_layer"][l][key]], "x", ms=9,
+    for pos in POSITIONS:
+        # PERSON count vs number of people (seed 0 runs), unseen null alongside
+        fig, axs = plt.subplots(1, 2, figsize=(12, 4.5), sharey=True)
+        for key, ax, title in (("person_on_1000_trained", axs[0], "PERSON units (P on 1,000 trained)"),
+                               ("person_on_1000_unseen", axs[1], "null: PERSON units (1,000 unseen)")):
+            for l in range(B.N_LAYER):
+                xs = [n for r, n in ns.items() if r in M]
+                ys = [M[r]["positions"][pos][l][key] for r in ns if r in M]
+                ax.plot(xs, ys, "o-" if l else "o:", label=f"L{l}" + ("" if l else " (flagged)"),
                         color=f"C{l}")
-        ax.set_xscale("log")
-        ax.set_xlabel("people in the run (x: ctrl-8k-x4)")
-        ax.set_title(title, fontsize=10)
-    axs[0].set_ylabel("units")
-    axs[0].legend(fontsize=7)
-    fig.tight_layout()
-    fig.savefig(os.path.join(B.out_dir("task3"), "person_vs_people.png"), dpi=110)
-    plt.close(fig)
-    fig, axs = plt.subplots(int(np.ceil(len(M) / 3)), 3, figsize=(14, 3.2 * np.ceil(len(M) / 3)),
-                            squeeze=False)
-    for ax, tag in zip(axs.ravel(), M):
-        bottom = np.zeros(B.N_LAYER)
-        for c in CLASSES:
-            v = np.array([pl["counts"][c] for pl in M[tag]["per_layer"]])
-            ax.bar(range(B.N_LAYER), v, bottom=bottom, label=c)
-            bottom += v
-        ax.set_title(tag, fontsize=9)
-        ax.set_xlabel("layer")
-    axs.ravel()[0].legend(fontsize=7)
-    for ax in axs.ravel()[len(M):]:
-        ax.axis("off")
-    fig.tight_layout()
-    fig.savefig(os.path.join(B.out_dir("task3"), "classes_by_layer.png"), dpi=100)
-    plt.close(fig)
+                if "ctrl-8k-x4-s0" in M:
+                    ax.plot([8000], [M["ctrl-8k-x4-s0"]["positions"][pos][l][key]], "x", ms=9,
+                            color=f"C{l}")
+            ax.set_xscale("log")
+            ax.set_xlabel("people in the run (x: ctrl-8k-x4)")
+            ax.set_title(f"{pos}: {title}", fontsize=10)
+        axs[0].set_ylabel("units")
+        axs[0].legend(fontsize=7)
+        fig.tight_layout()
+        fig.savefig(os.path.join(B.out_dir("task3"), f"person_vs_people_{pos}.png"), dpi=110)
+        plt.close(fig)
+        nr = int(np.ceil(len(M) / 3))
+        fig, axs = plt.subplots(nr, 3, figsize=(14, 3.2 * nr), squeeze=False)
+        for ax, tag in zip(axs.ravel(), M):
+            bottom = np.zeros(B.N_LAYER)
+            for c in CLASSES:
+                v = np.array([pl["counts"][c] for pl in M[tag]["positions"][pos]])
+                ax.bar(range(B.N_LAYER), v, bottom=bottom, label=c)
+                bottom += v
+            f1 = M[tag]["F1_pass_per_layer"]
+            ax.set_xticks(range(B.N_LAYER), [f"L{l}" + ("" if f1[l] else "*")
+                                             for l in range(B.N_LAYER)])
+            ax.set_title(f"{tag} ({pos}; * = F1 fail)", fontsize=9)
+        axs.ravel()[0].legend(fontsize=7)
+        for ax in axs.ravel()[len(M):]:
+            ax.axis("off")
+        fig.tight_layout()
+        fig.savefig(os.path.join(B.out_dir("task3"), f"classes_by_layer_{pos}.png"), dpi=100)
+        plt.close(fig)
 
 
 def main():
