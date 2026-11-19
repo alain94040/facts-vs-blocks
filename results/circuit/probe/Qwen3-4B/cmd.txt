@@ -1,0 +1,1 @@
+python circuit/probe/probe.py --model Qwen/Qwen3-4B --seed 0
