@@ -1,0 +1,1 @@
+python circuit/task0.py --which main --n 5 --seed 0 --dtype float32 --lazy-encoder --device cpu --tag _float32_lazyenc_cpu

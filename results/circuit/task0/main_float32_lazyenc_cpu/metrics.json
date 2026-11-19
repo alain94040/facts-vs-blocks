@@ -1,0 +1,21 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "transcoders": "mwhanna/qwen3-4b-transcoders",
+ "device": "cpu",
+ "dtype": "float32",
+ "lazy_encoder": true,
+ "lazy_decoder": true,
+ "attribute_batch_size": "library default (512)",
+ "status": "stopped by hand during the first graph, after it passed the 20-minute G0 limit",
+ "logit_check": {"max_abs_diff": 0.00018310546875, "max_abs_diff_top10": 7.43865966796875e-05, "pass": true},
+ "first_graph_seed": 9001,
+ "first_graph_started": "19:36:20",
+ "stopped_at": "19:57:03",
+ "elapsed_minutes_when_stopped": 20.7,
+ "active_features": 90241,
+ "phase_seconds": {"precompute": 22.57, "forward": 230.51, "input_vectors": 4.13, "logit_attribution": 76.83},
+ "feature_phase_progress_when_stopped": "37888/90241 feature nodes in 15:03, library ETA 37:14 more",
+ "estimated_graph_minutes": 57,
+ "process_rss_gb_when_stopped": 12.2,
+ "graph_le_20min": false
+}

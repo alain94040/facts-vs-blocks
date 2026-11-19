@@ -1,0 +1,1 @@
+python circuit/task0_dtype.py --which main --n 5 --seed 0

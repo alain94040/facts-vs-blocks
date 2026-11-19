@@ -1,0 +1,1 @@
+python circuit/task0_summary.py --seed 0

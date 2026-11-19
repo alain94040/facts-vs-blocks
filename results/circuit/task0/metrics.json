@@ -1,0 +1,201 @@
+{
+ "seed": 0,
+ "downloads": [
+  {
+   "repo": "Qwen/Qwen3-0.6B",
+   "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+   "gb": 1.52,
+   "free_disk_before_gb": 198.3,
+   "free_disk_after_gb": 196.1
+  },
+  {
+   "repo": "mwhanna/qwen3-0.6b-transcoders-lowl0",
+   "revision": "f28e5268fa1f3f685e028a8ba64a553e862dc7c3",
+   "gb": 18.8,
+   "free_disk_before_gb": 196.1,
+   "free_disk_after_gb": 156.3
+  },
+  {
+   "repo": "mwhanna/qwen3-4b-transcoders",
+   "revision": "e95f5a4049056917dfa0ed255c323570938db57a",
+   "gb": 60.41,
+   "free_disk_before_gb": 198.3,
+   "free_disk_after_gb": 110.1
+  }
+ ],
+ "software": {
+  "circuit_tracer": "0.5.0",
+  "backend": "transformerlens",
+  "safetensors": "0.7.0 (0.8.0 rejects the tensor index used by the lazy decoder)",
+  "compat_patch": "circuit/ct_compat.py: safe_open device 'mps:0' -> 'mps' (library not edited)"
+ },
+ "decisions_approved_by_reviewer_2026-11-18": {
+  "dtype": "float32 for the replacement model (the 0.05 logit limit applies within one dtype; bfloat16 failing it is not a gate failure)",
+  "lazy_encoder": "main model transcoders: float32 encoders would take ~60 GB, so encoders are read from disk (lazy_encoder=True); decoders lazy (library default)",
+  "safetensors_and_patch": "safetensors 0.7.0 and circuit/ct_compat.py"
+ },
+ "dtype_check": {
+  "dev": {
+   "hf_fp32_vs_tl_fp32": {
+    "max_abs_diff": 6.866455078125e-05,
+    "max_abs_diff_top10_of_second": 4.1484832763671875e-05
+   },
+   "hf_bf16_vs_tl_bf16": {
+    "max_abs_diff": 0.5408573150634766,
+    "max_abs_diff_top10_of_second": 0.31246376037597656
+   },
+   "hf_fp32_vs_hf_bf16": {
+    "max_abs_diff": 0.7577438354492188,
+    "max_abs_diff_top10_of_second": 0.3745250701904297
+   },
+   "tl_fp32_vs_tl_bf16": {
+    "max_abs_diff": 0.3968219757080078,
+    "max_abs_diff_top10_of_second": 0.18781614303588867
+   },
+   "model": "Qwen/Qwen3-0.6B",
+   "n": 20
+  },
+  "main": {
+   "hf_fp32_vs_tl_fp32": {
+    "max_abs_diff": 0.00018310546875,
+    "max_abs_diff_top10_of_second": 7.43865966796875e-05
+   },
+   "hf_bf16_vs_tl_bf16": {
+    "max_abs_diff": 1.4140987396240234,
+    "max_abs_diff_top10_of_second": 0.37496376037597656
+   },
+   "hf_fp32_vs_hf_bf16": {
+    "max_abs_diff": 0.47299957275390625,
+    "max_abs_diff_top10_of_second": 0.21605587005615234
+   },
+   "tl_fp32_vs_tl_bf16": {
+    "max_abs_diff": 1.1014461517333984,
+    "max_abs_diff_top10_of_second": 0.25712108612060547
+   },
+   "model": "Qwen/Qwen3-4B",
+   "n": 5
+  }
+ },
+ "dev": {
+  "model": "Qwen/Qwen3-0.6B",
+  "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "transcoders": "mwhanna/qwen3-0.6b-transcoders-lowl0",
+  "transcoder_revision": "f28e5268fa1f3f685e028a8ba64a553e862dc7c3",
+  "device": "mps",
+  "dtype": "float32",
+  "lazy_encoder": false,
+  "lazy_decoder": true,
+  "n": 20,
+  "logit_check": {
+   "max_abs_diff": 6.866455078125e-05,
+   "max_abs_diff_top10": 4.1484832763671875e-05,
+   "pass": true
+  },
+  "graph_seconds_mean": 212.05607416629792,
+  "graph_seconds_max": 294.64910101890564,
+  "peak_memory_gb": {
+   "rss": 21.58,
+   "mps_driver": 76.87,
+   "sum": 97.01
+  },
+  "replacement_score_median": 0.3619178384542465,
+  "completeness_score_median": 0.8193197548389435
+ },
+ "main_runs": {
+  "main_float32_lazyenc": {
+   "model": "Qwen/Qwen3-4B",
+   "transcoders": "mwhanna/qwen3-4b-transcoders",
+   "device": "mps",
+   "dtype": "float32",
+   "lazy_encoder": true,
+   "lazy_decoder": true,
+   "attribute_batch_size": "library default (512)",
+   "status": "crashed in the first graph (seed 9001), feature-attribution phase",
+   "error": "RuntimeError: MPSGraph does not support tensor dims larger than INT_MAX (einsum in circuit_tracer/attribution/context_transformerlens.py:109, _hook_fn)",
+   "logit_check": {
+    "max_abs_diff": 0.00018310546875,
+    "max_abs_diff_top10": 7.43865966796875e-05,
+    "pass": true
+   }
+  },
+  "main_float32_lazyenc_cpu": {
+   "model": "Qwen/Qwen3-4B",
+   "transcoders": "mwhanna/qwen3-4b-transcoders",
+   "device": "cpu",
+   "dtype": "float32",
+   "lazy_encoder": true,
+   "lazy_decoder": true,
+   "attribute_batch_size": "library default (512)",
+   "status": "stopped by hand during the first graph, after it passed the 20-minute G0 limit",
+   "logit_check": {
+    "max_abs_diff": 0.00018310546875,
+    "max_abs_diff_top10": 7.43865966796875e-05,
+    "pass": true
+   },
+   "first_graph_seed": 9001,
+   "first_graph_started": "19:36:20",
+   "stopped_at": "19:57:03",
+   "elapsed_minutes_when_stopped": 20.7,
+   "active_features": 90241,
+   "phase_seconds": {
+    "precompute": 22.57,
+    "forward": 230.51,
+    "input_vectors": 4.13,
+    "logit_attribution": 76.83
+   },
+   "feature_phase_progress_when_stopped": "37888/90241 feature nodes in 15:03, library ETA 37:14 more",
+   "estimated_graph_minutes": 57,
+   "process_rss_gb_when_stopped": 12.2,
+   "graph_le_20min": false
+  },
+  "main_float32_lazyenc_bs128_INFO": {
+   "INFORMATIONAL": "not a G0 configuration: attribute(batch_size=128) is not the library default; run after G0 had failed under defaults, to inform the reviewer",
+   "model": "Qwen/Qwen3-4B",
+   "transcoders": "mwhanna/qwen3-4b-transcoders",
+   "device": "mps",
+   "dtype": "float32",
+   "lazy_encoder": true,
+   "lazy_decoder": true,
+   "attribute_batch_size": 128,
+   "status": "stopped by hand during the first graph (system swapping)",
+   "logit_check": {
+    "max_abs_diff": 0.00018310546875,
+    "max_abs_diff_top10": 7.43865966796875e-05,
+    "pass": true
+   },
+   "first_graph_seed": 9001,
+   "first_graph_started": "19:57:47",
+   "stopped_at": "20:26:50",
+   "elapsed_minutes_when_stopped": 29.1,
+   "active_features": 90240,
+   "phase_seconds": {
+    "precompute": 8.26,
+    "forward": 0.1,
+    "input_vectors": 10.03,
+    "logit_attribution": 17.52
+   },
+   "feature_phase_progress": [
+    "38656/90240 at 08:36 (21.7 it/s)",
+    "49664/90240 at 18:21 (22.0 it/s)",
+    "56576/90240 at 27:47 (5.2 it/s, library ETA 1:47:06 more)"
+   ],
+   "system_swap_used_gb_when_stopped": 33.5,
+   "graph_le_20min": false
+  }
+ },
+ "main_edge_matrix_gb_computed": {
+  "note": "attribute() allocates edge_matrix = (n_feature_nodes + n_logits) x (n_features + (n_layers+1)*n_pos + n_logits) float32 on CPU; with the default max_feature_nodes=None every active feature is a node",
+  "n_active_features": 90240,
+  "n_pos": 83,
+  "n_layers": 36,
+  "gb": 33.7
+ },
+ "gate_G0": {
+  "logits_match_float32": true,
+  "main_logit_max_abs_diff_float32": 0.00018310546875,
+  "graph_le_20min": false,
+  "peak_le_48GB": false,
+  "pass": false,
+  "why": "library defaults: MPS crashes (MPSGraph INT_MAX); CPU needs ~57 min per graph. Memory: the CPU edge matrix alone is ~34 GB, plus 16 GB float32 model weights."
+ }
+}

@@ -1,0 +1,1 @@
+python circuit/task0.py --which main --n 5 --seed 0 --dtype float32 --lazy-encoder --batch-size 128 --tag _float32_lazyenc_bs128_INFO

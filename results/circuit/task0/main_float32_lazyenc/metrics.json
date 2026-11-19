@@ -1,0 +1,12 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "transcoders": "mwhanna/qwen3-4b-transcoders",
+ "device": "mps",
+ "dtype": "float32",
+ "lazy_encoder": true,
+ "lazy_decoder": true,
+ "attribute_batch_size": "library default (512)",
+ "status": "crashed in the first graph (seed 9001), feature-attribution phase",
+ "error": "RuntimeError: MPSGraph does not support tensor dims larger than INT_MAX (einsum in circuit_tracer/attribution/context_transformerlens.py:109, _hook_fn)",
+ "logit_check": {"max_abs_diff": 0.00018310546875, "max_abs_diff_top10": 7.43865966796875e-05, "pass": true}
+}

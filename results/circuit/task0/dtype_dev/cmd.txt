@@ -1,0 +1,1 @@
+python circuit/task0_dtype.py --which dev --n 20 --seed 0

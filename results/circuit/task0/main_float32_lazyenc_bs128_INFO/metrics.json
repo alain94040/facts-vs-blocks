@@ -1,0 +1,21 @@
+{
+ "INFORMATIONAL": "not a G0 configuration: attribute(batch_size=128) is not the library default; run after G0 had failed under defaults, to inform the reviewer",
+ "model": "Qwen/Qwen3-4B",
+ "transcoders": "mwhanna/qwen3-4b-transcoders",
+ "device": "mps",
+ "dtype": "float32",
+ "lazy_encoder": true,
+ "lazy_decoder": true,
+ "attribute_batch_size": 128,
+ "status": "stopped by hand during the first graph (system swapping)",
+ "logit_check": {"max_abs_diff": 0.00018310546875, "max_abs_diff_top10": 7.43865966796875e-05, "pass": true},
+ "first_graph_seed": 9001,
+ "first_graph_started": "19:57:47",
+ "stopped_at": "20:26:50",
+ "elapsed_minutes_when_stopped": 29.1,
+ "active_features": 90240,
+ "phase_seconds": {"precompute": 8.26, "forward": 0.10, "input_vectors": 10.03, "logit_attribution": 17.52},
+ "feature_phase_progress": ["38656/90240 at 08:36 (21.7 it/s)", "49664/90240 at 18:21 (22.0 it/s)", "56576/90240 at 27:47 (5.2 it/s, library ETA 1:47:06 more)"],
+ "system_swap_used_gb_when_stopped": 33.5,
+ "graph_le_20min": false
+}

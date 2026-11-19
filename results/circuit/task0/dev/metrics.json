@@ -1,0 +1,9 @@
+{
+ "model": "Qwen/Qwen3-0.6B",
+ "transcoders": "mwhanna/qwen3-0.6b-transcoders-lowl0",
+ "device": "mps",
+ "dtype": "bfloat16",
+ "status": "first run; crashed at the first attribution graph in the lazy decoder (safetensors 0.8.0: 'Unsupported slice index'); fixed by safetensors 0.7.0 and circuit/ct_compat.py, then rerun in float32 (dev_float32)",
+ "logit_check": {"max_abs_diff": 0.5408573150634766, "max_abs_diff_top10": 0.31246376037597656, "pass": false,
+                 "note": "bfloat16 rounding: see dtype_dev (plain transformers bf16 vs fp32 differ by 0.76)"}
+}

@@ -1,0 +1,52 @@
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.94it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  2.80it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.18it/s]
+Fetching 36 files:   0%|          | 0/36 [00:00<?, ?it/s]Fetching 36 files: 100%|██████████| 36/36 [00:00<00:00, 7654.62it/s]
+WARNING:root:Loading model Qwen/Qwen3-4B requires setting trust_remote_code=True
+/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/transformer_lens/config/HookedTransformerConfig.py:354: UserWarning: MPS backend may produce silently incorrect results (PyTorch 2.15.0). Set TRANSFORMERLENS_ALLOW_MPS=1 to suppress this warning. See: https://github.com/TransformerLensOrg/TransformerLens/issues/1178
+  warn_if_mps(self.device)
+WARNING:root:Loading model Qwen/Qwen3-4B state dict requires setting trust_remote_code=True
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.84it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.54it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.30it/s]
+Loaded pretrained model Qwen/Qwen3-4B into HookedTransformer
+{"max_abs_diff": 0.00018310546875, "max_abs_diff_top10": 7.43865966796875e-05, "pass": true}
+Traceback (most recent call last):
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/task0.py", line 187, in <module>
+    main()
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/task0.py", line 148, in main
+    g = attribute(it["prompt"], rm)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/circuit_tracer/attribution/attribute.py", line 103, in attribute
+    return _run_attribution(
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/circuit_tracer/attribution/attribute.py", line 203, in _run_attribution
+    rows = ctx.compute_batch(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/circuit_tracer/attribution/context_transformerlens.py", line 224, in compute_batch
+    self._resid_activations[last_layer].backward(
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/torch/_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 1113, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/torch/utils/hooks.py", line 137, in hook
+    out = hook(self.module, res, self.grad_outputs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/transformer_lens/hook_points.py", line 260, in _bwd_hook_wrapper
+    result = full_hook(module, grad_input, grad_output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/transformer_lens/hook_points.py", line 226, in full_hook
+    hook_result = hook(module_output, hook=self)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/circuit_tracer/attribution/context_transformerlens.py", line 109, in _hook_fn
+    proxy._batch_buffer[write_index] += einsum(
+                                        ^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/einops/einops.py", line 939, in einsum
+    return get_backend(tensors[0]).einsum(pattern, *tensors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/einops/_backends.py", line 291, in einsum
+    return self.torch.einsum(pattern, *x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/araynaud/Documents/AI/interpretability/facts-vs-blocks/circuit/.venv/lib/python3.12/site-packages/torch/functional.py", line 372, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPSGraph does not support tensor dims larger than INT_MAX
