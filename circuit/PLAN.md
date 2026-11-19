@@ -153,15 +153,35 @@ answer is one token with a leading space. There is one level, H1.
 2. Load the development model and its transcoders with `circuit_tracer.ReplacementModel` on MPS.
    If MPS fails, try CPU and record it.
 3. Checks on 20 PROG P1 prompts, written to `results/circuit/task0/metrics.json`:
-   - logits of the circuit-tracer model match plain `transformers` logits: max absolute
-     difference of the final-position log-probabilities ≤ 0.05;
-   - build one attribution graph per prompt with the library's default settings; record wall time
+   - logits of the circuit-tracer model match plain `transformers` logits in the same dtype: max
+     absolute difference of the final-position log-probabilities ≤ 0.05;
+   - build one attribution graph per prompt with the **graph settings** below; record wall time
      per graph, peak memory, and the library's replacement and completeness scores.
 4. Repeat 2 and 3 with the main model on 5 prompts.
 
-**Gate G0.** On the main model: logits match as above, one graph takes ≤ 20 minutes, and peak
-memory ≤ 48 GB. If the full transcoder set does not fit, use the library's offload or lazy-loading
-option and record which. If G0 fails, write `STOP.md` with the numbers. Do not try other models.
+**Graph settings (revision 3).** These apply to every attribution graph in this experiment:
+- float32 for the model and the transcoders. bfloat16 rounding alone moves the answer's
+  log-probability by 0.3–0.8 in plain `transformers`;
+- the library's lazy-encoder loading for the main model;
+- `safetensors` 0.7.0 and the device wrapper `circuit/ct_compat.py`, both inside `circuit/`;
+- `batch_size = 64`. It changes only speed and memory, not the graph;
+- `max_feature_nodes = 8192`. The library attributes features in order of their estimated
+  influence on the answer and stops at the cap. Without the cap, the first main-model prompt kept
+  all 90,241 active features, needing about 34 GB for one internal matrix and about an hour per
+  graph. Default pruning (node threshold 0.8) already drops the low-influence features, so the cap
+  should change pruned graphs little. Step 5 measures how much.
+
+5. **Effect of the cap.** On the development model, rebuild the 20 graphs of step 3 with
+   `max_feature_nodes = 8192` and compare with the uncapped graphs already built. Report:
+   - median completeness and replacement score, with and without the cap;
+   - the Jaccard overlap of the pruned graphs' feature sets, per prompt, and its median.
+
+   These numbers are reported, not gated. Gate G2 still applies to every graph in Task 4.
+
+**Gate G0.** On the main model with the graph settings: logits match as above, one graph takes ≤ 20
+minutes, and peak memory ≤ 48 GB. If it fails at `max_feature_nodes = 8192`, rerun the 5 prompts
+once with 4096 (and use 4096 everywhere if it passes). If it fails at 4096, write `STOP.md` with
+the numbers. Do not try other models or other settings.
 
 ### Circuit task 1: screening (review stop at the end)
 
@@ -376,8 +396,10 @@ which rows hold; do not interpret beyond them.
 
 ## 4. Budget
 
-About 2–4 hours on the Mac, most of it in attribution graphs (40 graphs × 3 families plus Task 0)
-and in the FACT runs of Tasks 5 and 6 (1,800 forward passes with all transcoders).
+Most of the time goes to attribution graphs (40 graphs × 3 families plus Task 0) and to the FACT
+runs of Tasks 5 and 6 (1,800 forward passes with all transcoders). The time per graph is set by
+Task 0. At 10 minutes per graph, 120 graphs take 20 hours; run Tasks 4 and 6.1 overnight under
+`caffeinate -i`.
 If Task 0 shows one graph takes more than 5 minutes, reduce every "40 items" above to 20 before
 starting Task 4, and say so in the report. That change is decided by Task 0 timing only, never by
 results.
