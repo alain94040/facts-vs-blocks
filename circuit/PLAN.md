@@ -14,14 +14,15 @@ The clever answer is **running a short program in the head**, with no written st
 ```
 a = 4
 b = a + 3
-a = b * 2
-c = a - b
-print(c)
+x = 9
+a = b - 5
+print(a)
 ```
 
-The model must answer `7`. To do so it has to keep several variables, notice that `a` was
-overwritten, look up the latest value of each variable, and do arithmetic, all inside one forward
-pass.
+The model must answer `2`. To do so it has to keep several variables, ignore `x`, notice that `a`
+was overwritten, look up the latest value of each variable, and do arithmetic, all inside one
+forward pass. (A program whose last line combines two computed variables is beyond one pass for
+these models; see the PROG section.)
 
 **What "building block" means here, and what it does not.** A part is an attention head or a
 transcoder feature (one sparse direction that a layer reads and writes). Two pictures are tested:
@@ -88,30 +89,42 @@ leading space). Accuracy is: the gold token is the top next-token prediction aft
 
 ### PROG: program tracing
 
-Variables from `a b c d e x y z`. Values are integers 0–9 when written. Operations: `+`, `-`, `*`
-by a literal or another variable. The program is a list of assignment lines, then `print(v)`,
-then the prompt ends with `\n# output: ` and the answer is the next token.
+Variables from `a b c d e x y z`. Values are integers 0–9 when written. A line is one of:
+- a literal assignment `v = L`;
+- a copy `v = u`;
+- an operation with a literal `v = u op L`, with `op` from `+ - *`.
+
+A line never combines two variables. The answer's computation contains at most **two** operations.
+The program is a list of lines, then `print(v)`; the prompt then ends with `\n# output: ` and the
+answer is the next token.
+
+**Why these limits.** Probes 1 and 2 (`results/circuit/probe/`, `results/circuit/probe2/`) showed
+the boundary on Qwen3-4B. It was 0.95–1.00 accurate on copies with two overwrites and two
+distractors, and 0.98 on two operations with an overwrite. It fell to 0.44 on the original
+three-step program, whose last line combines two computed variables. That program was solved 1.00
+when the model could write its steps. The task stays on the side the model solves in one pass.
 
 Levels (each level adds one thing):
 
-| Level | Lines before print | Overwrites (a variable assigned twice) | Distractor lines (never used by the answer) |
-| --- | --- | --- | --- |
-| P1 | 3 | 0 | 0 |
-| P2 | 4 | 1 | 0 |
-| P3 | 5 | 1 | 1 |
-| P4 | 6 | 2 | 1 |
-| P5 | 7 | 2 | 2 |
+| Level | Lines before print | Operations on the answer's path | Copies on the path | Overwrites | Distractor lines |
+| --- | --- | --- | --- | --- | --- |
+| P1 | 2 | 1 | 0 | 0 | 0 |
+| P2 | 3 | 2 | 0 | 1 | 0 |
+| P3 | 4 | 2 | 0 | 1 | 1 |
+| P4 | 6 | 2 | 1 | 1 | 1 |
+| P5 | 7 | 2 | 1 | 2 | 2 |
 
-Generate by rejection: keep a program only if every intermediate value is 0–20 and the printed
-value is 0–9; at least one line of the answer's computation reads an overwritten variable (from
-P2); the printed value is not equal to any literal in the program and not equal to the value of
-any other variable at the end (so copying a number from the prompt cannot score).
+Generate by rejection. Keep a program only if:
+- every intermediate value is 0–20 and the printed value is 0–9;
+- from P2, at least one line of the answer's computation reads an overwritten variable;
+- the printed value is not equal to any literal in the program, and not equal to the value of any
+  other variable at the end, so copying a number from the prompt cannot score.
 
 ### STORY: the same programs, told as a story
 
 Each PROG item has a twin in which every variable is a person and every value a count of one
-object kind: `Ann has 4 marbles. Bob has 3 more marbles than Ann. Then Ann gives away marbles until
-she has twice as many as Bob has.` … `How many marbles does Cal have?` The computation and the
+object kind: `Ann has 4 marbles. Bob has 3 more marbles than Ann. Cal has 9 marbles. Then Ann
+gives away marbles until she has 5 fewer than Bob.` … `How many marbles does Ann have?` The computation and the
 answer are identical to the twin. Write one sentence template per operation and use it for every
 item; the templates go in `circuit/tasks.py` and do not change after Task 1.
 
