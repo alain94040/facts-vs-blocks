@@ -8,10 +8,13 @@ Prompts are PROG P1 items with seeds 9001.. (outside every seed range the plan u
 1. plain transformers: final-position log-probabilities (bfloat16, MPS);
 2. circuit_tracer.ReplacementModel (transformerlens backend, library defaults): same log-probs;
    max |difference| over the full vocabulary, per prompt;
-3. one attribution graph per prompt with attribute()'s defaults: wall time, replacement and
+3. one attribution graph per prompt (attribute(); batch_size and max_feature_nodes from the
+   command line, library defaults otherwise): wall time, replacement and
    completeness scores (compute_graph_scores on the full graph), node counts before/after the
    library's default pruning.
-Memory is sampled every 0.5 s: process RSS, MPS driver-allocated memory, and their sum.
+Memory is sampled every 0.5 s: process RSS, MPS driver-allocated memory (includes the allocator's
+cache), their sum (used for G0), MPS memory held by tensors, and system swap in use.
+Also writes pruned_features.json: per prompt seed, the pruned graph's feature nodes (layer, pos, feature).
 """
 import argparse
 import gc
@@ -40,13 +43,16 @@ class MemSampler(threading.Thread):
     def __init__(self):
         super().__init__(daemon=True)
         self.proc = psutil.Process()
-        self.peak = {"rss": 0, "mps_driver": 0, "sum": 0}
+        self.peak = {"rss": 0, "mps_driver": 0, "sum": 0, "mps_allocated": 0, "swap_used": 0}
         self.stop = False
 
     def sample(self):
         rss = self.proc.memory_info().rss
         drv = torch.mps.driver_allocated_memory() if torch.backends.mps.is_available() else 0
-        for k, v in (("rss", rss), ("mps_driver", drv), ("sum", rss + drv)):
+        alloc = torch.mps.current_allocated_memory() if torch.backends.mps.is_available() else 0
+        swap = psutil.swap_memory().used
+        for k, v in (("rss", rss), ("mps_driver", drv), ("sum", rss + drv), ("mps_allocated", alloc),
+                     ("swap_used", swap)):
             self.peak[k] = max(self.peak[k], v)
 
     def run(self):
@@ -69,6 +75,8 @@ def main():
     ap.add_argument("--tag", default="", help="suffix of the output folder")
     ap.add_argument("--batch-size", type=int, default=None,
                     help="attribute() batch_size; omitted = library default (512)")
+    ap.add_argument("--max-feature-nodes", type=int, default=None,
+                    help="attribute() max_feature_nodes; omitted = library default (no cap)")
     args = ap.parse_args()
     torch.manual_seed(args.seed)
     out_dir = os.path.join(ROOT, "results", "circuit", "task0", args.which + args.tag)
@@ -87,6 +95,7 @@ def main():
     m["circuit_tracer_version"] = circuit_tracer.__version__
     items = [tasks.make("PROG", "P1", s) for s in m["prompt_seeds"]]
 
+    swap0 = psutil.swap_memory().used
     mem = MemSampler()
     mem.start()
 
@@ -121,6 +130,7 @@ def main():
         m["replacement_model_device"] = "cpu"
     m["load_seconds"] = time.time() - t0
     m["attribute_batch_size"] = args.batch_size or "library default (512)"
+    m["max_feature_nodes"] = args.max_feature_nodes or "library default (no cap)"
     m["lazy_encoder"], m["lazy_decoder"] = args.lazy_encoder, True  # decoder lazy = library default
     m["memory_after_load_gb"] = mem.gb()
 
@@ -143,13 +153,16 @@ def main():
                         "pass": max(p["max_abs_diff_logprob"] for p in per) <= 0.05}
     print(json.dumps(m["logit_check"]), flush=True)
 
-    # 3. attribution graphs, library defaults
+    # 3. attribution graphs
+    pruned_features = {}
     for p, it in zip(per, items):
         if dev.type == "mps":
             torch.mps.synchronize()
         print("graph for seed", it["seed"], "started", time.strftime("%H:%M:%S"), flush=True)
         t0 = time.time()
         kw = {} if args.batch_size is None else {"batch_size": args.batch_size}
+        if args.max_feature_nodes is not None:
+            kw["max_feature_nodes"] = args.max_feature_nodes
         g = attribute(it["prompt"], rm, verbose=True, **kw)
         if dev.type == "mps":
             torch.mps.synchronize()
@@ -163,10 +176,15 @@ def main():
                   "n_nodes_pruned": int(pr.node_mask.sum()), "n_edges_pruned": int(pr.edge_mask.sum()),
                   "n_feature_nodes_pruned": int(pr.node_mask[:n_feat].sum()),
                   "logit_targets": len(g.logit_targets)})
+        # pruned feature nodes as (layer, position, feature index), for the cap-effect check
+        sel = g.selected_features[pr.node_mask[:n_feat].cpu()]
+        pruned_features[it["seed"]] = g.active_features[sel].cpu().tolist()
         print({k: p[k] for k in ("seed", "graph_seconds", "replacement_score", "completeness_score",
                                   "n_nodes_pruned")}, mem.gb(), flush=True)
         del g, pr
         gc.collect()
+        if dev.type == "mps":
+            torch.mps.empty_cache()
     mem.stop = True
     mem.sample()
     m["per_prompt"] = per
@@ -181,8 +199,11 @@ def main():
                     "graph_le_20min": m["graph_seconds_max"] <= 20 * 60,
                     "peak_le_48GB": m["peak_memory_gb"]["sum"] <= 48}
     m["gate_G0"]["pass"] = all(m["gate_G0"].values())
+    m["swap_used_gb_at_start"] = round(swap0 / 2**30, 2)
     with open(os.path.join(out_dir, "metrics.json"), "w") as f:
         json.dump(m, f, indent=1)
+    with open(os.path.join(out_dir, "pruned_features.json"), "w") as f:
+        json.dump(pruned_features, f)
     print(json.dumps({k: m[k] for k in ("logit_check", "graph_seconds_mean", "graph_seconds_max",
                                           "peak_memory_gb", "replacement_score_median",
                                           "completeness_score_median", "gate_G0")}, indent=1))

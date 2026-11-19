@@ -53,19 +53,43 @@ def main():
             "gb": round((n_feat + 1) * (n_feat + (n_layers + 1) * n_pos + 1) * 4 / 1e9, 1)},
     }
     m["dev"]["model_revision"] = dev["model_revision"]
-    m["gate_G0"] = {
-        "logits_match_float32": True,
-        "main_logit_max_abs_diff_float32": dt["main"]["comparisons"]["hf_fp32_vs_tl_fp32"]["max_abs_diff"],
-        "graph_le_20min": False,
-        "peak_le_48GB": False,
+    m["revision2_defaults_gate_G0"] = {
         "pass": False,
-        "why": "library defaults: MPS crashes (MPSGraph INT_MAX); CPU needs ~57 min per graph. "
-               "Memory: the CPU edge matrix alone is ~34 GB, plus 16 GB float32 model weights.",
+        "why": "library defaults: MPS crashes (MPSGraph INT_MAX); CPU needs ~57 min per graph; "
+               "edge matrix alone ~34 GB plus 16 GB float32 model weights."}
+
+    # revision 3: float32, lazy encoder (main), batch_size 64, max_feature_nodes 8192 then 4096
+    keys = ("logit_check", "memory_after_load_gb", "graph_seconds_mean", "graph_seconds_max",
+            "peak_memory_gb", "replacement_score_median", "completeness_score_median",
+            "swap_used_gb_at_start", "attribute_batch_size", "max_feature_nodes", "lazy_encoder")
+    r3 = {"settings": {"dtype": "float32", "lazy_encoder_main": True, "safetensors": "0.7.0",
+                       "compat_patch": "circuit/ct_compat.py", "batch_size": 64,
+                       "max_feature_nodes": "8192, then 4096 if G0 fails"}}
+    for name in ("dev_r3_cap8192", "dev_r3_nocap", "main_r3_cap4096"):
+        x = load(name)
+        r3[name] = {k: x.get(k) for k in keys}
+        r3[name]["per_prompt"] = [{k: p[k] for k in ("seed", "graph_seconds", "replacement_score",
+                                                     "completeness_score", "n_active_features",
+                                                     "n_nodes_pruned", "n_feature_nodes_pruned")}
+                                  for p in x["per_prompt"]]
+    r3["main_r3_cap8192"] = load("main_r3_cap8192")
+    r3["cap_effect_dev"] = load("cap_effect")["median"]
+    c4 = load("main_r3_cap4096")
+    r3["gate_G0"] = {
+        "at_8192": {"logits_match": True, "graph_le_20min": True, "peak_le_48GB": False, "pass": False,
+                    "note": "one graph built (12.6 min); peak sum 90.9 GB; run stopped after it"},
+        "at_4096": c4["gate_G0"] | {"peak_sum_gb": c4["peak_memory_gb"]["sum"],
+                                    "graph_seconds_max": c4["graph_seconds_max"]},
+        "pass": False,
+        "memory_measure": "peak of (process RSS + MPS driver-allocated memory), sampled every 0.5 s; "
+                          "driver memory includes the MPS allocator's cache",
     }
+    m["revision3"] = r3
+    m["gate_G0"] = r3["gate_G0"]
     json.dump(m, open(os.path.join(D, "metrics.json"), "w"), indent=1)
     with open(os.path.join(D, "cmd.txt"), "w") as f:
         f.write("python " + " ".join(sys.argv) + "\n")
-    print(json.dumps(m["gate_G0"], indent=1), m["main_edge_matrix_gb_computed"]["gb"])
+    print(json.dumps(m["gate_G0"], indent=1))
 
 
 if __name__ == "__main__":

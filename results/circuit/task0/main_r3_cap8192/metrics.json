@@ -1,0 +1,17 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "transcoders": "mwhanna/qwen3-4b-transcoders",
+ "device": "mps",
+ "dtype": "float32",
+ "lazy_encoder": true,
+ "lazy_decoder": true,
+ "attribute_batch_size": 64,
+ "max_feature_nodes": 8192,
+ "status": "stopped by hand during the second graph: the peak memory of the first graph already exceeded the G0 limit (a peak cannot decrease), so G0 fails at 8192 and the plan's 4096 rerun follows",
+ "logit_check": {"max_abs_diff": 0.00018310546875, "max_abs_diff_top10": 7.43865966796875e-05, "pass": true},
+ "per_prompt": [{"seed": 9001, "graph_seconds": 756.15, "replacement_score": 0.3327465057373047,
+                 "completeness_score": 0.8333356976509094, "n_nodes_pruned": 3899, "n_active_features": 90240}],
+ "peak_memory_gb_through_first_graph": {"rss": 36.58, "mps_driver": 75.48, "sum": 90.9, "mps_allocated": 29.44, "swap_used": 29.42},
+ "swap_used_gb_at_start_of_chain": 6.41,
+ "gate_G0": {"logits_match": true, "graph_le_20min": "true for the one graph built (12.6 min)", "peak_le_48GB": false, "pass": false}
+}

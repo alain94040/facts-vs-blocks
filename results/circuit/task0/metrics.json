@@ -190,12 +190,607 @@
   "n_layers": 36,
   "gb": 33.7
  },
- "gate_G0": {
-  "logits_match_float32": true,
-  "main_logit_max_abs_diff_float32": 0.00018310546875,
-  "graph_le_20min": false,
-  "peak_le_48GB": false,
+ "revision2_defaults_gate_G0": {
   "pass": false,
-  "why": "library defaults: MPS crashes (MPSGraph INT_MAX); CPU needs ~57 min per graph. Memory: the CPU edge matrix alone is ~34 GB, plus 16 GB float32 model weights."
+  "why": "library defaults: MPS crashes (MPSGraph INT_MAX); CPU needs ~57 min per graph; edge matrix alone ~34 GB plus 16 GB float32 model weights."
+ },
+ "revision3": {
+  "settings": {
+   "dtype": "float32",
+   "lazy_encoder_main": true,
+   "safetensors": "0.7.0",
+   "compat_patch": "circuit/ct_compat.py",
+   "batch_size": 64,
+   "max_feature_nodes": "8192, then 4096 if G0 fails"
+  },
+  "dev_r3_cap8192": {
+   "logit_check": {
+    "max_abs_diff": 6.866455078125e-05,
+    "max_abs_diff_top10": 4.1484832763671875e-05,
+    "pass": true
+   },
+   "memory_after_load_gb": {
+    "rss": 7.54,
+    "mps_driver": 17.93,
+    "sum": 25.47,
+    "mps_allocated": 17.52,
+    "swap_used": 6.41
+   },
+   "graph_seconds_mean": 63.05051177740097,
+   "graph_seconds_max": 64.72740626335144,
+   "peak_memory_gb": {
+    "rss": 13.0,
+    "mps_driver": 28.19,
+    "sum": 40.78,
+    "mps_allocated": 23.5,
+    "swap_used": 6.41
+   },
+   "replacement_score_median": 0.35679036378860474,
+   "completeness_score_median": 0.8161372542381287,
+   "swap_used_gb_at_start": 6.41,
+   "attribute_batch_size": 64,
+   "max_feature_nodes": 8192,
+   "lazy_encoder": false,
+   "per_prompt": [
+    {
+     "seed": 9001,
+     "graph_seconds": 62.72681188583374,
+     "replacement_score": 0.36665454506874084,
+     "completeness_score": 0.821028470993042,
+     "n_active_features": 20135,
+     "n_nodes_pruned": 2353,
+     "n_feature_nodes_pruned": 1333
+    },
+    {
+     "seed": 9002,
+     "graph_seconds": 64.72740626335144,
+     "replacement_score": 0.3554503917694092,
+     "completeness_score": 0.8123538494110107,
+     "n_active_features": 21176,
+     "n_nodes_pruned": 2538,
+     "n_feature_nodes_pruned": 1514
+    },
+    {
+     "seed": 9003,
+     "graph_seconds": 62.460758209228516,
+     "replacement_score": 0.3721422553062439,
+     "completeness_score": 0.8228121399879456,
+     "n_active_features": 20091,
+     "n_nodes_pruned": 2265,
+     "n_feature_nodes_pruned": 1319
+    },
+    {
+     "seed": 9004,
+     "graph_seconds": 62.63455581665039,
+     "replacement_score": 0.3686940670013428,
+     "completeness_score": 0.8217405676841736,
+     "n_active_features": 20949,
+     "n_nodes_pruned": 2403,
+     "n_feature_nodes_pruned": 1389
+    },
+    {
+     "seed": 9005,
+     "graph_seconds": 62.97815275192261,
+     "replacement_score": 0.34374818205833435,
+     "completeness_score": 0.8036566376686096,
+     "n_active_features": 20231,
+     "n_nodes_pruned": 2534,
+     "n_feature_nodes_pruned": 1447
+    },
+    {
+     "seed": 9006,
+     "graph_seconds": 62.957300901412964,
+     "replacement_score": 0.36248064041137695,
+     "completeness_score": 0.819381594657898,
+     "n_active_features": 19994,
+     "n_nodes_pruned": 2322,
+     "n_feature_nodes_pruned": 1336
+    },
+    {
+     "seed": 9007,
+     "graph_seconds": 62.63059997558594,
+     "replacement_score": 0.3560391366481781,
+     "completeness_score": 0.8188309073448181,
+     "n_active_features": 20307,
+     "n_nodes_pruned": 2303,
+     "n_feature_nodes_pruned": 1322
+    },
+    {
+     "seed": 9008,
+     "graph_seconds": 62.276530027389526,
+     "replacement_score": 0.3554374873638153,
+     "completeness_score": 0.8213171362876892,
+     "n_active_features": 20264,
+     "n_nodes_pruned": 2210,
+     "n_feature_nodes_pruned": 1277
+    },
+    {
+     "seed": 9009,
+     "graph_seconds": 63.056878089904785,
+     "replacement_score": 0.3624867796897888,
+     "completeness_score": 0.8192954659461975,
+     "n_active_features": 20490,
+     "n_nodes_pruned": 2306,
+     "n_feature_nodes_pruned": 1335
+    },
+    {
+     "seed": 9010,
+     "graph_seconds": 62.602567195892334,
+     "replacement_score": 0.35754159092903137,
+     "completeness_score": 0.8128804564476013,
+     "n_active_features": 20222,
+     "n_nodes_pruned": 2485,
+     "n_feature_nodes_pruned": 1423
+    },
+    {
+     "seed": 9011,
+     "graph_seconds": 62.0645809173584,
+     "replacement_score": 0.3559894561767578,
+     "completeness_score": 0.814246654510498,
+     "n_active_features": 20733,
+     "n_nodes_pruned": 2402,
+     "n_feature_nodes_pruned": 1374
+    },
+    {
+     "seed": 9012,
+     "graph_seconds": 63.636183738708496,
+     "replacement_score": 0.34590333700180054,
+     "completeness_score": 0.8049358129501343,
+     "n_active_features": 21000,
+     "n_nodes_pruned": 2471,
+     "n_feature_nodes_pruned": 1451
+    },
+    {
+     "seed": 9013,
+     "graph_seconds": 64.04356813430786,
+     "replacement_score": 0.344759076833725,
+     "completeness_score": 0.8078450560569763,
+     "n_active_features": 20845,
+     "n_nodes_pruned": 2506,
+     "n_feature_nodes_pruned": 1465
+    },
+    {
+     "seed": 9014,
+     "graph_seconds": 63.02600407600403,
+     "replacement_score": 0.36526912450790405,
+     "completeness_score": 0.8180278539657593,
+     "n_active_features": 20142,
+     "n_nodes_pruned": 2443,
+     "n_feature_nodes_pruned": 1388
+    },
+    {
+     "seed": 9015,
+     "graph_seconds": 63.86475205421448,
+     "replacement_score": 0.34278935194015503,
+     "completeness_score": 0.8058885335922241,
+     "n_active_features": 20404,
+     "n_nodes_pruned": 2489,
+     "n_feature_nodes_pruned": 1433
+    },
+    {
+     "seed": 9016,
+     "graph_seconds": 63.275168895721436,
+     "replacement_score": 0.3699949085712433,
+     "completeness_score": 0.8211833238601685,
+     "n_active_features": 20907,
+     "n_nodes_pruned": 2482,
+     "n_feature_nodes_pruned": 1433
+    },
+    {
+     "seed": 9017,
+     "graph_seconds": 63.71142888069153,
+     "replacement_score": 0.35177016258239746,
+     "completeness_score": 0.8079135417938232,
+     "n_active_features": 21258,
+     "n_nodes_pruned": 2547,
+     "n_feature_nodes_pruned": 1491
+    },
+    {
+     "seed": 9018,
+     "graph_seconds": 62.41883587837219,
+     "replacement_score": 0.3649658262729645,
+     "completeness_score": 0.822580873966217,
+     "n_active_features": 20623,
+     "n_nodes_pruned": 2323,
+     "n_feature_nodes_pruned": 1350
+    },
+    {
+     "seed": 9019,
+     "graph_seconds": 63.095515966415405,
+     "replacement_score": 0.35474300384521484,
+     "completeness_score": 0.8115267753601074,
+     "n_active_features": 20243,
+     "n_nodes_pruned": 2430,
+     "n_feature_nodes_pruned": 1366
+    },
+    {
+     "seed": 9020,
+     "graph_seconds": 62.822635889053345,
+     "replacement_score": 0.36019229888916016,
+     "completeness_score": 0.8128100037574768,
+     "n_active_features": 19911,
+     "n_nodes_pruned": 2414,
+     "n_feature_nodes_pruned": 1376
+    }
+   ]
+  },
+  "dev_r3_nocap": {
+   "logit_check": {
+    "max_abs_diff": 6.866455078125e-05,
+    "max_abs_diff_top10": 4.1484832763671875e-05,
+    "pass": true
+   },
+   "memory_after_load_gb": {
+    "rss": 7.25,
+    "mps_driver": 17.93,
+    "sum": 25.18,
+    "mps_allocated": 17.52,
+    "swap_used": 6.4
+   },
+   "graph_seconds_mean": 78.03838143348693,
+   "graph_seconds_max": 80.58712005615234,
+   "peak_memory_gb": {
+    "rss": 22.96,
+    "mps_driver": 28.19,
+    "sum": 50.7,
+    "mps_allocated": 23.47,
+    "swap_used": 6.4
+   },
+   "replacement_score_median": 0.3619178533554077,
+   "completeness_score_median": 0.8193197548389435,
+   "swap_used_gb_at_start": 6.4,
+   "attribute_batch_size": 64,
+   "max_feature_nodes": "library default (no cap)",
+   "lazy_encoder": false,
+   "per_prompt": [
+    {
+     "seed": 9001,
+     "graph_seconds": 74.40218591690063,
+     "replacement_score": 0.3711673617362976,
+     "completeness_score": 0.8237125277519226,
+     "n_active_features": 20135,
+     "n_nodes_pruned": 2588,
+     "n_feature_nodes_pruned": 1511
+    },
+    {
+     "seed": 9002,
+     "graph_seconds": 79.34799718856812,
+     "replacement_score": 0.3613702356815338,
+     "completeness_score": 0.8162395358085632,
+     "n_active_features": 21176,
+     "n_nodes_pruned": 2858,
+     "n_feature_nodes_pruned": 1731
+    },
+    {
+     "seed": 9003,
+     "graph_seconds": 76.0956699848175,
+     "replacement_score": 0.37664398550987244,
+     "completeness_score": 0.8254676461219788,
+     "n_active_features": 20091,
+     "n_nodes_pruned": 2494,
+     "n_feature_nodes_pruned": 1470
+    },
+    {
+     "seed": 9004,
+     "graph_seconds": 80.35500001907349,
+     "replacement_score": 0.373826801776886,
+     "completeness_score": 0.8247743844985962,
+     "n_active_features": 20949,
+     "n_nodes_pruned": 2661,
+     "n_feature_nodes_pruned": 1571
+    },
+    {
+     "seed": 9005,
+     "graph_seconds": 77.22890019416809,
+     "replacement_score": 0.34923112392425537,
+     "completeness_score": 0.8074489831924438,
+     "n_active_features": 20231,
+     "n_nodes_pruned": 2825,
+     "n_feature_nodes_pruned": 1666
+    },
+    {
+     "seed": 9006,
+     "graph_seconds": 76.37542581558228,
+     "replacement_score": 0.36709097027778625,
+     "completeness_score": 0.822161078453064,
+     "n_active_features": 19994,
+     "n_nodes_pruned": 2563,
+     "n_feature_nodes_pruned": 1500
+    },
+    {
+     "seed": 9007,
+     "graph_seconds": 78.48214983940125,
+     "replacement_score": 0.360748827457428,
+     "completeness_score": 0.8216049075126648,
+     "n_active_features": 20307,
+     "n_nodes_pruned": 2545,
+     "n_feature_nodes_pruned": 1486
+    },
+    {
+     "seed": 9008,
+     "graph_seconds": 76.64792799949646,
+     "replacement_score": 0.36038947105407715,
+     "completeness_score": 0.8240305781364441,
+     "n_active_features": 20264,
+     "n_nodes_pruned": 2438,
+     "n_feature_nodes_pruned": 1413
+    },
+    {
+     "seed": 9009,
+     "graph_seconds": 78.0245509147644,
+     "replacement_score": 0.36725544929504395,
+     "completeness_score": 0.8221046328544617,
+     "n_active_features": 20490,
+     "n_nodes_pruned": 2538,
+     "n_feature_nodes_pruned": 1490
+    },
+    {
+     "seed": 9010,
+     "graph_seconds": 76.564453125,
+     "replacement_score": 0.3624654710292816,
+     "completeness_score": 0.8159797787666321,
+     "n_active_features": 20222,
+     "n_nodes_pruned": 2734,
+     "n_feature_nodes_pruned": 1612
+    },
+    {
+     "seed": 9011,
+     "graph_seconds": 79.59101986885071,
+     "replacement_score": 0.36132609844207764,
+     "completeness_score": 0.8175321817398071,
+     "n_active_features": 20733,
+     "n_nodes_pruned": 2664,
+     "n_feature_nodes_pruned": 1566
+    },
+    {
+     "seed": 9012,
+     "graph_seconds": 80.41075205802917,
+     "replacement_score": 0.351837158203125,
+     "completeness_score": 0.8090208172798157,
+     "n_active_features": 21000,
+     "n_nodes_pruned": 2781,
+     "n_feature_nodes_pruned": 1674
+    },
+    {
+     "seed": 9013,
+     "graph_seconds": 79.34210205078125,
+     "replacement_score": 0.35040825605392456,
+     "completeness_score": 0.8114709258079529,
+     "n_active_features": 20845,
+     "n_nodes_pruned": 2785,
+     "n_feature_nodes_pruned": 1663
+    },
+    {
+     "seed": 9014,
+     "graph_seconds": 76.63799285888672,
+     "replacement_score": 0.3702790439128876,
+     "completeness_score": 0.8211073279380798,
+     "n_active_features": 20142,
+     "n_nodes_pruned": 2700,
+     "n_feature_nodes_pruned": 1572
+    },
+    {
+     "seed": 9015,
+     "graph_seconds": 77.49559998512268,
+     "replacement_score": 0.3484034538269043,
+     "completeness_score": 0.8095365166664124,
+     "n_active_features": 20404,
+     "n_nodes_pruned": 2772,
+     "n_feature_nodes_pruned": 1631
+    },
+    {
+     "seed": 9016,
+     "graph_seconds": 79.72740292549133,
+     "replacement_score": 0.37523046135902405,
+     "completeness_score": 0.8244226574897766,
+     "n_active_features": 20907,
+     "n_nodes_pruned": 2762,
+     "n_feature_nodes_pruned": 1633
+    },
+    {
+     "seed": 9017,
+     "graph_seconds": 80.58712005615234,
+     "replacement_score": 0.3577965795993805,
+     "completeness_score": 0.8119874000549316,
+     "n_active_features": 21258,
+     "n_nodes_pruned": 2867,
+     "n_feature_nodes_pruned": 1715
+    },
+    {
+     "seed": 9018,
+     "graph_seconds": 78.71183490753174,
+     "replacement_score": 0.3697763681411743,
+     "completeness_score": 0.8253032565116882,
+     "n_active_features": 20623,
+     "n_nodes_pruned": 2567,
+     "n_feature_nodes_pruned": 1520
+    },
+    {
+     "seed": 9019,
+     "graph_seconds": 77.95496582984924,
+     "replacement_score": 0.35987356305122375,
+     "completeness_score": 0.8148242235183716,
+     "n_active_features": 20243,
+     "n_nodes_pruned": 2692,
+     "n_feature_nodes_pruned": 1572
+    },
+    {
+     "seed": 9020,
+     "graph_seconds": 76.78457713127136,
+     "replacement_score": 0.36473700404167175,
+     "completeness_score": 0.8157591819763184,
+     "n_active_features": 19911,
+     "n_nodes_pruned": 2649,
+     "n_feature_nodes_pruned": 1544
+    }
+   ]
+  },
+  "main_r3_cap4096": {
+   "logit_check": {
+    "max_abs_diff": 0.00018310546875,
+    "max_abs_diff_top10": 7.43865966796875e-05,
+    "pass": true
+   },
+   "memory_after_load_gb": {
+    "rss": 37.1,
+    "mps_driver": 15.59,
+    "sum": 39.33,
+    "mps_allocated": 15.11,
+    "swap_used": 9.49
+   },
+   "graph_seconds_mean": 406.9672573566437,
+   "graph_seconds_max": 517.9968960285187,
+   "peak_memory_gb": {
+    "rss": 37.1,
+    "mps_driver": 74.7,
+    "sum": 85.0,
+    "mps_allocated": 30.09,
+    "swap_used": 29.98
+   },
+   "replacement_score_median": 0.26135727763175964,
+   "completeness_score_median": 0.8064640164375305,
+   "swap_used_gb_at_start": 9.49,
+   "attribute_batch_size": 64,
+   "max_feature_nodes": 4096,
+   "lazy_encoder": true,
+   "per_prompt": [
+    {
+     "seed": 9001,
+     "graph_seconds": 517.9968960285187,
+     "replacement_score": 0.26374849677085876,
+     "completeness_score": 0.8064640164375305,
+     "n_active_features": 90240,
+     "n_nodes_pruned": 2612,
+     "n_feature_nodes_pruned": 1585
+    },
+    {
+     "seed": 9002,
+     "graph_seconds": 328.35338282585144,
+     "replacement_score": 0.26135727763175964,
+     "completeness_score": 0.8026803731918335,
+     "n_active_features": 93496,
+     "n_nodes_pruned": 2538,
+     "n_feature_nodes_pruned": 1569
+    },
+    {
+     "seed": 9003,
+     "graph_seconds": 395.6644468307495,
+     "replacement_score": 0.2731534540653229,
+     "completeness_score": 0.8099241852760315,
+     "n_active_features": 93856,
+     "n_nodes_pruned": 2475,
+     "n_feature_nodes_pruned": 1522
+    },
+    {
+     "seed": 9004,
+     "graph_seconds": 409.0785939693451,
+     "replacement_score": 0.26132485270500183,
+     "completeness_score": 0.8066601753234863,
+     "n_active_features": 94388,
+     "n_nodes_pruned": 2598,
+     "n_feature_nodes_pruned": 1575
+    },
+    {
+     "seed": 9005,
+     "graph_seconds": 383.74296712875366,
+     "replacement_score": 0.24663998186588287,
+     "completeness_score": 0.7995598316192627,
+     "n_active_features": 92681,
+     "n_nodes_pruned": 2634,
+     "n_feature_nodes_pruned": 1576
+    }
+   ]
+  },
+  "main_r3_cap8192": {
+   "model": "Qwen/Qwen3-4B",
+   "transcoders": "mwhanna/qwen3-4b-transcoders",
+   "device": "mps",
+   "dtype": "float32",
+   "lazy_encoder": true,
+   "lazy_decoder": true,
+   "attribute_batch_size": 64,
+   "max_feature_nodes": 8192,
+   "status": "stopped by hand during the second graph: the peak memory of the first graph already exceeded the G0 limit (a peak cannot decrease), so G0 fails at 8192 and the plan's 4096 rerun follows",
+   "logit_check": {
+    "max_abs_diff": 0.00018310546875,
+    "max_abs_diff_top10": 7.43865966796875e-05,
+    "pass": true
+   },
+   "per_prompt": [
+    {
+     "seed": 9001,
+     "graph_seconds": 756.15,
+     "replacement_score": 0.3327465057373047,
+     "completeness_score": 0.8333356976509094,
+     "n_nodes_pruned": 3899,
+     "n_active_features": 90240
+    }
+   ],
+   "peak_memory_gb_through_first_graph": {
+    "rss": 36.58,
+    "mps_driver": 75.48,
+    "sum": 90.9,
+    "mps_allocated": 29.44,
+    "swap_used": 29.42
+   },
+   "swap_used_gb_at_start_of_chain": 6.41,
+   "gate_G0": {
+    "logits_match": true,
+    "graph_le_20min": "true for the one graph built (12.6 min)",
+    "peak_le_48GB": false,
+    "pass": false
+   }
+  },
+  "cap_effect_dev": {
+   "jaccard_nodes": 0.8824757814078068,
+   "jaccard_features": 0.9075621072608808,
+   "n_pruned_nodes_capped": 1382.0,
+   "n_pruned_nodes_uncapped": 1571.5,
+   "n_active_features": 20355.5,
+   "completeness_capped": 0.8161372542381287,
+   "completeness_uncapped": 0.8193197548389435,
+   "replacement_capped": 0.35679036378860474,
+   "replacement_uncapped": 0.3619178533554077,
+   "seconds_capped": 62.967726826667786,
+   "seconds_uncapped": 77.98975837230682
+  },
+  "gate_G0": {
+   "at_8192": {
+    "logits_match": true,
+    "graph_le_20min": true,
+    "peak_le_48GB": false,
+    "pass": false,
+    "note": "one graph built (12.6 min); peak sum 90.9 GB; run stopped after it"
+   },
+   "at_4096": {
+    "logits_match": true,
+    "graph_le_20min": true,
+    "peak_le_48GB": false,
+    "pass": false,
+    "peak_sum_gb": 85.0,
+    "graph_seconds_max": 517.9968960285187
+   },
+   "pass": false,
+   "memory_measure": "peak of (process RSS + MPS driver-allocated memory), sampled every 0.5 s; driver memory includes the MPS allocator's cache"
+  }
+ },
+ "gate_G0": {
+  "at_8192": {
+   "logits_match": true,
+   "graph_le_20min": true,
+   "peak_le_48GB": false,
+   "pass": false,
+   "note": "one graph built (12.6 min); peak sum 90.9 GB; run stopped after it"
+  },
+  "at_4096": {
+   "logits_match": true,
+   "graph_le_20min": true,
+   "peak_le_48GB": false,
+   "pass": false,
+   "peak_sum_gb": 85.0,
+   "graph_seconds_max": 517.9968960285187
+  },
+  "pass": false,
+  "memory_measure": "peak of (process RSS + MPS driver-allocated memory), sampled every 0.5 s; driver memory includes the MPS allocator's cache"
  }
 }
