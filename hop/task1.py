@@ -18,6 +18,9 @@ import data
 import torch
 
 KINDS = ["TWO", "HOP1", "HOP2"]
+# Reviewer decision (2026-11-20), after gate H1 failed only because TARGET's HOP1 top-1 is " the":
+# delete hop/STOP.md, rerun Task 1 and continue. TARGET is kept in Tasks 2-6 although not eligible.
+REVIEWER_INCLUDE = ["TARGET"]
 SETS = ["TARGET", "DESC", "CAP"]
 
 
@@ -71,6 +74,14 @@ def main():
          "gate_H1": {"target_eligible": bool(target["eligible"]), "target_TWO_correct": bool(target["TWO_correct"]),
                      "n_cap_eligible": len(cap_elig), "cap_ge_25": len(cap_elig) >= 25}}
     m["gate_H1"]["pass"] = m["gate_H1"]["target_eligible"] and m["gate_H1"]["cap_ge_25"]
+    m["reviewer_include"] = {"ids": REVIEWER_INCLUDE,
+                             "decision": "2026-11-20: gate H1 failed (TARGET HOP1 wrong); reviewer: delete "
+                                         "hop/STOP.md, rerun Task 1 and continue, with TARGET kept"}
+    # items used by Tasks 2-6: eligible items plus the reviewer's inclusions
+    m["included_ids"] = {s: m["eligible_ids"][s] + [i for i in REVIEWER_INCLUDE
+                                                     if i not in m["eligible_ids"][s]
+                                                     and next(r for r in rows if r["id"] == i)["set"] == s]
+                         for s in SETS}
     common.dump(m, os.path.join(d, "metrics.json"))
     print(json.dumps({k: m[k] for k in ("accuracy", "n_eligible", "gate_H1")}, indent=1))
 

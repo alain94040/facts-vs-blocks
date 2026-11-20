@@ -56,9 +56,8 @@ def main():
     kept, _ = data.country_table(tok)
     names = sorted(kept)
     t1 = json.load(open(os.path.join(common.RESULTS, "task1", "metrics.json")))
-    elig = set(sum(t1["eligible_ids"].values(), []))
+    elig = set(sum(t1["included_ids"].values(), []))
     rm = common.load_replacement_model()
-    n_layers, n_feat = rm.cfg.n_layers, rm.transcoders.d_transcoder if hasattr(rm.transcoders, "d_transcoder") else None
 
     ref_path = os.path.join(common.CACHE, "ref.npz")
     if os.path.exists(ref_path):

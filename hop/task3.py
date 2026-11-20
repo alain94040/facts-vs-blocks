@@ -36,7 +36,7 @@ def main():
     tok = AutoTokenizer.from_pretrained(common.MODEL)
     kept, _ = data.country_table(tok)
     t1 = json.load(open(os.path.join(common.RESULTS, "task1", "metrics.json")))
-    elig = set(sum(t1["eligible_ids"].values(), []))
+    elig = set(sum(t1["included_ids"].values(), []))
     its = {it["id"]: it for it in data.items(tok) if it["id"] in elig}
     swaps = swap.swap_countries(list(its.values()), kept, t1["countries_hop2_correct"], args.seed)
     common.dump(swaps, os.path.join(d, "swaps.json"))

@@ -44,7 +44,7 @@ def main():
     tok = AutoTokenizer.from_pretrained(common.MODEL)
     t1 = json.load(open(os.path.join(common.RESULTS, "task1", "metrics.json")))
     bridge = json.load(open(os.path.join(common.RESULTS, "task2", "bridge_sets.json")))
-    use = t1["eligible_ids"]["TARGET"] + t1["eligible_ids"]["DESC"] + t1["eligible_ids"]["CAP"]
+    use = t1["included_ids"]["TARGET"] + t1["included_ids"]["DESC"] + t1["included_ids"]["CAP"]
     its = {it["id"]: it for it in data.items(tok)}
     rm = common.load_replacement_model()
     cap = rm.cfg.output_logits_soft_cap
