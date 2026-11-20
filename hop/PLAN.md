@@ -45,7 +45,7 @@ The rules in `CLAUDE.md` apply. In addition:
 | Item | Value |
 | --- | --- |
 | Model | `google/gemma-2-2b` (base, 26 layers, d_model 2304). The model is gated on Hugging Face: if the download is refused, ask John to accept the licence and log in, then stop. |
-| Transcoders | `mntss/gemma-scope-transcoders`, the GemmaScope 16k per-layer transcoders, loaded with `ReplacementModel.from_pretrained("google/gemma-2-2b", "gemma")`. These are the "GEMMASCOPE-TRANSCODER-16K" set named on the Neuronpedia graph. |
+| Transcoders | `mwhanna/gemma-scope-transcoders` (identical weights to `mntss/gemma-scope-transcoders`, checked in Task 0), the GemmaScope 16k per-layer transcoders, loaded with `ReplacementModel.from_pretrained("google/gemma-2-2b", "gemma")`. These are the "GEMMASCOPE-TRANSCODER-16K" set named on the Neuronpedia graph. |
 | Graphs | `circuit_tracer.attribute(prompt, model, max_feature_nodes=4096, batch_size=64)`, other arguments at library defaults; free memory (`gc.collect()`, `torch.mps.empty_cache()`) after each graph, as in Experiment G. |
 | Interventions | `ReplacementModel.feature_intervention` with library defaults. Record its signature and the defaults used in `results/hop/task0/metrics.json`. |
 
@@ -121,8 +121,12 @@ and peak memory ≤ 48 GB. If it fails, write `STOP.md` with the numbers.
 For every TARGET, DESC and CAP item, run TWO, HOP1 and HOP2. Record the top-5 next tokens with
 probabilities, and whether the answer token is top-1.
 
-An item is **eligible** when its TWO, HOP1 and HOP2 are all top-1 correct. For HOP1, a country
-whose first token is ` the` counts as wrong.
+An item is **eligible** when its TWO and HOP2 are top-1 correct and its HOP1 passes the
+**country-rank rule**: among the first tokens of all countries in the table, the bridge country's
+first token has the highest probability after the HOP1 prompt. (A base model often continues
+`{Desc} is` with ` the` or ` a` before naming the country, so top-1 is the wrong test for HOP1.)
+For HOP1, a country whose first token is ` the` counts as wrong. Still report HOP1 top-1 accuracy
+and the bridge's rank and probability for every item.
 
 Write `results/hop/task1/items.csv` (one row per item) and `metrics.json`: accuracy per kind and
 set, and the number of eligible items per set.
@@ -262,3 +266,12 @@ Gemma-2-2B in float32 takes about 10.5 GB. The 26 transcoders take about 8 GB in
 loading as in G is fine). One graph of about 17 tokens with `max_feature_nodes=4096` should take
 a few minutes. REF needs about 950 forward passes, and Tasks 3–4 about 3,000 intervention passes,
 at well under a second each on MPS. Expected total: 1–2 hours.
+
+## 6. Revisions
+
+- **Revision 1 (2026-11-20, after the Task 1 stop; chosen by John, the reviewer).** Gate H1 failed
+  only because the TARGET HOP1 prompt `The country south of the United States is` puts ` the`
+  (0.113) and ` a` (0.100) above ` Mexico` (0.076). That is a continuation-format effect of a base
+  model, not a failure to know the bridge, so HOP1 eligibility now uses the country-rank rule in
+  Task 1, for every set. Task 0 stands. Delete `hop/STOP.md`, rerun Task 1 with the new rule (it
+  replaces the old `results/hop/task1/` outputs), then continue.
