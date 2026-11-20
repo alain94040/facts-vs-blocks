@@ -68,7 +68,7 @@ def main():
     bridge = json.load(open(os.path.join(common.RESULTS, "task2", "bridge_sets.json")))
     swaps = swap.load_swaps()
     s = t3["s_star"]
-    use = t1["included_ids"]["TARGET"] + t1["included_ids"]["DESC"] + t1["TEST"]
+    use = t1["eligible_ids"]["TARGET"] + t1["eligible_ids"]["DESC"] + t1["TEST"]
     its = {it["id"]: it for it in data.items(tok)}
     langs = sorted({v["language"] for v in kept.values()})
     lang_tok = {l_: next(v["lang_token"] for v in kept.values() if v["language"] == l_) for l_ in langs}

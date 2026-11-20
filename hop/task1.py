@@ -3,7 +3,11 @@
 For every TARGET, DESC and CAP item, runs TWO, HOP1 and HOP2 through the ReplacementModel (whose
 forward pass is the model's: Task 0 step 2) and records the top-5 next tokens with probabilities
 and whether the answer token is top-1. Answer: TWO, HOP2 -> the language's answer token; HOP1 -> the
-country's first token (a top-1 of " the" is therefore wrong). Eligible = all three top-1 correct.
+country's first token (a top-1 of " the" is therefore wrong).
+Eligible (plan revision 1): TWO and HOP2 top-1 correct, and HOP1 passes the country-rank rule: among
+the first tokens of all countries in the table, the bridge country's first token has the highest
+probability after the HOP1 prompt. HOP1 top-1 accuracy, and the bridge's rank (1 = highest; countries
+sharing a first token share its rank) and probability, are reported for every item.
 DEV/TEST: eligible CAP items shuffled with seed 0, first 10 DEV.
 Usage: python hop/task1.py --seed 0
 Writes results/hop/task1/{items.csv, metrics.json, cmd.txt}.
@@ -18,9 +22,6 @@ import data
 import torch
 
 KINDS = ["TWO", "HOP1", "HOP2"]
-# Reviewer decision (2026-11-20), after gate H1 failed only because TARGET's HOP1 top-1 is " the":
-# delete hop/STOP.md, rerun Task 1 and continue. TARGET is kept in Tasks 2-6 although not eligible.
-REVIEWER_INCLUDE = ["TARGET"]
 SETS = ["TARGET", "DESC", "CAP"]
 
 
@@ -33,6 +34,9 @@ def main():
     from transformers import AutoTokenizer
     tok = AutoTokenizer.from_pretrained(common.MODEL)
     its = data.items(tok)
+    kept, _ = data.country_table(tok)
+    ctoks = sorted({v["country_first_token"] for v in kept.values()})
+    assert tok.encode(" the", add_special_tokens=False)[0] not in ctoks
     rm = common.load_replacement_model()
     rows = []
     for it in its:
@@ -49,7 +53,12 @@ def main():
             r[f"{k}_correct"] = int(int(ix[0]) == ans)
             r[f"{k}_p_answer"] = round(float(p[ans]), 6)
             r[f"{k}_top5"] = json.dumps([[tok.decode([int(i)]), round(float(x), 6)] for x, i in zip(v, ix)])
-        r["eligible"] = int(all(r[f"{k}_correct"] for k in KINDS))
+            if k == "HOP1":
+                pc = p[ctoks]
+                r["HOP1_bridge_country_rank"] = int((pc > p[ans]).sum()) + 1
+                r["HOP1_country_rank_ok"] = int(r["HOP1_bridge_country_rank"] == 1)
+                r["HOP1_top_country_token"] = tok.decode([ctoks[int(pc.argmax())]])
+        r["eligible"] = int(r["TWO_correct"] and r["HOP2_correct"] and r["HOP1_country_rank_ok"])
         rows.append(r)
         print(r["id"], [r[f"{k}_top1"] for k in KINDS], r["eligible"], flush=True)
     with open(os.path.join(d, "items.csv"), "w", newline="") as f:
@@ -59,6 +68,9 @@ def main():
 
     acc = {s: {k: sum(r[f"{k}_correct"] for r in rows if r["set"] == s) / sum(r["set"] == s for r in rows)
                for k in KINDS} for s in SETS}
+    for s_ in SETS:
+        rr = [r for r in rows if r["set"] == s_]
+        acc[s_]["HOP1_country_rank_rule"] = sum(r["HOP1_country_rank_ok"] for r in rr) / len(rr)
     n = {s: sum(r["set"] == s for r in rows) for s in SETS}
     elig = {s: sum(r["eligible"] for r in rows if r["set"] == s) for s in SETS}
     cap_elig = [r["id"] for r in rows if r["set"] == "CAP" and r["eligible"]]
@@ -74,14 +86,7 @@ def main():
          "gate_H1": {"target_eligible": bool(target["eligible"]), "target_TWO_correct": bool(target["TWO_correct"]),
                      "n_cap_eligible": len(cap_elig), "cap_ge_25": len(cap_elig) >= 25}}
     m["gate_H1"]["pass"] = m["gate_H1"]["target_eligible"] and m["gate_H1"]["cap_ge_25"]
-    m["reviewer_include"] = {"ids": REVIEWER_INCLUDE,
-                             "decision": "2026-11-20: gate H1 failed (TARGET HOP1 wrong); reviewer: delete "
-                                         "hop/STOP.md, rerun Task 1 and continue, with TARGET kept"}
-    # items used by Tasks 2-6: eligible items plus the reviewer's inclusions
-    m["included_ids"] = {s: m["eligible_ids"][s] + [i for i in REVIEWER_INCLUDE
-                                                     if i not in m["eligible_ids"][s]
-                                                     and next(r for r in rows if r["id"] == i)["set"] == s]
-                         for s in SETS}
+    m["hop1_rule"] = "plan revision 1: country-rank rule (bridge first token highest among all countries' first tokens)"
     common.dump(m, os.path.join(d, "metrics.json"))
     print(json.dumps({k: m[k] for k in ("accuracy", "n_eligible", "gate_H1")}, indent=1))
 

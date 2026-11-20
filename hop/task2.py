@@ -58,7 +58,7 @@ def main():
     kept, _ = data.country_table(tok)
     names = sorted(kept)
     t1 = json.load(open(os.path.join(common.RESULTS, "task1", "metrics.json")))
-    elig = set(sum(t1["included_ids"].values(), []))
+    elig = set(sum(t1["eligible_ids"].values(), []))
     rm = common.load_replacement_model()
 
     ref_path = os.path.join(common.CACHE, "ref.npz")
