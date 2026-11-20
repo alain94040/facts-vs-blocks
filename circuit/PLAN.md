@@ -165,11 +165,12 @@ answer is one token with a leading space. There is one level, H1.
 - the library's lazy-encoder loading for the main model;
 - `safetensors` 0.7.0 and the device wrapper `circuit/ct_compat.py`, both inside `circuit/`;
 - `batch_size = 64`. It changes only speed and memory, not the graph;
-- `max_feature_nodes = 8192`. The library attributes features in order of their estimated
+- `max_feature_nodes = 4096` (revision 4; revision 3 tried 8192 first). The library attributes features in order of their estimated
   influence on the answer and stops at the cap. Without the cap, the first main-model prompt kept
   all 90,241 active features, needing about 34 GB for one internal matrix and about an hour per
   graph. Default pruning (node threshold 0.8) already drops the low-influence features, so the cap
-  should change pruned graphs little. Step 5 measures how much.
+  should change pruned graphs little. Step 5 measured it on the development model at 8192: median
+  node overlap 0.88 with the uncapped graphs, completeness 0.816 vs 0.819.
 
 5. **Effect of the cap.** On the development model, rebuild the 20 graphs of step 3 with
    `max_feature_nodes = 8192` and compare with the uncapped graphs already built. Report:
@@ -178,10 +179,28 @@ answer is one token with a leading space. There is one level, H1.
 
    These numbers are reported, not gated. Gate G2 still applies to every graph in Task 4.
 
-**Gate G0.** On the main model with the graph settings: logits match as above, one graph takes ≤ 20
-minutes, and peak memory ≤ 48 GB. If it fails at `max_feature_nodes = 8192`, rerun the 5 prompts
-once with 4096 (and use 4096 everywhere if it passes). If it fails at 4096, write `STOP.md` with
-the numbers. Do not try other models or other settings.
+**Memory handling (revision 4).** The revision 3 rerun ran close to the 20-minute limit but
+peaked at 85–91 GB. Two things that do not change any graph caused most of it: 37 GB of
+process memory left over from loading, and about 45 GB of cached, unused GPU memory. So:
+- after building the `ReplacementModel`, delete every loading-time object, run `gc.collect()`
+  and `torch.mps.empty_cache()`, and record the process memory (RSS);
+- call `gc.collect()` and `torch.mps.empty_cache()` after every graph;
+- the agent may change *how* the model is loaded and freed (for example loading once, saving the
+  converted weights under `data/cache/circuit/`, and reloading them in a fresh process). It may
+  not change any graph setting.
+
+**Same-graph check.** With the memory handling in place, rebuild the 5 main-model graphs at
+`max_feature_nodes = 4096`. They must match the revision 3 graphs: identical node sets, and
+completeness and replacement scores within 1e-4. If they do not match, write `STOP.md`.
+
+**Gate G0.** On the main model with the graph settings and `max_feature_nodes = 4096`:
+logits match as above, one graph takes ≤ 20 minutes, and either
+- peak memory ≤ 48 GB, or
+- if it is still above 48 GB, swap grows by at most 25 GB during the 5 graphs and the Mac
+  stays responsive. Swapping costs time, which the 20-minute limit already measures.
+
+Record peak memory, RSS after loading, the allocator's cached memory and swap growth. If G0 fails,
+write `STOP.md` with the numbers. Do not try other models or other graph settings.
 
 ### Circuit task 1: screening (review stop at the end)
 
