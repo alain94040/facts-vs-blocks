@@ -551,6 +551,138 @@
    }
   ]
  },
+ "DESC11": {
+  "set": "DESC",
+  "country": "Japan",
+  "positions": [
+   12,
+   13
+  ],
+  "position_tokens": [
+   " is",
+   " is"
+  ],
+  "M": [
+   {
+    "layer": 7,
+    "feature": 13060,
+    "positions": [
+     12,
+     13
+    ],
+    "activations": [
+     7.61215,
+     3.18473
+    ]
+   },
+   {
+    "layer": 8,
+    "feature": 11799,
+    "positions": [
+     12,
+     13
+    ],
+    "activations": [
+     4.43389,
+     1.6789
+    ]
+   },
+   {
+    "layer": 9,
+    "feature": 186,
+    "positions": [
+     12
+    ],
+    "activations": [
+     1.87285
+    ]
+   },
+   {
+    "layer": 17,
+    "feature": 3437,
+    "positions": [
+     13
+    ],
+    "activations": [
+     8.63606
+    ]
+   },
+   {
+    "layer": 18,
+    "feature": 9239,
+    "positions": [
+     13
+    ],
+    "activations": [
+     25.0888
+    ]
+   },
+   {
+    "layer": 19,
+    "feature": 9990,
+    "positions": [
+     13
+    ],
+    "activations": [
+     24.12137
+    ]
+   },
+   {
+    "layer": 20,
+    "feature": 1194,
+    "positions": [
+     13
+    ],
+    "activations": [
+     46.19204
+    ]
+   },
+   {
+    "layer": 21,
+    "feature": 12003,
+    "positions": [
+     13
+    ],
+    "activations": [
+     19.27367
+    ]
+   },
+   {
+    "layer": 23,
+    "feature": 850,
+    "positions": [
+     13
+    ],
+    "activations": [
+     44.67862
+    ]
+   },
+   {
+    "layer": 24,
+    "feature": 6082,
+    "positions": [
+     12,
+     13
+    ],
+    "activations": [
+     7.06635,
+     30.75157
+    ]
+   },
+   {
+    "layer": 25,
+    "feature": 12223,
+    "positions": [
+     12,
+     13
+    ],
+    "activations": [
+     7.61022,
+     32.88742
+    ]
+   }
+  ]
+ },
  "CAP-France": {
   "set": "CAP",
   "country": "France",
@@ -7865,6 +7997,52 @@
    }
   ]
  },
+ "CAP-Liberia": {
+  "set": "CAP",
+  "country": "Liberia",
+  "positions": [
+   13,
+   14
+  ],
+  "position_tokens": [
+   "via",
+   " is"
+  ],
+  "M": [
+   {
+    "layer": 1,
+    "feature": 6729,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.14175
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 9239,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.02114
+    ]
+   },
+   {
+    "layer": 19,
+    "feature": 14975,
+    "positions": [
+     13,
+     14
+    ],
+    "activations": [
+     23.58358,
+     27.43206
+    ]
+   }
+  ]
+ },
  "CAP-Sierra Leone": {
   "set": "CAP",
   "country": "Sierra Leone",
@@ -10053,6 +10231,786 @@
    }
   ]
  },
+ "CAP-Saint Kitts and Nevis": {
+  "set": "CAP",
+  "country": "Saint Kitts and Nevis",
+  "positions": [
+   13,
+   14
+  ],
+  "position_tokens": [
+   "terre",
+   " is"
+  ],
+  "M": [
+   {
+    "layer": 1,
+    "feature": 146,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.70033
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 3022,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.68069
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 9744,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.03358
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 14756,
+    "positions": [
+     13
+    ],
+    "activations": [
+     6.38507
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 870,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.11225
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 3448,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.00589
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 6854,
+    "positions": [
+     13
+    ],
+    "activations": [
+     6.47689
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 7316,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.63552
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 11911,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.73474
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 14591,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.40979
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 145,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.01613
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 507,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.5315
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 3845,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.4244
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 10075,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.999
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 11043,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.8302
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 14820,
+    "positions": [
+     13,
+     14
+    ],
+    "activations": [
+     1.76683,
+     0.97827
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 15113,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.00306
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 15409,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.85809
+    ]
+   },
+   {
+    "layer": 6,
+    "feature": 10580,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.87713
+    ]
+   },
+   {
+    "layer": 6,
+    "feature": 11779,
+    "positions": [
+     14
+    ],
+    "activations": [
+     2.37925
+    ]
+   },
+   {
+    "layer": 6,
+    "feature": 15206,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.10431
+    ]
+   }
+  ]
+ },
+ "CAP-Saint Vincent and the Grenadines": {
+  "set": "CAP",
+  "country": "Saint Vincent and the Grenadines",
+  "positions": [
+   13,
+   14
+  ],
+  "position_tokens": [
+   "stown",
+   " is"
+  ],
+  "M": [
+   {
+    "layer": 0,
+    "feature": 1080,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.81922
+    ]
+   },
+   {
+    "layer": 0,
+    "feature": 1660,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.94353
+    ]
+   },
+   {
+    "layer": 0,
+    "feature": 2295,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.92235
+    ]
+   },
+   {
+    "layer": 0,
+    "feature": 2870,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.91883
+    ]
+   },
+   {
+    "layer": 0,
+    "feature": 4031,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.10268
+    ]
+   },
+   {
+    "layer": 0,
+    "feature": 7640,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.19037
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 736,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.93739
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 3545,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.75312
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 5652,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.0069
+    ]
+   },
+   {
+    "layer": 1,
+    "feature": 15587,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.21541
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 268,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.02108
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 1208,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.58617
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 2459,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.8634
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 2766,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.23157
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 2980,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.29412
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 3096,
+    "positions": [
+     13
+    ],
+    "activations": [
+     4.11475
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 5583,
+    "positions": [
+     13
+    ],
+    "activations": [
+     6.21132
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 7881,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.94673
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 8773,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.93938
+    ]
+   },
+   {
+    "layer": 3,
+    "feature": 11483,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.10346
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 34,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.9347
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 391,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.00014
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 551,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.93369
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 759,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.01714
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 2159,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.19536
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 3220,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.81709
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 3279,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.29382
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 3751,
+    "positions": [
+     14
+    ],
+    "activations": [
+     0.83724
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 4184,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.27598
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 5254,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.88598
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 6108,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.62252
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 7417,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.56037
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 7531,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.58212
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 7745,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.78142
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 8125,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.79426
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 8274,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.99041
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 8628,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.09539
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 9550,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.43168
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 9845,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.15842
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 10024,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.12862
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 10080,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.68989
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 11114,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.67241
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 12156,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.66415
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 12532,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.10407
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 12769,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.388
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 12838,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.68638
+    ]
+   },
+   {
+    "layer": 4,
+    "feature": 14610,
+    "positions": [
+     14
+    ],
+    "activations": [
+     1.21936
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 315,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.79763
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 2209,
+    "positions": [
+     13
+    ],
+    "activations": [
+     0.95529
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 8556,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.61052
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 9018,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.46861
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 10015,
+    "positions": [
+     13
+    ],
+    "activations": [
+     3.38662
+    ]
+   },
+   {
+    "layer": 5,
+    "feature": 11571,
+    "positions": [
+     13
+    ],
+    "activations": [
+     2.02792
+    ]
+   },
+   {
+    "layer": 6,
+    "feature": 9678,
+    "positions": [
+     13
+    ],
+    "activations": [
+     1.01754
+    ]
+   }
+  ]
+ },
  "CAP-Peru": {
   "set": "CAP",
   "country": "Peru",
@@ -10644,6 +11602,102 @@
     ],
     "activations": [
      14.84361
+    ]
+   }
+  ]
+ },
+ "CAP-Suriname": {
+  "set": "CAP",
+  "country": "Suriname",
+  "positions": [
+   14,
+   15
+  ],
+  "position_tokens": [
+   "bo",
+   " is"
+  ],
+  "M": [
+   {
+    "layer": 4,
+    "feature": 14488,
+    "positions": [
+     14
+    ],
+    "activations": [
+     1.30295
+    ]
+   },
+   {
+    "layer": 6,
+    "feature": 11158,
+    "positions": [
+     14
+    ],
+    "activations": [
+     10.15995
+    ]
+   },
+   {
+    "layer": 7,
+    "feature": 12155,
+    "positions": [
+     14
+    ],
+    "activations": [
+     6.89829
+    ]
+   },
+   {
+    "layer": 8,
+    "feature": 478,
+    "positions": [
+     14
+    ],
+    "activations": [
+     13.10183
+    ]
+   },
+   {
+    "layer": 9,
+    "feature": 4913,
+    "positions": [
+     14
+    ],
+    "activations": [
+     1.32378
+    ]
+   },
+   {
+    "layer": 9,
+    "feature": 5458,
+    "positions": [
+     14
+    ],
+    "activations": [
+     4.96362
+    ]
+   },
+   {
+    "layer": 14,
+    "feature": 3328,
+    "positions": [
+     14
+    ],
+    "activations": [
+     20.08663
+    ]
+   },
+   {
+    "layer": 19,
+    "feature": 7002,
+    "positions": [
+     14,
+     15
+    ],
+    "activations": [
+     29.77104,
+     35.77205
     ]
    }
   ]
