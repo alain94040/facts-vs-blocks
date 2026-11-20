@@ -1,0 +1,427 @@
+{
+ "seed": 0,
+ "model": "google/gemma-2-2b",
+ "transcoder_set": "gemma",
+ "device": "mps",
+ "dtype": "float32",
+ "downloads": {
+  "disk_free_gb_before": 113.0,
+  "repos": {
+   "google/gemma-2-2b": {
+    "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+    "n_files": 10,
+    "bytes": 10479239529,
+    "gb": 10.479
+   },
+   "mwhanna/gemma-scope-transcoders": {
+    "revision": "3412e19be8f72d47f8683cb92028a46513222b2b",
+    "n_files": 27,
+    "bytes": 7855395802,
+    "gb": 7.855
+   },
+   "mntss/gemma-scope-transcoders": {
+    "revision": "9250a2d4860ce5ed5c96c14d5882b7d8162809a3",
+    "transcoders": [
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_0/width_16k/average_l0_76/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_1/width_16k/average_l0_65/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_2/width_16k/average_l0_49/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_3/width_16k/average_l0_54/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_4/width_16k/average_l0_88/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_5/width_16k/average_l0_87/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_6/width_16k/average_l0_95/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_7/width_16k/average_l0_70/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_8/width_16k/average_l0_52/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_9/width_16k/average_l0_72/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_10/width_16k/average_l0_88/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_11/width_16k/average_l0_5/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_12/width_16k/average_l0_6/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_13/width_16k/average_l0_8/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_14/width_16k/average_l0_8/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_15/width_16k/average_l0_8/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_16/width_16k/average_l0_10/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_17/width_16k/average_l0_12/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_18/width_16k/average_l0_13/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_19/width_16k/average_l0_12/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_20/width_16k/average_l0_11/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_21/width_16k/average_l0_13/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_22/width_16k/average_l0_15/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_23/width_16k/average_l0_25/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_24/width_16k/average_l0_37/params.npz",
+     "hf://google/gemma-scope-2b-pt-transcoders/layer_25/width_16k/average_l0_41/params.npz"
+    ]
+   },
+   "google/gemma-scope-2b-pt-transcoders": {
+    "revision": "50eec2f25c60545a9a74c1c3a26a0afdd0b4b872",
+    "n_files": 26,
+    "bytes": 7855416816,
+    "gb": 7.855
+   }
+  },
+  "disk_free_gb_after": 86.8
+ },
+ "versions": {
+  "circuit_tracer": "0.5.0",
+  "torch": "2.15.0",
+  "transformer_lens": null,
+  "transformers": "4.57.3",
+  "safetensors": "0.7.0"
+ },
+ "transcoder_check": {
+  "n_layers": 26,
+  "keys_safetensors": {
+   "W_dec": [
+    16384,
+    2304
+   ],
+   "W_enc": [
+    16384,
+    2304
+   ],
+   "activation_function.threshold": [
+    16384
+   ],
+   "b_dec": [
+    2304
+   ],
+   "b_enc": [
+    16384
+   ]
+  },
+  "keys_npz": {
+   "W_dec": [
+    16384,
+    2304
+   ],
+   "W_enc": [
+    2304,
+    16384
+   ],
+   "b_dec": [
+    2304
+   ],
+   "b_enc": [
+    16384
+   ],
+   "threshold": [
+    16384
+   ]
+  },
+  "max_abs_diff": {
+   "0.W_enc": 0.0,
+   "0.W_dec": 0.0,
+   "0.b_enc": 0.0,
+   "0.b_dec": 0.0,
+   "0.threshold": 0.0,
+   "1.W_enc": 0.0,
+   "1.W_dec": 0.0,
+   "1.b_enc": 0.0,
+   "1.b_dec": 0.0,
+   "1.threshold": 0.0,
+   "2.W_enc": 0.0,
+   "2.W_dec": 0.0,
+   "2.b_enc": 0.0,
+   "2.b_dec": 0.0,
+   "2.threshold": 0.0,
+   "3.W_enc": 0.0,
+   "3.W_dec": 0.0,
+   "3.b_enc": 0.0,
+   "3.b_dec": 0.0,
+   "3.threshold": 0.0,
+   "4.W_enc": 0.0,
+   "4.W_dec": 0.0,
+   "4.b_enc": 0.0,
+   "4.b_dec": 0.0,
+   "4.threshold": 0.0,
+   "5.W_enc": 0.0,
+   "5.W_dec": 0.0,
+   "5.b_enc": 0.0,
+   "5.b_dec": 0.0,
+   "5.threshold": 0.0,
+   "6.W_enc": 0.0,
+   "6.W_dec": 0.0,
+   "6.b_enc": 0.0,
+   "6.b_dec": 0.0,
+   "6.threshold": 0.0,
+   "7.W_enc": 0.0,
+   "7.W_dec": 0.0,
+   "7.b_enc": 0.0,
+   "7.b_dec": 0.0,
+   "7.threshold": 0.0,
+   "8.W_enc": 0.0,
+   "8.W_dec": 0.0,
+   "8.b_enc": 0.0,
+   "8.b_dec": 0.0,
+   "8.threshold": 0.0,
+   "9.W_enc": 0.0,
+   "9.W_dec": 0.0,
+   "9.b_enc": 0.0,
+   "9.b_dec": 0.0,
+   "9.threshold": 0.0,
+   "10.W_enc": 0.0,
+   "10.W_dec": 0.0,
+   "10.b_enc": 0.0,
+   "10.b_dec": 0.0,
+   "10.threshold": 0.0,
+   "11.W_enc": 0.0,
+   "11.W_dec": 0.0,
+   "11.b_enc": 0.0,
+   "11.b_dec": 0.0,
+   "11.threshold": 0.0,
+   "12.W_enc": 0.0,
+   "12.W_dec": 0.0,
+   "12.b_enc": 0.0,
+   "12.b_dec": 0.0,
+   "12.threshold": 0.0,
+   "13.W_enc": 0.0,
+   "13.W_dec": 0.0,
+   "13.b_enc": 0.0,
+   "13.b_dec": 0.0,
+   "13.threshold": 0.0,
+   "14.W_enc": 0.0,
+   "14.W_dec": 0.0,
+   "14.b_enc": 0.0,
+   "14.b_dec": 0.0,
+   "14.threshold": 0.0,
+   "15.W_enc": 0.0,
+   "15.W_dec": 0.0,
+   "15.b_enc": 0.0,
+   "15.b_dec": 0.0,
+   "15.threshold": 0.0,
+   "16.W_enc": 0.0,
+   "16.W_dec": 0.0,
+   "16.b_enc": 0.0,
+   "16.b_dec": 0.0,
+   "16.threshold": 0.0,
+   "17.W_enc": 0.0,
+   "17.W_dec": 0.0,
+   "17.b_enc": 0.0,
+   "17.b_dec": 0.0,
+   "17.threshold": 0.0,
+   "18.W_enc": 0.0,
+   "18.W_dec": 0.0,
+   "18.b_enc": 0.0,
+   "18.b_dec": 0.0,
+   "18.threshold": 0.0,
+   "19.W_enc": 0.0,
+   "19.W_dec": 0.0,
+   "19.b_enc": 0.0,
+   "19.b_dec": 0.0,
+   "19.threshold": 0.0,
+   "20.W_enc": 0.0,
+   "20.W_dec": 0.0,
+   "20.b_enc": 0.0,
+   "20.b_dec": 0.0,
+   "20.threshold": 0.0,
+   "21.W_enc": 0.0,
+   "21.W_dec": 0.0,
+   "21.b_enc": 0.0,
+   "21.b_dec": 0.0,
+   "21.threshold": 0.0,
+   "22.W_enc": 0.0,
+   "22.W_dec": 0.0,
+   "22.b_enc": 0.0,
+   "22.b_dec": 0.0,
+   "22.threshold": 0.0,
+   "23.W_enc": 0.0,
+   "23.W_dec": 0.0,
+   "23.b_enc": 0.0,
+   "23.b_dec": 0.0,
+   "23.threshold": 0.0,
+   "24.W_enc": 0.0,
+   "24.W_dec": 0.0,
+   "24.b_enc": 0.0,
+   "24.b_dec": 0.0,
+   "24.threshold": 0.0,
+   "25.W_enc": 0.0,
+   "25.W_dec": 0.0,
+   "25.b_enc": 0.0,
+   "25.b_dec": 0.0,
+   "25.threshold": 0.0
+  },
+  "max_abs_diff_all": 0.0,
+  "same": true
+ },
+ "prompts": [
+  {
+   "id": "TARGET",
+   "prompt": "The language most commonly spoken in the country south of the United States is"
+  },
+  {
+   "id": "CAP-Senegal",
+   "prompt": "The language most commonly spoken in the country whose capital is Dakar is"
+  },
+  {
+   "id": "CAP-Nigeria",
+   "prompt": "The language most commonly spoken in the country whose capital is Abuja is"
+  },
+  {
+   "id": "CAP-Poland",
+   "prompt": "The language most commonly spoken in the country whose capital is Warsaw is"
+  },
+  {
+   "id": "CAP-Nepal",
+   "prompt": "The language most commonly spoken in the country whose capital is Kathmandu is"
+  },
+  {
+   "id": "CAP-Honduras",
+   "prompt": "The language most commonly spoken in the country whose capital is Tegucigalpa is"
+  }
+ ],
+ "load_seconds": 10.526010274887085,
+ "memory_after_load_gb": {
+  "rss": 33.42,
+  "mps_driver": 16.83,
+  "sum": 37.43
+ },
+ "step2_logit_check": {
+  "per_prompt": [
+   {
+    "id": "TARGET",
+    "max_abs_diff_logprob": 0.0,
+    "tl_top": " Spanish",
+    "rm_top": " Spanish"
+   },
+   {
+    "id": "CAP-Senegal",
+    "max_abs_diff_logprob": 0.0,
+    "tl_top": " French",
+    "rm_top": " French"
+   },
+   {
+    "id": "CAP-Nigeria",
+    "max_abs_diff_logprob": 0.0,
+    "tl_top": " English",
+    "rm_top": " English"
+   },
+   {
+    "id": "CAP-Poland",
+    "max_abs_diff_logprob": 0.0,
+    "tl_top": " Polish",
+    "rm_top": " Polish"
+   },
+   {
+    "id": "CAP-Nepal",
+    "max_abs_diff_logprob": 0.0,
+    "tl_top": " Nepali",
+    "rm_top": " Nepali"
+   },
+   {
+    "id": "CAP-Honduras",
+    "max_abs_diff_logprob": 0.0,
+    "tl_top": " Spanish",
+    "rm_top": " Spanish"
+   }
+  ],
+  "max_abs_diff": 0.0
+ },
+ "feature_intervention": {
+  "signature": "(inputs: str | torch.Tensor, interventions: collections.abc.Sequence[tuple[int | torch.Tensor, int | slice | torch.Tensor, int | torch.Tensor, int | float | torch.Tensor]], constrained_layers: range | None = None, freeze_attention: bool = True, apply_activation_function: bool = True, sparse: bool = False, return_activations: bool = True) -> tuple[torch.Tensor, torch.Tensor | None]",
+  "defaults_used": {
+   "constrained_layers": "None",
+   "freeze_attention": "True",
+   "apply_activation_function": "True",
+   "sparse": "False",
+   "return_activations": "True"
+  }
+ },
+ "step3_identity": {
+  "per_prompt": [
+   {
+    "id": "TARGET",
+    "n_features": 20,
+    "min_value": 31.199005126953125,
+    "max_abs_change_logprob": 0.0
+   },
+   {
+    "id": "CAP-Senegal",
+    "n_features": 20,
+    "min_value": 41.114463806152344,
+    "max_abs_change_logprob": 0.0
+   },
+   {
+    "id": "CAP-Nigeria",
+    "n_features": 20,
+    "min_value": 37.77421951293945,
+    "max_abs_change_logprob": 0.0
+   },
+   {
+    "id": "CAP-Poland",
+    "n_features": 20,
+    "min_value": 36.15937423706055,
+    "max_abs_change_logprob": 0.0
+   },
+   {
+    "id": "CAP-Nepal",
+    "n_features": 20,
+    "min_value": 36.38982391357422,
+    "max_abs_change_logprob": 0.0
+   },
+   {
+    "id": "CAP-Honduras",
+    "n_features": 20,
+    "min_value": 40.918914794921875,
+    "max_abs_change_logprob": 0.0
+   }
+  ],
+  "max_abs_change": 0.0
+ },
+ "step4_graph": {
+  "prompt": "The language most commonly spoken in the country south of the United States is",
+  "n_tokens": 15,
+  "attribute_args": {
+   "max_feature_nodes": 4096,
+   "batch_size": 64
+  },
+  "seconds": 14.877639293670654,
+  "peak_memory_gb_during_graph": {
+   "rss": 3.12,
+   "mps_driver": 25.87,
+   "sum": 28.9
+  },
+  "n_active_features": 13778,
+  "n_selected_features": 4096,
+  "replacement_score": 0.733742892742157,
+  "completeness_score": 0.9300917983055115,
+  "logit_targets": [
+   " Spanish",
+   " English",
+   " ",
+   " the",
+   ":",
+   " not",
+   " Mexican",
+   " French",
+   " ________",
+   " Portuguese"
+  ],
+  "logit_probabilities": [
+   0.49928802251815796,
+   0.15562477707862854,
+   0.03067386895418167,
+   0.021812142804265022,
+   0.020083636045455933,
+   0.014957492239773273,
+   0.012576291337609291,
+   0.012368260882794857,
+   0.010117733851075172,
+   0.009937532246112823
+  ]
+ },
+ "peak_memory_gb_before_graph": {
+  "rss": 33.42,
+  "mps_driver": 20.93,
+  "sum": 37.43
+ },
+ "peak_memory_gb_whole_run": {
+  "rss": 33.42,
+  "mps_driver": 25.87,
+  "sum": 37.43
+ },
+ "gate_H0": {
+  "step2_le_0.01": true,
+  "step3_le_0.001": true,
+  "graph_le_20min": true,
+  "peak_le_48GB": true,
+  "pass": true
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "seed": 0,
+ "prompts": [
+  "TARGET",
+  "CAP-Senegal",
+  "CAP-Nigeria",
+  "CAP-Poland",
+  "CAP-Nepal",
+  "CAP-Honduras"
+ ],
+ "hf_cpu_vs_hf_mps": {
+  "max_abs_diff": 8.141298864217106e-05,
+  "top1_agree": 6
+ },
+ "hf_cpu_vs_rm_mps": {
+  "max_abs_diff": 8.246653695209716e-05,
+  "top1_agree": 6
+ },
+ "hf_mps_vs_rm_mps": {
+  "max_abs_diff": 5.650289630665384e-05,
+  "top1_agree": 6
+ },
+ "top1": {
+  "hf_cpu": [
+   " Spanish",
+   " French",
+   " English",
+   " Polish",
+   " Nepali",
+   " Spanish"
+  ],
+  "hf_mps": [
+   " Spanish",
+   " French",
+   " English",
+   " Polish",
+   " Nepali",
+   " Spanish"
+  ],
+  "rm_mps": [
+   " Spanish",
+   " French",
+   " English",
+   " Polish",
+   " Nepali",
+   " Spanish"
+  ]
+ }
+}

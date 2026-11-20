@@ -1,0 +1,55 @@
+{
+ "disk_free_gb_before": 113.0,
+ "repos": {
+  "google/gemma-2-2b": {
+   "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+   "n_files": 10,
+   "bytes": 10479239529,
+   "gb": 10.479
+  },
+  "mwhanna/gemma-scope-transcoders": {
+   "revision": "3412e19be8f72d47f8683cb92028a46513222b2b",
+   "n_files": 27,
+   "bytes": 7855395802,
+   "gb": 7.855
+  },
+  "mntss/gemma-scope-transcoders": {
+   "revision": "9250a2d4860ce5ed5c96c14d5882b7d8162809a3",
+   "transcoders": [
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_0/width_16k/average_l0_76/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_1/width_16k/average_l0_65/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_2/width_16k/average_l0_49/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_3/width_16k/average_l0_54/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_4/width_16k/average_l0_88/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_5/width_16k/average_l0_87/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_6/width_16k/average_l0_95/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_7/width_16k/average_l0_70/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_8/width_16k/average_l0_52/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_9/width_16k/average_l0_72/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_10/width_16k/average_l0_88/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_11/width_16k/average_l0_5/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_12/width_16k/average_l0_6/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_13/width_16k/average_l0_8/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_14/width_16k/average_l0_8/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_15/width_16k/average_l0_8/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_16/width_16k/average_l0_10/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_17/width_16k/average_l0_12/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_18/width_16k/average_l0_13/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_19/width_16k/average_l0_12/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_20/width_16k/average_l0_11/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_21/width_16k/average_l0_13/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_22/width_16k/average_l0_15/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_23/width_16k/average_l0_25/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_24/width_16k/average_l0_37/params.npz",
+    "hf://google/gemma-scope-2b-pt-transcoders/layer_25/width_16k/average_l0_41/params.npz"
+   ]
+  },
+  "google/gemma-scope-2b-pt-transcoders": {
+   "revision": "50eec2f25c60545a9a74c1c3a26a0afdd0b4b872",
+   "n_files": 26,
+   "bytes": 7855416816,
+   "gb": 7.855
+  }
+ },
+ "disk_free_gb_after": 86.8
+}
