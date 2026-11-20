@@ -1,0 +1,277 @@
+country,language,template,text,top1,top_country_token,country_rank,kept
+Albania,Albanian,P1,The country whose capital is Tirana is, Albania, Albania,1,1
+Albania,Albanian,P2,Tirana is the capital of, Albania, Albania,1,1
+Albania,Albanian,P3,"The capital of the country is Tirana, so the country is", also, Albania,1,1
+Andorra,Catalan,P1,The country whose capital is Andorra la Vella is, Andorra, Andorra,1,1
+Andorra,Catalan,P2,Andorra la Vella is the capital of, Andorra, Andorra,1,1
+Andorra,Catalan,P3,"The capital of the country is Andorra la Vella, so the country is", also, Andorra,1,1
+Angola,Portuguese,P1,The country whose capital is Luanda is, Angola, Angola,1,1
+Angola,Portuguese,P2,Luanda is the capital of, Angola, Angola,1,1
+Angola,Portuguese,P3,"The capital of the country is Luanda, so the country is", called, Angola,1,1
+Antigua and Barbuda,English,P1,The country whose capital is St. John's is, Newfoundland, Canada,2,0
+Antigua and Barbuda,English,P2,St. John's is the capital of, the, Antigua,1,1
+Antigua and Barbuda,English,P3,"The capital of the country is St. John's, so the country is", called, Antigua,1,1
+Argentina,Spanish,P1,The country whose capital is Buenos Aires is, Argentina, Argentina,1,1
+Argentina,Spanish,P2,Buenos Aires is the capital of, Argentina, Argentina,1,1
+Argentina,Spanish,P3,"The capital of the country is Buenos Aires, so the country is", called, Argentina,1,1
+Austria,German,P1,The country whose capital is Vienna is, Austria, Austria,1,1
+Austria,German,P2,Vienna is the capital of, Austria, Austria,1,1
+Austria,German,P3,"The capital of the country is Vienna, so the country is", called, Austria,1,1
+Bahrain,Arabic,P1,The country whose capital is Manama is, Bahrain, Bahrain,1,1
+Bahrain,Arabic,P2,Manama is the capital of, Bahrain, Bahrain,1,1
+Bahrain,Arabic,P3,"The capital of the country is Manama, so the country is", called, Bahrain,1,1
+Barbados,English,P1,The country whose capital is Bridgetown is, Barbados, Barbados,1,1
+Barbados,English,P2,Bridgetown is the capital of, Barbados, Barbados,1,1
+Barbados,English,P3,"The capital of the country is Bridgetown, so the country is", also, Barbados,1,1
+Belize,English,P1,The country whose capital is Belmopan is, Belize, Belize,1,1
+Belize,English,P2,Belmopan is the capital of, Belize, Belize,1,1
+Belize,English,P3,"The capital of the country is Belmopan, so the country is", called, Belize,1,1
+Bhutan,Dzongkha,P1,The country whose capital is Thimphu is, Bhutan, Bhutan,1,1
+Bhutan,Dzongkha,P2,Thimphu is the capital of, Bhutan, Bhutan,1,1
+Bhutan,Dzongkha,P3,"The capital of the country is Thimphu, so the country is", also, Bhutan,1,1
+Botswana,English,P1,The country whose capital is Gaborone is, Botswana, Botswana,1,1
+Botswana,English,P2,Gaborone is the capital of, Botswana, Botswana,1,1
+Botswana,English,P3,"The capital of the country is Gaborone, so the country is", also, Botswana,1,1
+Brazil,Portuguese,P1,The country whose capital is Brasília is, Brazil, Brazil,1,1
+Brazil,Portuguese,P2,Brasília is the capital of, Brazil, Brazil,1,1
+Brazil,Portuguese,P3,"The capital of the country is Brasília, so the country is", called, Brazil,1,1
+Brunei,Malay,P1,The country whose capital is Bandar Seri Begawan is, Brunei, Brunei,1,1
+Brunei,Malay,P2,Bandar Seri Begawan is the capital of, Brunei, Brunei,1,1
+Brunei,Malay,P3,"The capital of the country is Bandar Seri Begawan, so the country is", also, Brunei,1,1
+Bulgaria,Bulgarian,P1,The country whose capital is Sofia is, Bulgaria, Bulgaria,1,1
+Bulgaria,Bulgarian,P2,Sofia is the capital of, Bulgaria, Bulgaria,1,1
+Bulgaria,Bulgarian,P3,"The capital of the country is Sofia, so the country is", called, Bulgaria,1,1
+Cambodia,Khmer,P1,The country whose capital is Phnom Penh is, Cambodia, Cambodia,1,1
+Cambodia,Khmer,P2,Phnom Penh is the capital of, Cambodia, Cambodia,1,1
+Cambodia,Khmer,P3,"The capital of the country is Phnom Penh, so the country is", also, Cambodia,1,1
+Canada,English,P1,The country whose capital is Ottawa is, Canada, Canada,1,1
+Canada,English,P2,Ottawa is the capital of, Canada, Canada,1,1
+Canada,English,P3,"The capital of the country is Ottawa, so the country is", called, Canada,1,1
+Chile,Spanish,P1,The country whose capital is Santiago is, Chile, Chile,1,1
+Chile,Spanish,P2,Santiago is the capital of, Chile, Chile,1,1
+Chile,Spanish,P3,"The capital of the country is Santiago, so the country is", called, Chile,1,1
+Colombia,Spanish,P1,The country whose capital is Bogotá is, Colombia, Colombia,1,1
+Colombia,Spanish,P2,Bogotá is the capital of, Colombia, Colombia,1,1
+Colombia,Spanish,P3,"The capital of the country is Bogotá, so the country is", called, Colombia,1,1
+Costa Rica,Spanish,P1,The country whose capital is San José is, Costa, Costa,1,1
+Costa Rica,Spanish,P2,San José is the capital of, Costa, Costa,1,1
+Costa Rica,Spanish,P3,"The capital of the country is San José, so the country is", called, Costa,1,1
+Croatia,Croatian,P1,The country whose capital is Zagreb is, Croatia, Croatia,1,1
+Croatia,Croatian,P2,Zagreb is the capital of, Croatia, Croatia,1,1
+Croatia,Croatian,P3,"The capital of the country is Zagreb, so the country is", called, Croatia,1,1
+Cuba,Spanish,P1,The country whose capital is Havana is, Cuba, Cuba,1,1
+Cuba,Spanish,P2,Havana is the capital of, Cuba, Cuba,1,1
+Cuba,Spanish,P3,"The capital of the country is Havana, so the country is", also, Cuba,1,1
+Denmark,Danish,P1,The country whose capital is Copenhagen is, Denmark, Denmark,1,1
+Denmark,Danish,P2,Copenhagen is the capital of, Denmark, Denmark,1,1
+Denmark,Danish,P3,"The capital of the country is Copenhagen, so the country is", called, Denmark,1,1
+Ecuador,Spanish,P1,The country whose capital is Quito is, Ecuador, Ecuador,1,1
+Ecuador,Spanish,P2,Quito is the capital of, Ecuador, Ecuador,1,1
+Ecuador,Spanish,P3,"The capital of the country is Quito, so the country is", called, Ecuador,1,1
+Egypt,Arabic,P1,The country whose capital is Cairo is, Egypt, Egypt,1,1
+Egypt,Arabic,P2,Cairo is the capital of, Egypt, Egypt,1,1
+Egypt,Arabic,P3,"The capital of the country is Cairo, so the country is", called, Egypt,1,1
+El Salvador,Spanish,P1,The country whose capital is San Salvador is, El, El,1,1
+El Salvador,Spanish,P2,San Salvador is the capital of, El, El,1,1
+El Salvador,Spanish,P3,"The capital of the country is San Salvador, so the country is", called, El,1,1
+Estonia,Estonian,P1,The country whose capital is Tallinn is, Estonia, Estonia,1,1
+Estonia,Estonian,P2,Tallinn is the capital of, Estonia, Estonia,1,1
+Estonia,Estonian,P3,"The capital of the country is Tallinn, so the country is", also, Estonia,1,1
+France,French,P1,The country whose capital is Paris is, France, France,1,1
+France,French,P2,Paris is the capital of, France, France,1,1
+France,French,P3,"The capital of the country is Paris, so the country is", called, France,1,1
+Gabon,French,P1,The country whose capital is Libreville is, Gabon, Gabon,1,1
+Gabon,French,P2,Libreville is the capital of, Gabon, Gabon,1,1
+Gabon,French,P3,"The capital of the country is Libreville, so the country is", called, Gabon,1,1
+Germany,German,P1,The country whose capital is Berlin is, Germany, Germany,1,1
+Germany,German,P2,Berlin is the capital of, Germany, Germany,1,1
+Germany,German,P3,"The capital of the country is Berlin, so the country is", called, Germany,1,1
+Ghana,English,P1,The country whose capital is Accra is, Ghana, Ghana,1,1
+Ghana,English,P2,Accra is the capital of, Ghana, Ghana,1,1
+Ghana,English,P3,"The capital of the country is Accra, so the country is", called, Ghana,1,1
+Greece,Greek,P1,The country whose capital is Athens is, Greece, Greece,1,1
+Greece,Greek,P2,Athens is the capital of, Greece, Greece,1,1
+Greece,Greek,P3,"The capital of the country is Athens, so the country is", called, Greece,1,1
+Grenada,English,P1,The country whose capital is St. George's is, Grenada, Grenada,1,1
+Grenada,English,P2,St. George's is the capital of, Grenada, Grenada,1,1
+Grenada,English,P3,"The capital of the country is St. George's, so the country is", called, Saint,5,0
+Guinea,French,P1,The country whose capital is Conakry is, Guinea, Guinea,1,1
+Guinea,French,P2,Conakry is the capital of, Guinea, Guinea,1,1
+Guinea,French,P3,"The capital of the country is Conakry, so the country is", called, Guinea,1,1
+Guyana,English,P1,The country whose capital is Georgetown is, Guyana, Guyana,1,1
+Guyana,English,P2,Georgetown is the capital of, Guyana, Guyana,1,1
+Guyana,English,P3,"The capital of the country is Georgetown, so the country is", called, Guyana,1,1
+Honduras,Spanish,P1,The country whose capital is Tegucigalpa is, Honduras, Honduras,1,1
+Honduras,Spanish,P2,Tegucigalpa is the capital of, Honduras, Honduras,1,1
+Honduras,Spanish,P3,"The capital of the country is Tegucigalpa, so the country is", also, Honduras,1,1
+Hungary,Hungarian,P1,The country whose capital is Budapest is, Hungary, Hungary,1,1
+Hungary,Hungarian,P2,Budapest is the capital of, Hungary, Hungary,1,1
+Hungary,Hungarian,P3,"The capital of the country is Budapest, so the country is", also, Hungary,1,1
+Iceland,Icelandic,P1,The country whose capital is Reykjavik is, Iceland, Iceland,1,1
+Iceland,Icelandic,P2,Reykjavik is the capital of, Iceland, Iceland,1,1
+Iceland,Icelandic,P3,"The capital of the country is Reykjavik, so the country is", called, Iceland,1,1
+Italy,Italian,P1,The country whose capital is Rome is, Italy, Italy,1,1
+Italy,Italian,P2,Rome is the capital of, Italy, Italy,1,1
+Italy,Italian,P3,"The capital of the country is Rome, so the country is", called, Italy,1,1
+Jamaica,English,P1,The country whose capital is Kingston is, Jamaica, Jamaica,1,1
+Jamaica,English,P2,Kingston is the capital of, Jamaica, Jamaica,1,1
+Jamaica,English,P3,"The capital of the country is Kingston, so the country is", called, Jamaica,1,1
+Japan,Japanese,P1,The country whose capital is Tokyo is, Japan, Japan,1,1
+Japan,Japanese,P2,Tokyo is the capital of, Japan, Japan,1,1
+Japan,Japanese,P3,"The capital of the country is Tokyo, so the country is", called, Japan,1,1
+Jordan,Arabic,P1,The country whose capital is Amman is, Jordan, Jordan,1,1
+Jordan,Arabic,P2,Amman is the capital of, Jordan, Jordan,1,1
+Jordan,Arabic,P3,"The capital of the country is Amman, so the country is", called, Jordan,1,1
+Latvia,Latvian,P1,The country whose capital is Riga is, Latvia, Latvia,1,1
+Latvia,Latvian,P2,Riga is the capital of, Latvia, Latvia,1,1
+Latvia,Latvian,P3,"The capital of the country is Riga, so the country is", called, Latvia,1,1
+Lebanon,Arabic,P1,The country whose capital is Beirut is, Lebanon, Lebanon,1,1
+Lebanon,Arabic,P2,Beirut is the capital of, Lebanon, Lebanon,1,1
+Lebanon,Arabic,P3,"The capital of the country is Beirut, so the country is", called, Lebanon,1,1
+Liberia,English,P1,The country whose capital is Monrovia is, called, Liberia,1,1
+Liberia,English,P2,Monrovia is the capital of, Liberia, Liberia,1,1
+Liberia,English,P3,"The capital of the country is Monrovia, so the country is", called, Liberia,1,1
+Libya,Arabic,P1,The country whose capital is Tripoli is, Libya, Libya,1,1
+Libya,Arabic,P2,Tripoli is the capital of, Libya, Libya,1,1
+Libya,Arabic,P3,"The capital of the country is Tripoli, so the country is", also, Libya,1,1
+Liechtenstein,German,P1,The country whose capital is Vaduz is, Liechtenstein, Liechtenstein,1,1
+Liechtenstein,German,P2,Vaduz is the capital of, Liechtenstein, Liechtenstein,1,1
+Liechtenstein,German,P3,"The capital of the country is Vaduz, so the country is", called, Liechtenstein,1,1
+Lithuania,Lithuanian,P1,The country whose capital is Vilnius is, Lithuania, Lithuania,1,1
+Lithuania,Lithuanian,P2,Vilnius is the capital of, Lithuania, Lithuania,1,1
+Lithuania,Lithuanian,P3,"The capital of the country is Vilnius, so the country is", also, Lithuania,1,1
+Malawi,English,P1,The country whose capital is Lilongwe is, Malawi, Malawi,1,1
+Malawi,English,P2,Lilongwe is the capital of, Malawi, Malawi,1,1
+Malawi,English,P3,"The capital of the country is Lilongwe, so the country is", called, Malawi,1,1
+Mauritania,Arabic,P1,The country whose capital is Nouakchott is, Mauritania, Mauritania,1,1
+Mauritania,Arabic,P2,Nouakchott is the capital of, Mauritania, Mauritania,1,1
+Mauritania,Arabic,P3,"The capital of the country is Nouakchott, so the country is", called, Mauritania,1,1
+Mexico,Spanish,P1,The country whose capital is Mexico City is, Mexico, Mexico,1,1
+Mexico,Spanish,P2,Mexico City is the capital of, Mexico, Mexico,1,1
+Mexico,Spanish,P3,"The capital of the country is Mexico City, so the country is", called, Mexico,1,1
+Mongolia,Mongolian,P1,The country whose capital is Ulaanbaatar is, Mongolia, Mongolia,1,1
+Mongolia,Mongolian,P2,Ulaanbaatar is the capital of, Mongolia, Mongolia,1,1
+Mongolia,Mongolian,P3,"The capital of the country is Ulaanbaatar, so the country is", also, Mongolia,1,1
+Mozambique,Portuguese,P1,The country whose capital is Maputo is, Mozambique, Mozambique,1,1
+Mozambique,Portuguese,P2,Maputo is the capital of, Mozambique, Mozambique,1,1
+Mozambique,Portuguese,P3,"The capital of the country is Maputo, so the country is", called, Mozambique,1,1
+Namibia,English,P1,The country whose capital is Windhoek is, Namibia, Namibia,1,1
+Namibia,English,P2,Windhoek is the capital of, Namibia, Namibia,1,1
+Namibia,English,P3,"The capital of the country is Windhoek, so the country is", called, Namibia,1,1
+Nepal,Nepali,P1,The country whose capital is Kathmandu is, Nepal, Nepal,1,1
+Nepal,Nepali,P2,Kathmandu is the capital of, Nepal, Nepal,1,1
+Nepal,Nepali,P3,"The capital of the country is Kathmandu, so the country is", also, Nepal,1,1
+Nicaragua,Spanish,P1,The country whose capital is Managua is, Nicaragua, Nicaragua,1,1
+Nicaragua,Spanish,P2,Managua is the capital of, Nicaragua, Nicaragua,1,1
+Nicaragua,Spanish,P3,"The capital of the country is Managua, so the country is", called, Nicaragua,1,1
+Nigeria,English,P1,The country whose capital is Abuja is, Nigeria, Nigeria,1,1
+Nigeria,English,P2,Abuja is the capital of, Nigeria, Nigeria,1,1
+Nigeria,English,P3,"The capital of the country is Abuja, so the country is", called, Nigeria,1,1
+North Korea,Korean,P1,The country whose capital is Pyongyang is, North, North,1,1
+North Korea,Korean,P2,Pyongyang is the capital of, North, North,1,1
+North Korea,Korean,P3,"The capital of the country is Pyongyang, so the country is", called, North,1,1
+Norway,Norwegian,P1,The country whose capital is Oslo is, Norway, Norway,1,1
+Norway,Norwegian,P2,Oslo is the capital of, Norway, Norway,1,1
+Norway,Norwegian,P3,"The capital of the country is Oslo, so the country is", called, Norway,1,1
+Oman,Arabic,P1,The country whose capital is Muscat is, Oman, Oman,1,1
+Oman,Arabic,P2,Muscat is the capital of, Oman, Oman,1,1
+Oman,Arabic,P3,"The capital of the country is Muscat, so the country is", also, Oman,1,1
+Peru,Spanish,P1,The country whose capital is Lima is, Peru, Peru,1,1
+Peru,Spanish,P2,Lima is the capital of, Peru, Peru,1,1
+Peru,Spanish,P3,"The capital of the country is Lima, so the country is", called, Peru,1,1
+Poland,Polish,P1,The country whose capital is Warsaw is, Poland, Poland,1,1
+Poland,Polish,P2,Warsaw is the capital of, Poland, Poland,1,1
+Poland,Polish,P3,"The capital of the country is Warsaw, so the country is", called, Poland,1,1
+Portugal,Portuguese,P1,The country whose capital is Lisbon is, Portugal, Portugal,1,1
+Portugal,Portuguese,P2,Lisbon is the capital of, Portugal, Portugal,1,1
+Portugal,Portuguese,P3,"The capital of the country is Lisbon, so the country is", called, Portugal,1,1
+Qatar,Arabic,P1,The country whose capital is Doha is, Qatar, Qatar,1,1
+Qatar,Arabic,P2,Doha is the capital of, Qatar, Qatar,1,1
+Qatar,Arabic,P3,"The capital of the country is Doha, so the country is", also, Qatar,1,1
+Romania,Romanian,P1,The country whose capital is Bucharest is, Romania, Romania,1,1
+Romania,Romanian,P2,Bucharest is the capital of, Romania, Romania,1,1
+Romania,Romanian,P3,"The capital of the country is Bucharest, so the country is", called, Romania,1,1
+Russia,Russian,P1,The country whose capital is Moscow is, Russia, Russia,1,1
+Russia,Russian,P2,Moscow is the capital of, Russia, Russia,1,1
+Russia,Russian,P3,"The capital of the country is Moscow, so the country is", called, Russia,1,1
+Saint Kitts and Nevis,English,P1,The country whose capital is Basseterre is, called, Saint,1,1
+Saint Kitts and Nevis,English,P2,Basseterre is the capital of, St, Saint,1,1
+Saint Kitts and Nevis,English,P3,"The capital of the country is Basseterre, so the country is", called, Antigua,2,0
+Saint Lucia,English,P1,The country whose capital is Castries is, Saint, Saint,1,1
+Saint Lucia,English,P2,Castries is the capital of, Saint, Saint,1,1
+Saint Lucia,English,P3,"The capital of the country is Castries, so the country is", called, Saint,1,1
+Saint Vincent and the Grenadines,English,P1,The country whose capital is Kingstown is, called, Saint,1,1
+Saint Vincent and the Grenadines,English,P2,Kingstown is the capital of, St, Saint,1,1
+Saint Vincent and the Grenadines,English,P3,"The capital of the country is Kingstown, so the country is", called, Saint,1,1
+Saudi Arabia,Arabic,P1,The country whose capital is Riyadh is, Saudi, Saudi,1,1
+Saudi Arabia,Arabic,P2,Riyadh is the capital of, Saudi, Saudi,1,1
+Saudi Arabia,Arabic,P3,"The capital of the country is Riyadh, so the country is", called, Saudi,1,1
+Senegal,French,P1,The country whose capital is Dakar is, Senegal, Senegal,1,1
+Senegal,French,P2,Dakar is the capital of, Senegal, Senegal,1,1
+Senegal,French,P3,"The capital of the country is Dakar, so the country is", called, Senegal,1,1
+Serbia,Serbian,P1,The country whose capital is Belgrade is, Serbia, Serbia,1,1
+Serbia,Serbian,P2,Belgrade is the capital of, Serbia, Serbia,1,1
+Serbia,Serbian,P3,"The capital of the country is Belgrade, so the country is", called, Serbia,1,1
+Sierra Leone,English,P1,The country whose capital is Freetown is, Sierra, Sierra,1,1
+Sierra Leone,English,P2,Freetown is the capital of, Sierra, Sierra,1,1
+Sierra Leone,English,P3,"The capital of the country is Freetown, so the country is", called, Sierra,1,1
+Slovakia,Slovak,P1,The country whose capital is Bratislava is, Slovakia, Slovakia,1,1
+Slovakia,Slovak,P2,Bratislava is the capital of, Slovakia, Slovakia,1,1
+Slovakia,Slovak,P3,"The capital of the country is Bratislava, so the country is", also, Slovakia,1,1
+South Korea,Korean,P1,The country whose capital is Seoul is, South, South,1,1
+South Korea,Korean,P2,Seoul is the capital of, South, South,1,1
+South Korea,Korean,P3,"The capital of the country is Seoul, so the country is", called, South,1,1
+South Sudan,English,P1,The country whose capital is Juba is, South, South,1,1
+South Sudan,English,P2,Juba is the capital of, South, South,1,1
+South Sudan,English,P3,"The capital of the country is Juba, so the country is", called, South,1,1
+Spain,Spanish,P1,The country whose capital is Madrid is, Spain, Spain,1,1
+Spain,Spanish,P2,Madrid is the capital of, Spain, Spain,1,1
+Spain,Spanish,P3,"The capital of the country is Madrid, so the country is", called, Spain,1,1
+Suriname,Dutch,P1,The country whose capital is Paramaribo is, called, Suriname,1,1
+Suriname,Dutch,P2,Paramaribo is the capital of, Suriname, Suriname,1,1
+Suriname,Dutch,P3,"The capital of the country is Paramaribo, so the country is", called, Suriname,1,1
+Sweden,Swedish,P1,The country whose capital is Stockholm is, Sweden, Sweden,1,1
+Sweden,Swedish,P2,Stockholm is the capital of, Sweden, Sweden,1,1
+Sweden,Swedish,P3,"The capital of the country is Stockholm, so the country is", called, Sweden,1,1
+Syria,Arabic,P1,The country whose capital is Damascus is, Syria, Syria,1,1
+Syria,Arabic,P2,Damascus is the capital of, Syria, Syria,1,1
+Syria,Arabic,P3,"The capital of the country is Damascus, so the country is", called, Syria,1,1
+Tajikistan,Tajik,P1,The country whose capital is Dushanbe is, Tajikistan, Tajikistan,1,1
+Tajikistan,Tajik,P2,Dushanbe is the capital of, Tajikistan, Tajikistan,1,1
+Tajikistan,Tajik,P3,"The capital of the country is Dushanbe, so the country is", called, Tajikistan,1,1
+Thailand,Thai,P1,The country whose capital is Bangkok is, Thailand, Thailand,1,1
+Thailand,Thai,P2,Bangkok is the capital of, Thailand, Thailand,1,1
+Thailand,Thai,P3,"The capital of the country is Bangkok, so the country is", called, Thailand,1,1
+Togo,French,P1,The country whose capital is Lomé is, Togo, Togo,1,1
+Togo,French,P2,Lomé is the capital of, Togo, Togo,1,1
+Togo,French,P3,"The capital of the country is Lomé, so the country is", called, Togo,1,1
+Trinidad and Tobago,English,P1,The country whose capital is Port of Spain is, Trinidad, Trinidad,1,1
+Trinidad and Tobago,English,P2,Port of Spain is the capital of, Trinidad, Trinidad,1,1
+Trinidad and Tobago,English,P3,"The capital of the country is Port of Spain, so the country is", also, Trinidad,1,1
+Tunisia,Arabic,P1,The country whose capital is Tunis is, Tunisia, Tunisia,1,1
+Tunisia,Arabic,P2,Tunis is the capital of, Tunisia, Tunisia,1,1
+Tunisia,Arabic,P3,"The capital of the country is Tunis, so the country is", called, Tunisia,1,1
+Turkmenistan,Turkmen,P1,The country whose capital is Ashgabat is, Turkmenistan, Turkmenistan,1,1
+Turkmenistan,Turkmen,P2,Ashgabat is the capital of, Turkmenistan, Turkmenistan,1,1
+Turkmenistan,Turkmen,P3,"The capital of the country is Ashgabat, so the country is", called, Turkmenistan,1,1
+Ukraine,Ukrainian,P1,The country whose capital is Kyiv is, Ukraine, Ukraine,1,1
+Ukraine,Ukrainian,P2,Kyiv is the capital of, Ukraine, Ukraine,1,1
+Ukraine,Ukrainian,P3,"The capital of the country is Kyiv, so the country is", called, Ukraine,1,1
+United States,English,P1,"The country whose capital is Washington, D.C. is", the, United,1,1
+United States,English,P2,"Washington, D.C. is the capital of", the, United,1,1
+United States,English,P3,"The capital of the country is Washington, D.C., so the country is", called, United,1,1
+Uruguay,Spanish,P1,The country whose capital is Montevideo is, Uruguay, Uruguay,1,1
+Uruguay,Spanish,P2,Montevideo is the capital of, Uruguay, Uruguay,1,1
+Uruguay,Spanish,P3,"The capital of the country is Montevideo, so the country is", called, Uruguay,1,1
+Uzbekistan,Uzbek,P1,The country whose capital is Tashkent is, Uzbekistan, Uzbekistan,1,1
+Uzbekistan,Uzbek,P2,Tashkent is the capital of, Uzbekistan, Uzbekistan,1,1
+Uzbekistan,Uzbek,P3,"The capital of the country is Tashkent, so the country is", called, Uzbekistan,1,1
+Venezuela,Spanish,P1,The country whose capital is Caracas is, Venezuela, Venezuela,1,1
+Venezuela,Spanish,P2,Caracas is the capital of, Venezuela, Venezuela,1,1
+Venezuela,Spanish,P3,"The capital of the country is Caracas, so the country is", called, Venezuela,1,1
+Vietnam,Vietnamese,P1,The country whose capital is Hanoi is, Vietnam, Vietnam,1,1
+Vietnam,Vietnamese,P2,Hanoi is the capital of, Vietnam, Vietnam,1,1
+Vietnam,Vietnamese,P3,"The capital of the country is Hanoi, so the country is", also, Vietnam,1,1
+Zambia,English,P1,The country whose capital is Lusaka is, Zambia, Zambia,1,1
+Zambia,English,P2,Lusaka is the capital of, Zambia, Zambia,1,1
+Zambia,English,P3,"The capital of the country is Lusaka, so the country is", called, Zambia,1,1

@@ -1,0 +1,94 @@
+id,set,country,language,k_lang,desc_last_token,last_rank_all_lstar,last_rank_within_lstar,last_top3_lstar,last_top1_lang_hit_lstar,desc_last_rank_all_lstar,desc_last_rank_within_lstar,desc_last_top3_lstar,desc_last_top1_lang_hit_lstar
+TARGET,TARGET,Mexico,Spanish,14, States,1,1,"[""Mexico"", ""Argentina"", ""Spain""]",1,3,1,"[""United States"", ""Antigua and Barbuda"", ""Mexico""]",0
+DESC00,DESC,Canada,English,21, States,2,2,"[""United States"", ""Canada"", ""Antigua and Barbuda""]",1,16,12,"[""United States"", ""Antigua and Barbuda"", ""Belize""]",1
+DESC04,DESC,Egypt,Arabic,11, are,1,1,"[""Egypt"", ""Saudi Arabia"", ""Syria""]",1,2,1,"[""Grenada"", ""Egypt"", ""Antigua and Barbuda""]",0
+DESC06,DESC,Mexico,Spanish,14, City,1,1,"[""Mexico"", ""Spain"", ""Chile""]",1,2,1,"[""United States"", ""Mexico"", ""Belize""]",0
+DESC07,DESC,Mexico,Spanish,14, States,1,1,"[""Mexico"", ""Spain"", ""Argentina""]",1,3,1,"[""United States"", ""Andorra"", ""Mexico""]",0
+DESC08,DESC,Mexico,Spanish,14, south,1,1,"[""Mexico"", ""Ecuador"", ""Chile""]",1,2,1,"[""United States"", ""Mexico"", ""Belize""]",0
+DESC09,DESC,France,French,5, Tower,1,1,"[""France"", ""Italy"", ""United States""]",1,4,1,"[""United States"", ""Andorra"", ""Nigeria""]",0
+DESC10,DESC,Greece,Greek,1,ropolis,1,1,"[""Greece"", ""Italy"", ""United States""]",1,3,1,"[""United States"", ""Andorra"", ""Greece""]",0
+DESC11,DESC,Japan,Japanese,1, is,1,1,"[""Japan"", ""South Korea"", ""Thailand""]",1,1,1,"[""Japan"", ""Thailand"", ""South Korea""]",1
+DESC2-01,DESC2,Argentina,Spanish,14, born,1,1,"[""Argentina"", ""Spain"", ""Chile""]",1,3,1,"[""Andorra"", ""United States"", ""Argentina""]",0
+DESC2-02,DESC2,Peru,Spanish,14, is,1,1,"[""Peru"", ""Ecuador"", ""Spain""]",1,16,5,"[""Antigua and Barbuda"", ""Grenada"", ""Jamaica""]",0
+DESC2-03,DESC2,Chile,Spanish,14, Desert,1,1,"[""Chile"", ""Peru"", ""Spain""]",1,8,4,"[""Andorra"", ""United States"", ""Peru""]",0
+DESC2-04,DESC2,Spain,Spanish,14, paella,1,1,"[""Spain"", ""Argentina"", ""Chile""]",1,4,2,"[""Andorra"", ""Mexico"", ""United States""]",0
+DESC2-05,DESC2,Colombia,Spanish,14, born,2,2,"[""Spain"", ""Colombia"", ""Chile""]",1,10,7,"[""Andorra"", ""United States"", ""Mexico""]",0
+DESC2-06,DESC2,Cuba,Spanish,14, Castro,1,1,"[""Cuba"", ""Spain"", ""Chile""]",1,10,7,"[""United States"", ""Andorra"", ""Mexico""]",0
+DESC2-07,DESC2,Brazil,Portuguese,4, is,1,1,"[""Brazil"", ""Portugal"", ""Spain""]",1,31,2,"[""Antigua and Barbuda"", ""Grenada"", ""Italy""]",0
+DESC2-08,DESC2,Portugal,Portuguese,4, Ronaldo,2,1,"[""Spain"", ""Portugal"", ""Brazil""]",0,15,3,"[""Andorra"", ""United States"", ""Brazil""]",0
+DESC2-09,DESC2,Germany,German,3, held,1,1,"[""Germany"", ""Austria"", ""Liechtenstein""]",1,3,1,"[""United States"", ""Andorra"", ""Germany""]",0
+DESC2-10,DESC2,Italy,Italian,1,losseum,1,1,"[""Italy"", ""Spain"", ""Argentina""]",1,4,1,"[""United States"", ""Andorra"", ""Mexico""]",0
+DESC2-11,DESC2,Japan,Japanese,1, is,1,1,"[""Japan"", ""South Korea"", ""Thailand""]",1,3,1,"[""Grenada"", ""Thailand"", ""Japan""]",0
+CAP-Sweden,CAP_TEST,Sweden,Swedish,1, Stockholm,1,1,"[""Sweden"", ""Denmark"", ""Norway""]",1,2,1,"[""United States"", ""Sweden"", ""Norway""]",0
+CAP-North Korea,CAP_TEST,North Korea,Korean,2, Pyongyang,1,1,"[""North Korea"", ""South Korea"", ""Vietnam""]",1,2,1,"[""United States"", ""North Korea"", ""Japan""]",0
+CAP-Bhutan,CAP_TEST,Bhutan,Dzongkha,1,hu,1,1,"[""Bhutan"", ""Mongolia"", ""Brunei""]",1,1,1,"[""Bhutan"", ""United States"", ""Nepal""]",1
+CAP-Andorra,CAP_TEST,Andorra,Catalan,1, Vella,2,1,"[""Spain"", ""Andorra"", ""Chile""]",0,1,1,"[""Andorra"", ""United States"", ""Antigua and Barbuda""]",1
+CAP-Bulgaria,CAP_TEST,Bulgaria,Bulgarian,1, Sofia,1,1,"[""Bulgaria"", ""Serbia"", ""Romania""]",1,2,1,"[""United States"", ""Bulgaria"", ""Greece""]",0
+CAP-Ecuador,CAP_TEST,Ecuador,Spanish,14, Quito,1,1,"[""Ecuador"", ""Peru"", ""Colombia""]",1,1,1,"[""Ecuador"", ""United States"", ""Peru""]",1
+CAP-Brazil,CAP_TEST,Brazil,Portuguese,4, Brasília,1,1,"[""Brazil"", ""Argentina"", ""Portugal""]",1,1,1,"[""Brazil"", ""United States"", ""Andorra""]",1
+CAP-Liechtenstein,CAP_TEST,Liechtenstein,German,3,uz,1,1,"[""Liechtenstein"", ""Austria"", ""Germany""]",1,1,1,"[""Liechtenstein"", ""United States"", ""Andorra""]",1
+CAP-Italy,CAP_TEST,Italy,Italian,1, Rome,1,1,"[""Italy"", ""Spain"", ""Argentina""]",1,2,1,"[""United States"", ""Italy"", ""Antigua and Barbuda""]",0
+CAP-Saint Kitts and Nevis,CAP_TEST,Saint Kitts and Nevis,English,21,terre,1,1,"[""Saint Kitts and Nevis"", ""Grenada"", ""Saint Lucia""]",1,2,2,"[""Antigua and Barbuda"", ""Saint Kitts and Nevis"", ""Barbados""]",1
+CAP-Brunei,CAP_TEST,Brunei,Malay,1,wan,1,1,"[""Brunei"", ""Suriname"", ""Oman""]",1,1,1,"[""Brunei"", ""United States"", ""Belize""]",1
+CAP-Vietnam,CAP_TEST,Vietnam,Vietnamese,1, Hanoi,1,1,"[""Vietnam"", ""France"", ""Thailand""]",1,4,1,"[""United States"", ""Antigua and Barbuda"", ""Japan""]",0
+CAP-Angola,CAP_TEST,Angola,Portuguese,4, Luanda,1,1,"[""Angola"", ""Mozambique"", ""Gabon""]",1,2,1,"[""United States"", ""Angola"", ""Mozambique""]",0
+CAP-Colombia,CAP_TEST,Colombia,Spanish,14, Bogotá,1,1,"[""Colombia"", ""Spain"", ""Ecuador""]",1,1,1,"[""Colombia"", ""United States"", ""Brazil""]",1
+CAP-Suriname,CAP_TEST,Suriname,Dutch,1,bo,1,1,"[""Suriname"", ""Guyana"", ""Antigua and Barbuda""]",1,2,1,"[""United States"", ""Suriname"", ""Antigua and Barbuda""]",0
+CAP-South Sudan,CAP_TEST,South Sudan,English,21,uba,1,1,"[""South Sudan"", ""Grenada"", ""Egypt""]",1,1,1,"[""South Sudan"", ""United States"", ""Sierra Leone""]",1
+CAP-Tunisia,CAP_TEST,Tunisia,Arabic,11, Tunis,1,1,"[""Tunisia"", ""Libya"", ""France""]",1,2,1,"[""United States"", ""Tunisia"", ""Andorra""]",0
+CAP-Togo,CAP_TEST,Togo,French,5,omé,1,1,"[""Togo"", ""Gabon"", ""Guinea""]",1,1,1,"[""Togo"", ""United States"", ""Andorra""]",1
+CAP-Belize,CAP_TEST,Belize,English,21,an,1,1,"[""Belize"", ""Grenada"", ""Guyana""]",1,1,1,"[""Belize"", ""United States"", ""Andorra""]",1
+CAP-Uruguay,CAP_TEST,Uruguay,Spanish,14, Montevideo,1,1,"[""Uruguay"", ""Argentina"", ""Spain""]",1,1,1,"[""Uruguay"", ""United States"", ""Andorra""]",1
+CAP-Guinea,CAP_TEST,Guinea,French,5,ry,1,1,"[""Guinea"", ""Senegal"", ""Mauritania""]",1,1,1,"[""Guinea"", ""Sierra Leone"", ""United States""]",1
+CAP-Sierra Leone,CAP_TEST,Sierra Leone,English,21,town,1,1,"[""Sierra Leone"", ""Guinea"", ""Liberia""]",1,1,1,"[""Sierra Leone"", ""Liberia"", ""Guinea""]",1
+CAP-Trinidad and Tobago,CAP_TEST,Trinidad and Tobago,English,21, Spain,1,1,"[""Trinidad and Tobago"", ""Grenada"", ""Guyana""]",1,1,1,"[""Trinidad and Tobago"", ""United States"", ""Barbados""]",1
+CAP-Turkmenistan,CAP_TEST,Turkmenistan,Turkmen,1,at,1,1,"[""Turkmenistan"", ""Uzbekistan"", ""Tajikistan""]",1,1,1,"[""Turkmenistan"", ""United States"", ""Uzbekistan""]",1
+CAP-Costa Rica,CAP_TEST,Costa Rica,Spanish,14, José,1,1,"[""Costa Rica"", ""Chile"", ""Colombia""]",1,1,1,"[""Costa Rica"", ""Andorra"", ""Mexico""]",1
+CAP-Saint Vincent and the Grenadines,CAP_TEST,Saint Vincent and the Grenadines,English,21,stown,1,1,"[""Saint Vincent and the Grenadines"", ""Grenada"", ""Saint Lucia""]",1,1,1,"[""Saint Vincent and the Grenadines"", ""Barbados"", ""Trinidad and Tobago""]",1
+CAP-Honduras,CAP_TEST,Honduras,Spanish,14,gucigalpa,1,1,"[""Honduras"", ""Costa Rica"", ""Nicaragua""]",1,1,1,"[""Honduras"", ""United States"", ""Belize""]",1
+CAP-Zambia,CAP_TEST,Zambia,English,21, Lusaka,1,1,"[""Zambia"", ""Malawi"", ""Mozambique""]",1,2,2,"[""United States"", ""Zambia"", ""Malawi""]",1
+CAP-Germany,CAP_TEST,Germany,German,3, Berlin,1,1,"[""Germany"", ""Austria"", ""Liechtenstein""]",1,2,1,"[""United States"", ""Germany"", ""Antigua and Barbuda""]",0
+CAP-Venezuela,CAP_TEST,Venezuela,Spanish,14, Caracas,1,1,"[""Venezuela"", ""Spain"", ""Colombia""]",1,2,1,"[""United States"", ""Venezuela"", ""Mexico""]",0
+CAP-Albania,CAP_TEST,Albania,Albanian,1, Tirana,1,1,"[""Albania"", ""Serbia"", ""Italy""]",1,2,1,"[""United States"", ""Albania"", ""Andorra""]",0
+CAP-Nepal,CAP_TEST,Nepal,Nepali,1, Kathmandu,1,1,"[""Nepal"", ""Bhutan"", ""Tajikistan""]",1,1,1,"[""Nepal"", ""United States"", ""Bhutan""]",1
+CAP-Argentina,CAP_TEST,Argentina,Spanish,14, Aires,1,1,"[""Argentina"", ""Spain"", ""Chile""]",1,1,1,"[""Argentina"", ""United States"", ""Mexico""]",1
+CAP-Croatia,CAP_TEST,Croatia,Croatian,1, Zagreb,1,1,"[""Croatia"", ""Serbia"", ""Slovakia""]",1,2,1,"[""United States"", ""Croatia"", ""Andorra""]",0
+CAP-Uzbekistan,CAP_TEST,Uzbekistan,Uzbek,1,kent,1,1,"[""Uzbekistan"", ""Tajikistan"", ""Turkmenistan""]",1,1,1,"[""Uzbekistan"", ""United States"", ""Tajikistan""]",1
+CAP-Grenada,CAP_TEST,Grenada,English,21,s,1,1,"[""Grenada"", ""Antigua and Barbuda"", ""Guyana""]",1,2,2,"[""Antigua and Barbuda"", ""Grenada"", ""Barbados""]",1
+CAP-Qatar,CAP_TEST,Qatar,Arabic,11, Doha,1,1,"[""Qatar"", ""Egypt"", ""Bahrain""]",1,2,1,"[""United States"", ""Qatar"", ""Bahrain""]",0
+CAP-Portugal,CAP_TEST,Portugal,Portuguese,4, Lisbon,1,1,"[""Portugal"", ""Spain"", ""Chile""]",1,2,1,"[""United States"", ""Portugal"", ""Brazil""]",0
+CAP-Chile,CAP_TEST,Chile,Spanish,14, Santiago,1,1,"[""Chile"", ""Spain"", ""Argentina""]",1,1,1,"[""Chile"", ""Andorra"", ""Mexico""]",1
+CAP-Liberia,CAP_TEST,Liberia,English,21,via,1,1,"[""Liberia"", ""Sierra Leone"", ""Grenada""]",1,1,1,"[""Liberia"", ""Sierra Leone"", ""United States""]",1
+CAP-Tajikistan,CAP_TEST,Tajikistan,Tajik,1,be,1,1,"[""Tajikistan"", ""Uzbekistan"", ""Turkmenistan""]",1,1,1,"[""Tajikistan"", ""United States"", ""Uzbekistan""]",1
+CAP-Egypt,CAP_TEST,Egypt,Arabic,11, Cairo,1,1,"[""Egypt"", ""Syria"", ""Libya""]",1,2,1,"[""United States"", ""Egypt"", ""Syria""]",0
+CAP-Thailand,CAP_TEST,Thailand,Thai,1, Bangkok,1,1,"[""Thailand"", ""Vietnam"", ""Cambodia""]",1,2,1,"[""United States"", ""Thailand"", ""Japan""]",0
+CAP-Estonia,CAP_TEST,Estonia,Estonian,1, Tallinn,1,1,"[""Estonia"", ""Latvia"", ""Sweden""]",1,3,1,"[""United States"", ""Andorra"", ""Estonia""]",0
+CAP-Barbados,CAP_TEST,Barbados,English,21,town,1,1,"[""Barbados"", ""Grenada"", ""Guyana""]",1,1,1,"[""Barbados"", ""United States"", ""Trinidad and Tobago""]",1
+CAP-Jamaica,CAP_TEST,Jamaica,English,21, Kingston,1,1,"[""Jamaica"", ""Grenada"", ""Guyana""]",1,1,1,"[""Jamaica"", ""United States"", ""Antigua and Barbuda""]",1
+CAP-Guyana,CAP_TEST,Guyana,English,21, Georgetown,1,1,"[""Guyana"", ""Suriname"", ""Grenada""]",1,2,2,"[""United States"", ""Guyana"", ""Antigua and Barbuda""]",1
+CAP-El Salvador,CAP_TEST,El Salvador,Spanish,14, Salvador,1,1,"[""El Salvador"", ""Costa Rica"", ""Honduras""]",1,1,1,"[""El Salvador"", ""Honduras"", ""Mexico""]",1
+CAP-Lithuania,CAP_TEST,Lithuania,Lithuanian,1, Vilnius,1,1,"[""Lithuania"", ""Latvia"", ""Poland""]",1,5,1,"[""United States"", ""Andorra"", ""Antigua and Barbuda""]",0
+CAP-Poland,CAP_TEST,Poland,Polish,1, Warsaw,1,1,"[""Poland"", ""Germany"", ""Hungary""]",1,2,1,"[""United States"", ""Poland"", ""Andorra""]",0
+CAP-Romania,CAP_TEST,Romania,Romanian,1, Bucharest,1,1,"[""Romania"", ""Hungary"", ""Bulgaria""]",1,2,1,"[""United States"", ""Romania"", ""Andorra""]",0
+CAP-Austria,CAP_TEST,Austria,German,3, Vienna,1,1,"[""Austria"", ""Germany"", ""Hungary""]",1,2,1,"[""United States"", ""Austria"", ""Antigua and Barbuda""]",0
+CAP-Mozambique,CAP_TEST,Mozambique,Portuguese,4,uto,1,1,"[""Mozambique"", ""Angola"", ""Portugal""]",1,1,1,"[""Mozambique"", ""United States"", ""Andorra""]",1
+CAP-Spain,CAP_TEST,Spain,Spanish,14, Madrid,1,1,"[""Spain"", ""Chile"", ""Argentina""]",1,2,1,"[""United States"", ""Spain"", ""Mexico""]",0
+CAP-Lebanon,CAP_TEST,Lebanon,Arabic,11, Beirut,1,1,"[""Lebanon"", ""Syria"", ""Egypt""]",1,2,1,"[""United States"", ""Lebanon"", ""Syria""]",0
+CAP-Denmark,CAP_TEST,Denmark,Danish,1, Copenhagen,1,1,"[""Denmark"", ""Sweden"", ""Norway""]",1,2,1,"[""United States"", ""Denmark"", ""Antigua and Barbuda""]",0
+CAP-Hungary,CAP_TEST,Hungary,Hungarian,1, Budapest,1,1,"[""Hungary"", ""Austria"", ""Slovakia""]",1,4,1,"[""United States"", ""Andorra"", ""Antigua and Barbuda""]",0
+CAP-Cambodia,CAP_TEST,Cambodia,Khmer,1, Penh,1,1,"[""Cambodia"", ""Thailand"", ""Vietnam""]",1,2,1,"[""United States"", ""Cambodia"", ""Antigua and Barbuda""]",0
+CAP-Syria,CAP_TEST,Syria,Arabic,11, Damascus,1,1,"[""Syria"", ""Egypt"", ""Lebanon""]",1,1,1,"[""Syria"", ""United States"", ""Jordan""]",1
+CAP-Japan,CAP_TEST,Japan,Japanese,1, Tokyo,1,1,"[""Japan"", ""South Korea"", ""Thailand""]",1,1,1,"[""Japan"", ""United States"", ""Nigeria""]",1
+CAP-Cuba,CAP_TEST,Cuba,Spanish,14, Havana,1,1,"[""Cuba"", ""Spain"", ""Chile""]",1,3,2,"[""United States"", ""Mexico"", ""Cuba""]",0
+CAP-Slovakia,CAP_TEST,Slovakia,Slovak,1, Bratislava,1,1,"[""Slovakia"", ""Hungary"", ""Austria""]",1,3,1,"[""United States"", ""Andorra"", ""Slovakia""]",0
+CAP-Greece,CAP_TEST,Greece,Greek,1, Athens,1,1,"[""Greece"", ""Italy"", ""Bulgaria""]",1,1,1,"[""Greece"", ""United States"", ""Antigua and Barbuda""]",1
+CAP-Mongolia,CAP_TEST,Mongolia,Mongolian,1,atar,1,1,"[""Mongolia"", ""Uzbekistan"", ""Tajikistan""]",1,1,1,"[""Mongolia"", ""United States"", ""Bhutan""]",1
+CAP-Saudi Arabia,CAP_TEST,Saudi Arabia,Arabic,11, Riyadh,1,1,"[""Saudi Arabia"", ""Egypt"", ""Qatar""]",1,2,1,"[""United States"", ""Saudi Arabia"", ""Nigeria""]",0
+CAP-Latvia,CAP_TEST,Latvia,Latvian,1, Riga,1,1,"[""Latvia"", ""Estonia"", ""Lithuania""]",1,3,1,"[""United States"", ""Andorra"", ""Latvia""]",0
+CAP-Norway,CAP_TEST,Norway,Norwegian,1, Oslo,1,1,"[""Norway"", ""Sweden"", ""Denmark""]",1,2,1,"[""United States"", ""Norway"", ""Antigua and Barbuda""]",0
+CAP-Serbia,CAP_TEST,Serbia,Serbian,1, Belgrade,1,1,"[""Serbia"", ""Croatia"", ""Hungary""]",1,2,1,"[""United States"", ""Serbia"", ""Croatia""]",0
+CAP-South Korea,CAP_TEST,South Korea,Korean,2, Seoul,1,1,"[""South Korea"", ""North Korea"", ""Japan""]",1,2,1,"[""United States"", ""South Korea"", ""Japan""]",0
+CAP-Iceland,CAP_TEST,Iceland,Icelandic,1, Reykjavik,1,1,"[""Iceland"", ""Norway"", ""Denmark""]",1,1,1,"[""Iceland"", ""United States"", ""Antigua and Barbuda""]",1
+CAP-Bahrain,CAP_TEST,Bahrain,Arabic,11,anama,1,1,"[""Bahrain"", ""Qatar"", ""Saudi Arabia""]",1,1,1,"[""Bahrain"", ""United States"", ""Oman""]",1
+CAP-Peru,CAP_TEST,Peru,Spanish,14, Lima,1,1,"[""Peru"", ""Ecuador"", ""Spain""]",1,1,1,"[""Peru"", ""United States"", ""Mexico""]",1
+CAP-Nigeria,CAP_TEST,Nigeria,English,21, Abuja,1,1,"[""Nigeria"", ""Egypt"", ""Libya""]",1,2,2,"[""United States"", ""Nigeria"", ""Sierra Leone""]",1

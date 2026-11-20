@@ -16,6 +16,10 @@ EXTRA = [("Mexico", None, "North America", "Spanish"),
          ("United States", None, "North America", "English"),
          ("Canada", None, "North America", "English"),
          ("Russia", None, None, "Russian")]
+# Capitals of the EXTRA rows, used only by the revision 2 probe prompts (section 7). Added before any
+# revision 2 run; CAP items still come from middle/countries.py rows only.
+EXTRA_CAPITALS = {"Mexico": "Mexico City", "United States": "Washington, D.C.", "Canada": "Ottawa",
+                  "Russia": "Moscow"}
 
 TARGET_DESC = ("the country south of the United States", "Mexico")
 DESC = [("the country north of the United States", "Canada"),
@@ -30,6 +34,25 @@ DESC = [("the country north of the United States", "Canada"),
         ("the country with the Eiffel Tower", "France"),
         ("the country of the Acropolis", "Greece"),
         ("the island country where Tokyo is", "Japan")]
+
+# Revision 2 (hop/PLAN.md section 7), fixed before any revision 2 run.
+DESC2 = [("the country where the Aztec empire was", "Mexico"),
+         ("the country where tango was born", "Argentina"),
+         ("the country where Machu Picchu is", "Peru"),
+         ("the country with the Atacama Desert", "Chile"),
+         ("the country whose national dish is paella", "Spain"),
+         ("the country where Shakira was born", "Colombia"),
+         ("the country of Fidel Castro", "Cuba"),
+         ("the country where Rio de Janeiro is", "Brazil"),
+         ("the country of Cristiano Ronaldo", "Portugal"),
+         ("the country where Oktoberfest is held", "Germany"),
+         ("the country of the Colosseum", "Italy"),
+         ("the country where Mount Fuji is", "Japan"),
+         ("the country of the Great Wall", "China"),
+         ("the country of the Taj Mahal", "India")]
+PROBE_TEMPLATES = {"P1": "The country whose capital is {capital} is",
+                   "P2": "{capital} is the capital of",
+                   "P3": "The capital of the country is {capital}, so the country is"}
 
 REF = ["I have always wanted to visit {C}", "The flag of {C}", "She was born and raised in {C}",
        "The economy of {C}", "We spent two weeks travelling around {C}",
@@ -58,18 +81,21 @@ def country_table(tok):
         if len(by_tok[lang_tok[lang]]) > 1:
             dropped[c] = f"answer token {tok.decode([lang_tok[lang]])!r} shared by {sorted(by_tok[lang_tok[lang]])}"
             continue
-        kept[c] = {"capital": cap, "continent": cont, "language": lang, "lang_token": lang_tok[lang],
+        kept[c] = {"capital": cap if cap is not None else EXTRA_CAPITALS[c], "continent": cont, "language": lang, "lang_token": lang_tok[lang],
                    "country_first_token": first_token(tok, c)}
     return kept, dropped
 
 
-def items(tok):
-    """All TARGET, DESC and CAP items whose bridge country is kept."""
+def items(tok, desc2=False):
+    """All TARGET, DESC and CAP items whose bridge country is kept (plus DESC2 when desc2=True;
+    revision 2, ids DESC2-NN)."""
     kept, _ = country_table(tok)
     out = [{"id": "TARGET", "set": "TARGET", "desc": TARGET_DESC[0], "country": TARGET_DESC[1]}]
     out += [{"id": f"DESC{i:02d}", "set": "DESC", "desc": d, "country": c} for i, (d, c) in enumerate(DESC)]
     out += [{"id": f"CAP-{c}", "set": "CAP", "desc": f"the country whose capital is {cap}", "country": c}
             for c, cap, _, _ in _countries.ROWS]
+    if desc2:
+        out += [{"id": f"DESC2-{i:02d}", "set": "DESC2", "desc": d, "country": c} for i, (d, c) in enumerate(DESC2)]
     res = []
     for it in out:
         if it["country"] not in kept:
@@ -82,6 +108,14 @@ def items(tok):
         it["HOP2"] = HOP2.format(country=it["country"])
         res.append(it)
     return res
+
+
+def probe_prompts(tok):
+    """Revision 2 PROBE-TRAIN prompts: one per (country in the table, template)."""
+    kept, _ = country_table(tok)
+    return [{"country": c, "template": t, "text": PROBE_TEMPLATES[t].format(capital=kept[c]["capital"]),
+             "language": kept[c]["language"], "country_first_token": kept[c]["country_first_token"]}
+            for c in sorted(kept) for t in PROBE_TEMPLATES]
 
 
 def last_index(tok, full_ids, prefix):

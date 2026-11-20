@@ -1,0 +1,1238 @@
+{
+ "seed": 0,
+ "desc2": {
+  "n_items": 12,
+  "dropped_not_in_table": [
+   "China",
+   "India"
+  ],
+  "accuracy": {
+   "TWO": 0.9166666666666666,
+   "HOP1": 0.8333333333333334,
+   "HOP2": 1.0
+  },
+  "HOP1_country_rank_rule": 1.0,
+  "n_eligible": 11,
+  "eligible_ids": [
+   "DESC2-01",
+   "DESC2-02",
+   "DESC2-03",
+   "DESC2-04",
+   "DESC2-05",
+   "DESC2-06",
+   "DESC2-07",
+   "DESC2-08",
+   "DESC2-09",
+   "DESC2-10",
+   "DESC2-11"
+  ]
+ },
+ "probe_prompts_per_template": {
+  "P1": {
+   "n": 92,
+   "kept": 91
+  },
+  "P2": {
+   "n": 92,
+   "kept": 92
+  },
+  "P3": {
+   "n": 92,
+   "kept": 90
+  }
+ },
+ "probe_n_kept": 273,
+ "probe_countries_with_class_vector": 92,
+ "countries_without_class_vector": [],
+ "extra_capitals": {
+  "Mexico": "Mexico City",
+  "United States": "Washington, D.C.",
+  "Canada": "Ottawa",
+  "Russia": "Moscow"
+ },
+ "control_by_layer": [
+  {
+   "layer": 0,
+   "n_heldout": 273,
+   "top1_acc": 0.054945054945054944,
+   "n_within": 177,
+   "within_lang_acc": 0.24293785310734464,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 1,
+   "n_heldout": 273,
+   "top1_acc": 0.23443223443223443,
+   "n_within": 177,
+   "within_lang_acc": 0.3502824858757062,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 2,
+   "n_heldout": 273,
+   "top1_acc": 0.0989010989010989,
+   "n_within": 177,
+   "within_lang_acc": 0.1977401129943503,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 3,
+   "n_heldout": 273,
+   "top1_acc": 0.029304029304029304,
+   "n_within": 177,
+   "within_lang_acc": 0.15254237288135594,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 4,
+   "n_heldout": 273,
+   "top1_acc": 0.03296703296703297,
+   "n_within": 177,
+   "within_lang_acc": 0.14124293785310735,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 5,
+   "n_heldout": 273,
+   "top1_acc": 0.03296703296703297,
+   "n_within": 177,
+   "within_lang_acc": 0.1807909604519774,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 6,
+   "n_heldout": 273,
+   "top1_acc": 0.03296703296703297,
+   "n_within": 177,
+   "within_lang_acc": 0.1694915254237288,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 7,
+   "n_heldout": 273,
+   "top1_acc": 0.16117216117216118,
+   "n_within": 177,
+   "within_lang_acc": 0.2994350282485876,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 8,
+   "n_heldout": 273,
+   "top1_acc": 0.18315018315018314,
+   "n_within": 177,
+   "within_lang_acc": 0.288135593220339,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 9,
+   "n_heldout": 273,
+   "top1_acc": 0.14285714285714285,
+   "n_within": 177,
+   "within_lang_acc": 0.2655367231638418,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 10,
+   "n_heldout": 273,
+   "top1_acc": 0.06593406593406594,
+   "n_within": 177,
+   "within_lang_acc": 0.2542372881355932,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 11,
+   "n_heldout": 273,
+   "top1_acc": 0.08791208791208792,
+   "n_within": 177,
+   "within_lang_acc": 0.2994350282485876,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 12,
+   "n_heldout": 273,
+   "top1_acc": 0.047619047619047616,
+   "n_within": 177,
+   "within_lang_acc": 0.23163841807909605,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 13,
+   "n_heldout": 273,
+   "top1_acc": 0.05128205128205128,
+   "n_within": 177,
+   "within_lang_acc": 0.22033898305084745,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 14,
+   "n_heldout": 273,
+   "top1_acc": 0.0695970695970696,
+   "n_within": 177,
+   "within_lang_acc": 0.24858757062146894,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 15,
+   "n_heldout": 273,
+   "top1_acc": 0.07692307692307693,
+   "n_within": 177,
+   "within_lang_acc": 0.2542372881355932,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 16,
+   "n_heldout": 273,
+   "top1_acc": 0.2783882783882784,
+   "n_within": 177,
+   "within_lang_acc": 0.5141242937853108,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 17,
+   "n_heldout": 273,
+   "top1_acc": 0.12087912087912088,
+   "n_within": 177,
+   "within_lang_acc": 0.384180790960452,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 18,
+   "n_heldout": 273,
+   "top1_acc": 0.63003663003663,
+   "n_within": 177,
+   "within_lang_acc": 0.768361581920904,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 19,
+   "n_heldout": 273,
+   "top1_acc": 0.6190476190476191,
+   "n_within": 177,
+   "within_lang_acc": 0.7853107344632768,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 20,
+   "n_heldout": 273,
+   "top1_acc": 0.6776556776556777,
+   "n_within": 177,
+   "within_lang_acc": 0.8305084745762712,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 21,
+   "n_heldout": 273,
+   "top1_acc": 0.6703296703296703,
+   "n_within": 177,
+   "within_lang_acc": 0.807909604519774,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 22,
+   "n_heldout": 273,
+   "top1_acc": 0.7619047619047619,
+   "n_within": 177,
+   "within_lang_acc": 0.903954802259887,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 23,
+   "n_heldout": 273,
+   "top1_acc": 0.7362637362637363,
+   "n_within": 177,
+   "within_lang_acc": 0.8813559322033898,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 24,
+   "n_heldout": 273,
+   "top1_acc": 0.8058608058608059,
+   "n_within": 177,
+   "within_lang_acc": 0.847457627118644,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  },
+  {
+   "layer": 25,
+   "n_heldout": 273,
+   "top1_acc": 0.8717948717948718,
+   "n_within": 177,
+   "within_lang_acc": 0.943502824858757,
+   "chance_top1": 0.010869565217391304,
+   "chance_within": 0.1178369652945924,
+   "heldout_without_class_vector": 0
+  }
+ ],
+ "gate_H3": {
+  "l_star": 25,
+  "top1_acc": 0.8717948717948718,
+  "within_lang_acc": 0.943502824858757,
+  "pass": true
+ },
+ "n_classes": 92,
+ "test_sets": {
+  "TARGET": 1,
+  "DESC": 8,
+  "DESC2": 11,
+  "CAP_TEST": 73
+ },
+ "statistic_at_l_star": {
+  "main_last": {
+   "n": 16,
+   "W": 14,
+   "expected_W": 1.8861471861471861,
+   "p_value": 0.0,
+   "language_hit_rate": 0.9375,
+   "rank_all_median": 1.0,
+   "n_rank_all_1": 13,
+   "items_excluded_k1": [
+    "DESC10",
+    "DESC11",
+    "DESC2-10",
+    "DESC2-11"
+   ]
+  },
+  "main_desc_last": {
+   "n": 16,
+   "W": 8,
+   "expected_W": 1.8861471861471861,
+   "p_value": 9e-05,
+   "language_hit_rate": 0.0625,
+   "rank_all_median": 4.0,
+   "n_rank_all_1": 0,
+   "items_excluded_k1": [
+    "DESC10",
+    "DESC11",
+    "DESC2-10",
+    "DESC2-11"
+   ]
+  },
+  "cap_test_last": {
+   "n": 43,
+   "W": 43,
+   "expected_W": 5.5125541125541115,
+   "p_value": 0.0,
+   "language_hit_rate": 1.0,
+   "rank_all_median": 1,
+   "n_rank_all_1": 43,
+   "items_excluded_k1": [
+    "CAP-Sweden",
+    "CAP-Bhutan",
+    "CAP-Andorra",
+    "CAP-Bulgaria",
+    "CAP-Italy",
+    "CAP-Brunei",
+    "CAP-Vietnam",
+    "CAP-Suriname",
+    "CAP-Turkmenistan",
+    "CAP-Albania",
+    "CAP-Nepal",
+    "CAP-Croatia",
+    "CAP-Uzbekistan",
+    "CAP-Tajikistan",
+    "CAP-Thailand",
+    "CAP-Estonia",
+    "CAP-Lithuania",
+    "CAP-Poland",
+    "CAP-Romania",
+    "CAP-Denmark",
+    "CAP-Hungary",
+    "CAP-Cambodia",
+    "CAP-Japan",
+    "CAP-Slovakia",
+    "CAP-Greece",
+    "CAP-Mongolia",
+    "CAP-Latvia",
+    "CAP-Norway",
+    "CAP-Serbia",
+    "CAP-Iceland"
+   ]
+  },
+  "cap_test_desc_last": {
+   "n": 43,
+   "W": 37,
+   "expected_W": 5.5125541125541115,
+   "p_value": 0.0,
+   "language_hit_rate": 0.6744186046511628,
+   "rank_all_median": 1,
+   "n_rank_all_1": 24,
+   "items_excluded_k1": [
+    "CAP-Sweden",
+    "CAP-Bhutan",
+    "CAP-Andorra",
+    "CAP-Bulgaria",
+    "CAP-Italy",
+    "CAP-Brunei",
+    "CAP-Vietnam",
+    "CAP-Suriname",
+    "CAP-Turkmenistan",
+    "CAP-Albania",
+    "CAP-Nepal",
+    "CAP-Croatia",
+    "CAP-Uzbekistan",
+    "CAP-Tajikistan",
+    "CAP-Thailand",
+    "CAP-Estonia",
+    "CAP-Lithuania",
+    "CAP-Poland",
+    "CAP-Romania",
+    "CAP-Denmark",
+    "CAP-Hungary",
+    "CAP-Cambodia",
+    "CAP-Japan",
+    "CAP-Slovakia",
+    "CAP-Greece",
+    "CAP-Mongolia",
+    "CAP-Latvia",
+    "CAP-Norway",
+    "CAP-Serbia",
+    "CAP-Iceland"
+   ]
+  },
+  "TARGET_last": {
+   "n": 1,
+   "W": 1,
+   "expected_W": 0.07142857142857142,
+   "p_value": 0.07196,
+   "language_hit_rate": 1.0,
+   "rank_all_median": 1,
+   "n_rank_all_1": 1,
+   "items_excluded_k1": []
+  },
+  "DESC_last": {
+   "n": 6,
+   "W": 5,
+   "expected_W": 0.5528138528138529,
+   "p_value": 3e-05,
+   "language_hit_rate": 1.0,
+   "rank_all_median": 1.0,
+   "n_rank_all_1": 5,
+   "items_excluded_k1": [
+    "DESC10",
+    "DESC11"
+   ]
+  },
+  "DESC2_last": {
+   "n": 9,
+   "W": 8,
+   "expected_W": 1.2619047619047619,
+   "p_value": 0.0,
+   "language_hit_rate": 0.8888888888888888,
+   "rank_all_median": 1,
+   "n_rank_all_1": 7,
+   "items_excluded_k1": [
+    "DESC2-10",
+    "DESC2-11"
+   ]
+  }
+ },
+ "target": {
+  "last": {
+   "mexico_rank_all_by_layer": [
+    2,
+    3,
+    10,
+    9,
+    2,
+    13,
+    48,
+    12,
+    23,
+    38,
+    20,
+    26,
+    12,
+    25,
+    34,
+    23,
+    3,
+    20,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1
+   ],
+   "mexico_rank_within_spanish_by_layer": [
+    2,
+    1,
+    4,
+    4,
+    1,
+    3,
+    5,
+    1,
+    3,
+    8,
+    3,
+    4,
+    1,
+    6,
+    8,
+    5,
+    1,
+    11,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "k_spanish": 14,
+   "top3_by_layer": [
+    [
+     "Argentina",
+     "Mexico",
+     "Trinidad and Tobago"
+    ],
+    [
+     "Trinidad and Tobago",
+     "Brunei",
+     "Mexico"
+    ],
+    [
+     "Trinidad and Tobago",
+     "Belize",
+     "Argentina"
+    ],
+    [
+     "El Salvador",
+     "Costa Rica",
+     "Mongolia"
+    ],
+    [
+     "Brunei",
+     "Mexico",
+     "Trinidad and Tobago"
+    ],
+    [
+     "Brunei",
+     "Trinidad and Tobago",
+     "El Salvador"
+    ],
+    [
+     "Brunei",
+     "Trinidad and Tobago",
+     "North Korea"
+    ],
+    [
+     "Canada",
+     "United States",
+     "North Korea"
+    ],
+    [
+     "United States",
+     "North Korea",
+     "Canada"
+    ],
+    [
+     "Belize",
+     "Grenada",
+     "Barbados"
+    ],
+    [
+     "Grenada",
+     "North Korea",
+     "Saint Vincent and the Grenadines"
+    ],
+    [
+     "Grenada",
+     "North Korea",
+     "Italy"
+    ],
+    [
+     "Grenada",
+     "United States",
+     "Guyana"
+    ],
+    [
+     "Grenada",
+     "United States",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "Grenada",
+     "Barbados",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "Grenada",
+     "United States",
+     "Libya"
+    ],
+    [
+     "Grenada",
+     "United States",
+     "Mexico"
+    ],
+    [
+     "Grenada",
+     "United States",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Argentina"
+    ],
+    [
+     "Argentina",
+     "Mexico",
+     "Colombia"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Argentina"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Argentina"
+    ],
+    [
+     "Mexico",
+     "United States",
+     "Spain"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Spain"
+    ],
+    [
+     "Mexico",
+     "United States",
+     "Spain"
+    ],
+    [
+     "Mexico",
+     "Argentina",
+     "Spain"
+    ]
+   ],
+   "at_l_star": {
+    "rank_all": 1,
+    "rank_within": 1,
+    "top3": [
+     "Mexico",
+     "Argentina",
+     "Spain"
+    ]
+   }
+  },
+  "desc_last": {
+   "mexico_rank_all_by_layer": [
+    29,
+    9,
+    6,
+    2,
+    1,
+    2,
+    12,
+    3,
+    12,
+    3,
+    14,
+    86,
+    11,
+    14,
+    30,
+    7,
+    6,
+    20,
+    7,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3
+   ],
+   "mexico_rank_within_spanish_by_layer": [
+    4,
+    1,
+    1,
+    1,
+    1,
+    2,
+    3,
+    1,
+    6,
+    1,
+    2,
+    14,
+    1,
+    3,
+    4,
+    1,
+    1,
+    8,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "k_spanish": 14,
+   "top3_by_layer": [
+    [
+     "Grenada",
+     "Saint Kitts and Nevis",
+     "Antigua and Barbuda"
+    ],
+    [
+     "Antigua and Barbuda",
+     "Grenada",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "Antigua and Barbuda",
+     "United States",
+     "Guyana"
+    ],
+    [
+     "Trinidad and Tobago",
+     "Mexico",
+     "Brunei"
+    ],
+    [
+     "Mexico",
+     "Brunei",
+     "El Salvador"
+    ],
+    [
+     "Argentina",
+     "Mexico",
+     "Brunei"
+    ],
+    [
+     "Brunei",
+     "Trinidad and Tobago",
+     "El Salvador"
+    ],
+    [
+     "Canada",
+     "United States",
+     "Mexico"
+    ],
+    [
+     "Canada",
+     "Brazil",
+     "United States"
+    ],
+    [
+     "Canada",
+     "United States",
+     "Mexico"
+    ],
+    [
+     "Canada",
+     "United States",
+     "Brazil"
+    ],
+    [
+     "Canada",
+     "Grenada",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "Canada",
+     "United States",
+     "Ukraine"
+    ],
+    [
+     "Grenada",
+     "Chile",
+     "Canada"
+    ],
+    [
+     "Grenada",
+     "Saint Lucia",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "United States",
+     "Grenada",
+     "Belize"
+    ],
+    [
+     "United States",
+     "Grenada",
+     "Belize"
+    ],
+    [
+     "Grenada",
+     "United States",
+     "Saint Kitts and Nevis"
+    ],
+    [
+     "United States",
+     "Grenada",
+     "Chile"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Grenada"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Antigua and Barbuda"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Antigua and Barbuda"
+    ],
+    [
+     "United States",
+     "Mexico",
+     "Antigua and Barbuda"
+    ],
+    [
+     "United States",
+     "Antigua and Barbuda",
+     "Mexico"
+    ],
+    [
+     "United States",
+     "Antigua and Barbuda",
+     "Mexico"
+    ],
+    [
+     "United States",
+     "Antigua and Barbuda",
+     "Mexico"
+    ]
+   ],
+   "at_l_star": {
+    "rank_all": 3,
+    "rank_within": 1,
+    "top3": [
+     "United States",
+     "Antigua and Barbuda",
+     "Mexico"
+    ]
+   }
+  }
+ },
+ "by_layer": {
+  "DESC+DESC2": {
+   "last": {
+    "median_rank_within": [
+     4,
+     4,
+     5,
+     5,
+     4,
+     4,
+     5,
+     2,
+     4,
+     7,
+     3,
+     4,
+     4,
+     6,
+     6,
+     4,
+     2,
+     4,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "frac_rank_within_1": [
+     0.26666666666666666,
+     0.26666666666666666,
+     0.0,
+     0.06666666666666667,
+     0.26666666666666666,
+     0.06666666666666667,
+     0.0,
+     0.4666666666666667,
+     0.2,
+     0.06666666666666667,
+     0.13333333333333333,
+     0.2,
+     0.13333333333333333,
+     0.13333333333333333,
+     0.06666666666666667,
+     0.13333333333333333,
+     0.3333333333333333,
+     0.26666666666666666,
+     0.9333333333333333,
+     0.8666666666666667,
+     0.9333333333333333,
+     0.8666666666666667,
+     0.9333333333333333,
+     0.9333333333333333,
+     0.8666666666666667,
+     0.8666666666666667
+    ],
+    "median_rank_all": [
+     33,
+     32,
+     33,
+     35,
+     42,
+     31,
+     62,
+     13,
+     30,
+     36,
+     24,
+     24,
+     23,
+     36,
+     38,
+     29,
+     6,
+     11,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "desc_last": {
+    "median_rank_within": [
+     7,
+     2,
+     3,
+     4,
+     5,
+     3,
+     5,
+     3,
+     4,
+     3,
+     4,
+     7,
+     2,
+     5,
+     4,
+     5,
+     3,
+     6,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2
+    ],
+    "frac_rank_within_1": [
+     0.13333333333333333,
+     0.3333333333333333,
+     0.26666666666666666,
+     0.26666666666666666,
+     0.13333333333333333,
+     0.26666666666666666,
+     0.13333333333333333,
+     0.4666666666666667,
+     0.26666666666666666,
+     0.26666666666666666,
+     0.3333333333333333,
+     0.26666666666666666,
+     0.3333333333333333,
+     0.13333333333333333,
+     0.2,
+     0.2,
+     0.2,
+     0.13333333333333333,
+     0.6666666666666666,
+     0.7333333333333333,
+     0.8666666666666667,
+     0.8,
+     0.8666666666666667,
+     0.8666666666666667,
+     0.8666666666666667,
+     0.4666666666666667
+    ],
+    "median_rank_all": [
+     54,
+     31,
+     27,
+     35,
+     58,
+     36,
+     58,
+     10,
+     24,
+     30,
+     11,
+     46,
+     21,
+     25,
+     25,
+     20,
+     8,
+     16,
+     5,
+     2,
+     2,
+     2,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "n": 15
+  },
+  "CAP_TEST": {
+   "last": {
+    "median_rank_within": [
+     1,
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     3,
+     2,
+     3,
+     4,
+     4,
+     4,
+     3,
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "frac_rank_within_1": [
+     0.9069767441860465,
+     0.9069767441860465,
+     0.3953488372093023,
+     0.4883720930232558,
+     0.3953488372093023,
+     0.7209302325581395,
+     0.3488372093023256,
+     0.6976744186046512,
+     0.3488372093023256,
+     0.2558139534883721,
+     0.27906976744186046,
+     0.23255813953488372,
+     0.16279069767441862,
+     0.13953488372093023,
+     0.20930232558139536,
+     0.3953488372093023,
+     0.627906976744186,
+     0.4418604651162791,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "median_rank_all": [
+     1,
+     1,
+     3,
+     5,
+     7,
+     2,
+     9,
+     1,
+     6,
+     13,
+     14,
+     13,
+     18,
+     18,
+     21,
+     8,
+     2,
+     3,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "desc_last": {
+    "median_rank_within": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "frac_rank_within_1": [
+     0.3953488372093023,
+     0.6744186046511628,
+     0.5581395348837209,
+     0.6744186046511628,
+     0.6046511627906976,
+     0.6744186046511628,
+     0.3023255813953488,
+     0.6744186046511628,
+     0.4883720930232558,
+     0.4186046511627907,
+     0.37209302325581395,
+     0.32558139534883723,
+     0.3488372093023256,
+     0.2558139534883721,
+     0.20930232558139536,
+     0.27906976744186046,
+     0.5581395348837209,
+     0.27906976744186046,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.9767441860465116,
+     0.8604651162790697
+    ],
+    "median_rank_all": [
+     9,
+     4,
+     3,
+     3,
+     3,
+     2,
+     20,
+     1,
+     2,
+     4,
+     4,
+     6,
+     7,
+     12,
+     13,
+     6,
+     3,
+     5,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "n": 43
+  }
+ },
+ "decision": {
+  "reading": "Specific bridge",
+  "basis": "TARGET + DESC + DESC2, last position, l*",
+  "rule": "W > expected and p < 0.01 -> Specific bridge; else hit rate >= 0.5 -> Language-group only; else No country signal"
+ },
+ "note_mexico_capital": "Mexico's probe class is built from prompts naming 'Mexico City', a word cue TARGET does not have (hop/PLAN.md section 7)."
+}
