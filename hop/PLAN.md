@@ -160,6 +160,8 @@ deals with it.
 
 ### Hop task 3: the swap on the explicit prompt (positive control)
 
+*Superseded by revision 2 (section 7). Kept as the record of what ran.*
+
 This task checks the method on HOP2 prompts, where the country is written in the text. If swapping
 country features there cannot change the language, then a failure on TWO prompts says nothing.
 
@@ -190,6 +192,8 @@ If it fails, write `STOP.md`: country features found this way cannot move the an
 on TWO prompts cannot be read.
 
 ### Hop task 4: the swap on the two-hop prompts
+
+*Superseded by revision 2 (section 7). Kept as the record of what ran.*
 
 On every eligible TWO prompt (TARGET, DESC, CAP TEST), with P = all intervention positions and
 scale `s*`:
@@ -230,6 +234,8 @@ Report:
 
 ### Hop task 6: report
 
+*Superseded by revision 2 (section 7). Kept as the record of what ran.*
+
 Write `results/hop/REPORT.md` with:
 
 - the gate numbers;
@@ -242,6 +248,8 @@ Write `results/hop/REPORT.md` with:
 Then stop for review.
 
 ## 4. Decision table
+
+*Superseded by revision 2 (section 7). Kept as the record of what ran.*
 
 Use flip rate F (`swap`) and median residual R (`suppress`) from Task 4. Apply it to TARGET (one
 item; F is over its 4 swap countries) and to CAP TEST separately.
@@ -275,3 +283,128 @@ at well under a second each on MPS. Expected total: 1–2 hours.
   model, not a failure to know the bridge, so HOP1 eligibility now uses the country-rank rule in
   Task 1, for every set. Task 0 stands. Delete `hop/STOP.md`, rerun Task 1 with the new rule (it
   replaces the old `results/hop/task1/` outputs), then continue.
+- **Revision 2 (2026-11-20, after the Task 3 stop; chosen by John, the reviewer).** Gate H2 failed:
+  TEST swap flip rate 0.064 at `s* = 8`, random inject 0.005, and suppression changed no answer.
+  The reviewer judged this a design error, not a finding. Per-layer transcoders replace only the
+  MLPs, so a country written in the prompt reaches the answer through its token embedding and
+  attention, which no MLP-feature edit removes. The HOP2 control could not pass. The REF selectivity
+  rule also finds word-level country features: `M(TARGET)` is one feature, and 20 of the 30 top
+  TARGET graph nodes never fire on REF. Feature swaps are dropped. Tasks 0–3 stand as run. Task 5
+  (logit lens) is kept unchanged. Section 7 replaces Tasks 4 and 6 and the decision table.
+
+## 7. Revision 2: country probe and last-token patching
+
+The question stays the same: on a two-hop prompt, does the model hold the **specific** bridge
+country, or only "a place where language X is spoken"? These tasks need no transcoders. Run them
+with the plain TransformerLens model in float32 on MPS. Commit messages: `hop task 4b: …`, and so
+on.
+
+### Data added now (in `hop/data.py`, fixed before any rev-2 run)
+
+**DESC2**, more described countries. Many of them share a language with other countries in the
+table, which is what the within-language test needs. Drop any whose country is not in the table.
+- `the country where the Aztec empire was` (Mexico)
+- `the country where tango was born` (Argentina)
+- `the country where Machu Picchu is` (Peru)
+- `the country with the Atacama Desert` (Chile)
+- `the country whose national dish is paella` (Spain)
+- `the country where Shakira was born` (Colombia)
+- `the country of Fidel Castro` (Cuba)
+- `the country where Rio de Janeiro is` (Brazil)
+- `the country of Cristiano Ronaldo` (Portugal)
+- `the country where Oktoberfest is held` (Germany)
+- `the country of the Colosseum` (Italy)
+- `the country where Mount Fuji is` (Japan)
+- `the country of the Great Wall` (China)
+- `the country of the Taj Mahal` (India; its language answer is ambiguous, so it is used for the probe only and never needs TWO eligibility)
+
+Run Task 1's three checks on DESC2 with the revision 1 rule, and record which items are eligible.
+
+**PROBE-TRAIN prompts**, one set per country in the table, whose last token is where the model is
+about to name the country:
+- P1 `The country whose capital is {capital} is`
+- P2 `{capital} is the capital of`
+- P3 `The capital of the country is {capital}, so the country is`
+
+Mexico's capital contains the word "Mexico", so Mexico's class carries a word cue that TARGET does
+not have. That makes the test harder for Mexico, not easier. Note it in the report.
+
+### Hop task 4b: country probe
+
+1. **Activations.** For every PROBE-TRAIN prompt, take the residual stream at the last position
+   after every layer `l` (0–25), in float64 on CPU. Keep only prompts that pass the country-rank
+   rule of Task 1. Report the count per template.
+2. **Probe.** A class-mean probe per layer. Subtract the mean over all training prompts at that
+   layer. Each country's mean is its class vector, and the score of country C for a state `h` is the
+   cosine between `h − mean` and C's class vector. Nothing else is fitted.
+3. **Control (gate H3).** Leave one template out: build class vectors from two templates and
+   classify the third, for each of the three choices. Per layer, report:
+   - top-1 accuracy over all countries (chance about 1/90);
+   - **within-language accuracy**: among the countries that share the true country's language, the
+     fraction where the true country scores highest. Use only languages with at least 2 countries.
+     Chance is the mean of 1/k.
+
+   The **probe layer** `l*` is the layer with the highest leave-one-template-out within-language
+   accuracy. It is fixed here and never changed.
+
+   **Gate H3:** at `l*`, top-1 accuracy ≥ 0.5 and within-language accuracy ≥ 0.5. If it fails,
+   write `STOP.md`.
+4. **Test.** Build final class vectors from all three templates. For every eligible TWO item in
+   TARGET, DESC and DESC2, take the last-position state at every layer and record:
+   - the bridge's rank among all countries;
+   - its within-language rank;
+   - the top-3 countries.
+
+   Do the same at the description's last token, for example ` States` in TARGET. That position is
+   further from the training data, so report it but do not use it in the decision table.
+5. **Statistic.** At `l*`, over the eligible TARGET + DESC + DESC2 items whose language has at
+   least 2 countries in the table, compute `W`, the number with within-language rank 1. Compute its
+   p-value against chance by simulating 100,000 draws, each item drawing rank 1 with probability
+   1/k. Also report the **language hit rate**: the fraction of items whose top-1 country, over all
+   countries, speaks the bridge's language.
+6. **CAP.** Run the same measurement on CAP TEST and report it separately. The capital is written
+   in those prompts, so the probe there may read the capital word rather than a computed bridge.
+   CAP does not enter the decision.
+
+Plot, per layer, TARGET's Mexico rank (all countries and within Spanish), next to the median
+within-language rank over the DESC + DESC2 items.
+
+### Hop task 5b: last-token patching
+
+For every eligible TWO item in TARGET, DESC, DESC2 and CAP TEST, pick 3 donors with seed 0. A
+donor is an eligible TWO item from the same set (CAP TEST or DESC + DESC2) whose language is
+different; for TARGET, use the DESC + DESC2 donors.
+
+For each layer `l` from 0 to 25, run the recipient prompt with its residual stream **at the last
+position only**, after layer `l`, replaced by the donor's state at the donor's last position. Then
+record whether the top-1 token is:
+- the donor's language;
+- the recipient's language;
+- something else.
+
+Per set, report the donor-answer rate by layer and `L_patch`, the first layer where it reaches 0.5
+(or "none"). Show TARGET separately. Plot it next to Task 5's `L_answer`.
+
+### Hop task 6b: report
+
+Write `results/hop/REPORT.md` with:
+- the gates H0–H3 and the Task 1 table, including DESC2;
+- the Task 2 and Task 3 numbers, as the record of the dropped swap method;
+- Task 4b: the control by layer, `l*`, the TARGET panel, `W`, its p-value and the language hit
+  rate;
+- Task 5 (logit lens) and Task 5b (patching);
+- the decision-table row below.
+
+Then stop for review.
+
+### Decision table (revision 2)
+
+| Result at `l*` on TARGET + DESC + DESC2 | Reading |
+| --- | --- |
+| Gate H3 fails | The probe cannot tell countries apart even when they are named in the prompt. No reading. |
+| `W` above chance, p < 0.01 | **Specific bridge.** The last token holds the bridge country itself, not only its language group. This supports a hop. |
+| `W` not above chance, language hit rate ≥ 0.5 | **Language-group only.** The last token holds "a country that speaks X" but not which one. This supports a shortcut through a region or language group. |
+| `W` not above chance, language hit rate < 0.5 | **No country signal** at the last token. The bridge, if any, sits elsewhere. Report the description-token numbers without a reading. |
+
+TARGET alone is a single item: report Mexico's within-Spanish rank at `l*` and by layer, with no
+test. `L_patch` against `L_answer` is reported next to E's Qwen numbers, with no further reading.
