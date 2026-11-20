@@ -1,0 +1,46 @@
+{
+ "seed": 0,
+ "scales": [
+  1,
+  2,
+  4,
+  8
+ ],
+ "dev_flip_rate_by_s": {
+  "1": 0.0,
+  "2": 0.16666666666666666,
+  "4": 0.3,
+  "8": 0.03333333333333333
+ },
+ "s_star": 8,
+ "n_dev_items": 10,
+ "n_test_items": 69,
+ "test": {
+  "swap": {
+   "n_pairs": 207,
+   "flip_rate": 0.07729468599033816,
+   "mean_delta_logp_diff": 13.32146131866364,
+   "pairs_with_no_injected_feature": 0,
+   "pairs_with_no_suppressed_feature": 0
+  },
+  "random_inject": {
+   "n_pairs": 207,
+   "flip_rate": 0.0,
+   "mean_delta_logp_diff": 7.2216751417730025,
+   "pairs_with_no_injected_feature": 0,
+   "pairs_with_no_suppressed_feature": 0
+  },
+  "suppress": {
+   "n_pairs": 207,
+   "flip_rate": 0.0,
+   "mean_delta_logp_diff": 0.8426998404489048,
+   "pairs_with_no_injected_feature": 0,
+   "pairs_with_no_suppressed_feature": 0
+  }
+ },
+ "gate_H2": {
+  "test_swap_flip_ge_0.5": false,
+  "random_inject_flip_le_0.1": true,
+  "pass": false
+ }
+}
