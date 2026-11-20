@@ -1,6 +1,7 @@
 """Hop task 5: where the bridge appears (logit lens and features by layer), hop/PLAN.md.
 
-For TARGET and every eligible TWO prompt (TARGET, DESC, CAP), at the last position and at the
+For TARGET and every eligible TWO prompt (TARGET, DESC, CAP; revision 2 adds the eligible DESC2 items
+of Task 4b as a separate set, with no M since Task 2 did not cover them), at the last position and at the
 description's last token (" States" for TARGET, the capital's last token for CAP), apply Gemma's final
 norm and unembedding to the residual stream after each layer, with the final logit soft-capping.
 Rank of a token = number of vocabulary tokens with a strictly larger logit (0 = top), as in
@@ -9,7 +10,7 @@ answer token has rank < 10 (or None).
 Also, per item: earliest and median layer of its active M features (Task 2), and whether the
 earliest fires before L_answer at the last position (a count, no test).
 Usage: python hop/task5.py --seed 0
-Writes results/hop/task5/{metrics.json, items.csv, ranks.json, target_logit_lens.png, cmd.txt}.
+Writes results/hop/task5/{metrics.json, items.csv, ranks.json, cmd.txt}; target_logit_lens.png comes from hop/plots.py.
 """
 import argparse
 import csv
@@ -45,7 +46,10 @@ def main():
     t1 = json.load(open(os.path.join(common.RESULTS, "task1", "metrics.json")))
     bridge = json.load(open(os.path.join(common.RESULTS, "task2", "bridge_sets.json")))
     use = t1["eligible_ids"]["TARGET"] + t1["eligible_ids"]["DESC"] + t1["eligible_ids"]["CAP"]
-    its = {it["id"]: it for it in data.items(tok)}
+    # revision 2: eligible DESC2 items (Task 4b) added as a separate set; they have no Task 2 bridge set
+    t4b = json.load(open(os.path.join(common.RESULTS, "task4b", "metrics.json")))
+    use += t4b["desc2"]["eligible_ids"]
+    its = {it["id"]: it for it in data.items(tok, desc2=True)}
     rm = common.load_replacement_model()
     cap = rm.cfg.output_logits_soft_cap
     names = [f"blocks.{l}.hook_resid_post" for l in range(rm.cfg.n_layers)]
@@ -68,14 +72,14 @@ def main():
                     rk[f"{pn}:{tn}"] = (z > z[:, t:t + 1]).sum(1).tolist()
         del cache
         ranks_all[iid] = rk
-        M = bridge[iid]["M"]
-        ml = sorted(e["layer"] for e in M)
+        M = bridge[iid]["M"] if iid in bridge else None
+        ml = sorted(e["layer"] for e in M) if M is not None else []
         r = {"id": iid, "set": "CAP_" + ("DEV" if iid in t1["DEV"] else "TEST") if it["set"] == "CAP" else it["set"],
              "country": it["country"]}
         for pn in pos:
             r[f"L_bridge_{pn}"] = first_top10(rk[f"{pn}:bridge"])
             r[f"L_answer_{pn}"] = first_top10(rk[f"{pn}:answer"])
-        r["n_M"] = len(M)
+        r["n_M"] = len(M) if M is not None else None
         r["M_earliest_layer"] = ml[0] if ml else None
         r["M_median_layer"] = statistics.median(ml) if ml else None
         r["M_before_L_answer_last"] = (None if not ml or r["L_answer_last"] is None
@@ -88,7 +92,8 @@ def main():
         w.writerows(rows)
     common.dump(ranks_all, os.path.join(d, "ranks.json"))
 
-    groups = {"TARGET": ["TARGET"], "DESC": ["DESC"], "CAP": ["CAP_DEV", "CAP_TEST"], "CAP_TEST": ["CAP_TEST"]}
+    groups = {"TARGET": ["TARGET"], "DESC": ["DESC"], "CAP": ["CAP_DEV", "CAP_TEST"], "CAP_TEST": ["CAP_TEST"],
+              "DESC2": ["DESC2"]}
     summ = {}
     for g, sets in groups.items():
         rr = [r for r in rows if r["set"] in sets]
@@ -100,31 +105,13 @@ def main():
             "yes": sum(r["M_before_L_answer_last"] == 1 for r in rr),
             "no": sum(r["M_before_L_answer_last"] == 0 for r in rr),
             "M_empty": sum(r["n_M"] == 0 for r in rr),
-            "L_answer_none_with_M": sum(r["n_M"] > 0 and r["L_answer_last"] is None for r in rr)}
+            "M_not_computed": sum(r["n_M"] is None for r in rr),
+            "L_answer_none_with_M": sum(bool(r["n_M"]) and r["L_answer_last"] is None for r in rr)}
     m = {"seed": args.seed, "soft_cap": cap, "positions": "last and description's last token",
          "rank": "number of tokens with a strictly larger logit; top 10 = rank < 10", "per_set": summ}
     common.dump(m, os.path.join(d, "metrics.json"))
 
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    rk = ranks_all["TARGET"]
-    fig, ax = plt.subplots(figsize=(7, 4))
-    L = np.arange(rm.cfg.n_layers)
-    for key, style, lab in (("last:bridge", "o-", '" Mexico" at last token (" is")'),
-                            ("last:answer", "s-", '" Spanish" at last token (" is")'),
-                            ("desc_last:bridge", "o--", '" Mexico" at " States"'),
-                            ("desc_last:answer", "s--", '" Spanish" at " States"')):
-        ax.plot(L, np.array(rk[key]) + 1, style, ms=3, label=lab)
-    ax.axhline(10, color="k", lw=0.5, ls=":")
-    ax.set_yscale("log")
-    ax.invert_yaxis()
-    ax.set_xlabel("layer (residual stream after the layer)")
-    ax.set_ylabel("rank + 1 (log scale; 1 = top)")
-    ax.set_title("TARGET, logit lens: " + its["TARGET"]["TWO"], fontsize=8)
-    ax.legend(fontsize=7)
-    fig.tight_layout()
-    fig.savefig(os.path.join(d, "target_logit_lens.png"), dpi=130)
+    # plot target_logit_lens.png: hop/plots.py (circuit/.venv has no matplotlib)
     print(json.dumps(summ, indent=1))
 
 

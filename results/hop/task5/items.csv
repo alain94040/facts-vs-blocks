@@ -1,0 +1,104 @@
+id,set,country,L_bridge_last,L_answer_last,L_bridge_desc_last,L_answer_desc_last,n_M,M_earliest_layer,M_median_layer,M_before_L_answer_last
+TARGET,TARGET,Mexico,,19,,,1,4,4,1
+DESC00,DESC,Canada,,19,,,4,6,13.0,1
+DESC04,DESC,Egypt,,19,,,4,18,20.0,1
+DESC06,DESC,Mexico,,19,,,7,4,20,1
+DESC07,DESC,Mexico,,19,,,3,4,19,1
+DESC08,DESC,Mexico,,19,,,3,4,19,1
+DESC09,DESC,France,,19,,,6,6,13.5,1
+DESC10,DESC,Greece,,22,,,14,4,11.0,1
+DESC11,DESC,Japan,22,18,,,11,7,19,1
+CAP-France,CAP_DEV,France,,19,19,,17,0,6,1
+CAP-Germany,CAP_TEST,Germany,,20,,,15,0,7,1
+CAP-Italy,CAP_TEST,Italy,,20,,,18,0,8.0,1
+CAP-Spain,CAP_TEST,Spain,,19,0,,15,1,2,1
+CAP-Portugal,CAP_TEST,Portugal,25,20,0,0,3,1,21,1
+CAP-Poland,CAP_TEST,Poland,25,22,0,0,13,1,13,1
+CAP-Hungary,CAP_TEST,Hungary,25,22,0,0,12,1,11.0,1
+CAP-Austria,CAP_TEST,Austria,25,21,0,,5,6,18,1
+CAP-Greece,CAP_TEST,Greece,,20,0,0,28,0,6.0,1
+CAP-Sweden,CAP_TEST,Sweden,22,18,0,0,8,1,14.0,1
+CAP-Norway,CAP_TEST,Norway,22,18,0,0,7,1,1,1
+CAP-Denmark,CAP_TEST,Denmark,22,21,0,0,8,1,8.0,1
+CAP-Iceland,CAP_TEST,Iceland,25,22,0,0,13,1,7,1
+CAP-Slovakia,CAP_TEST,Slovakia,25,22,0,0,6,0,11.0,1
+CAP-Croatia,CAP_TEST,Croatia,25,22,0,0,1,19,19,1
+CAP-Serbia,CAP_TEST,Serbia,25,20,0,0,4,5,6.0,1
+CAP-Albania,CAP_TEST,Albania,25,22,0,0,10,5,9.5,1
+CAP-Bulgaria,CAP_TEST,Bulgaria,,22,5,,3,10,18,1
+CAP-Romania,CAP_TEST,Romania,25,22,0,0,11,2,17,1
+CAP-Ukraine,CAP_DEV,Ukraine,22,20,0,0,34,0,3.5,1
+CAP-Lithuania,CAP_TEST,Lithuania,25,22,0,0,1,20,20,1
+CAP-Latvia,CAP_TEST,Latvia,25,25,0,0,4,14,15.5,1
+CAP-Estonia,CAP_TEST,Estonia,25,22,0,0,5,0,17,1
+CAP-Liechtenstein,CAP_TEST,Liechtenstein,25,21,7,,6,4,6.5,1
+CAP-Andorra,CAP_TEST,Andorra,25,24,,,5,1,6,1
+CAP-Japan,CAP_TEST,Japan,22,20,0,,37,0,4,1
+CAP-South Korea,CAP_TEST,South Korea,22,18,,0,15,0,9,1
+CAP-North Korea,CAP_TEST,North Korea,22,22,,,46,1,7.5,1
+CAP-Mongolia,CAP_TEST,Mongolia,25,20,,,7,7,8,1
+CAP-Vietnam,CAP_TEST,Vietnam,25,20,0,0,20,1,16.0,1
+CAP-Thailand,CAP_TEST,Thailand,25,22,0,0,13,0,13,1
+CAP-Cambodia,CAP_TEST,Cambodia,25,25,1,,3,19,20,1
+CAP-Bhutan,CAP_TEST,Bhutan,22,24,5,,16,4,13.0,1
+CAP-Nepal,CAP_TEST,Nepal,25,22,0,0,26,0,8.5,1
+CAP-Saudi Arabia,CAP_TEST,Saudi Arabia,22,19,0,,24,0,3.0,1
+CAP-Oman,CAP_DEV,Oman,25,20,0,,3,2,3,1
+CAP-Qatar,CAP_TEST,Qatar,25,19,0,,13,1,4,1
+CAP-Bahrain,CAP_TEST,Bahrain,25,19,0,,2,5,11.5,1
+CAP-Jordan,CAP_DEV,Jordan,,19,0,,6,1,13.0,1
+CAP-Syria,CAP_TEST,Syria,,19,0,,9,1,7,1
+CAP-Lebanon,CAP_TEST,Lebanon,,19,0,,8,1,7.0,1
+CAP-Uzbekistan,CAP_TEST,Uzbekistan,25,24,7,,4,5,8.5,1
+CAP-Turkmenistan,CAP_TEST,Turkmenistan,25,22,,,3,19,20,1
+CAP-Tajikistan,CAP_TEST,Tajikistan,25,22,25,,0,,,
+CAP-Brunei,CAP_TEST,Brunei,25,25,6,,27,4,18,1
+CAP-Egypt,CAP_TEST,Egypt,25,19,0,,17,0,1,1
+CAP-Libya,CAP_DEV,Libya,,20,0,,7,1,6,1
+CAP-Tunisia,CAP_TEST,Tunisia,,22,0,,3,4,7,1
+CAP-Mauritania,CAP_DEV,Mauritania,,22,,,1,1,1,1
+CAP-Guinea,CAP_TEST,Guinea,25,22,,,7,4,21,1
+CAP-Ghana,CAP_DEV,Ghana,22,18,0,,15,6,18,1
+CAP-Togo,CAP_TEST,Togo,25,22,,,1,18,18,1
+CAP-Nigeria,CAP_TEST,Nigeria,22,18,0,,22,0,8.0,1
+CAP-Gabon,CAP_DEV,Gabon,,21,,,2,5,11.5,1
+CAP-Angola,CAP_TEST,Angola,22,21,0,,2,1,1.0,1
+CAP-Mozambique,CAP_TEST,Mozambique,22,21,4,,0,,,
+CAP-Zambia,CAP_TEST,Zambia,25,18,0,,5,4,7,1
+CAP-Liberia,CAP_TEST,Liberia,,18,4,,3,1,4,1
+CAP-Sierra Leone,CAP_TEST,Sierra Leone,25,18,,,11,1,3,1
+CAP-South Sudan,CAP_TEST,South Sudan,22,18,,,47,1,5,1
+CAP-Belize,CAP_TEST,Belize,25,18,,,3,19,21,0
+CAP-Honduras,CAP_TEST,Honduras,,22,0,,0,,,
+CAP-El Salvador,CAP_TEST,El Salvador,,22,,,75,0,1,1
+CAP-Nicaragua,CAP_DEV,Nicaragua,25,22,0,,3,1,4,1
+CAP-Costa Rica,CAP_TEST,Costa Rica,25,19,,,7,0,1,1
+CAP-Cuba,CAP_TEST,Cuba,,19,0,,10,1,7.0,1
+CAP-Jamaica,CAP_TEST,Jamaica,25,18,0,,10,1,19.5,1
+CAP-Trinidad and Tobago,CAP_TEST,Trinidad and Tobago,25,18,,,14,1,4.0,1
+CAP-Barbados,CAP_TEST,Barbados,25,18,25,,2,8,13.5,1
+CAP-Grenada,CAP_TEST,Grenada,,18,25,,0,,,
+CAP-Saint Lucia,CAP_DEV,Saint Lucia,25,18,18,,15,0,4,1
+CAP-Saint Kitts and Nevis,CAP_TEST,Saint Kitts and Nevis,,18,,,21,1,4,1
+CAP-Saint Vincent and the Grenadines,CAP_TEST,Saint Vincent and the Grenadines,,18,,,54,0,4.0,1
+CAP-Peru,CAP_TEST,Peru,25,19,0,,5,1,8,1
+CAP-Argentina,CAP_TEST,Argentina,,19,4,,5,6,8,1
+CAP-Chile,CAP_TEST,Chile,,19,0,,4,7,14.0,1
+CAP-Colombia,CAP_TEST,Colombia,,19,0,,6,8,14.0,1
+CAP-Venezuela,CAP_TEST,Venezuela,,19,0,,2,5,12.0,1
+CAP-Ecuador,CAP_TEST,Ecuador,25,19,0,,2,4,11.5,1
+CAP-Uruguay,CAP_TEST,Uruguay,25,19,0,,0,,,
+CAP-Brazil,CAP_TEST,Brazil,,22,1,,7,2,8,1
+CAP-Guyana,CAP_TEST,Guyana,,18,18,,13,1,9,1
+CAP-Suriname,CAP_TEST,Suriname,25,21,,,8,4,8.5,1
+DESC2-01,DESC2,Argentina,,19,,,,,,
+DESC2-02,DESC2,Peru,,19,,,,,,
+DESC2-03,DESC2,Chile,,19,,,,,,
+DESC2-04,DESC2,Spain,,19,,,,,,
+DESC2-05,DESC2,Colombia,,19,,,,,,
+DESC2-06,DESC2,Cuba,,19,6,,,,,
+DESC2-07,DESC2,Brazil,,22,,,,,,
+DESC2-08,DESC2,Portugal,25,22,,,,,,
+DESC2-09,DESC2,Germany,22,19,,,,,,
+DESC2-10,DESC2,Italy,,21,,,,,,
+DESC2-11,DESC2,Japan,22,18,,,,,,
