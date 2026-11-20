@@ -1,0 +1,29 @@
+{
+  "graphs": [
+    {
+      "slug": "hop-target-mexico-spanish",
+      "scan": "mwhanna/gemma-scope-transcoders",
+      "transcoder_list": [],
+      "prompt_tokens": [
+        "<bos>",
+        "The",
+        " language",
+        " most",
+        " commonly",
+        " spoken",
+        " in",
+        " the",
+        " country",
+        " south",
+        " of",
+        " the",
+        " United",
+        " States",
+        " is"
+      ],
+      "prompt": "<bos>The language most commonly spoken in the country south of the United States is",
+      "node_threshold": 0.8,
+      "schema_version": 1
+    }
+  ]
+}

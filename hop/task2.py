@@ -38,7 +38,9 @@ def country_features(mC, nC, names):
     top2 = np.sort(mC, axis=0)[-2:]  # second largest and largest over countries
     for k, c in enumerate(names):
         other_max = np.where(mC[k] >= top2[1], top2[0], top2[1])  # max over the other countries
-        ratio[k] = mC[k] / np.maximum(other_max, 1e-12)
+        with np.errstate(divide="ignore", invalid="ignore"):
+            ratio[k] = np.where(other_max > 0, mC[k] / np.where(other_max > 0, other_max, 1),
+                                np.where(mC[k] > 0, np.inf, np.nan))
         sel = (nC[k] >= 8) & (mC[k] > 0) & (mC[k] >= 2 * other_max)
         out[c] = np.argwhere(sel)
     assert n_c == len(names)
@@ -129,15 +131,17 @@ def main():
         for v, k in zip(top.values, top.indices):
             l, p, i = (int(x) for x in g.active_features[g.selected_features[k]])
             best = int(np.argmax(mC[:, l, i]))
+            ref_on = bool(mC[best, l, i] > 0)  # some country's REF sentences activate it
             rows.append({"rank": len(rows) + 1, "influence": round(float(v), 6), "layer": l, "position": p,
                          "token": tok.decode([int(g.input_tokens[p])]), "feature": i,
                          "activation": round(float(g.activation_values[k]), 4),
                          "in_M_TARGET": (l, i) in Mset and p in Mset[(l, i)],
                          "in_M_TARGET_any_position": (l, i) in Mset,
-                         "top_country": names[best], "top_country_m": round(float(mC[best, l, i]), 4),
-                         "top_country_ratio": round(float(ratio[best, l, i]), 3),
-                         "is_country_feature_of_top": bool(((cf[names[best]][:, 0] == l) & (cf[names[best]][:, 1] == i)).any())
-                         if len(cf[names[best]]) else False,
+                         "top_country": names[best] if ref_on else "none (inactive at REF)",
+                         "top_country_m": round(float(mC[best, l, i]), 4),
+                         "top_country_ratio": (str(round(float(ratio[best, l, i]), 3)) if ref_on else ""),
+                         "is_country_feature_of_top": bool(ref_on and len(cf[names[best]]) and
+                                                           ((cf[names[best]][:, 0] == l) & (cf[names[best]][:, 1] == i)).any()),
                          "neuronpedia": NP_URL.format(layer=l, idx=i)})
         with open(os.path.join(d, "target_top30.csv"), "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=list(rows[0]))

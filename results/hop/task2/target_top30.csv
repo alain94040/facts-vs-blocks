@@ -1,0 +1,31 @@
+rank,influence,layer,position,token,feature,activation,in_M_TARGET,in_M_TARGET_any_position,top_country,top_country_m,top_country_ratio,is_country_feature_of_top,neuronpedia
+1,0.054305,19,14, is,13366,1.7219,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/19-gemmascope-transcoder-16k/13366
+2,0.049088,22,14, is,12284,1.8165,False,False,Suriname,1.0153,1.115,False,https://www.neuronpedia.org/gemma-2-2b/22-gemmascope-transcoder-16k/12284
+3,0.03098,22,14, is,5277,2.7757,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/22-gemmascope-transcoder-16k/5277
+4,0.022052,21,14, is,12621,1.4898,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/21-gemmascope-transcoder-16k/12621
+5,0.019562,24,14, is,410,9.0477,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/24-gemmascope-transcoder-16k/410
+6,0.018147,24,14, is,4036,1.2221,False,False,Mexico,3.474,2.641,False,https://www.neuronpedia.org/gemma-2-2b/24-gemmascope-transcoder-16k/4036
+7,0.017836,23,14, is,13607,1.0943,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/23-gemmascope-transcoder-16k/13607
+8,0.016132,25,14, is,12021,5.8826,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/25-gemmascope-transcoder-16k/12021
+9,0.014895,22,14, is,14724,0.984,False,False,Tajikistan,0.9755,1.313,False,https://www.neuronpedia.org/gemma-2-2b/22-gemmascope-transcoder-16k/14724
+10,0.013914,25,14, is,2040,1.8038,False,False,Uruguay,47.4108,1.002,False,https://www.neuronpedia.org/gemma-2-2b/25-gemmascope-transcoder-16k/2040
+11,0.011255,18,14, is,14080,1.7309,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/18-gemmascope-transcoder-16k/14080
+12,0.01107,4,14, is,15380,1.2345,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/4-gemmascope-transcoder-16k/15380
+13,0.010937,24,14, is,13277,1.7552,False,False,Brunei,72.4095,1.068,False,https://www.neuronpedia.org/gemma-2-2b/24-gemmascope-transcoder-16k/13277
+14,0.010269,24,14, is,13490,2.3044,False,False,Chile,41.2012,1.069,False,https://www.neuronpedia.org/gemma-2-2b/24-gemmascope-transcoder-16k/13490
+15,0.009621,17,14, is,3531,1.9959,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/17-gemmascope-transcoder-16k/3531
+16,0.009247,25,14, is,13755,4.3066,False,False,Spain,30.6827,3.996,True,https://www.neuronpedia.org/gemma-2-2b/25-gemmascope-transcoder-16k/13755
+17,0.006563,25,14, is,9689,3.6915,False,False,Mexico,18.7469,1.59,False,https://www.neuronpedia.org/gemma-2-2b/25-gemmascope-transcoder-16k/9689
+18,0.006302,4,5, spoken,15380,1.1971,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/4-gemmascope-transcoder-16k/15380
+19,0.006073,18,14, is,868,0.7659,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/18-gemmascope-transcoder-16k/868
+20,0.005703,23,14, is,7367,1.088,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/23-gemmascope-transcoder-16k/7367
+21,0.005567,23,14, is,2040,1.036,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/23-gemmascope-transcoder-16k/2040
+22,0.005488,25,14, is,14538,2.1075,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/25-gemmascope-transcoder-16k/14538
+23,0.005404,2,2, language,4638,0.8921,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/2-gemmascope-transcoder-16k/4638
+24,0.005284,0,2, language,245,2.0986,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/0-gemmascope-transcoder-16k/245
+25,0.005248,22,14, is,11129,0.9217,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/22-gemmascope-transcoder-16k/11129
+26,0.004917,0,13, States,4639,6.593,False,False,United States,39.7385,inf,True,https://www.neuronpedia.org/gemma-2-2b/0-gemmascope-transcoder-16k/4639
+27,0.004817,20,14, is,14143,0.8398,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/20-gemmascope-transcoder-16k/14143
+28,0.004747,18,14, is,3724,1.3821,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/18-gemmascope-transcoder-16k/3724
+29,0.004496,20,14, is,1278,2.8302,False,False,Spain,17.9138,7.137,True,https://www.neuronpedia.org/gemma-2-2b/20-gemmascope-transcoder-16k/1278
+30,0.004327,6,14, is,3078,0.7789,False,False,none (inactive at REF),0.0,,False,https://www.neuronpedia.org/gemma-2-2b/6-gemmascope-transcoder-16k/3078
