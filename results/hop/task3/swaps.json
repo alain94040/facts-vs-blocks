@@ -40,265 +40,270 @@
   "Russia",
   "Suriname"
  ],
- "CAP-France": [
+ "DESC11": [
   "Bulgaria",
-  "Mongolia",
-  "Portugal"
+  "Mauritania",
+  "Peru"
  ],
- "CAP-Germany": [
-  "Liberia",
-  "Ukraine",
-  "Uzbekistan"
- ],
- "CAP-Italy": [
-  "Gabon",
-  "Spain",
-  "Saint Kitts and Nevis"
- ],
- "CAP-Spain": [
-  "Sierra Leone",
-  "Trinidad and Tobago",
-  "Lebanon"
- ],
- "CAP-Portugal": [
-  "Belize",
-  "Syria",
-  "Andorra"
- ],
- "CAP-Poland": [
-  "Brunei",
-  "Nicaragua",
-  "Vietnam"
- ],
- "CAP-Hungary": [
-  "Ukraine",
-  "Albania",
-  "Tunisia"
- ],
- "CAP-Austria": [
-  "Serbia",
-  "Lithuania",
-  "Honduras"
- ],
- "CAP-Greece": [
-  "Liberia",
-  "Belize",
-  "Estonia"
- ],
- "CAP-Sweden": [
-  "Suriname",
-  "Ghana",
-  "Grenada"
- ],
- "CAP-Norway": [
-  "Croatia",
-  "South Sudan",
-  "Portugal"
- ],
- "CAP-Denmark": [
-  "Brunei",
-  "Brazil",
-  "Lebanon"
- ],
- "CAP-Iceland": [
-  "Serbia",
-  "Saint Lucia",
-  "Cambodia"
- ],
- "CAP-Slovakia": [
-  "Japan",
-  "Spain",
-  "Jamaica"
- ],
- "CAP-Croatia": [
-  "Chile",
-  "Spain",
-  "Libya"
- ],
- "CAP-Serbia": [
-  "South Sudan",
-  "Gabon",
-  "Trinidad and Tobago"
- ],
- "CAP-Albania": [
-  "Spain",
-  "Thailand",
-  "Jamaica"
- ],
- "CAP-Bulgaria": [
-  "Poland",
-  "Brunei",
-  "Togo"
- ],
- "CAP-Romania": [
-  "Mozambique",
-  "Latvia",
-  "Syria"
- ],
- "CAP-Ukraine": [
-  "Grenada",
-  "Jamaica",
-  "El Salvador"
- ],
- "CAP-Lithuania": [
-  "Estonia",
-  "El Salvador",
-  "Argentina"
- ],
- "CAP-Latvia": [
-  "Tunisia",
-  "Venezuela",
-  "Honduras"
- ],
- "CAP-Estonia": [
-  "Russia",
-  "Belize",
-  "Brunei"
- ],
- "CAP-Liechtenstein": [
-  "Costa Rica",
-  "Denmark",
-  "Argentina"
- ],
- "CAP-Andorra": [
-  "Brunei",
-  "South Sudan",
-  "Nicaragua"
- ],
- "CAP-Japan": [
-  "Slovakia",
-  "Iceland",
-  "Sierra Leone"
- ],
- "CAP-South Korea": [
-  "Grenada",
-  "Germany",
-  "Togo"
- ],
- "CAP-North Korea": [
-  "Norway",
-  "Thailand",
-  "Iceland"
- ],
- "CAP-Mongolia": [
-  "Portugal",
-  "Saint Vincent and the Grenadines",
+ "CAP-France": [
+  "Libya",
+  "United States",
   "Venezuela"
  ],
- "CAP-Vietnam": [
-  "United States",
-  "Lithuania",
-  "Brazil"
+ "CAP-Germany": [
+  "Ghana",
+  "Sweden",
+  "Saint Vincent and the Grenadines"
  ],
- "CAP-Thailand": [
-  "Lebanon",
-  "Tunisia",
-  "Canada"
- ],
- "CAP-Cambodia": [
-  "Saint Lucia",
-  "Thailand",
-  "Ukraine"
- ],
- "CAP-Bhutan": [
-  "Libya",
-  "France",
-  "Guyana"
- ],
- "CAP-Nepal": [
-  "Angola",
-  "Hungary",
-  "Canada"
- ],
- "CAP-Saudi Arabia": [
-  "Grenada",
-  "North Korea",
-  "El Salvador"
- ],
- "CAP-Oman": [
-  "Mongolia",
-  "Saint Kitts and Nevis",
-  "Belize"
- ],
- "CAP-Qatar": [
-  "Cambodia",
-  "Cuba",
-  "Grenada"
- ],
- "CAP-Bahrain": [
-  "Austria",
-  "Uzbekistan",
-  "Trinidad and Tobago"
- ],
- "CAP-Jordan": [
-  "Brazil",
-  "Antigua and Barbuda",
-  "Colombia"
- ],
- "CAP-Syria": [
-  "Gabon",
-  "Uzbekistan",
-  "Colombia"
- ],
- "CAP-Lebanon": [
+ "CAP-Italy": [
   "Poland",
-  "Bulgaria",
-  "North Korea"
+  "Sierra Leone",
+  "Honduras"
  ],
- "CAP-Uzbekistan": [
-  "Canada",
-  "Argentina",
-  "Togo"
+ "CAP-Spain": [
+  "Belize",
+  "United States",
+  "Andorra"
  ],
- "CAP-Turkmenistan": [
-  "Angola",
-  "Estonia",
-  "El Salvador"
+ "CAP-Portugal": [
+  "Cambodia",
+  "Norway",
+  "Uzbekistan"
  ],
- "CAP-Tajikistan": [
-  "Chile",
-  "Russia",
-  "Gabon"
+ "CAP-Poland": [
+  "Albania",
+  "Tunisia",
+  "Saint Vincent and the Grenadines"
  ],
- "CAP-Brunei": [
-  "Barbados",
-  "Zambia",
-  "Angola"
+ "CAP-Hungary": [
+  "Libya",
+  "Guinea",
+  "Liberia"
  ],
- "CAP-Egypt": [
-  "Turkmenistan",
-  "Saint Kitts and Nevis",
-  "Cambodia"
- ],
- "CAP-Libya": [
-  "Iceland",
+ "CAP-Austria": [
   "Bhutan",
-  "Grenada"
+  "France",
+  "Tajikistan"
  ],
- "CAP-Tunisia": [
+ "CAP-Greece": [
+  "Ghana",
+  "Guinea",
+  "Croatia"
+ ],
+ "CAP-Sweden": [
+  "South Korea",
+  "Poland",
+  "Brunei"
+ ],
+ "CAP-Norway": [
   "Brazil",
+  "Latvia",
+  "Serbia"
+ ],
+ "CAP-Denmark": [
+  "Saint Lucia",
+  "Cambodia",
+  "Jordan"
+ ],
+ "CAP-Iceland": [
+  "Spain",
+  "Japan",
+  "Chile"
+ ],
+ "CAP-Slovakia": [
+  "Spain",
   "Liberia",
+  "South Sudan"
+ ],
+ "CAP-Croatia": [
+  "Germany",
+  "Trinidad and Tobago",
+  "Spain"
+ ],
+ "CAP-Serbia": [
+  "Thailand",
+  "Italy",
+  "Peru"
+ ],
+ "CAP-Albania": [
+  "Bulgaria",
+  "Togo",
   "Nepal"
  ],
- "CAP-Mauritania": [
-  "Saint Lucia",
-  "France",
-  "Belize"
- ],
- "CAP-Guinea": [
-  "Sierra Leone",
-  "Saint Kitts and Nevis",
-  "Austria"
- ],
- "CAP-Ghana": [
-  "Colombia",
-  "Romania",
+ "CAP-Bulgaria": [
+  "Lebanon",
+  "Syria",
   "Guinea"
  ],
- "CAP-Togo": [
+ "CAP-Romania": [
+  "Jamaica",
+  "El Salvador",
+  "Estonia"
+ ],
+ "CAP-Ukraine": [
+  "El Salvador",
+  "Argentina",
+  "Trinidad and Tobago"
+ ],
+ "CAP-Lithuania": [
+  "Venezuela",
+  "Honduras",
+  "Russia"
+ ],
+ "CAP-Latvia": [
+  "Belize",
+  "Brunei",
+  "Zambia"
+ ],
+ "CAP-Estonia": [
+  "Colombia",
+  "Cuba",
+  "Argentina"
+ ],
+ "CAP-Liechtenstein": [
+  "Brunei",
+  "Suriname",
+  "North Korea"
+ ],
+ "CAP-Andorra": [
+  "Slovakia",
   "Italy",
+  "Sierra Leone"
+ ],
+ "CAP-Japan": [
+  "Grenada",
+  "Germany",
+  "Zambia"
+ ],
+ "CAP-South Korea": [
+  "Togo",
+  "Norway",
+  "Thailand"
+ ],
+ "CAP-North Korea": [
+  "Iceland",
+  "Portugal",
+  "Saint Vincent and the Grenadines"
+ ],
+ "CAP-Mongolia": [
+  "Venezuela",
+  "Uruguay",
+  "Lithuania"
+ ],
+ "CAP-Vietnam": [
+  "Brazil",
+  "Lebanon",
+  "Trinidad and Tobago"
+ ],
+ "CAP-Thailand": [
+  "Canada",
+  "Saint Kitts and Nevis",
+  "Tajikistan"
+ ],
+ "CAP-Cambodia": [
+  "Ukraine",
+  "Libya",
+  "France"
+ ],
+ "CAP-Bhutan": [
+  "Guyana",
+  "Angola",
+  "Iceland"
+ ],
+ "CAP-Nepal": [
+  "Canada",
+  "Ghana",
+  "Mexico"
+ ],
+ "CAP-Saudi Arabia": [
+  "El Salvador",
   "Mongolia",
-  "Saint Lucia"
+  "Saint Kitts and Nevis"
+ ],
+ "CAP-Oman": [
+  "Belize",
+  "Cambodia",
+  "Cuba"
+ ],
+ "CAP-Qatar": [
+  "Grenada",
+  "Austria",
+  "Uzbekistan"
+ ],
+ "CAP-Bahrain": [
+  "Trinidad and Tobago",
+  "Brazil",
+  "Antigua and Barbuda"
+ ],
+ "CAP-Jordan": [
+  "Colombia",
+  "Gabon",
+  "Uzbekistan"
+ ],
+ "CAP-Syria": [
+  "Colombia",
+  "Poland",
+  "Bulgaria"
+ ],
+ "CAP-Lebanon": [
+  "North Korea",
+  "Chile",
+  "Argentina"
+ ],
+ "CAP-Uzbekistan": [
+  "Togo",
+  "Angola",
+  "Estonia"
+ ],
+ "CAP-Turkmenistan": [
+  "El Salvador",
+  "Chile",
+  "Russia"
+ ],
+ "CAP-Tajikistan": [
+  "Gabon",
+  "Barbados",
+  "Zambia"
+ ],
+ "CAP-Brunei": [
+  "Angola",
+  "South Sudan",
+  "Oman"
+ ],
+ "CAP-Egypt": [
+  "Cambodia",
+  "Iceland",
+  "Bhutan"
+ ],
+ "CAP-Libya": [
+  "Grenada",
+  "Brazil",
+  "Liberia"
+ ],
+ "CAP-Tunisia": [
+  "Nepal",
+  "Saint Lucia",
+  "France"
+ ],
+ "CAP-Mauritania": [
+  "Belize",
+  "Sweden",
+  "Slovakia"
+ ],
+ "CAP-Guinea": [
+  "Austria",
+  "Turkmenistan",
+  "Bulgaria"
+ ],
+ "CAP-Ghana": [
+  "Romania",
+  "Guinea",
+  "Lebanon"
+ ],
+ "CAP-Togo": [
+  "Mongolia",
+  "Saint Lucia",
+  "Tajikistan"
  ],
  "CAP-Nigeria": [
   "France",
@@ -325,114 +330,134 @@
   "Saudi Arabia",
   "Ukraine"
  ],
- "CAP-Sierra Leone": [
+ "CAP-Liberia": [
   "Mongolia",
   "Oman",
   "Qatar"
  ],
- "CAP-South Sudan": [
+ "CAP-Sierra Leone": [
   "Latvia",
   "El Salvador",
   "Andorra"
  ],
- "CAP-Belize": [
+ "CAP-South Sudan": [
   "Sweden",
   "Cambodia",
   "Nicaragua"
  ],
- "CAP-Honduras": [
+ "CAP-Belize": [
   "Bahrain",
-  "Ukraine",
-  "Libya"
+  "Vietnam",
+  "Liechtenstein"
  ],
- "CAP-El Salvador": [
+ "CAP-Honduras": [
   "Estonia",
   "Japan",
   "Sweden"
  ],
- "CAP-Nicaragua": [
+ "CAP-El Salvador": [
   "Oman",
   "Liechtenstein",
   "Egypt"
  ],
- "CAP-Costa Rica": [
+ "CAP-Nicaragua": [
   "Mongolia",
   "Romania",
   "Saint Vincent and the Grenadines"
  ],
- "CAP-Cuba": [
+ "CAP-Costa Rica": [
   "Brunei",
   "Albania",
   "Guinea"
  ],
- "CAP-Jamaica": [
-  "Nicaragua",
-  "Estonia",
+ "CAP-Cuba": [
+  "Nigeria",
+  "Germany",
   "Japan"
  ],
- "CAP-Trinidad and Tobago": [
+ "CAP-Jamaica": [
   "Iceland",
   "Suriname",
   "Portugal"
  ],
- "CAP-Barbados": [
+ "CAP-Trinidad and Tobago": [
   "Serbia",
   "Austria",
   "Russia"
  ],
- "CAP-Grenada": [
+ "CAP-Barbados": [
   "Serbia",
   "Bahrain",
   "France"
  ],
- "CAP-Saint Lucia": [
+ "CAP-Grenada": [
   "Suriname",
   "Brunei",
   "Lebanon"
  ],
+ "CAP-Saint Lucia": [
+  "Estonia",
+  "Suriname",
+  "Uzbekistan"
+ ],
+ "CAP-Saint Kitts and Nevis": [
+  "Togo",
+  "Albania",
+  "Austria"
+ ],
+ "CAP-Saint Vincent and the Grenadines": [
+  "Tunisia",
+  "Nepal",
+  "Mongolia"
+ ],
  "CAP-Peru": [
-  "Germany",
-  "Slovakia",
-  "Tunisia"
+  "South Sudan",
+  "Barbados",
+  "Saint Vincent and the Grenadines"
  ],
  "CAP-Argentina": [
-  "Syria",
-  "Uzbekistan",
-  "Albania"
+  "Guinea",
+  "United States",
+  "Brunei"
  ],
  "CAP-Chile": [
-  "Austria",
-  "Tajikistan",
-  "Nepal"
+  "Egypt",
+  "Andorra",
+  "Saint Kitts and Nevis"
  ],
  "CAP-Colombia": [
-  "Mongolia",
-  "South Sudan",
-  "Barbados"
+  "Saint Vincent and the Grenadines",
+  "Mozambique",
+  "Albania"
  ],
  "CAP-Venezuela": [
-  "Saint Vincent and the Grenadines",
-  "Guinea",
-  "United States"
+  "Iceland",
+  "Andorra",
+  "Albania"
  ],
  "CAP-Ecuador": [
-  "Brunei",
-  "Egypt",
-  "Andorra"
+  "Tunisia",
+  "Cambodia",
+  "Guinea"
  ],
  "CAP-Uruguay": [
-  "Saint Kitts and Nevis",
-  "Saint Vincent and the Grenadines",
-  "Mozambique"
+  "Denmark",
+  "Guyana",
+  "Mauritania"
  ],
  "CAP-Brazil": [
-  "Albania",
-  "Greece",
-  "Andorra"
+  "Jamaica",
+  "France",
+  "Canada"
  ],
  "CAP-Guyana": [
-  "Albania",
-  "Uzbekistan",
-  "Colombia"
+  "Tajikistan",
+  "Romania",
+  "Cambodia"
+ ],
+ "CAP-Suriname": [
+  "Angola",
+  "Iceland",
+  "Poland"
  ]
 }

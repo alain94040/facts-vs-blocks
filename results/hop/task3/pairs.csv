@@ -1,745 +1,790 @@
 id,split,country,swap,condition,s,n_suppressed,n_injected_features,injected_total,top1,flip,delta_logp_diff
-CAP-Honduras,DEV,Honduras,Bahrain,swap,1,6,9,41.5869, Spanish,0,0.10625743865966797
-CAP-Honduras,DEV,Honduras,Ukraine,swap,1,6,40,296.4963, Spanish,0,4.556671142578125
-CAP-Honduras,DEV,Honduras,Libya,swap,1,6,15,21.7152, Spanish,0,0.03707695007324219
-CAP-Liechtenstein,DEV,Liechtenstein,Costa Rica,swap,1,35,86,163.7886, German,0,0.8226795196533203
-CAP-Liechtenstein,DEV,Liechtenstein,Denmark,swap,1,35,34,134.1603, German,0,10.748923301696777
-CAP-Liechtenstein,DEV,Liechtenstein,Argentina,swap,1,35,26,98.4474, German,0,3.5433006286621094
-CAP-Jordan,DEV,Jordan,Brazil,swap,1,80,24,115.6919, Arabic,0,5.946990966796875
-CAP-Jordan,DEV,Jordan,Antigua and Barbuda,swap,1,80,104,177.4054, Arabic,0,-0.24455833435058594
-CAP-Jordan,DEV,Jordan,Colombia,swap,1,80,23,155.6388, Arabic,0,0.8785438537597656
-CAP-Bulgaria,DEV,Bulgaria,Poland,swap,1,7,32,170.5174, Bulgarian,0,6.95738410949707
-CAP-Bulgaria,DEV,Bulgaria,Brunei,swap,1,7,22,197.9022, Bulgarian,0,7.870771408081055
-CAP-Bulgaria,DEV,Bulgaria,Togo,swap,1,7,18,86.8991, Bulgarian,0,2.4918222427368164
-CAP-Norway,DEV,Norway,Croatia,swap,1,14,9,18.0987, Norwegian,0,0.36153697967529297
-CAP-Norway,DEV,Norway,South Sudan,swap,1,14,258,645.9086, Norwegian,0,0.31784629821777344
-CAP-Norway,DEV,Norway,Portugal,swap,1,14,15,47.8797, Norwegian,0,0.8816013336181641
-CAP-Tajikistan,DEV,Tajikistan,Chile,swap,1,10,15,43.9739, Taj,0,0.050589561462402344
-CAP-Tajikistan,DEV,Tajikistan,Russia,swap,1,10,30,212.5107, Taj,0,0.7322444915771484
-CAP-Tajikistan,DEV,Tajikistan,Gabon,swap,1,10,7,16.1643, Taj,0,0.7396945953369141
-CAP-Zambia,DEV,Zambia,Tajikistan,swap,1,13,9,26.9205, English,0,0.42610645294189453
-CAP-Zambia,DEV,Zambia,Saudi Arabia,swap,1,13,282,928.6135, English,0,-0.33789730072021484
-CAP-Zambia,DEV,Zambia,Ukraine,swap,1,13,47,328.6802, English,0,5.74669885635376
-CAP-Andorra,DEV,Andorra,Brunei,swap,1,30,36,279.4718, Catalan,0,9.062596321105957
-CAP-Andorra,DEV,Andorra,South Sudan,swap,1,30,264,688.9531, Catalan,0,4.833028793334961
-CAP-Andorra,DEV,Andorra,Nicaragua,swap,1,30,10,45.5345, Catalan,0,1.127450942993164
-CAP-Denmark,DEV,Denmark,Brunei,swap,1,36,33,235.4985, Danish,0,6.195049285888672
-CAP-Denmark,DEV,Denmark,Brazil,swap,1,36,25,118.2466, Danish,0,6.9745025634765625
-CAP-Denmark,DEV,Denmark,Lebanon,swap,1,36,45,183.2087, Danish,0,2.2972021102905273
-CAP-Bhutan,DEV,Bhutan,Libya,swap,1,43,24,50.553, the,0,2.952012062072754
-CAP-Bhutan,DEV,Bhutan,France,swap,1,43,50,354.2806, the,0,14.193629264831543
-CAP-Bhutan,DEV,Bhutan,Guyana,swap,1,43,24,172.8819, the,0,3.9525985717773438
-CAP-Honduras,DEV,Honduras,Bahrain,swap,2,6,9,83.1739, Spanish,0,0.29540157318115234
-CAP-Honduras,DEV,Honduras,Ukraine,swap,2,6,40,592.9925, Spanish,0,8.58551025390625
-CAP-Honduras,DEV,Honduras,Libya,swap,2,6,15,43.4304, Spanish,0,0.07509803771972656
-CAP-Liechtenstein,DEV,Liechtenstein,Costa Rica,swap,2,35,86,327.5773, German,0,1.0669231414794922
-CAP-Liechtenstein,DEV,Liechtenstein,Denmark,swap,2,35,34,268.3206, Danish,1,14.932219505310059
-CAP-Liechtenstein,DEV,Liechtenstein,Argentina,swap,2,35,26,196.8948, German,0,7.2239532470703125
-CAP-Jordan,DEV,Jordan,Brazil,swap,2,80,24,231.3837, Arabic,0,14.177613258361816
-CAP-Jordan,DEV,Jordan,Antigua and Barbuda,swap,2,80,104,354.8108, Arabic,0,-0.17186546325683594
-CAP-Jordan,DEV,Jordan,Colombia,swap,2,80,23,311.2777, Arabic,0,1.182220458984375
-CAP-Bulgaria,DEV,Bulgaria,Poland,swap,2,7,32,341.0347, Polish,1,10.297779083251953
-CAP-Bulgaria,DEV,Bulgaria,Brunei,swap,2,7,22,395.8045, Bulgarian,0,12.649293899536133
-CAP-Bulgaria,DEV,Bulgaria,Togo,swap,2,7,18,173.7982, Bulgarian,0,2.8788843154907227
-CAP-Norway,DEV,Norway,Croatia,swap,2,14,9,36.1974, Norwegian,0,0.38199615478515625
-CAP-Norway,DEV,Norway,South Sudan,swap,2,14,258,1291.8172, Norwegian,0,3.5252952575683594
-CAP-Norway,DEV,Norway,Portugal,swap,2,14,15,95.7595, Norwegian,0,1.5537691116333008
-CAP-Tajikistan,DEV,Tajikistan,Chile,swap,2,10,15,87.9478, Taj,0,0.126983642578125
-CAP-Tajikistan,DEV,Tajikistan,Russia,swap,2,10,30,425.0214, Taj,0,1.3532066345214844
-CAP-Tajikistan,DEV,Tajikistan,Gabon,swap,2,10,7,32.3286, Taj,0,1.1280498504638672
-CAP-Zambia,DEV,Zambia,Tajikistan,swap,2,13,9,53.8411, English,0,0.6884675025939941
-CAP-Zambia,DEV,Zambia,Saudi Arabia,swap,2,13,282,1857.227, English,0,0.6237421035766602
-CAP-Zambia,DEV,Zambia,Ukraine,swap,2,13,47,657.3604, Ukrainian,1,14.378711223602295
-CAP-Andorra,DEV,Andorra,Brunei,swap,2,30,36,558.9436, Catalan,0,14.571249961853027
-CAP-Andorra,DEV,Andorra,South Sudan,swap,2,30,264,1377.9063, English,1,14.9135103225708
-CAP-Andorra,DEV,Andorra,Nicaragua,swap,2,30,10,91.0689, Catalan,0,1.0966606140136719
-CAP-Denmark,DEV,Denmark,Brunei,swap,2,36,33,470.9969, Danish,0,9.919340133666992
-CAP-Denmark,DEV,Denmark,Brazil,swap,2,36,25,236.4932, Danish,0,11.681443214416504
-CAP-Denmark,DEV,Denmark,Lebanon,swap,2,36,45,366.4175, Danish,0,4.280083656311034
-CAP-Bhutan,DEV,Bhutan,Libya,swap,2,43,24,101.106, the,0,2.760260581970215
-CAP-Bhutan,DEV,Bhutan,France,swap,2,43,50,708.5612, French,1,17.87414836883545
-CAP-Bhutan,DEV,Bhutan,Guyana,swap,2,43,24,345.7639, the,0,4.177402496337891
-CAP-Honduras,DEV,Honduras,Bahrain,swap,4,6,9,166.3477, Spanish,0,0.8694601058959961
-CAP-Honduras,DEV,Honduras,Ukraine,swap,4,6,40,1185.9851, Ukrainian,1,13.060857772827148
-CAP-Honduras,DEV,Honduras,Libya,swap,4,6,15,86.8608, Spanish,0,0.15598297119140625
-CAP-Liechtenstein,DEV,Liechtenstein,Costa Rica,swap,4,35,86,655.1546, German,0,2.0873537063598633
-CAP-Liechtenstein,DEV,Liechtenstein,Denmark,swap,4,35,34,536.6413, Danish,1,18.58052921295166
-CAP-Liechtenstein,DEV,Liechtenstein,Argentina,swap,4,35,26,393.7896, German,0,12.841022491455078
-CAP-Jordan,DEV,Jordan,Brazil,swap,4,80,24,462.7674, Portuguese,1,25.468684196472168
-CAP-Jordan,DEV,Jordan,Antigua and Barbuda,swap,4,80,104,709.6217, Arabic,0,0.7816162109375
-CAP-Jordan,DEV,Jordan,Colombia,swap,4,80,23,622.5554, Arabic,0,2.5419178009033203
-CAP-Bulgaria,DEV,Bulgaria,Poland,swap,4,7,32,682.0695, Polish,1,11.914993286132812
-CAP-Bulgaria,DEV,Bulgaria,Brunei,swap,4,7,22,791.609, Malay,1,19.303478240966797
-CAP-Bulgaria,DEV,Bulgaria,Togo,swap,4,7,18,347.5963, Bulgarian,0,3.9362878799438477
-CAP-Norway,DEV,Norway,Croatia,swap,4,14,9,72.3947, Norwegian,0,0.4568605422973633
-CAP-Norway,DEV,Norway,South Sudan,swap,4,14,258,2583.6344, D,0,9.811381340026855
-CAP-Norway,DEV,Norway,Portugal,swap,4,14,15,191.5189, Norwegian,0,3.0973587036132812
-CAP-Tajikistan,DEV,Tajikistan,Chile,swap,4,10,15,175.8956, Taj,0,0.6535329818725586
-CAP-Tajikistan,DEV,Tajikistan,Russia,swap,4,10,30,850.0427, Taj,0,2.212493896484375
-CAP-Tajikistan,DEV,Tajikistan,Gabon,swap,4,10,7,64.6573, Taj,0,1.9552583694458008
-CAP-Zambia,DEV,Zambia,Tajikistan,swap,4,13,9,107.6822, English,0,1.2353806495666504
-CAP-Zambia,DEV,Zambia,Saudi Arabia,swap,4,13,282,3714.4539, the,0,-1.7140512466430664
-CAP-Zambia,DEV,Zambia,Ukraine,swap,4,13,47,1314.7209, Ukrainian,1,16.85646963119507
-CAP-Andorra,DEV,Andorra,Brunei,swap,4,30,36,1117.8873, Malay,1,22.997929573059082
-CAP-Andorra,DEV,Andorra,South Sudan,swap,4,30,264,2755.8126, D,0,20.555107593536377
-CAP-Andorra,DEV,Andorra,Nicaragua,swap,4,30,10,182.1379, Catalan,0,1.0183544158935547
-CAP-Denmark,DEV,Denmark,Brunei,swap,4,36,33,941.9939, Malay,1,14.954959869384766
-CAP-Denmark,DEV,Denmark,Brazil,swap,4,36,25,472.9864, Portuguese,1,17.60115337371826
-CAP-Denmark,DEV,Denmark,Lebanon,swap,4,36,45,732.835, the,0,9.404881477355957
-CAP-Bhutan,DEV,Bhutan,Libya,swap,4,43,24,202.212, the,0,2.90740966796875
-CAP-Bhutan,DEV,Bhutan,France,swap,4,43,50,1417.1225, the,0,24.50486660003662
-CAP-Bhutan,DEV,Bhutan,Guyana,swap,4,43,24,691.5277, the,0,6.8271026611328125
-CAP-Honduras,DEV,Honduras,Bahrain,swap,8,6,9,332.6954, Spanish,0,2.0321855545043945
-CAP-Honduras,DEV,Honduras,Ukraine,swap,8,6,40,2371.9702, is,0,16.349793434143066
-CAP-Honduras,DEV,Honduras,Libya,swap,8,6,15,173.7216, Spanish,0,0.38974475860595703
-CAP-Liechtenstein,DEV,Liechtenstein,Costa Rica,swap,8,35,86,1310.3092, the,0,7.083879470825194
-CAP-Liechtenstein,DEV,Liechtenstein,Denmark,swap,8,35,34,1073.2826, ,0,24.37238597869873
-CAP-Liechtenstein,DEV,Liechtenstein,Argentina,swap,8,35,26,787.5793, the,0,16.81800365447998
-CAP-Jordan,DEV,Jordan,Brazil,swap,8,80,24,925.5348, the,0,23.392959594726562
-CAP-Jordan,DEV,Jordan,Antigua and Barbuda,swap,8,80,104,1419.2434, Arabic,0,3.945209503173828
-CAP-Jordan,DEV,Jordan,Colombia,swap,8,80,23,1245.1107, the,0,4.344480514526367
-CAP-Bulgaria,DEV,Bulgaria,Poland,swap,8,7,32,1364.139, the,0,13.103947639465332
-CAP-Bulgaria,DEV,Bulgaria,Brunei,swap,8,7,22,1583.218, Malay,1,28.518653869628906
-CAP-Bulgaria,DEV,Bulgaria,Togo,swap,8,7,18,695.1927, the,0,6.936612129211426
-CAP-Norway,DEV,Norway,Croatia,swap,8,14,9,144.7895, Norwegian,0,0.6938543319702148
-CAP-Norway,DEV,Norway,South Sudan,swap,8,14,258,5167.2688, South,0,10.19621753692627
-CAP-Norway,DEV,Norway,Portugal,swap,8,14,15,383.0378, Norwegian,0,6.728432655334473
-CAP-Tajikistan,DEV,Tajikistan,Chile,swap,8,10,15,351.7912, Russian,0,2.616476058959961
-CAP-Tajikistan,DEV,Tajikistan,Russia,swap,8,10,30,1700.0855,",",0,-0.367337703704834
-CAP-Tajikistan,DEV,Tajikistan,Gabon,swap,8,10,7,129.3145, Taj,0,3.771754264831543
-CAP-Zambia,DEV,Zambia,Tajikistan,swap,8,13,9,215.3643, English,0,2.486926555633545
-CAP-Zambia,DEV,Zambia,Saudi Arabia,swap,8,13,282,7428.9078, to,0,-1.106576919555664
-CAP-Zambia,DEV,Zambia,Ukraine,swap,8,13,47,2629.4417, is,0,15.650295734405518
-CAP-Andorra,DEV,Andorra,Brunei,swap,8,30,36,2235.7745, a,0,28.028985500335693
-CAP-Andorra,DEV,Andorra,South Sudan,swap,8,30,264,5511.6251, D,0,20.984317302703857
-CAP-Andorra,DEV,Andorra,Nicaragua,swap,8,30,10,364.2757, Catalan,0,1.6551151275634766
-CAP-Denmark,DEV,Denmark,Brunei,swap,8,36,33,1883.9877, the,0,21.231289863586426
-CAP-Denmark,DEV,Denmark,Brazil,swap,8,36,25,945.9728, the,0,26.582430839538574
-CAP-Denmark,DEV,Denmark,Lebanon,swap,8,36,45,1465.6699, the,0,14.249799728393555
-CAP-Bhutan,DEV,Bhutan,Libya,swap,8,43,24,404.424, English,0,9.002772331237793
-CAP-Bhutan,DEV,Bhutan,France,swap,8,43,50,2834.2449,",",0,17.82832631468773
-CAP-Bhutan,DEV,Bhutan,Guyana,swap,8,43,24,1383.0555, a,0,13.804102897644043
-CAP-Serbia,TEST,Serbia,South Sudan,swap,8,13,252,5153.1922, South,0,16.42751717567444
-CAP-Serbia,TEST,Serbia,South Sudan,random_inject,8,13,252,5153.1922,httphttps,0,-12.957589149475098
-CAP-Serbia,TEST,Serbia,South Sudan,suppress,8,13,252,5153.1922, Serbian,0,0.5443572998046875
-CAP-Serbia,TEST,Serbia,Gabon,swap,8,13,11,198.4126, Serbian,0,2.7345895767211914
-CAP-Serbia,TEST,Serbia,Gabon,random_inject,8,13,11,198.4126, Serbian,0,-0.09382152557373047
-CAP-Serbia,TEST,Serbia,Gabon,suppress,8,13,11,198.4126, Serbian,0,0.2613544464111328
-CAP-Serbia,TEST,Serbia,Trinidad and Tobago,swap,8,13,161,2488.353, the,0,10.25468635559082
-CAP-Serbia,TEST,Serbia,Trinidad and Tobago,random_inject,8,13,161,2488.353, and,0,15.562020957469942
-CAP-Serbia,TEST,Serbia,Trinidad and Tobago,suppress,8,13,161,2488.353, Serbian,0,0.5443572998046875
-CAP-Uruguay,TEST,Uruguay,Saint Kitts and Nevis,swap,8,10,198,2833.0255, the,0,2.6013193130493164
-CAP-Uruguay,TEST,Uruguay,Saint Kitts and Nevis,random_inject,8,10,198,2833.0255,',0,15.92802035808563
-CAP-Uruguay,TEST,Uruguay,Saint Kitts and Nevis,suppress,8,10,198,2833.0255, Spanish,0,-0.10702133178710938
-CAP-Uruguay,TEST,Uruguay,Saint Vincent and the Grenadines,swap,8,10,473,9326.8129, is,0,11.764472961425781
-CAP-Uruguay,TEST,Uruguay,Saint Vincent and the Grenadines,random_inject,8,10,473,9326.8129,__(/*!,0,19.427441835403442
-CAP-Uruguay,TEST,Uruguay,Saint Vincent and the Grenadines,suppress,8,10,473,9326.8129, Spanish,0,-0.10702323913574219
-CAP-Uruguay,TEST,Uruguay,Mozambique,swap,8,10,8,87.9031, Spanish,0,0.29395294189453125
-CAP-Uruguay,TEST,Uruguay,Mozambique,random_inject,8,10,8,87.9031, Spanish,0,0.896331787109375
-CAP-Uruguay,TEST,Uruguay,Mozambique,suppress,8,10,8,87.9031, Spanish,0,0.06375694274902344
-CAP-Qatar,TEST,Qatar,Cambodia,swap,8,38,13,877.5693, the,0,9.788804054260254
-CAP-Qatar,TEST,Qatar,Cambodia,random_inject,8,38,13,877.5693, is,0,7.452026367187499
-CAP-Qatar,TEST,Qatar,Cambodia,suppress,8,38,13,877.5693, Arabic,0,0.8145179748535156
-CAP-Qatar,TEST,Qatar,Cuba,swap,8,38,31,1027.4703, the,0,11.779467582702637
-CAP-Qatar,TEST,Qatar,Cuba,random_inject,8,38,31,1027.4703, ,0,20.16384592652321
-CAP-Qatar,TEST,Qatar,Cuba,suppress,8,38,31,1027.4703, Arabic,0,-0.7845687866210938
-CAP-Qatar,TEST,Qatar,Grenada,swap,8,38,20,667.259, Arabic,0,-1.3725585937500004
-CAP-Qatar,TEST,Qatar,Grenada,random_inject,8,38,20,667.259, the,0,2.0056982040405273
-CAP-Qatar,TEST,Qatar,Grenada,suppress,8,38,20,667.259, Arabic,0,-0.23043251037597656
-CAP-Portugal,TEST,Portugal,Belize,swap,8,18,10,500.6458, Portuguese,0,1.4827079772949219
-CAP-Portugal,TEST,Portugal,Belize,random_inject,8,18,10,500.6458, the,0,6.87504243850708
-CAP-Portugal,TEST,Portugal,Belize,suppress,8,18,10,500.6458, Portuguese,0,-0.46125221252441406
-CAP-Portugal,TEST,Portugal,Syria,swap,8,18,39,867.0975, Portuguese,0,7.625165939331055
-CAP-Portugal,TEST,Portugal,Syria,random_inject,8,18,39,867.0975," """,0,11.691374063491821
-CAP-Portugal,TEST,Portugal,Syria,suppress,8,18,39,867.0975, Portuguese,0,0.8817882537841797
-CAP-Portugal,TEST,Portugal,Andorra,swap,8,18,25,978.5516, the,0,4.51129150390625
-CAP-Portugal,TEST,Portugal,Andorra,random_inject,8,18,25,978.5516, ,0,-1.7714476585388201
-CAP-Portugal,TEST,Portugal,Andorra,suppress,8,18,25,978.5516, Portuguese,0,2.3021907806396484
-CAP-Colombia,TEST,Colombia,Mongolia,swap,8,26,16,990.4231, the,0,32.354552924633026
-CAP-Colombia,TEST,Colombia,Mongolia,random_inject,8,26,16,990.4231, the,0,23.800656974315643
-CAP-Colombia,TEST,Colombia,Mongolia,suppress,8,26,16,990.4231, Spanish,0,1.5864688754081726
-CAP-Colombia,TEST,Colombia,South Sudan,swap,8,26,259,5321.6421, South,0,16.323818922042847
-CAP-Colombia,TEST,Colombia,South Sudan,random_inject,8,26,259,5321.6421, connecting,0,-2.475165128707884
-CAP-Colombia,TEST,Colombia,South Sudan,suppress,8,26,259,5321.6421, Spanish,0,-0.4949359893798828
-CAP-Colombia,TEST,Colombia,Barbados,swap,8,26,10,329.9344, Portuguese,0,1.46160888671875
-CAP-Colombia,TEST,Colombia,Barbados,random_inject,8,26,10,329.9344, Japanese,0,6.336965560913086
-CAP-Colombia,TEST,Colombia,Barbados,suppress,8,26,10,329.9344, Spanish,0,-0.4949359893798828
-CAP-Saint Lucia,TEST,Saint Lucia,Suriname,swap,8,168,19,988.6348, Sur,0,13.279275894165039
-CAP-Saint Lucia,TEST,Saint Lucia,Suriname,random_inject,8,168,19,988.6348, “,0,5.510184705257416
-CAP-Saint Lucia,TEST,Saint Lucia,Suriname,suppress,8,168,19,988.6348, English,0,0.015344619750976562
-CAP-Saint Lucia,TEST,Saint Lucia,Brunei,swap,8,168,32,1794.6983, a,0,11.920742988586426
-CAP-Saint Lucia,TEST,Saint Lucia,Brunei,random_inject,8,168,32,1794.6983, the,0,10.764405250549316
-CAP-Saint Lucia,TEST,Saint Lucia,Brunei,suppress,8,168,32,1794.6983, English,0,0.730290412902832
-CAP-Saint Lucia,TEST,Saint Lucia,Lebanon,swap,8,168,43,994.0955, the,0,7.8313398361206055
-CAP-Saint Lucia,TEST,Saint Lucia,Lebanon,random_inject,8,168,43,994.0955, the,0,5.513016700744629
-CAP-Saint Lucia,TEST,Saint Lucia,Lebanon,suppress,8,168,43,994.0955, English,0,-0.48859214782714844
-CAP-Angola,TEST,Angola,Hungary,swap,8,18,13,1115.0176, that,0,34.44962978363037
-CAP-Angola,TEST,Angola,Hungary,random_inject,8,18,13,1115.0176, the,0,7.352665901184082
-CAP-Angola,TEST,Angola,Hungary,suppress,8,18,13,1115.0176, Portuguese,0,-0.535459041595459
-CAP-Angola,TEST,Angola,Costa Rica,swap,8,18,85,1141.3711, English,0,7.168022155761719
-CAP-Angola,TEST,Angola,Costa Rica,random_inject,8,18,85,1141.3711,ly,0,13.0986967086792
-CAP-Angola,TEST,Angola,Costa Rica,suppress,8,18,85,1141.3711, Portuguese,0,-0.06031036376953125
-CAP-Angola,TEST,Angola,Turkmenistan,swap,8,18,13,324.899, Portuguese,0,4.249536514282227
-CAP-Angola,TEST,Angola,Turkmenistan,random_inject,8,18,13,324.899, Portuguese,0,0.5305681228637695
-CAP-Angola,TEST,Angola,Turkmenistan,suppress,8,18,13,324.899, Portuguese,0,-0.0003452301025390625
-CAP-Gabon,TEST,Gabon,Denmark,swap,8,12,33,1041.0916, the,0,27.75894522666931
-CAP-Gabon,TEST,Gabon,Denmark,random_inject,8,12,33,1041.0916, flag,0,13.425423383712769
-CAP-Gabon,TEST,Gabon,Denmark,suppress,8,12,33,1041.0916, French,0,0.08985328674316406
-CAP-Gabon,TEST,Gabon,Mauritania,swap,8,12,16,203.5389, French,0,0.49332523345947266
-CAP-Gabon,TEST,Gabon,Mauritania,random_inject,8,12,16,203.5389, French,0,1.810683250427246
-CAP-Gabon,TEST,Gabon,Mauritania,suppress,8,12,16,203.5389, French,0,0.02368450164794922
-CAP-Gabon,TEST,Gabon,South Sudan,swap,8,12,252,5153.1922, Sud,0,7.930122375488281
-CAP-Gabon,TEST,Gabon,South Sudan,random_inject,8,12,252,5153.1922,<bos>,0,7.7896869182586705
-CAP-Gabon,TEST,Gabon,South Sudan,suppress,8,12,252,5153.1922, French,0,0.03462409973144531
-CAP-Belize,TEST,Belize,Sweden,swap,8,17,18,1109.2515, Swedish,1,27.904427766799927
-CAP-Belize,TEST,Belize,Sweden,random_inject,8,17,18,1109.2515,..,0,-1.4258677959442139
-CAP-Belize,TEST,Belize,Sweden,suppress,8,17,18,1109.2515, English,0,-1.0538854598999023
-CAP-Belize,TEST,Belize,Cambodia,swap,8,17,13,877.5693, the,0,7.533010482788086
-CAP-Belize,TEST,Belize,Cambodia,random_inject,8,17,13,877.5693, the,0,-0.043466567993162286
-CAP-Belize,TEST,Belize,Cambodia,suppress,8,17,13,877.5693, English,0,-0.3317384719848633
-CAP-Belize,TEST,Belize,Nicaragua,swap,8,17,10,364.2757, Spanish,1,2.8950748443603516
-CAP-Belize,TEST,Belize,Nicaragua,random_inject,8,17,10,364.2757, English,0,0.6122379302978516
-CAP-Belize,TEST,Belize,Nicaragua,suppress,8,17,10,364.2757, English,0,-0.9436874389648438
-CAP-Brunei,TEST,Brunei,Barbados,swap,8,66,10,329.9344, English,1,3.9385013580322266
-CAP-Brunei,TEST,Brunei,Barbados,random_inject,8,66,10,329.9344, the,0,1.0143585205078125
-CAP-Brunei,TEST,Brunei,Barbados,suppress,8,66,10,329.9344, Malay,0,1.4221916198730469
-CAP-Brunei,TEST,Brunei,Zambia,swap,8,66,13,612.1588, English,1,8.166126251220703
-CAP-Brunei,TEST,Brunei,Zambia,random_inject,8,66,13,612.1588, ,0,3.039884567260742
-CAP-Brunei,TEST,Brunei,Zambia,suppress,8,66,13,612.1588, Malay,0,1.4221878051757812
-CAP-Brunei,TEST,Brunei,Angola,swap,8,66,18,618.7993, the,0,5.33895492553711
-CAP-Brunei,TEST,Brunei,Angola,random_inject,8,66,18,618.7993, the,0,10.212163925170898
+CAP-Libya,DEV,Libya,Grenada,swap,1,24,15,21.7765, Arabic,0,-0.1485881805419922
+CAP-Libya,DEV,Libya,Brazil,swap,1,24,21,76.1229, Arabic,0,0.6508955955505371
+CAP-Libya,DEV,Libya,Liberia,swap,1,24,9,13.7912, Arabic,0,-0.026529312133789062
+CAP-France,DEV,France,Libya,swap,1,56,23,48.2625, French,0,0.19073867797851562
+CAP-France,DEV,France,United States,swap,1,56,168,1290.9106, English,1,6.815303802490234
+CAP-France,DEV,France,Venezuela,swap,1,56,12,39.8866, French,0,3.305706024169922
+CAP-Nicaragua,DEV,Nicaragua,Mongolia,swap,1,9,6,34.6384, Spanish,0,3.3559374809265137
+CAP-Nicaragua,DEV,Nicaragua,Romania,swap,1,9,13,106.6187, Spanish,0,2.5023727416992188
+CAP-Nicaragua,DEV,Nicaragua,Saint Vincent and the Grenadines,swap,1,9,473,1165.8516, Spanish,0,0.36539649963378906
+CAP-Saint Lucia,DEV,Saint Lucia,Estonia,swap,1,168,14,83.3239, English,0,7.046968936920168
+CAP-Saint Lucia,DEV,Saint Lucia,Suriname,swap,1,168,19,123.5794, English,0,5.521629333496094
+CAP-Saint Lucia,DEV,Saint Lucia,Uzbekistan,swap,1,168,7,13.9802, English,0,-0.4116864465177059
+CAP-Oman,DEV,Oman,Belize,swap,1,21,12,89.5716, Arabic,0,-1.2363643646240234
+CAP-Oman,DEV,Oman,Cambodia,swap,1,21,12,96.5499, Arabic,0,2.739433765411377
+CAP-Oman,DEV,Oman,Cuba,swap,1,21,31,128.4338, Arabic,0,1.599167823791504
+CAP-Jordan,DEV,Jordan,Colombia,swap,1,80,23,155.6388, Arabic,0,0.8785505294799805
+CAP-Jordan,DEV,Jordan,Gabon,swap,1,80,11,24.8016, Arabic,0,0.4148368835449219
+CAP-Jordan,DEV,Jordan,Uzbekistan,swap,1,80,7,13.9802, Arabic,0,2.733837127685547
+CAP-Ukraine,DEV,Ukraine,El Salvador,swap,1,53,159,361.5456, Ukrainian,0,1.1782903671264648
+CAP-Ukraine,DEV,Ukraine,Argentina,swap,1,53,26,96.4669, Ukrainian,0,3.185270309448242
+CAP-Ukraine,DEV,Ukraine,Trinidad and Tobago,swap,1,53,161,311.0441, Russian,0,1.2542057037353516
+CAP-Ghana,DEV,Ghana,Romania,swap,1,33,18,225.5777, English,0,11.037443161010742
+CAP-Ghana,DEV,Ghana,Guinea,swap,1,33,92,514.4394, English,0,2.2381839752197266
+CAP-Ghana,DEV,Ghana,Lebanon,swap,1,33,42,177.7808, English,0,3.989225387573242
+CAP-Mauritania,DEV,Mauritania,Belize,swap,1,19,11,52.7337, Arabic,0,-0.18384933471679776
+CAP-Mauritania,DEV,Mauritania,Sweden,swap,1,19,13,49.9115, Arabic,0,1.0494873523712158
+CAP-Mauritania,DEV,Mauritania,Slovakia,swap,1,19,9,25.3049, Arabic,0,0.10032761096954346
+CAP-Gabon,DEV,Gabon,Denmark,swap,1,12,33,130.1364, French,0,7.656073331832886
+CAP-Gabon,DEV,Gabon,Mauritania,swap,1,12,16,25.4424, French,0,0.10482120513916016
+CAP-Gabon,DEV,Gabon,South Sudan,swap,1,12,252,644.149, French,0,1.7619132995605469
+CAP-Libya,DEV,Libya,Grenada,swap,2,24,15,43.5529, Arabic,0,-0.1787090301513672
+CAP-Libya,DEV,Libya,Brazil,swap,2,24,21,152.2459, Arabic,0,1.4951748847961426
+CAP-Libya,DEV,Libya,Liberia,swap,2,24,9,27.5823, Arabic,0,0.073516845703125
+CAP-France,DEV,France,Libya,swap,2,56,23,96.525, French,0,0.27516937255859375
+CAP-France,DEV,France,United States,swap,2,56,168,2581.8212, English,1,9.241292953491211
+CAP-France,DEV,France,Venezuela,swap,2,56,12,79.7732, French,0,3.3829689025878906
+CAP-Nicaragua,DEV,Nicaragua,Mongolia,swap,2,9,6,69.2768, Spanish,0,6.866048812866211
+CAP-Nicaragua,DEV,Nicaragua,Romania,swap,2,9,13,213.2374, Spanish,0,4.678915023803711
+CAP-Nicaragua,DEV,Nicaragua,Saint Vincent and the Grenadines,swap,2,9,473,2331.7032, Spanish,0,1.0204734802246094
+CAP-Saint Lucia,DEV,Saint Lucia,Estonia,swap,2,168,14,166.6477, English,0,12.321610927581787
+CAP-Saint Lucia,DEV,Saint Lucia,Suriname,swap,2,168,19,247.1587, English,0,9.712345123291016
+CAP-Saint Lucia,DEV,Saint Lucia,Uzbekistan,swap,2,168,7,27.9604, English,0,-0.4390207789838314
+CAP-Oman,DEV,Oman,Belize,swap,2,21,12,179.1431, Arabic,0,-1.5931682586669922
+CAP-Oman,DEV,Oman,Cambodia,swap,2,21,12,193.0998, Arabic,0,4.549414157867432
+CAP-Oman,DEV,Oman,Cuba,swap,2,21,31,256.8676, Arabic,0,3.619770050048828
+CAP-Jordan,DEV,Jordan,Colombia,swap,2,80,23,311.2777, Arabic,0,1.1822195053100586
+CAP-Jordan,DEV,Jordan,Gabon,swap,2,80,11,49.6032, Arabic,0,0.5973806381225586
+CAP-Jordan,DEV,Jordan,Uzbekistan,swap,2,80,7,27.9604, Arabic,0,2.7515907287597656
+CAP-Ukraine,DEV,Ukraine,El Salvador,swap,2,53,159,723.0913, Ukrainian,0,1.7985506057739258
+CAP-Ukraine,DEV,Ukraine,Argentina,swap,2,53,26,192.9339, Ukrainian,0,5.681281089782715
+CAP-Ukraine,DEV,Ukraine,Trinidad and Tobago,swap,2,53,161,622.0883, Russian,0,1.6052055358886719
+CAP-Ghana,DEV,Ghana,Romania,swap,2,33,18,451.1553, Romanian,1,19.264352798461914
+CAP-Ghana,DEV,Ghana,Guinea,swap,2,33,92,1028.8789, English,0,3.106151580810547
+CAP-Ghana,DEV,Ghana,Lebanon,swap,2,33,42,355.5616, the,0,6.952423095703125
+CAP-Mauritania,DEV,Mauritania,Belize,swap,2,19,11,105.4675, Arabic,0,-0.09640121459960938
+CAP-Mauritania,DEV,Mauritania,Sweden,swap,2,19,13,99.8229, Arabic,0,2.101634979248047
+CAP-Mauritania,DEV,Mauritania,Slovakia,swap,2,19,9,50.6097, Arabic,0,0.4615342617034912
+CAP-Gabon,DEV,Gabon,Denmark,swap,2,12,33,260.2729, French,0,15.400936841964722
+CAP-Gabon,DEV,Gabon,Mauritania,swap,2,12,16,50.8847, French,0,0.1893463134765625
+CAP-Gabon,DEV,Gabon,South Sudan,swap,2,12,252,1288.298, D,0,7.267461776733398
+CAP-Libya,DEV,Libya,Grenada,swap,4,24,15,87.1058, Arabic,0,-0.19237136840820312
+CAP-Libya,DEV,Libya,Brazil,swap,4,24,21,304.4917, Arabic,0,4.770420551300049
+CAP-Libya,DEV,Libya,Liberia,swap,4,24,9,55.1646, Arabic,0,0.31082916259765625
+CAP-France,DEV,France,Libya,swap,4,56,23,193.05, French,0,0.7958011627197266
+CAP-France,DEV,France,United States,swap,4,56,168,5163.6424, is,0,12.9912109375
+CAP-France,DEV,France,Venezuela,swap,4,56,12,159.5465, French,0,3.560619354248047
+CAP-Nicaragua,DEV,Nicaragua,Mongolia,swap,4,9,6,138.5536, Spanish,0,13.17233943939209
+CAP-Nicaragua,DEV,Nicaragua,Romania,swap,4,9,13,426.4748, Spanish,0,7.655548095703125
+CAP-Nicaragua,DEV,Nicaragua,Saint Vincent and the Grenadines,swap,4,9,473,4663.4064, is,0,4.166938781738281
+CAP-Saint Lucia,DEV,Saint Lucia,Estonia,swap,4,168,14,333.2955, English,0,19.462266445159912
+CAP-Saint Lucia,DEV,Saint Lucia,Suriname,swap,4,168,19,494.3174, Dutch,1,12.926918029785156
+CAP-Saint Lucia,DEV,Saint Lucia,Uzbekistan,swap,4,168,7,55.9208, English,0,-0.4330347441136837
+CAP-Oman,DEV,Oman,Belize,swap,4,21,12,358.2862, Arabic,0,-1.9680805206298828
+CAP-Oman,DEV,Oman,Cambodia,swap,4,21,12,386.1996, Arabic,0,6.770905017852783
+CAP-Oman,DEV,Oman,Cuba,swap,4,21,31,513.7351, Arabic,0,8.705204963684082
+CAP-Jordan,DEV,Jordan,Colombia,swap,4,80,23,622.5554, Arabic,0,2.541912078857422
+CAP-Jordan,DEV,Jordan,Gabon,swap,4,80,11,99.2063, Arabic,0,1.0013437271118164
+CAP-Jordan,DEV,Jordan,Uzbekistan,swap,4,80,7,55.9208, Arabic,0,2.81591796875
+CAP-Ukraine,DEV,Ukraine,El Salvador,swap,4,53,159,1446.1826, Ukrainian,0,7.755600929260254
+CAP-Ukraine,DEV,Ukraine,Argentina,swap,4,53,26,385.8677, Ukrainian,0,10.134282112121582
+CAP-Ukraine,DEV,Ukraine,Trinidad and Tobago,swap,4,53,161,1244.1765, Russian,0,2.692119598388672
+CAP-Ghana,DEV,Ghana,Romania,swap,4,33,18,902.3106, Romanian,1,23.77621841430664
+CAP-Ghana,DEV,Ghana,Guinea,swap,4,33,92,2057.7577,-,0,3.940448760986328
+CAP-Ghana,DEV,Ghana,Lebanon,swap,4,33,42,711.1233, the,0,11.479448318481445
+CAP-Mauritania,DEV,Mauritania,Belize,swap,4,19,11,210.935, the,0,0.3860940933227539
+CAP-Mauritania,DEV,Mauritania,Sweden,swap,4,19,13,199.6459, Arabic,0,4.333457946777344
+CAP-Mauritania,DEV,Mauritania,Slovakia,swap,4,19,9,101.2195, Arabic,0,1.7372739911079407
+CAP-Gabon,DEV,Gabon,Denmark,swap,4,12,33,520.5458, Danish,1,22.66702151298523
+CAP-Gabon,DEV,Gabon,Mauritania,swap,4,12,16,101.7695, French,0,0.33645057678222656
+CAP-Gabon,DEV,Gabon,South Sudan,swap,4,12,252,2576.5961, D,0,11.759106636047363
+CAP-Libya,DEV,Libya,Grenada,swap,8,24,15,174.2116, Arabic,0,0.0025501251220703125
+CAP-Libya,DEV,Libya,Brazil,swap,8,24,21,608.9835, the,0,16.755662441253662
+CAP-Libya,DEV,Libya,Liberia,swap,8,24,9,110.3293, Arabic,0,0.7676887512207031
+CAP-France,DEV,France,Libya,swap,8,56,23,386.1, French,0,3.4728126525878906
+CAP-France,DEV,France,United States,swap,8,56,168,10327.2847, and,0,18.479273319244385
+CAP-France,DEV,France,Venezuela,swap,8,56,12,319.093, French,0,4.07438850402832
+CAP-Nicaragua,DEV,Nicaragua,Mongolia,swap,8,9,6,277.1071, the,0,22.017048835754395
+CAP-Nicaragua,DEV,Nicaragua,Romania,swap,8,9,13,852.9496, the,0,11.185028076171875
+CAP-Nicaragua,DEV,Nicaragua,Saint Vincent and the Grenadines,swap,8,9,473,9326.8129, is,0,10.175126075744629
+CAP-Saint Lucia,DEV,Saint Lucia,Estonia,swap,8,168,14,666.5909, Estonian,1,26.26506280899048
+CAP-Saint Lucia,DEV,Saint Lucia,Suriname,swap,8,168,19,988.6348, Sur,0,13.279273986816406
+CAP-Saint Lucia,DEV,Saint Lucia,Uzbekistan,swap,8,168,7,111.8415, English,0,0.014107953757047653
+CAP-Oman,DEV,Oman,Belize,swap,8,21,12,716.5724, not,0,-0.5853881835937509
+CAP-Oman,DEV,Oman,Cambodia,swap,8,21,12,772.3991, the,0,8.111291408538818
+CAP-Oman,DEV,Oman,Cuba,swap,8,21,31,1027.4703, the,0,12.194634437561035
+CAP-Jordan,DEV,Jordan,Colombia,swap,8,80,23,1245.1107, the,0,4.344478607177735
+CAP-Jordan,DEV,Jordan,Gabon,swap,8,80,11,198.4126, Arabic,0,2.056314468383789
+CAP-Jordan,DEV,Jordan,Uzbekistan,swap,8,80,7,111.8415, Arabic,0,3.138082504272461
+CAP-Ukraine,DEV,Ukraine,El Salvador,swap,8,53,159,2892.3652, a,0,8.984189987182617
+CAP-Ukraine,DEV,Ukraine,Argentina,swap,8,53,26,771.7355, Spanish,1,12.162806510925293
+CAP-Ukraine,DEV,Ukraine,Trinidad and Tobago,swap,8,53,161,2488.353, the,0,5.848211288452148
+CAP-Ghana,DEV,Ghana,Romania,swap,8,33,18,1804.6213, also,0,31.641090869903564
+CAP-Ghana,DEV,Ghana,Guinea,swap,8,33,92,4115.5155,-,0,0.34529876708984375
+CAP-Ghana,DEV,Ghana,Lebanon,swap,8,33,42,1422.2465, the,0,13.679370880126955
+CAP-Mauritania,DEV,Mauritania,Belize,swap,8,19,11,421.87, the,0,3.1340847015380855
+CAP-Mauritania,DEV,Mauritania,Sweden,swap,8,19,13,399.2918, Arabic,0,9.403046607971191
+CAP-Mauritania,DEV,Mauritania,Slovakia,swap,8,19,9,202.439, Arabic,0,9.493041038513184
+CAP-Gabon,DEV,Gabon,Denmark,swap,8,12,33,1041.0916, the,0,27.758947134017944
+CAP-Gabon,DEV,Gabon,Mauritania,swap,8,12,16,203.5389, French,0,0.49332714080810547
+CAP-Gabon,DEV,Gabon,South Sudan,swap,8,12,252,5153.1922, Sud,0,7.9301247596740705
+CAP-Sweden,TEST,Sweden,South Korea,swap,8,23,33,1082.5767, English,0,6.704721450805665
+CAP-Sweden,TEST,Sweden,South Korea,random_inject,8,23,33,1082.5767, is,0,4.99514102935791
+CAP-Sweden,TEST,Sweden,South Korea,suppress,8,23,33,1082.5767, Swedish,0,1.6366443634033203
+CAP-Sweden,TEST,Sweden,Poland,swap,8,23,42,1851.1814," """,0,21.65233612060547
+CAP-Sweden,TEST,Sweden,Poland,random_inject,8,23,42,1851.1814, is,0,16.196510314941406
+CAP-Sweden,TEST,Sweden,Poland,suppress,8,23,42,1851.1814, Swedish,0,3.5079641342163086
+CAP-Sweden,TEST,Sweden,Brunei,swap,8,23,41,2807.4121, the,0,23.91414976119995
+CAP-Sweden,TEST,Sweden,Brunei,random_inject,8,23,41,2807.4121, has,0,18.958160877227783
+CAP-Sweden,TEST,Sweden,Brunei,suppress,8,23,41,2807.4121, Swedish,0,2.326235771179199
+CAP-North Korea,TEST,North Korea,Iceland,swap,8,187,29,1457.7232, Reykjav,0,39.52934169769287
+CAP-North Korea,TEST,North Korea,Iceland,random_inject,8,187,29,1457.7232, Asia,0,0.4101487994193995
+CAP-North Korea,TEST,North Korea,Iceland,suppress,8,187,29,1457.7232, Korean,0,-0.9039115905761719
+CAP-North Korea,TEST,North Korea,Portugal,swap,8,187,16,782.0539, actually,0,8.364846229553223
+CAP-North Korea,TEST,North Korea,Portugal,random_inject,8,187,16,782.0539, being,0,14.969025611877441
+CAP-North Korea,TEST,North Korea,Portugal,suppress,8,187,16,782.0539, Korean,0,-0.4006505012512207
+CAP-North Korea,TEST,North Korea,Saint Vincent and the Grenadines,swap,8,187,501,9708.9185, is,0,15.83285903930664
+CAP-North Korea,TEST,North Korea,Saint Vincent and the Grenadines,random_inject,8,187,501,9708.9185,Autoritní,0,8.919633865356445
+CAP-North Korea,TEST,North Korea,Saint Vincent and the Grenadines,suppress,8,187,501,9708.9185, Korean,0,1.3755607604980469
+CAP-Bhutan,TEST,Bhutan,Guyana,swap,8,43,24,1383.0555, a,0,13.804099082946777
+CAP-Bhutan,TEST,Bhutan,Guyana,random_inject,8,43,24,1383.0555, eastern,0,12.834650039672852
+CAP-Bhutan,TEST,Bhutan,Guyana,suppress,8,43,24,1383.0555, the,0,4.4161224365234375
+CAP-Bhutan,TEST,Bhutan,Angola,swap,8,43,18,618.7993, called,0,7.79109787940979
+CAP-Bhutan,TEST,Bhutan,Angola,random_inject,8,43,18,618.7993, the,0,16.04417657852173
+CAP-Bhutan,TEST,Bhutan,Angola,suppress,8,43,18,618.7993, the,0,4.595702648162842
+CAP-Bhutan,TEST,Bhutan,Iceland,swap,8,43,28,1328.3409, Hv,0,38.10472297668457
+CAP-Bhutan,TEST,Bhutan,Iceland,random_inject,8,43,28,1328.3409,anthus,0,18.072968006134033
+CAP-Bhutan,TEST,Bhutan,Iceland,suppress,8,43,28,1328.3409, the,0,5.400457382202148
+CAP-Andorra,TEST,Andorra,Slovakia,swap,8,30,11,510.1533, Czech,0,23.220420837402344
+CAP-Andorra,TEST,Andorra,Slovakia,random_inject,8,30,11,510.1533, was,0,3.742077350616455
+CAP-Andorra,TEST,Andorra,Slovakia,suppress,8,30,11,510.1533, Catalan,0,1.622847080230713
+CAP-Andorra,TEST,Andorra,Italy,swap,8,30,37,2492.9675,",",0,35.35733222961426
+CAP-Andorra,TEST,Andorra,Italy,random_inject,8,30,37,2492.9675, itſelf,0,4.0464677810668945
+CAP-Andorra,TEST,Andorra,Italy,suppress,8,30,37,2492.9675, Catalan,0,1.3930997848510742
+CAP-Andorra,TEST,Andorra,Sierra Leone,swap,8,30,193,2821.9994, the,0,11.87653923034668
+CAP-Andorra,TEST,Andorra,Sierra Leone,random_inject,8,30,193,2821.9994,<bos>,0,24.7853422164917
+CAP-Andorra,TEST,Andorra,Sierra Leone,suppress,8,30,193,2821.9994, Catalan,0,0.5877475738525391
+CAP-Bulgaria,TEST,Bulgaria,Lebanon,swap,8,7,36,1127.5639, the,0,13.409046173095703
+CAP-Bulgaria,TEST,Bulgaria,Lebanon,random_inject,8,7,36,1127.5639, is,0,12.063589096069336
+CAP-Bulgaria,TEST,Bulgaria,Lebanon,suppress,8,7,36,1127.5639, Bulgarian,0,2.022319793701172
+CAP-Bulgaria,TEST,Bulgaria,Syria,swap,8,7,36,1097.741, the,0,16.191107749938965
+CAP-Bulgaria,TEST,Bulgaria,Syria,random_inject,8,7,36,1097.741, a,0,8.013540267944336
+CAP-Bulgaria,TEST,Bulgaria,Syria,suppress,8,7,36,1097.741, Bulgarian,0,2.022319793701172
+CAP-Bulgaria,TEST,Bulgaria,Guinea,swap,8,7,62,1807.592,-,0,8.498503684997559
+CAP-Bulgaria,TEST,Bulgaria,Guinea,random_inject,8,7,62,1807.592,",",0,11.684751987457275
+CAP-Bulgaria,TEST,Bulgaria,Guinea,suppress,8,7,62,1807.592, Bulgarian,0,2.2003068923950195
+CAP-Ecuador,TEST,Ecuador,Tunisia,swap,8,18,8,143.7871, Spanish,0,0.19417190551757812
+CAP-Ecuador,TEST,Ecuador,Tunisia,random_inject,8,18,8,143.7871, Spanish,0,0.3433418273925781
+CAP-Ecuador,TEST,Ecuador,Tunisia,suppress,8,18,8,143.7871, Spanish,0,-0.2562227249145508
+CAP-Ecuador,TEST,Ecuador,Cambodia,swap,8,18,10,699.5374, the,0,10.87033462524414
+CAP-Ecuador,TEST,Ecuador,Cambodia,random_inject,8,18,10,699.5374, Russian,0,-2.5963029861450195
+CAP-Ecuador,TEST,Ecuador,Cambodia,suppress,8,18,10,699.5374, Spanish,0,0.24814081192016602
+CAP-Ecuador,TEST,Ecuador,Guinea,swap,8,18,73,2518.3534,-,0,1.8109378814697266
+CAP-Ecuador,TEST,Ecuador,Guinea,random_inject,8,18,73,2518.3534, Meanwhile,0,5.308760643005371
+CAP-Ecuador,TEST,Ecuador,Guinea,suppress,8,18,73,2518.3534, Spanish,0,-0.2934274673461914
+CAP-Brazil,TEST,Brazil,Jamaica,swap,8,29,17,871.2211, Spanish,0,9.38824462890625
+CAP-Brazil,TEST,Brazil,Jamaica,random_inject,8,29,17,871.2211, in,0,6.1179418712854385
+CAP-Brazil,TEST,Brazil,Jamaica,suppress,8,29,17,871.2211, Portuguese,0,0.4046287536621094
+CAP-Brazil,TEST,Brazil,France,swap,8,29,49,2582.0424, ,0,30.662071704864502
+CAP-Brazil,TEST,Brazil,France,random_inject,8,29,49,2582.0424, since,0,6.503784656524658
+CAP-Brazil,TEST,Brazil,France,suppress,8,29,49,2582.0424, Portuguese,0,1.010462760925293
+CAP-Brazil,TEST,Brazil,Canada,swap,8,29,55,3619.6088,",",0,9.040941715240479
+CAP-Brazil,TEST,Brazil,Canada,random_inject,8,29,55,3619.6088,LogFactory,0,7.2806291580200195
+CAP-Brazil,TEST,Brazil,Canada,suppress,8,29,55,3619.6088, Portuguese,0,0.404632568359375
+CAP-Liechtenstein,TEST,Liechtenstein,Brunei,swap,8,35,32,1747.4649, the,0,28.376165866851807
+CAP-Liechtenstein,TEST,Liechtenstein,Brunei,random_inject,8,35,32,1747.4649, is,0,8.961289882659912
+CAP-Liechtenstein,TEST,Liechtenstein,Brunei,suppress,8,35,32,1747.4649, German,0,0.3016548156738281
+CAP-Liechtenstein,TEST,Liechtenstein,Suriname,swap,8,35,20,1143.1445, Dutch,1,21.51083469390869
+CAP-Liechtenstein,TEST,Liechtenstein,Suriname,random_inject,8,35,20,1143.1445, the,0,10.198813438415527
+CAP-Liechtenstein,TEST,Liechtenstein,Suriname,suppress,8,35,20,1143.1445, German,0,1.3170785903930664
+CAP-Liechtenstein,TEST,Liechtenstein,North Korea,swap,8,35,184,4959.8729, the,0,18.209386348724365
+CAP-Liechtenstein,TEST,Liechtenstein,North Korea,random_inject,8,35,184,4959.8729, K,0,13.718037605285645
+CAP-Liechtenstein,TEST,Liechtenstein,North Korea,suppress,8,35,184,4959.8729, German,0,1.503035545349121
+CAP-Italy,TEST,Italy,Poland,swap,8,46,43,1921.269, the,0,25.37336826324463
+CAP-Italy,TEST,Italy,Poland,random_inject,8,46,43,1921.269,",",0,8.931861639022827
+CAP-Italy,TEST,Italy,Poland,suppress,8,46,43,1921.269, Italian,0,6.393956184387207
+CAP-Italy,TEST,Italy,Sierra Leone,swap,8,46,193,2821.9994, the,0,9.94589614868164
+CAP-Italy,TEST,Italy,Sierra Leone,random_inject,8,46,193,2821.9994, and,0,6.0258636474609375
+CAP-Italy,TEST,Italy,Sierra Leone,suppress,8,46,193,2821.9994, Italian,0,2.956298828125
+CAP-Italy,TEST,Italy,Honduras,swap,8,46,6,146.3013, Italian,0,5.049535751342773
+CAP-Italy,TEST,Italy,Honduras,random_inject,8,46,6,146.3013, Italian,0,5.324804306030273
+CAP-Italy,TEST,Italy,Honduras,suppress,8,46,6,146.3013, Italian,0,5.506128311157227
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Togo,swap,8,226,19,590.6377, English,0,-0.5325784683227539
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Togo,random_inject,8,226,19,590.6377, in,0,0.4915456771850586
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Togo,suppress,8,226,19,590.6377, English,0,0.26788330078125
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Albania,swap,8,226,23,1569.2872," """,0,16.15388822555542
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Albania,random_inject,8,226,23,1569.2872, are,0,4.175550460815428
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Albania,suppress,8,226,23,1569.2872, English,0,0.0025911331176757812
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Austria,swap,8,226,14,1020.7306, ,0,11.346569061279297
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Austria,random_inject,8,226,14,1020.7306, based,0,6.7462263107299805
+CAP-Saint Kitts and Nevis,TEST,Saint Kitts and Nevis,Austria,suppress,8,226,14,1020.7306, English,0,0.3425426483154297
+CAP-Brunei,TEST,Brunei,Angola,swap,8,66,18,618.7993, the,0,5.338953971862793
+CAP-Brunei,TEST,Brunei,Angola,random_inject,8,66,18,618.7993, in,0,5.509034156799316
 CAP-Brunei,TEST,Brunei,Angola,suppress,8,66,18,618.7993, Malay,0,1.7993392944335938
-CAP-Costa Rica,TEST,Costa Rica,Mongolia,swap,8,85,8,620.3456, Mongolian,1,26.658124208450317
-CAP-Costa Rica,TEST,Costa Rica,Mongolia,random_inject,8,85,8,620.3456, the,0,8.410656630992888
-CAP-Costa Rica,TEST,Costa Rica,Mongolia,suppress,8,85,8,620.3456, Spanish,0,0.0743865966796875
-CAP-Costa Rica,TEST,Costa Rica,Romania,swap,8,85,10,764.2285, Romanian,1,19.411890983581543
-CAP-Costa Rica,TEST,Costa Rica,Romania,random_inject,8,85,10,764.2285, popular,0,-1.877446174621582
-CAP-Costa Rica,TEST,Costa Rica,Romania,suppress,8,85,10,764.2285, Spanish,0,0.5191745758056641
-CAP-Costa Rica,TEST,Costa Rica,Saint Vincent and the Grenadines,swap,8,85,496,9598.9245, is,0,8.682802200317383
-CAP-Costa Rica,TEST,Costa Rica,Saint Vincent and the Grenadines,random_inject,8,85,496,9598.9245,<bos>,0,10.518330574035645
-CAP-Costa Rica,TEST,Costa Rica,Saint Vincent and the Grenadines,suppress,8,85,496,9598.9245, Spanish,0,0.11156845092773438
-CAP-Vietnam,TEST,Vietnam,United States,swap,8,62,177,11391.1279, Army,0,17.66101497411728
-CAP-Vietnam,TEST,Vietnam,United States,random_inject,8,62,177,11391.1279, training,0,13.044259071350101
-CAP-Vietnam,TEST,Vietnam,United States,suppress,8,62,177,11391.1279, Vietnamese,0,2.1766357421875
-CAP-Vietnam,TEST,Vietnam,Lithuania,swap,8,62,8,214.9116, Vietnamese,0,11.632810592651367
-CAP-Vietnam,TEST,Vietnam,Lithuania,random_inject,8,62,8,214.9116, Vietnamese,0,6.278965950012207
-CAP-Vietnam,TEST,Vietnam,Lithuania,suppress,8,62,8,214.9116, Vietnamese,0,6.033469200134277
-CAP-Vietnam,TEST,Vietnam,Brazil,swap,8,62,25,945.9728, the,0,21.169169425964355
-CAP-Vietnam,TEST,Vietnam,Brazil,random_inject,8,62,25,945.9728, was,0,10.586847305297852
+CAP-Brunei,TEST,Brunei,South Sudan,swap,8,66,264,5511.6251, Sud,0,8.210278749465942
+CAP-Brunei,TEST,Brunei,South Sudan,random_inject,8,66,264,5511.6251, Central,0,17.961254596710205
+CAP-Brunei,TEST,Brunei,South Sudan,suppress,8,66,264,5511.6251, Malay,0,1.4221916198730469
+CAP-Brunei,TEST,Brunei,Oman,swap,8,66,19,1014.3144, the,0,5.145387649536133
+CAP-Brunei,TEST,Brunei,Oman,random_inject,8,66,19,1014.3144, is,0,13.421983480453491
+CAP-Brunei,TEST,Brunei,Oman,suppress,8,66,19,1014.3144, Malay,0,1.0770092010498042
+CAP-Vietnam,TEST,Vietnam,Brazil,swap,8,62,25,945.9728, the,0,21.16916561126709
+CAP-Vietnam,TEST,Vietnam,Brazil,random_inject,8,62,25,945.9728, de,0,5.168075323104858
 CAP-Vietnam,TEST,Vietnam,Brazil,suppress,8,62,25,945.9728, Vietnamese,0,3.1534814834594727
-CAP-Hungary,TEST,Hungary,Ukraine,swap,8,21,49,2947.8817, is,0,30.215951442718506
-CAP-Hungary,TEST,Hungary,Ukraine,random_inject,8,21,49,2947.8817,",",0,14.200035572052002
-CAP-Hungary,TEST,Hungary,Ukraine,suppress,8,21,49,2947.8817, Hungarian,0,4.6603240966796875
-CAP-Hungary,TEST,Hungary,Albania,swap,8,21,24,1669.7152," """,0,30.58890390396118
-CAP-Hungary,TEST,Hungary,Albania,random_inject,8,21,24,1669.7152,",",0,5.741151928901672
-CAP-Hungary,TEST,Hungary,Albania,suppress,8,21,24,1669.7152, Hungarian,0,3.3555212020874023
-CAP-Hungary,TEST,Hungary,Tunisia,swap,8,21,12,432.3719, Turkish,0,11.12289810180664
-CAP-Hungary,TEST,Hungary,Tunisia,random_inject,8,21,12,432.3719, a,0,14.742546081542969
-CAP-Hungary,TEST,Hungary,Tunisia,suppress,8,21,12,432.3719, Hungarian,0,1.7889337539672852
-CAP-Lithuania,TEST,Lithuania,Estonia,swap,8,9,9,249.5172, the,0,8.161766052246094
-CAP-Lithuania,TEST,Lithuania,Estonia,random_inject,8,9,9,249.5172, the,0,-0.840846061706543
-CAP-Lithuania,TEST,Lithuania,Estonia,suppress,8,9,9,249.5172, Lithuanian,0,1.7811756134033203
-CAP-Lithuania,TEST,Lithuania,El Salvador,swap,8,9,142,2407.551, is,0,14.720612525939941
-CAP-Lithuania,TEST,Lithuania,El Salvador,random_inject,8,9,142,2407.551, is,0,4.047816514968872
-CAP-Lithuania,TEST,Lithuania,El Salvador,suppress,8,9,142,2407.551, Lithuanian,0,1.4750862121582031
-CAP-Lithuania,TEST,Lithuania,Argentina,swap,8,9,20,340.5471, Lithuanian,0,4.146674156188965
-CAP-Lithuania,TEST,Lithuania,Argentina,random_inject,8,9,20,340.5471, Lithuanian,0,2.2321348190307617
-CAP-Lithuania,TEST,Lithuania,Argentina,suppress,8,9,20,340.5471, Lithuanian,0,1.4750862121582031
-CAP-Nigeria,TEST,Nigeria,France,swap,8,46,53,3271.9556, a,0,7.078064441680908
-CAP-Nigeria,TEST,Nigeria,France,random_inject,8,46,53,3271.9556," """,0,15.370066642761232
-CAP-Nigeria,TEST,Nigeria,France,suppress,8,46,53,3271.9556, English,0,0.41533374786376953
-CAP-Nigeria,TEST,Nigeria,Honduras,swap,8,46,6,146.3013, English,0,0.7310476303100586
-CAP-Nigeria,TEST,Nigeria,Honduras,random_inject,8,46,6,146.3013, English,0,2.3610801696777344
-CAP-Nigeria,TEST,Nigeria,Honduras,suppress,8,46,6,146.3013, English,0,1.2151861190795898
-CAP-Nigeria,TEST,Nigeria,Brazil,swap,8,46,25,945.9728, the,0,14.629557609558105
-CAP-Nigeria,TEST,Nigeria,Brazil,random_inject,8,46,25,945.9728, is,0,-2.7252349853515625
-CAP-Nigeria,TEST,Nigeria,Brazil,suppress,8,46,25,945.9728, English,0,0.7580451965332031
-CAP-Germany,TEST,Germany,Liberia,swap,8,30,11,298.3581, German,0,1.2133655548095703
-CAP-Germany,TEST,Germany,Liberia,random_inject,8,30,11,298.3581, German,0,1.031076431274414
-CAP-Germany,TEST,Germany,Liberia,suppress,8,30,11,298.3581, German,0,-0.0849151611328125
-CAP-Germany,TEST,Germany,Ukraine,swap,8,30,49,3220.8726,",",0,11.108166217803955
-CAP-Germany,TEST,Germany,Ukraine,random_inject,8,30,49,3220.8726,s,0,2.537221074104309
-CAP-Germany,TEST,Germany,Ukraine,suppress,8,30,49,3220.8726, German,0,1.2275028228759766
-CAP-Germany,TEST,Germany,Uzbekistan,swap,8,30,6,94.8902, German,0,2.0211572647094727
-CAP-Germany,TEST,Germany,Uzbekistan,random_inject,8,30,6,94.8902, German,0,0.3860454559326172
-CAP-Germany,TEST,Germany,Uzbekistan,suppress,8,30,6,94.8902, German,0,1.1793432235717773
-CAP-Guinea,TEST,Guinea,Sierra Leone,swap,8,97,193,2821.9994, the,0,6.00821590423584
-CAP-Guinea,TEST,Guinea,Sierra Leone,random_inject,8,97,193,2821.9994, is,0,2.6571273803710938
-CAP-Guinea,TEST,Guinea,Sierra Leone,suppress,8,97,193,2821.9994, the,0,0.32577037811279297
-CAP-Guinea,TEST,Guinea,Saint Kitts and Nevis,swap,8,97,230,3349.5067, the,0,4.026675224304199
-CAP-Guinea,TEST,Guinea,Saint Kitts and Nevis,random_inject,8,97,230,3349.5067,.,0,8.523520946502686
-CAP-Guinea,TEST,Guinea,Saint Kitts and Nevis,suppress,8,97,230,3349.5067, the,0,0.3257722854614258
-CAP-Guinea,TEST,Guinea,Austria,swap,8,97,15,1232.9754, ,0,12.036084413528442
-CAP-Guinea,TEST,Guinea,Austria,random_inject,8,97,15,1232.9754,",",0,10.780191421508789
-CAP-Guinea,TEST,Guinea,Austria,suppress,8,97,15,1232.9754, the,0,1.1219253540039062
-CAP-Mongolia,TEST,Mongolia,Portugal,swap,8,19,13,624.7923, Portuguese,1,26.81356680393219
-CAP-Mongolia,TEST,Mongolia,Portugal,random_inject,8,19,13,624.7923, called,0,8.368595719337463
-CAP-Mongolia,TEST,Mongolia,Portugal,suppress,8,19,13,624.7923, Mongolian,0,2.9914132356643677
-CAP-Mongolia,TEST,Mongolia,Saint Vincent and the Grenadines,swap,8,19,378,7843.4897, is,0,21.19149351119995
-CAP-Mongolia,TEST,Mongolia,Saint Vincent and the Grenadines,random_inject,8,19,378,7843.4897, (,0,13.193756580352783
-CAP-Mongolia,TEST,Mongolia,Saint Vincent and the Grenadines,suppress,8,19,378,7843.4897, Mongolian,0,1.5191669464111328
-CAP-Mongolia,TEST,Mongolia,Venezuela,swap,8,19,13,331.163, the,0,4.891437530517578
-CAP-Mongolia,TEST,Mongolia,Venezuela,random_inject,8,19,13,331.163, Mongolian,0,6.973581314086914
-CAP-Mongolia,TEST,Mongolia,Venezuela,suppress,8,19,13,331.163, Mongolian,0,2.448164939880371
-CAP-South Sudan,TEST,South Sudan,Latvia,swap,8,260,5,301.7753, Arabic,0,11.36388236284256
-CAP-South Sudan,TEST,South Sudan,Latvia,random_inject,8,260,5,301.7753, the,0,-2.2587444186210632
-CAP-South Sudan,TEST,South Sudan,Latvia,suppress,8,260,5,301.7753, Arabic,0,1.4890313148498535
-CAP-South Sudan,TEST,South Sudan,El Salvador,swap,8,260,159,2892.3652, a,0,5.753011703491211
-CAP-South Sudan,TEST,South Sudan,El Salvador,random_inject,8,260,159,2892.3652,",",0,-0.47059321403503596
-CAP-South Sudan,TEST,South Sudan,El Salvador,suppress,8,260,159,2892.3652, Arabic,0,3.1791744232177743
-CAP-South Sudan,TEST,South Sudan,Andorra,swap,8,260,33,1522.0325, the,0,17.79376047849655
-CAP-South Sudan,TEST,South Sudan,Andorra,random_inject,8,260,33,1522.0325, Saga,0,6.295635223388675
-CAP-South Sudan,TEST,South Sudan,Andorra,suppress,8,260,33,1522.0325, Arabic,0,6.91172331571579
-CAP-Ghana,TEST,Ghana,Colombia,swap,8,33,23,1339.5072, the,0,7.442427635192871
-CAP-Ghana,TEST,Ghana,Colombia,random_inject,8,33,23,1339.5072,.,0,9.482211112976074
-CAP-Ghana,TEST,Ghana,Colombia,suppress,8,33,23,1339.5072, English,0,-0.3915748596191406
-CAP-Ghana,TEST,Ghana,Romania,swap,8,33,18,1804.6213, also,0,31.64109456539154
-CAP-Ghana,TEST,Ghana,Romania,random_inject,8,33,18,1804.6213, itſelf,0,17.430240502581
-CAP-Ghana,TEST,Ghana,Romania,suppress,8,33,18,1804.6213, English,0,0.9841337203979492
-CAP-Ghana,TEST,Ghana,Guinea,swap,8,33,92,4115.5155,-,0,0.34529781341552557
-CAP-Ghana,TEST,Ghana,Guinea,random_inject,8,33,92,4115.5155, before,0,10.754081726074219
-CAP-Ghana,TEST,Ghana,Guinea,suppress,8,33,92,4115.5155, English,0,1.3617401123046875
-CAP-France,TEST,France,Bulgaria,swap,8,56,5,766.97, the,0,20.387275218963623
-CAP-France,TEST,France,Bulgaria,random_inject,8,56,5,766.97, is,0,-2.5624852180480957
-CAP-France,TEST,France,Bulgaria,suppress,8,56,5,766.97, French,0,2.636950969696045
-CAP-France,TEST,France,Mongolia,swap,8,56,15,857.4667, the,0,28.277849435806274
-CAP-France,TEST,France,Mongolia,random_inject,8,56,15,857.4667, the,0,3.8964242935180664
-CAP-France,TEST,France,Mongolia,suppress,8,56,15,857.4667, French,0,1.4463880062103271
-CAP-France,TEST,France,Portugal,swap,8,56,17,936.6242, actually,0,8.437570571899414
-CAP-France,TEST,France,Portugal,random_inject,8,56,17,936.6242, is,0,4.7524620294570905
-CAP-France,TEST,France,Portugal,suppress,8,56,17,936.6242, French,0,3.525066375732422
-CAP-Venezuela,TEST,Venezuela,Saint Vincent and the Grenadines,swap,8,12,501,9708.9185, is,0,11.564704895019531
-CAP-Venezuela,TEST,Venezuela,Saint Vincent and the Grenadines,random_inject,8,12,501,9708.9185,<bos>,0,2.6123290061950684
-CAP-Venezuela,TEST,Venezuela,Saint Vincent and the Grenadines,suppress,8,12,501,9708.9185, Spanish,0,-0.12238693237304688
-CAP-Venezuela,TEST,Venezuela,Guinea,swap,8,12,79,2084.9893,-,0,0.6952638626098633
-CAP-Venezuela,TEST,Venezuela,Guinea,random_inject,8,12,79,2084.9893, the,0,6.62209415435791
-CAP-Venezuela,TEST,Venezuela,Guinea,suppress,8,12,79,2084.9893, Spanish,0,-0.0071849822998046875
-CAP-Venezuela,TEST,Venezuela,United States,swap,8,12,168,9620.735, and,0,18.84377634525299
-CAP-Venezuela,TEST,Venezuela,United States,random_inject,8,12,168,9620.735,mybatisplus,0,7.40216064453125
-CAP-Venezuela,TEST,Venezuela,United States,suppress,8,12,168,9620.735, Spanish,0,-0.12239456176757812
-CAP-Albania,TEST,Albania,Spain,swap,8,26,34,1874.7144,-,0,23.717910051345825
-CAP-Albania,TEST,Albania,Spain,random_inject,8,26,34,1874.7144,<bos>,0,7.895855903625488
-CAP-Albania,TEST,Albania,Spain,suppress,8,26,34,1874.7144, Albanian,0,2.2908639907836914
-CAP-Albania,TEST,Albania,Thailand,swap,8,26,20,1188.2076, the,0,44.20017445087433
-CAP-Albania,TEST,Albania,Thailand,random_inject,8,26,20,1188.2076, called,0,17.61142063140869
-CAP-Albania,TEST,Albania,Thailand,suppress,8,26,20,1188.2076, Albanian,0,2.6391401290893555
-CAP-Albania,TEST,Albania,Jamaica,swap,8,26,19,1155.469, Spanish,0,10.332732200622559
-CAP-Albania,TEST,Albania,Jamaica,random_inject,8,26,19,1155.469, is,0,15.854188680648807
-CAP-Albania,TEST,Albania,Jamaica,suppress,8,26,19,1155.469, Albanian,0,0.4577064514160156
-CAP-Argentina,TEST,Argentina,Syria,swap,8,27,46,1416.7379, the,0,15.137810707092285
-CAP-Argentina,TEST,Argentina,Syria,random_inject,8,27,46,1416.7379, Gig,0,3.991568744182585
-CAP-Argentina,TEST,Argentina,Syria,suppress,8,27,46,1416.7379, Spanish,0,0.0635080337524414
-CAP-Argentina,TEST,Argentina,Uzbekistan,swap,8,27,7,111.8415, Spanish,0,1.0850715637207031
-CAP-Argentina,TEST,Argentina,Uzbekistan,random_inject,8,27,7,111.8415, Spanish,0,0.6537418365478516
-CAP-Argentina,TEST,Argentina,Uzbekistan,suppress,8,27,7,111.8415, Spanish,0,0.7155594825744629
-CAP-Argentina,TEST,Argentina,Albania,swap,8,27,23,1627.5305," """,0,30.76589584350586
-CAP-Argentina,TEST,Argentina,Albania,random_inject,8,27,23,1627.5305,",",0,12.169698238372801
-CAP-Argentina,TEST,Argentina,Albania,suppress,8,27,23,1627.5305, Spanish,0,1.1701736450195312
-CAP-Sierra Leone,TEST,Sierra Leone,Mongolia,swap,8,190,12,229.4762, English,0,5.924597382545471
-CAP-Sierra Leone,TEST,Sierra Leone,Mongolia,random_inject,8,190,12,229.4762, Mende,0,2.7715998888015747
-CAP-Sierra Leone,TEST,Sierra Leone,Mongolia,suppress,8,190,12,229.4762, K,0,-0.021327853202819824
-CAP-Sierra Leone,TEST,Sierra Leone,Oman,swap,8,190,15,252.0943, English,0,0.6444387435913095
-CAP-Sierra Leone,TEST,Sierra Leone,Oman,random_inject,8,190,15,252.0943, Mende,0,1.7923803329467782
-CAP-Sierra Leone,TEST,Sierra Leone,Oman,suppress,8,190,15,252.0943, K,0,0.019814491271972656
-CAP-Sierra Leone,TEST,Sierra Leone,Qatar,swap,8,190,33,565.7241, English,0,4.127379417419434
-CAP-Sierra Leone,TEST,Sierra Leone,Qatar,random_inject,8,190,33,565.7241, the,0,5.511870384216309
-CAP-Sierra Leone,TEST,Sierra Leone,Qatar,suppress,8,190,33,565.7241, K,0,0.019792556762695312
-CAP-Uzbekistan,TEST,Uzbekistan,Canada,swap,8,8,47,2297.7023, the,0,18.249210357666016
-CAP-Uzbekistan,TEST,Uzbekistan,Canada,random_inject,8,8,47,2297.7023, miniatur,0,7.442215859889984
-CAP-Uzbekistan,TEST,Uzbekistan,Canada,suppress,8,8,47,2297.7023, Uz,0,-0.01967144012451172
-CAP-Uzbekistan,TEST,Uzbekistan,Argentina,swap,8,8,22,361.8562, Uz,0,4.356371879577637
-CAP-Uzbekistan,TEST,Uzbekistan,Argentina,random_inject,8,8,22,361.8562, Uz,0,5.098925590515137
-CAP-Uzbekistan,TEST,Uzbekistan,Argentina,suppress,8,8,22,361.8562, Uz,0,-0.06357669830322266
-CAP-Uzbekistan,TEST,Uzbekistan,Togo,swap,8,8,16,184.1123, Uz,0,0.3656759262084961
-CAP-Uzbekistan,TEST,Uzbekistan,Togo,random_inject,8,8,16,184.1123, Uz,0,3.528715133666992
-CAP-Uzbekistan,TEST,Uzbekistan,Togo,suppress,8,8,16,184.1123, Uz,0,-0.03533744812011719
-CAP-Grenada,TEST,Grenada,Serbia,swap,8,21,10,613.1815, the,0,11.886577129364014
-CAP-Grenada,TEST,Grenada,Serbia,random_inject,8,21,10,613.1815,",",0,1.780858039855957
-CAP-Grenada,TEST,Grenada,Serbia,suppress,8,21,10,613.1815, English,0,-0.07314538955688477
-CAP-Grenada,TEST,Grenada,Bahrain,swap,8,21,9,332.6954, English,0,-1.409102439880371
-CAP-Grenada,TEST,Grenada,Bahrain,random_inject,8,21,9,332.6954, Khmer,0,2.1195411682128906
-CAP-Grenada,TEST,Grenada,Bahrain,suppress,8,21,9,332.6954, English,0,0.09224319458007812
-CAP-Grenada,TEST,Grenada,France,swap,8,21,45,2595.8945, Fr,0,17.647972881793976
-CAP-Grenada,TEST,Grenada,France,random_inject,8,21,45,2595.8945,<bos>,0,-1.3690409660339373
-CAP-Grenada,TEST,Grenada,France,suppress,8,21,45,2595.8945, English,0,0.37191200256347656
-CAP-Nicaragua,TEST,Nicaragua,Oman,swap,8,9,17,975.2755, the,0,5.768704414367676
-CAP-Nicaragua,TEST,Nicaragua,Oman,random_inject,8,9,17,975.2755,i,0,9.780952453613281
-CAP-Nicaragua,TEST,Nicaragua,Oman,suppress,8,9,17,975.2755, Spanish,0,-0.08614063262939453
-CAP-Nicaragua,TEST,Nicaragua,Liechtenstein,swap,8,9,28,895.1603, the,0,13.428303718566895
-CAP-Nicaragua,TEST,Nicaragua,Liechtenstein,random_inject,8,9,28,895.1603, the,0,7.302177429199218
-CAP-Nicaragua,TEST,Nicaragua,Liechtenstein,suppress,8,9,28,895.1603, Spanish,0,-0.15906143188476562
-CAP-Nicaragua,TEST,Nicaragua,Egypt,swap,8,9,37,1541.4297, the,0,16.681331634521484
-CAP-Nicaragua,TEST,Nicaragua,Egypt,random_inject,8,9,37,1541.4297,"
-
-",0,11.313957661390305
-CAP-Nicaragua,TEST,Nicaragua,Egypt,suppress,8,9,37,1541.4297, Spanish,0,-0.08613777160644531
-CAP-Romania,TEST,Romania,Mozambique,swap,8,23,10,484.0786, the,0,-0.0026082992553710938
-CAP-Romania,TEST,Romania,Mozambique,random_inject,8,23,10,484.0786, the,0,10.946084022521973
-CAP-Romania,TEST,Romania,Mozambique,suppress,8,23,10,484.0786, Romanian,0,2.429123878479004
-CAP-Romania,TEST,Romania,Latvia,swap,8,23,6,413.5325, a,0,12.701154708862305
-CAP-Romania,TEST,Romania,Latvia,random_inject,8,23,6,413.5325, the,0,7.262051105499268
-CAP-Romania,TEST,Romania,Latvia,suppress,8,23,6,413.5325, Romanian,0,3.9241981506347656
-CAP-Romania,TEST,Romania,Syria,swap,8,23,45,1392.3391, the,0,26.27781867980957
-CAP-Romania,TEST,Romania,Syria,random_inject,8,23,45,1392.3391, and,0,15.411225080490112
-CAP-Romania,TEST,Romania,Syria,suppress,8,23,45,1392.3391, Romanian,0,1.4620847702026367
-CAP-Chile,TEST,Chile,Austria,swap,8,21,14,1020.7306, ,0,4.4039359092712385
-CAP-Chile,TEST,Chile,Austria,random_inject,8,21,14,1020.7306, is,0,5.130395889282227
-CAP-Chile,TEST,Chile,Austria,suppress,8,21,14,1020.7306, Spanish,0,-0.8907203674316406
-CAP-Chile,TEST,Chile,Tajikistan,swap,8,21,10,362.5232, Spanish,0,5.058829307556152
-CAP-Chile,TEST,Chile,Tajikistan,random_inject,8,21,10,362.5232, the,0,6.832366943359375
-CAP-Chile,TEST,Chile,Tajikistan,suppress,8,21,10,362.5232, Spanish,0,0.10146427154541016
-CAP-Chile,TEST,Chile,Nepal,swap,8,21,27,2460.6408, Nepal,0,28.812487602233887
-CAP-Chile,TEST,Chile,Nepal,random_inject,8,21,27,2460.6408, the,0,9.576260566711426
-CAP-Chile,TEST,Chile,Nepal,suppress,8,21,27,2460.6408, Spanish,0,0.5574769973754883
-CAP-Libya,TEST,Libya,Iceland,swap,8,24,23,338.0199, Arabic,0,5.454463005065918
-CAP-Libya,TEST,Libya,Iceland,random_inject,8,24,23,338.0199, Arabic,0,7.377277374267578
-CAP-Libya,TEST,Libya,Iceland,suppress,8,24,23,338.0199, Arabic,0,0.06443405151367188
-CAP-Libya,TEST,Libya,Bhutan,swap,8,24,23,469.6372, Arabic,0,9.832233428955078
-CAP-Libya,TEST,Libya,Bhutan,random_inject,8,24,23,469.6372, Arabic,0,3.8010921478271484
-CAP-Libya,TEST,Libya,Bhutan,suppress,8,24,23,469.6372, Arabic,0,0.07273101806640625
-CAP-Libya,TEST,Libya,Grenada,swap,8,24,15,174.2116, Arabic,0,0.0025482177734375
-CAP-Libya,TEST,Libya,Grenada,random_inject,8,24,15,174.2116, Arabic,0,-0.456146240234375
-CAP-Libya,TEST,Libya,Grenada,suppress,8,24,15,174.2116, Arabic,0,-0.10801315307617188
-CAP-Ukraine,TEST,Ukraine,Grenada,swap,8,53,19,595.6848, Russian,0,2.2240962982177734
-CAP-Ukraine,TEST,Ukraine,Grenada,random_inject,8,53,19,595.6848, is,0,7.401477813720703
-CAP-Ukraine,TEST,Ukraine,Grenada,suppress,8,53,19,595.6848, Ukrainian,0,1.1801490783691406
-CAP-Ukraine,TEST,Ukraine,Jamaica,swap,8,53,22,1449.5895, Spanish,0,11.271106719970703
-CAP-Ukraine,TEST,Ukraine,Jamaica,random_inject,8,53,22,1449.5895,te,0,4.223543405532839
-CAP-Ukraine,TEST,Ukraine,Jamaica,suppress,8,53,22,1449.5895, Ukrainian,0,1.1801471710205078
-CAP-Ukraine,TEST,Ukraine,El Salvador,swap,8,53,159,2892.3652, a,0,8.984187126159668
-CAP-Ukraine,TEST,Ukraine,El Salvador,random_inject,8,53,159,2892.3652, K,0,2.6465312838554347
-CAP-Ukraine,TEST,Ukraine,El Salvador,suppress,8,53,159,2892.3652, Ukrainian,0,1.2992610931396484
-CAP-Egypt,TEST,Egypt,Turkmenistan,swap,8,43,15,518.2336, Arabic,0,7.829827308654785
-CAP-Egypt,TEST,Egypt,Turkmenistan,random_inject,8,43,15,518.2336, not,0,3.362375020980835
-CAP-Egypt,TEST,Egypt,Turkmenistan,suppress,8,43,15,518.2336, Arabic,0,1.0285701751708984
-CAP-Egypt,TEST,Egypt,Saint Kitts and Nevis,swap,8,43,224,3217.1761, the,0,3.159025192260742
-CAP-Egypt,TEST,Egypt,Saint Kitts and Nevis,random_inject,8,43,224,3217.1761, all,0,11.746237397193909
-CAP-Egypt,TEST,Egypt,Saint Kitts and Nevis,suppress,8,43,224,3217.1761, Arabic,0,0.12314033508300781
-CAP-Egypt,TEST,Egypt,Cambodia,swap,8,43,13,877.5693, the,0,12.518579006195068
-CAP-Egypt,TEST,Egypt,Cambodia,random_inject,8,43,13,877.5693,",",0,8.54030466079712
-CAP-Egypt,TEST,Egypt,Cambodia,suppress,8,43,13,877.5693, Arabic,0,1.8192954063415527
-CAP-Thailand,TEST,Thailand,Lebanon,swap,8,30,45,1465.6699, the,0,15.677725315093994
-CAP-Thailand,TEST,Thailand,Lebanon,random_inject,8,30,45,1465.6699, is,0,5.6739397048950195
-CAP-Thailand,TEST,Thailand,Lebanon,suppress,8,30,45,1465.6699, Thai,0,0.34210968017578125
-CAP-Thailand,TEST,Thailand,Tunisia,swap,8,30,12,432.3719, the,0,10.136850357055664
-CAP-Thailand,TEST,Thailand,Tunisia,random_inject,8,30,12,432.3719, Thai,0,-1.1901655197143555
-CAP-Thailand,TEST,Thailand,Tunisia,suppress,8,30,12,432.3719, Thai,0,0.34210968017578125
-CAP-Thailand,TEST,Thailand,Canada,swap,8,30,60,4619.1069, the,0,16.330809831619263
-CAP-Thailand,TEST,Thailand,Canada,random_inject,8,30,60,4619.1069,<bos>,0,10.99785041809082
-CAP-Thailand,TEST,Thailand,Canada,suppress,8,30,60,4619.1069, Thai,0,0.3043346405029297
-CAP-Estonia,TEST,Estonia,Russia,swap,8,18,37,2644.595, Russian,1,25.389689445495605
-CAP-Estonia,TEST,Estonia,Russia,random_inject,8,18,37,2644.595, I,0,17.51287460327148
-CAP-Estonia,TEST,Estonia,Russia,suppress,8,18,37,2644.595, Estonian,0,0.985260009765625
-CAP-Estonia,TEST,Estonia,Belize,swap,8,18,13,893.3821, not,0,6.356198310852052
-CAP-Estonia,TEST,Estonia,Belize,random_inject,8,18,13,893.3821,",",0,3.4365711212158203
-CAP-Estonia,TEST,Estonia,Belize,suppress,8,18,13,893.3821, Estonian,0,0.5762004852294917
-CAP-Estonia,TEST,Estonia,Brunei,swap,8,18,34,2185.1171, the,0,33.5855468288064
-CAP-Estonia,TEST,Estonia,Brunei,random_inject,8,18,34,2185.1171,stt,0,23.56301546096802
-CAP-Estonia,TEST,Estonia,Brunei,suppress,8,18,34,2185.1171, Estonian,0,1.4607620239257812
-CAP-Peru,TEST,Peru,Germany,swap,8,19,26,1970.7825, Ger,0,25.85399055480957
-CAP-Peru,TEST,Peru,Germany,random_inject,8,19,26,1970.7825,riwal,0,13.94095516204834
-CAP-Peru,TEST,Peru,Germany,suppress,8,19,26,1970.7825, Spanish,0,-0.22506332397460938
-CAP-Peru,TEST,Peru,Slovakia,swap,8,19,9,423.4717, Spanish,0,15.139410018920898
-CAP-Peru,TEST,Peru,Slovakia,random_inject,8,19,9,423.4717, Spanish,0,3.749725341796875
-CAP-Peru,TEST,Peru,Slovakia,suppress,8,19,9,423.4717, Spanish,0,0.3359353542327881
-CAP-Peru,TEST,Peru,Tunisia,swap,8,19,12,432.3719, Spanish,0,2.626143455505371
-CAP-Peru,TEST,Peru,Tunisia,random_inject,8,19,12,432.3719, the,0,3.20993709564209
-CAP-Peru,TEST,Peru,Tunisia,suppress,8,19,12,432.3719, Spanish,0,0.13013744354248047
-CAP-Jamaica,TEST,Jamaica,Nicaragua,swap,8,29,10,364.2757, English,0,3.0804386138916016
-CAP-Jamaica,TEST,Jamaica,Nicaragua,random_inject,8,29,10,364.2757, of,0,1.0861835479736324
-CAP-Jamaica,TEST,Jamaica,Nicaragua,suppress,8,29,10,364.2757, English,0,-1.0462150573730469
-CAP-Jamaica,TEST,Jamaica,Estonia,swap,8,29,15,813.6057, Estonian,1,20.690540552139282
-CAP-Jamaica,TEST,Jamaica,Estonia,random_inject,8,29,15,813.6057,.,0,1.5705658495426178
-CAP-Jamaica,TEST,Jamaica,Estonia,suppress,8,29,15,813.6057, English,0,-0.4911501407623291
-CAP-Jamaica,TEST,Jamaica,Japan,swap,8,29,46,3490.6708, is,0,-2.794230937957762
-CAP-Jamaica,TEST,Jamaica,Japan,random_inject,8,29,46,3490.6708,ly,0,11.515047550201416
-CAP-Jamaica,TEST,Jamaica,Japan,suppress,8,29,46,3490.6708, English,0,-1.7563133239746094
-CAP-Guyana,TEST,Guyana,Albania,swap,8,29,24,1669.7152," """,0,20.34493039548397
-CAP-Guyana,TEST,Guyana,Albania,random_inject,8,29,24,1669.7152, City,0,6.907119601964951
-CAP-Guyana,TEST,Guyana,Albania,suppress,8,29,24,1669.7152, English,0,-0.13791751861572266
-CAP-Guyana,TEST,Guyana,Uzbekistan,swap,8,29,8,205.3221, English,0,5.048893928527832
-CAP-Guyana,TEST,Guyana,Uzbekistan,random_inject,8,29,8,205.3221, English,0,0.06571030616760254
-CAP-Guyana,TEST,Guyana,Uzbekistan,suppress,8,29,8,205.3221, English,0,-0.4786217212677002
-CAP-Guyana,TEST,Guyana,Colombia,swap,8,29,25,1371.9733, the,0,4.400409698486327
-CAP-Guyana,TEST,Guyana,Colombia,random_inject,8,29,25,1371.9733,",",0,10.6216459274292
-CAP-Guyana,TEST,Guyana,Colombia,suppress,8,29,25,1371.9733, English,0,0.7967510223388672
-CAP-El Salvador,TEST,El Salvador,Estonia,swap,8,157,14,646.3286, Estonian,1,23.10732889175415
-CAP-El Salvador,TEST,El Salvador,Estonia,random_inject,8,157,14,646.3286, the,0,8.094231128692627
-CAP-El Salvador,TEST,El Salvador,Estonia,suppress,8,157,14,646.3286, Spanish,0,0.720874547958374
-CAP-El Salvador,TEST,El Salvador,Japan,swap,8,157,39,2214.2054,-,0,23.938311755657196
-CAP-El Salvador,TEST,El Salvador,Japan,random_inject,8,157,39,2214.2054,t,0,12.311633586883545
-CAP-El Salvador,TEST,El Salvador,Japan,suppress,8,157,39,2214.2054, Spanish,0,-0.8661842346191406
-CAP-El Salvador,TEST,El Salvador,Sweden,swap,8,157,14,472.1122, Spanish,0,12.891191482543945
-CAP-El Salvador,TEST,El Salvador,Sweden,random_inject,8,157,14,472.1122, the,0,9.776009559631348
-CAP-El Salvador,TEST,El Salvador,Sweden,suppress,8,157,14,472.1122, Spanish,0,-0.7131872177124023
-CAP-Mauritania,TEST,Mauritania,Saint Lucia,swap,8,19,167,3049.9468,",",0,13.710847854614256
-CAP-Mauritania,TEST,Mauritania,Saint Lucia,random_inject,8,19,167,3049.9468, ,0,9.070162296295166
-CAP-Mauritania,TEST,Mauritania,Saint Lucia,suppress,8,19,167,3049.9468, Arabic,0,-0.1396198272705078
-CAP-Mauritania,TEST,Mauritania,France,swap,8,19,47,2057.1996,-,0,2.360001802444458
-CAP-Mauritania,TEST,Mauritania,France,random_inject,8,19,47,2057.1996, is,0,7.435141563415527
-CAP-Mauritania,TEST,Mauritania,France,suppress,8,19,47,2057.1996, Arabic,0,0.05322265625
-CAP-Mauritania,TEST,Mauritania,Belize,swap,8,19,11,421.87, the,0,3.134079933166504
-CAP-Mauritania,TEST,Mauritania,Belize,random_inject,8,19,11,421.87, the,0,7.440465927124023
-CAP-Mauritania,TEST,Mauritania,Belize,suppress,8,19,11,421.87, Arabic,0,-0.1396169662475577
-CAP-Austria,TEST,Austria,Serbia,swap,8,19,11,630.3677, German,0,6.0767974853515625
-CAP-Austria,TEST,Austria,Serbia,random_inject,8,19,11,630.3677,",",0,1.5199785232543945
-CAP-Austria,TEST,Austria,Serbia,suppress,8,19,11,630.3677, German,0,-0.5312461853027344
-CAP-Austria,TEST,Austria,Lithuania,swap,8,19,8,214.9116, German,0,5.725687503814697
-CAP-Austria,TEST,Austria,Lithuania,random_inject,8,19,8,214.9116, German,0,1.5421404838562012
-CAP-Austria,TEST,Austria,Lithuania,suppress,8,19,8,214.9116, German,0,1.1784510612487793
-CAP-Austria,TEST,Austria,Honduras,swap,8,19,5,130.1716, German,0,-0.21079349517822266
-CAP-Austria,TEST,Austria,Honduras,random_inject,8,19,5,130.1716, German,0,-0.8864126205444336
-CAP-Austria,TEST,Austria,Honduras,suppress,8,19,5,130.1716, German,0,-0.6770925521850586
-CAP-Nepal,TEST,Nepal,Angola,swap,8,41,18,618.7993, called,0,8.776126384735107
-CAP-Nepal,TEST,Nepal,Angola,random_inject,8,41,18,618.7993, with,0,15.225993633270264
-CAP-Nepal,TEST,Nepal,Angola,suppress,8,41,18,618.7993, Nepali,0,3.373260021209717
-CAP-Nepal,TEST,Nepal,Hungary,swap,8,41,19,1973.6191, and,0,41.153138637542725
-CAP-Nepal,TEST,Nepal,Hungary,random_inject,8,41,19,1973.6191, West,0,16.24321937561035
-CAP-Nepal,TEST,Nepal,Hungary,suppress,8,41,19,1973.6191, Nepali,0,4.302475452423096
-CAP-Nepal,TEST,Nepal,Canada,swap,8,41,60,4619.1069, the,0,25.933756828308105
-CAP-Nepal,TEST,Nepal,Canada,random_inject,8,41,60,4619.1069,ponym,0,11.165059328079224
-CAP-Nepal,TEST,Nepal,Canada,suppress,8,41,60,4619.1069, Nepali,0,1.478689193725586
-CAP-Barbados,TEST,Barbados,Serbia,swap,8,11,10,382.3179, English,0,7.329996585845947
-CAP-Barbados,TEST,Barbados,Serbia,random_inject,8,11,10,382.3179,:,0,-0.5589413642883301
-CAP-Barbados,TEST,Barbados,Serbia,suppress,8,11,10,382.3179, English,0,0.6656875610351562
-CAP-Barbados,TEST,Barbados,Austria,swap,8,11,13,741.0583, the,0,11.5391206741333
-CAP-Barbados,TEST,Barbados,Austria,random_inject,8,11,13,741.0583, a,0,3.5158777236938477
-CAP-Barbados,TEST,Barbados,Austria,suppress,8,11,13,741.0583, English,0,0.042593955993652344
-CAP-Barbados,TEST,Barbados,Russia,swap,8,11,33,2047.551, Russian,1,20.515775203704834
-CAP-Barbados,TEST,Barbados,Russia,random_inject,8,11,33,2047.551,es,0,20.640811324119568
-CAP-Barbados,TEST,Barbados,Russia,suppress,8,11,33,2047.551, English,0,0.48946142196655273
-CAP-Ecuador,TEST,Ecuador,Brunei,swap,8,18,28,2556.0298, Bahasa,0,23.6718168258667
-CAP-Ecuador,TEST,Ecuador,Brunei,random_inject,8,18,28,2556.0298, ,0,10.529282122850418
-CAP-Ecuador,TEST,Ecuador,Brunei,suppress,8,18,28,2556.0298, Spanish,0,0.04651451110839844
-CAP-Ecuador,TEST,Ecuador,Egypt,swap,8,18,37,1740.7908, the,0,14.544646263122559
-CAP-Ecuador,TEST,Ecuador,Egypt,random_inject,8,18,37,1740.7908, ,0,11.892270386219025
-CAP-Ecuador,TEST,Ecuador,Egypt,suppress,8,18,37,1740.7908, Spanish,0,-0.25622081756591797
-CAP-Ecuador,TEST,Ecuador,Andorra,swap,8,18,19,713.2614, Spanish,0,6.473455429077148
-CAP-Ecuador,TEST,Ecuador,Andorra,random_inject,8,18,19,713.2614, is,0,3.921403884887696
-CAP-Ecuador,TEST,Ecuador,Andorra,suppress,8,18,19,713.2614, Spanish,0,0.2605133056640625
-CAP-Brazil,TEST,Brazil,Albania,swap,8,29,23,1569.2872," """,0,44.49219608306885
-CAP-Brazil,TEST,Brazil,Albania,random_inject,8,29,23,1569.2872, has,0,19.414885997772217
-CAP-Brazil,TEST,Brazil,Albania,suppress,8,29,23,1569.2872, Portuguese,0,1.4236197471618652
-CAP-Brazil,TEST,Brazil,Greece,swap,8,29,51,2724.3058, a,0,26.969704389572144
-CAP-Brazil,TEST,Brazil,Greece,random_inject,8,29,51,2724.3058, bra,0,10.64985179901123
-CAP-Brazil,TEST,Brazil,Greece,suppress,8,29,51,2724.3058, Portuguese,0,0.5695533752441406
-CAP-Brazil,TEST,Brazil,Andorra,swap,8,29,32,1435.9389, then,0,12.28700065612793
-CAP-Brazil,TEST,Brazil,Andorra,random_inject,8,29,32,1435.9389, in,0,3.498855233192444
-CAP-Brazil,TEST,Brazil,Andorra,suppress,8,29,32,1435.9389, Portuguese,0,0.9973201751708984
-CAP-Tunisia,TEST,Tunisia,Brazil,swap,8,11,25,945.9728, the,0,20.339449882507324
-CAP-Tunisia,TEST,Tunisia,Brazil,random_inject,8,11,25,945.9728,",",0,3.1373982429504412
-CAP-Tunisia,TEST,Tunisia,Brazil,suppress,8,11,25,945.9728, Arabic,0,-0.06900405883789062
-CAP-Tunisia,TEST,Tunisia,Liberia,swap,8,11,11,298.3581, Arabic,0,0.9614496231079102
-CAP-Tunisia,TEST,Tunisia,Liberia,random_inject,8,11,11,298.3581, Arabic,0,3.3877830505371094
-CAP-Tunisia,TEST,Tunisia,Liberia,suppress,8,11,11,298.3581, Arabic,0,0.06051349639892578
-CAP-Tunisia,TEST,Tunisia,Nepal,swap,8,11,26,2308.6711, Nepal,0,41.128724098205566
-CAP-Tunisia,TEST,Tunisia,Nepal,random_inject,8,11,26,2308.6711,",",0,0.27771806716918945
-CAP-Tunisia,TEST,Tunisia,Nepal,suppress,8,11,26,2308.6711, Arabic,0,0.25969886779785156
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Iceland,swap,8,155,24,508.469, English,0,18.90285873413086
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Iceland,random_inject,8,155,24,508.469, Trin,0,5.418851852416992
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Iceland,suppress,8,155,24,508.469, English,0,0.06948375701904297
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Suriname,swap,8,155,13,357.8217, English,0,7.142572402954102
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Suriname,random_inject,8,155,13,357.8217, English,0,2.968261718749999
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Suriname,suppress,8,155,13,357.8217, English,0,0.19068431854248047
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Portugal,swap,8,155,13,172.1875, English,0,0.08563709259033114
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Portugal,random_inject,8,155,13,172.1875, English,0,1.235123634338378
-CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Portugal,suppress,8,155,13,172.1875, English,0,0.23760414123535067
-CAP-Togo,TEST,Togo,Italy,swap,8,19,33,2253.8419,",",0,31.180347442626953
-CAP-Togo,TEST,Togo,Italy,random_inject,8,19,33,2253.8419,s,0,10.385290883481503
-CAP-Togo,TEST,Togo,Italy,suppress,8,19,33,2253.8419, French,0,-1.1186151504516602
-CAP-Togo,TEST,Togo,Mongolia,swap,8,19,10,831.7641, the,0,30.72596526145935
-CAP-Togo,TEST,Togo,Mongolia,random_inject,8,19,10,831.7641, the,0,8.96786570549011
-CAP-Togo,TEST,Togo,Mongolia,suppress,8,19,10,831.7641, French,0,1.7143733501434326
+CAP-Vietnam,TEST,Vietnam,Lebanon,swap,8,62,45,1465.6699, the,0,18.24704885482788
+CAP-Vietnam,TEST,Vietnam,Lebanon,random_inject,8,62,45,1465.6699, is,0,16.40744572877884
+CAP-Vietnam,TEST,Vietnam,Lebanon,suppress,8,62,45,1465.6699, Vietnamese,0,2.804539680480957
+CAP-Vietnam,TEST,Vietnam,Trinidad and Tobago,swap,8,62,161,2488.353, the,0,7.844871520996094
+CAP-Vietnam,TEST,Vietnam,Trinidad and Tobago,random_inject,8,62,161,2488.353, the,0,21.417241096496582
+CAP-Vietnam,TEST,Vietnam,Trinidad and Tobago,suppress,8,62,161,2488.353, Vietnamese,0,2.176637649536133
+CAP-Angola,TEST,Angola,Hungary,swap,8,18,13,1115.0176, that,0,34.44963073730469
+CAP-Angola,TEST,Angola,Hungary,random_inject,8,18,13,1115.0176, to,0,8.405878067016605
+CAP-Angola,TEST,Angola,Hungary,suppress,8,18,13,1115.0176, Portuguese,0,-0.5354580879211426
+CAP-Angola,TEST,Angola,Costa Rica,swap,8,18,85,1141.3711, English,0,7.168024063110352
+CAP-Angola,TEST,Angola,Costa Rica,random_inject,8,18,85,1141.3711,k,0,8.056605339050293
+CAP-Angola,TEST,Angola,Costa Rica,suppress,8,18,85,1141.3711, Portuguese,0,-0.06031227111816406
+CAP-Angola,TEST,Angola,Turkmenistan,swap,8,18,13,324.899, Portuguese,0,4.24953556060791
+CAP-Angola,TEST,Angola,Turkmenistan,random_inject,8,18,13,324.899, is,0,4.787256240844727
+CAP-Angola,TEST,Angola,Turkmenistan,suppress,8,18,13,324.899, Portuguese,0,-0.00034999847412109375
+CAP-Colombia,TEST,Colombia,Saint Vincent and the Grenadines,swap,8,26,501,9708.9185, is,0,10.634990692138672
+CAP-Colombia,TEST,Colombia,Saint Vincent and the Grenadines,random_inject,8,26,501,9708.9185,GeneratedCode,0,23.10592651367187
+CAP-Colombia,TEST,Colombia,Saint Vincent and the Grenadines,suppress,8,26,501,9708.9185, Spanish,0,-0.49493408203125
+CAP-Colombia,TEST,Colombia,Mozambique,swap,8,26,11,500.1094, the,0,-0.469268798828125
+CAP-Colombia,TEST,Colombia,Mozambique,random_inject,8,26,11,500.1094, the,0,3.5102996826171875
+CAP-Colombia,TEST,Colombia,Mozambique,suppress,8,26,11,500.1094, Spanish,0,0.44349098205566406
+CAP-Colombia,TEST,Colombia,Albania,swap,8,26,23,1627.5305," """,0,32.63293218612671
+CAP-Colombia,TEST,Colombia,Albania,random_inject,8,26,23,1627.5305, of,0,15.51121997833252
+CAP-Colombia,TEST,Colombia,Albania,suppress,8,26,23,1627.5305, Spanish,0,-0.4171285629272461
+CAP-Suriname,TEST,Suriname,Angola,swap,8,22,18,618.7993, the,0,-0.23620223999023438
+CAP-Suriname,TEST,Suriname,Angola,random_inject,8,22,18,618.7993, the,0,10.923708438873291
+CAP-Suriname,TEST,Suriname,Angola,suppress,8,22,18,618.7993, S,0,4.108772277832031
+CAP-Suriname,TEST,Suriname,Iceland,swap,8,22,29,1486.5948, Í,0,42.3181939125061
+CAP-Suriname,TEST,Suriname,Iceland,random_inject,8,22,29,1486.5948, will,0,13.498932600021362
+CAP-Suriname,TEST,Suriname,Iceland,suppress,8,22,29,1486.5948, S,0,3.198413372039793
+CAP-Suriname,TEST,Suriname,Poland,swap,8,22,41,1750.5727," """,0,20.474340319633484
+CAP-Suriname,TEST,Suriname,Poland,random_inject,8,22,41,1750.5727, in,0,10.879355430603027
+CAP-Suriname,TEST,Suriname,Poland,suppress,8,22,41,1750.5727, S,0,3.2328357696533203
+CAP-South Sudan,TEST,South Sudan,Sweden,swap,8,260,16,786.9138, the,0,25.33170986175537
+CAP-South Sudan,TEST,South Sudan,Sweden,random_inject,8,260,16,786.9138, to,0,9.133131980895996
+CAP-South Sudan,TEST,South Sudan,Sweden,suppress,8,260,16,786.9138, Arabic,0,3.7688398361206055
+CAP-South Sudan,TEST,South Sudan,Cambodia,swap,8,260,12,772.3991, the,0,12.89215898513794
+CAP-South Sudan,TEST,South Sudan,Cambodia,random_inject,8,260,12,772.3991, that,0,-5.210620641708374
+CAP-South Sudan,TEST,South Sudan,Cambodia,suppress,8,260,12,772.3991, Arabic,0,6.116679668426514
+CAP-South Sudan,TEST,South Sudan,Nicaragua,swap,8,260,10,364.2757, Nic,0,8.50344467163086
+CAP-South Sudan,TEST,South Sudan,Nicaragua,random_inject,8,260,10,364.2757, Arabic,0,3.251453399658204
+CAP-South Sudan,TEST,South Sudan,Nicaragua,suppress,8,260,10,364.2757, Arabic,0,3.1791820526123047
+CAP-Tunisia,TEST,Tunisia,Nepal,swap,8,11,26,2308.6711, Nepal,0,41.128724217414856
+CAP-Tunisia,TEST,Tunisia,Nepal,random_inject,8,11,26,2308.6711,RegressionTest,0,22.15292263031006
+CAP-Tunisia,TEST,Tunisia,Nepal,suppress,8,11,26,2308.6711, Arabic,0,0.25970458984375
+CAP-Tunisia,TEST,Tunisia,Saint Lucia,swap,8,11,169,3234.6604,",",0,11.996698379516602
+CAP-Tunisia,TEST,Tunisia,Saint Lucia,random_inject,8,11,169,3234.6604, mass,0,11.998651027679443
+CAP-Tunisia,TEST,Tunisia,Saint Lucia,suppress,8,11,169,3234.6604, Arabic,0,0.060512542724609375
+CAP-Tunisia,TEST,Tunisia,France,swap,8,11,50,2699.6683, ,0,19.965860605239868
+CAP-Tunisia,TEST,Tunisia,France,random_inject,8,11,50,2699.6683,  ,0,6.657025694847107
+CAP-Tunisia,TEST,Tunisia,France,suppress,8,11,50,2699.6683, Arabic,0,-0.06715011596679688
+CAP-Togo,TEST,Togo,Mongolia,swap,8,19,10,831.7641, the,0,30.725964307785034
+CAP-Togo,TEST,Togo,Mongolia,random_inject,8,19,10,831.7641, ,0,0.2284233570098877
+CAP-Togo,TEST,Togo,Mongolia,suppress,8,19,10,831.7641, French,0,1.7143738269805908
 CAP-Togo,TEST,Togo,Saint Lucia,swap,8,19,166,3180.6639,",",0,3.108706474304199
-CAP-Togo,TEST,Togo,Saint Lucia,random_inject,8,19,166,3180.6639,architecte,0,13.092296123504639
+CAP-Togo,TEST,Togo,Saint Lucia,random_inject,8,19,166,3180.6639,<bos>,0,5.646355926990509
 CAP-Togo,TEST,Togo,Saint Lucia,suppress,8,19,166,3180.6639, French,0,-0.7264766693115234
-CAP-Italy,TEST,Italy,Gabon,swap,8,46,11,198.4126, Italian,0,7.13963508605957
-CAP-Italy,TEST,Italy,Gabon,random_inject,8,46,11,198.4126, Italian,0,4.178670883178711
-CAP-Italy,TEST,Italy,Gabon,suppress,8,46,11,198.4126, Italian,0,4.524997711181641
-CAP-Italy,TEST,Italy,Spain,swap,8,46,36,2210.9096, the,0,12.420315384864807
-CAP-Italy,TEST,Italy,Spain,random_inject,8,46,36,2210.9096, enää,0,1.8117005825042725
-CAP-Italy,TEST,Italy,Spain,suppress,8,46,36,2210.9096, Italian,0,5.506128311157227
-CAP-Italy,TEST,Italy,Saint Kitts and Nevis,swap,8,46,230,3349.5067, the,0,5.1879119873046875
-CAP-Italy,TEST,Italy,Saint Kitts and Nevis,random_inject,8,46,230,3349.5067, the,0,9.327089563012123
-CAP-Italy,TEST,Italy,Saint Kitts and Nevis,suppress,8,46,230,3349.5067, Italian,0,2.9562969207763667
-CAP-Saudi Arabia,TEST,Saudi Arabia,Grenada,swap,8,290,17,280.7052, Arabic,0,-0.7687053680419922
-CAP-Saudi Arabia,TEST,Saudi Arabia,Grenada,random_inject,8,290,17,280.7052, Arabic,0,-0.14328575134277344
-CAP-Saudi Arabia,TEST,Saudi Arabia,Grenada,suppress,8,290,17,280.7052, Arabic,0,0.08806228637695312
-CAP-Saudi Arabia,TEST,Saudi Arabia,North Korea,swap,8,290,181,4562.2556, the,0,13.676648139953613
-CAP-Saudi Arabia,TEST,Saudi Arabia,North Korea,random_inject,8,290,181,4562.2556, ,0,21.652392745018005
-CAP-Saudi Arabia,TEST,Saudi Arabia,North Korea,suppress,8,290,181,4562.2556, Arabic,0,-0.12694263458251953
-CAP-Saudi Arabia,TEST,Saudi Arabia,El Salvador,swap,8,290,158,2656.7297, Arabic,0,5.48658561706543
-CAP-Saudi Arabia,TEST,Saudi Arabia,El Salvador,random_inject,8,290,158,2656.7297, ,0,20.923779487609863
-CAP-Saudi Arabia,TEST,Saudi Arabia,El Salvador,suppress,8,290,158,2656.7297, Arabic,0,-0.17242813110351562
-CAP-Croatia,TEST,Croatia,Chile,swap,8,10,18,603.9536, the,0,6.024641990661621
-CAP-Croatia,TEST,Croatia,Chile,random_inject,8,10,18,603.9536, called,0,7.178169250488281
-CAP-Croatia,TEST,Croatia,Chile,suppress,8,10,18,603.9536, Croatian,0,0.5736255645751953
-CAP-Croatia,TEST,Croatia,Spain,swap,8,10,34,1874.7144, the,0,24.908187106251717
-CAP-Croatia,TEST,Croatia,Spain,random_inject,8,10,34,1874.7144, because,0,17.704394161701202
-CAP-Croatia,TEST,Croatia,Spain,suppress,8,10,34,1874.7144, Croatian,0,0.5736255645751953
-CAP-Croatia,TEST,Croatia,Libya,swap,8,10,20,312.4066, Croatian,0,2.2783422470092773
-CAP-Croatia,TEST,Croatia,Libya,random_inject,8,10,20,312.4066, Croatian,0,3.4255638122558594
-CAP-Croatia,TEST,Croatia,Libya,suppress,8,10,20,312.4066, Croatian,0,0.1335153579711914
-CAP-Turkmenistan,TEST,Turkmenistan,Angola,swap,8,18,17,373.3949, Persian,0,7.251196861267091
-CAP-Turkmenistan,TEST,Turkmenistan,Angola,random_inject,8,18,17,373.3949, the,0,4.156528472900391
-CAP-Turkmenistan,TEST,Turkmenistan,Angola,suppress,8,18,17,373.3949, Turk,0,0.43581104278564453
-CAP-Turkmenistan,TEST,Turkmenistan,Estonia,swap,8,18,13,446.0203, Turk,0,8.73442792892456
-CAP-Turkmenistan,TEST,Turkmenistan,Estonia,random_inject,8,18,13,446.0203, made,0,4.82654333114624
-CAP-Turkmenistan,TEST,Turkmenistan,Estonia,suppress,8,18,13,446.0203, Turk,0,0.9661140441894531
+CAP-Togo,TEST,Togo,Tajikistan,swap,8,19,10,362.5232, the,0,11.181842803955078
+CAP-Togo,TEST,Togo,Tajikistan,random_inject,8,19,10,362.5232, the,0,6.3642807006835955
+CAP-Togo,TEST,Togo,Tajikistan,suppress,8,19,10,362.5232, French,0,1.597050189971922
+CAP-Belize,TEST,Belize,Bahrain,swap,8,17,9,332.6954, English,0,-0.3982276916503906
+CAP-Belize,TEST,Belize,Bahrain,random_inject,8,17,9,332.6954, English,0,0.6129550933837891
+CAP-Belize,TEST,Belize,Bahrain,suppress,8,17,9,332.6954, English,0,-0.5419197082519531
+CAP-Belize,TEST,Belize,Vietnam,swap,8,17,51,2874.6038, Ha,0,25.619688630104065
+CAP-Belize,TEST,Belize,Vietnam,random_inject,8,17,51,2874.6038, vettoriale,0,11.297543168067932
+CAP-Belize,TEST,Belize,Vietnam,suppress,8,17,51,2874.6038, English,0,0.6990890502929688
+CAP-Belize,TEST,Belize,Liechtenstein,swap,8,17,35,1021.3961, the,0,8.101977348327637
+CAP-Belize,TEST,Belize,Liechtenstein,random_inject,8,17,35,1021.3961, African,0,6.823668479919433
+CAP-Belize,TEST,Belize,Liechtenstein,suppress,8,17,35,1021.3961, English,0,-0.12160968780517578
+CAP-Uruguay,TEST,Uruguay,Denmark,swap,8,10,29,525.6742, Spanish,0,4.754204750061035
+CAP-Uruguay,TEST,Uruguay,Denmark,random_inject,8,10,29,525.6742, the,0,6.963975429534912
+CAP-Uruguay,TEST,Uruguay,Denmark,suppress,8,10,29,525.6742, Spanish,0,0.18194150924682617
+CAP-Uruguay,TEST,Uruguay,Guyana,swap,8,10,12,247.7353, Spanish,0,0.3610572814941406
+CAP-Uruguay,TEST,Uruguay,Guyana,random_inject,8,10,12,247.7353, Spanish,0,2.782136917114258
+CAP-Uruguay,TEST,Uruguay,Guyana,suppress,8,10,12,247.7353, Spanish,0,-0.10702705383300781
+CAP-Uruguay,TEST,Uruguay,Mauritania,swap,8,10,15,336.3286, Spanish,0,-1.4102153778076172
+CAP-Uruguay,TEST,Uruguay,Mauritania,random_inject,8,10,15,336.3286, the,0,11.426148414611816
+CAP-Uruguay,TEST,Uruguay,Mauritania,suppress,8,10,15,336.3286, Spanish,0,0.19879722595214844
+CAP-Guinea,TEST,Guinea,Austria,swap,8,97,15,1232.9754, ,0,12.036082744598389
+CAP-Guinea,TEST,Guinea,Austria,random_inject,8,97,15,1232.9754,.,0,-0.3183388710021955
+CAP-Guinea,TEST,Guinea,Austria,suppress,8,97,15,1232.9754, the,0,1.1219253540039062
+CAP-Guinea,TEST,Guinea,Turkmenistan,swap,8,97,15,518.2336, French,0,10.87338900566101
+CAP-Guinea,TEST,Guinea,Turkmenistan,random_inject,8,97,15,518.2336, the,0,0.9171655178070068
+CAP-Guinea,TEST,Guinea,Turkmenistan,suppress,8,97,15,518.2336, the,0,0.14107632637023926
+CAP-Guinea,TEST,Guinea,Bulgaria,swap,8,97,6,841.3331, the,0,27.034391075372696
+CAP-Guinea,TEST,Guinea,Bulgaria,random_inject,8,97,6,841.3331, the,0,11.872989803552628
+CAP-Guinea,TEST,Guinea,Bulgaria,suppress,8,97,6,841.3331, the,0,1.1806325018405914
+CAP-Sierra Leone,TEST,Sierra Leone,Latvia,swap,8,190,3,25.1775, Mende,0,-0.07466322183609009
+CAP-Sierra Leone,TEST,Sierra Leone,Latvia,random_inject,8,190,3,25.1775, English,0,-0.007983088493347168
+CAP-Sierra Leone,TEST,Sierra Leone,Latvia,suppress,8,190,3,25.1775, K,0,-0.11925870180130005
+CAP-Sierra Leone,TEST,Sierra Leone,El Salvador,swap,8,190,158,2656.7297, a,0,9.292497634887695
+CAP-Sierra Leone,TEST,Sierra Leone,El Salvador,random_inject,8,190,158,2656.7297,<bos>,0,10.673517227172852
+CAP-Sierra Leone,TEST,Sierra Leone,El Salvador,suppress,8,190,158,2656.7297, K,0,0.08249568939208984
+CAP-Sierra Leone,TEST,Sierra Leone,Andorra,swap,8,190,24,351.0073, English,0,1.2705581188201904
+CAP-Sierra Leone,TEST,Sierra Leone,Andorra,random_inject,8,190,24,351.0073, the,0,-2.82257080078125
+CAP-Sierra Leone,TEST,Sierra Leone,Andorra,suppress,8,190,24,351.0073, K,0,0.09457015991210938
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Serbia,swap,8,155,8,165.8322, English,0,2.624603748321533
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Serbia,random_inject,8,155,8,165.8322, English,0,2.176145076751709
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Serbia,suppress,8,155,8,165.8322, English,0,0.15971326828002752
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Austria,swap,8,155,11,266.4233, English,0,7.557350158691406
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Austria,random_inject,8,155,11,266.4233, English,0,2.3024120330810547
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Austria,suppress,8,155,11,266.4233, English,0,0.23415184020996094
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Russia,swap,8,155,30,1501.401, not,0,13.530633926391602
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Russia,random_inject,8,155,30,1501.401, is,0,13.61282205581665
+CAP-Trinidad and Tobago,TEST,Trinidad and Tobago,Russia,suppress,8,155,30,1501.401, English,0,0.08284950256347656
 CAP-Turkmenistan,TEST,Turkmenistan,El Salvador,swap,8,18,158,2656.7297, a,0,16.41092014312744
-CAP-Turkmenistan,TEST,Turkmenistan,El Salvador,random_inject,8,18,158,2656.7297,s,0,8.28932523727417
-CAP-Turkmenistan,TEST,Turkmenistan,El Salvador,suppress,8,18,158,2656.7297, Turk,0,0.45668697357177734
-CAP-Lebanon,TEST,Lebanon,Poland,swap,8,44,41,1701.5173, ,0,24.03603458404541
-CAP-Lebanon,TEST,Lebanon,Poland,random_inject,8,44,41,1701.5173,"
-",0,0.478357791900633
-CAP-Lebanon,TEST,Lebanon,Poland,suppress,8,44,41,1701.5173, Arabic,0,0.7119331359863281
-CAP-Lebanon,TEST,Lebanon,Bulgaria,swap,8,44,6,841.3331, Bulgarian,1,25.62799644470215
-CAP-Lebanon,TEST,Lebanon,Bulgaria,random_inject,8,44,6,841.3331, a,0,2.965362071990965
-CAP-Lebanon,TEST,Lebanon,Bulgaria,suppress,8,44,6,841.3331, Arabic,0,0.7619190216064453
-CAP-Lebanon,TEST,Lebanon,North Korea,swap,8,44,181,4772.4055, actually,0,32.34155511856079
-CAP-Lebanon,TEST,Lebanon,North Korea,random_inject,8,44,181,4772.4055,.,0,17.271531581878662
-CAP-Lebanon,TEST,Lebanon,North Korea,suppress,8,44,181,4772.4055, Arabic,0,1.3805503845214844
-CAP-Cambodia,TEST,Cambodia,Saint Lucia,swap,8,15,166,3180.6639,",",0,8.731505393981934
-CAP-Cambodia,TEST,Cambodia,Saint Lucia,random_inject,8,15,166,3180.6639,.,0,43.31794357299805
-CAP-Cambodia,TEST,Cambodia,Saint Lucia,suppress,8,15,166,3180.6639, Khmer,0,0.1969928741455078
-CAP-Cambodia,TEST,Cambodia,Thailand,swap,8,15,19,1210.5113, the,0,26.362810134887695
-CAP-Cambodia,TEST,Cambodia,Thailand,random_inject,8,15,19,1210.5113, the,0,2.3189597129821777
-CAP-Cambodia,TEST,Cambodia,Thailand,suppress,8,15,19,1210.5113, Khmer,0,2.3954410552978516
-CAP-Cambodia,TEST,Cambodia,Ukraine,swap,8,15,47,2918.2022,",",0,36.04198980331421
-CAP-Cambodia,TEST,Cambodia,Ukraine,random_inject,8,15,47,2918.2022, ,0,28.37262487411499
-CAP-Cambodia,TEST,Cambodia,Ukraine,suppress,8,15,47,2918.2022, Khmer,0,0.7823076248168945
-CAP-Syria,TEST,Syria,Gabon,swap,8,47,11,198.4126, Arabic,0,1.7934293746948242
-CAP-Syria,TEST,Syria,Gabon,random_inject,8,47,11,198.4126, Arabic,0,1.443842887878418
-CAP-Syria,TEST,Syria,Gabon,suppress,8,47,11,198.4126, Arabic,0,0.7633962631225586
-CAP-Syria,TEST,Syria,Uzbekistan,swap,8,47,7,111.8415, Arabic,0,0.41402626037597656
-CAP-Syria,TEST,Syria,Uzbekistan,random_inject,8,47,7,111.8415, Arabic,0,1.8039588928222656
-CAP-Syria,TEST,Syria,Uzbekistan,suppress,8,47,7,111.8415, Arabic,0,0.6006546020507812
-CAP-Syria,TEST,Syria,Colombia,swap,8,47,22,897.342, Arabic,0,6.3972883224487305
-CAP-Syria,TEST,Syria,Colombia,random_inject,8,47,22,897.342, to,0,4.24974203109741
-CAP-Syria,TEST,Syria,Colombia,suppress,8,47,22,897.342, Arabic,0,0.40830135345458984
-CAP-Japan,TEST,Japan,Slovakia,swap,8,55,12,664.1149, Slovak,1,27.45021104812622
-CAP-Japan,TEST,Japan,Slovakia,random_inject,8,55,12,664.1149,:,0,11.71716570854187
-CAP-Japan,TEST,Japan,Slovakia,suppress,8,55,12,664.1149, Japanese,0,5.426319122314453
-CAP-Japan,TEST,Japan,Iceland,swap,8,55,30,1549.8034, at,0,39.7750244140625
-CAP-Japan,TEST,Japan,Iceland,random_inject,8,55,30,1549.8034, also,0,7.1230679750442505
-CAP-Japan,TEST,Japan,Iceland,suppress,8,55,30,1549.8034, Japanese,0,4.972442626953125
-CAP-Japan,TEST,Japan,Sierra Leone,swap,8,55,193,2821.9994, the,0,7.034214019775391
-CAP-Japan,TEST,Japan,Sierra Leone,random_inject,8,55,193,2821.9994,<bos>,0,6.019071578979492
-CAP-Japan,TEST,Japan,Sierra Leone,suppress,8,55,193,2821.9994, Japanese,0,2.890768051147461
-CAP-Cuba,TEST,Cuba,Brunei,swap,8,34,47,3938.9516, Dus,0,28.698286771774292
-CAP-Cuba,TEST,Cuba,Brunei,random_inject,8,34,47,3938.9516, has,0,4.42962110042572
-CAP-Cuba,TEST,Cuba,Brunei,suppress,8,34,47,3938.9516, Spanish,0,-0.8995742797851562
-CAP-Cuba,TEST,Cuba,Albania,swap,8,34,22,1569.9507," """,0,32.6430401802063
-CAP-Cuba,TEST,Cuba,Albania,random_inject,8,34,22,1569.9507, essay,0,4.649028316140177
-CAP-Cuba,TEST,Cuba,Albania,suppress,8,34,22,1569.9507, Spanish,0,-0.24588394165039062
-CAP-Cuba,TEST,Cuba,Guinea,swap,8,34,89,3695.8246,-,0,-0.816810607910158
-CAP-Cuba,TEST,Cuba,Guinea,random_inject,8,34,89,3695.8246, in,0,6.5974240303039515
-CAP-Cuba,TEST,Cuba,Guinea,suppress,8,34,89,3695.8246, Spanish,0,0.3832979202270508
-CAP-Spain,TEST,Spain,Sierra Leone,swap,8,38,191,2790.22, the,0,7.3730621337890625
-CAP-Spain,TEST,Spain,Sierra Leone,random_inject,8,38,191,2790.22, centrales,0,3.891982316970825
-CAP-Spain,TEST,Spain,Sierra Leone,suppress,8,38,191,2790.22, Spanish,0,2.0513343811035156
-CAP-Spain,TEST,Spain,Trinidad and Tobago,swap,8,38,161,2488.353, the,0,8.717971801757812
-CAP-Spain,TEST,Spain,Trinidad and Tobago,random_inject,8,38,161,2488.353, or,0,7.58991003036499
-CAP-Spain,TEST,Spain,Trinidad and Tobago,suppress,8,38,161,2488.353, Spanish,0,2.0513362884521484
-CAP-Spain,TEST,Spain,Lebanon,swap,8,38,43,1425.3374, the,0,11.736734390258789
-CAP-Spain,TEST,Spain,Lebanon,random_inject,8,38,43,1425.3374, is,0,-1.5315132141113263
-CAP-Spain,TEST,Spain,Lebanon,suppress,8,38,43,1425.3374, Spanish,0,-0.2036151885986328
-CAP-Greece,TEST,Greece,Liberia,swap,8,64,11,298.3581, the,0,3.009099960327148
-CAP-Greece,TEST,Greece,Liberia,random_inject,8,64,11,298.3581, Greek,0,2.6615676879882812
-CAP-Greece,TEST,Greece,Liberia,suppress,8,64,11,298.3581, Greek,0,0.7259654998779297
-CAP-Greece,TEST,Greece,Belize,swap,8,64,14,1003.8055, not,0,3.3256912231445312
-CAP-Greece,TEST,Greece,Belize,random_inject,8,64,14,1003.8055, ,0,7.366872072219849
-CAP-Greece,TEST,Greece,Belize,suppress,8,64,14,1003.8055, Greek,0,0.7259674072265625
-CAP-Greece,TEST,Greece,Estonia,swap,8,64,15,813.6057, Estonian,1,28.096569061279297
-CAP-Greece,TEST,Greece,Estonia,random_inject,8,64,15,813.6057, announced,0,1.523535966873169
-CAP-Greece,TEST,Greece,Estonia,suppress,8,64,15,813.6057, Greek,0,5.085818290710449
-CAP-Mozambique,TEST,Mozambique,Romania,swap,8,11,15,1184.4719, the,0,17.889260292053223
-CAP-Mozambique,TEST,Mozambique,Romania,random_inject,8,11,15,1184.4719, not,0,2.6860578060150164
+CAP-Turkmenistan,TEST,Turkmenistan,El Salvador,random_inject,8,18,158,2656.7297, is,0,11.03635025024414
+CAP-Turkmenistan,TEST,Turkmenistan,El Salvador,suppress,8,18,158,2656.7297, Turk,0,0.4566841125488281
+CAP-Turkmenistan,TEST,Turkmenistan,Chile,swap,8,18,16,553.3865, the,0,8.128891944885254
+CAP-Turkmenistan,TEST,Turkmenistan,Chile,random_inject,8,18,16,553.3865, is,0,4.142224311828615
+CAP-Turkmenistan,TEST,Turkmenistan,Chile,suppress,8,18,16,553.3865, Turk,0,0.45668697357177734
+CAP-Turkmenistan,TEST,Turkmenistan,Russia,swap,8,18,37,2756.3916, likewise,0,11.463823795318605
+CAP-Turkmenistan,TEST,Turkmenistan,Russia,random_inject,8,18,37,2756.3916, I,0,1.833517074584961
+CAP-Turkmenistan,TEST,Turkmenistan,Russia,suppress,8,18,37,2756.3916, Turk,0,0.4095745086669922
+CAP-Costa Rica,TEST,Costa Rica,Brunei,swap,8,85,21,1193.1314, Malay,1,21.241432189941406
+CAP-Costa Rica,TEST,Costa Rica,Brunei,random_inject,8,85,21,1193.1314, City,0,3.7721842527389526
+CAP-Costa Rica,TEST,Costa Rica,Brunei,suppress,8,85,21,1193.1314, Spanish,0,0.06683826446533203
+CAP-Costa Rica,TEST,Costa Rica,Albania,swap,8,85,16,725.379, the,0,17.271993160247803
+CAP-Costa Rica,TEST,Costa Rica,Albania,random_inject,8,85,16,725.379, the,0,5.9173102378845215
+CAP-Costa Rica,TEST,Costa Rica,Albania,suppress,8,85,16,725.379, Spanish,0,0.362884521484375
+CAP-Costa Rica,TEST,Costa Rica,Guinea,swap,8,85,70,1667.3318,-,0,1.8924884796142578
+CAP-Costa Rica,TEST,Costa Rica,Guinea,random_inject,8,85,70,1667.3318, is,0,-0.31964349746703924
+CAP-Costa Rica,TEST,Costa Rica,Guinea,suppress,8,85,70,1667.3318, Spanish,0,0.07777595520019531
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Tunisia,swap,8,500,10,186.5766, English,0,1.7859058380126953
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Tunisia,random_inject,8,500,10,186.5766, English,0,3.265359878540039
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Tunisia,suppress,8,500,10,186.5766, English,0,-0.011575698852539062
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Nepal,swap,8,500,20,826.6292, English,0,11.770934581756592
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Nepal,random_inject,8,500,20,826.6292,:,0,4.709853649139404
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Nepal,suppress,8,500,20,826.6292, English,0,-0.0779423713684082
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Mongolia,swap,8,500,12,229.4762, English,0,3.775712013244629
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Mongolia,random_inject,8,500,12,229.4762, English,0,0.07365858554840088
+CAP-Saint Vincent and the Grenadines,TEST,Saint Vincent and the Grenadines,Mongolia,suppress,8,500,12,229.4762, English,0,0.018394678831100464
+CAP-Honduras,TEST,Honduras,Estonia,swap,8,6,12,566.3713, the,0,25.743777096271515
+CAP-Honduras,TEST,Honduras,Estonia,random_inject,8,6,12,566.3713, the,0,11.850063145160673
+CAP-Honduras,TEST,Honduras,Estonia,suppress,8,6,12,566.3713, Spanish,0,-0.14112840592861176
+CAP-Honduras,TEST,Honduras,Japan,swap,8,6,34,2037.8978, to,0,33.938730239868164
+CAP-Honduras,TEST,Honduras,Japan,random_inject,8,6,34,2037.8978, beginnetje,0,10.052808284759525
+CAP-Honduras,TEST,Honduras,Japan,suppress,8,6,34,2037.8978, Spanish,0,-0.03402996063232422
+CAP-Honduras,TEST,Honduras,Sweden,swap,8,6,14,639.7409, Swedish,1,20.086605072021484
+CAP-Honduras,TEST,Honduras,Sweden,random_inject,8,6,14,639.7409, Spanish,0,5.1617937088012695
+CAP-Honduras,TEST,Honduras,Sweden,suppress,8,6,14,639.7409, Spanish,0,0.0811619758605957
+CAP-Zambia,TEST,Zambia,Tajikistan,swap,8,13,9,215.3643, English,0,2.4869251251220703
+CAP-Zambia,TEST,Zambia,Tajikistan,random_inject,8,13,9,215.3643, English,0,2.54555082321167
+CAP-Zambia,TEST,Zambia,Tajikistan,suppress,8,13,9,215.3643, English,0,0.16964340209960938
+CAP-Zambia,TEST,Zambia,Saudi Arabia,swap,8,13,282,7428.9078, to,0,-1.1065785884857178
+CAP-Zambia,TEST,Zambia,Saudi Arabia,random_inject,8,13,282,7428.9078, resourceCulture,0,19.57113516330719
+CAP-Zambia,TEST,Zambia,Saudi Arabia,suppress,8,13,282,7428.9078, English,0,0.23160743713378906
+CAP-Zambia,TEST,Zambia,Ukraine,swap,8,13,47,2629.4417, is,0,15.650300025939941
+CAP-Zambia,TEST,Zambia,Ukraine,random_inject,8,13,47,2629.4417,-,0,8.061674823984504
+CAP-Zambia,TEST,Zambia,Ukraine,suppress,8,13,47,2629.4417, English,0,-0.5090818405151367
+CAP-Germany,TEST,Germany,Ghana,swap,8,30,19,2238.6538, the,0,5.900016784667969
+CAP-Germany,TEST,Germany,Ghana,random_inject,8,30,19,2238.6538,</b>,0,0.5609807968139648
+CAP-Germany,TEST,Germany,Ghana,suppress,8,30,19,2238.6538, German,0,-0.08491325378417969
+CAP-Germany,TEST,Germany,Sweden,swap,8,30,17,1066.4971, Swedish,1,18.944080352783203
+CAP-Germany,TEST,Germany,Sweden,random_inject,8,30,17,1066.4971, ,0,10.404988288879395
+CAP-Germany,TEST,Germany,Sweden,suppress,8,30,17,1066.4971, German,0,3.6889753341674805
+CAP-Germany,TEST,Germany,Saint Vincent and the Grenadines,swap,8,30,500,9688.9442, is,0,4.251499176025391
+CAP-Germany,TEST,Germany,Saint Vincent and the Grenadines,random_inject,8,30,500,9688.9442, and,0,19.163076043128967
+CAP-Germany,TEST,Germany,Saint Vincent and the Grenadines,suppress,8,30,500,9688.9442, German,0,-0.08491706848144531
+CAP-Venezuela,TEST,Venezuela,Iceland,swap,8,12,28,1357.2125, Gu,0,47.29734230041504
+CAP-Venezuela,TEST,Venezuela,Iceland,random_inject,8,12,28,1357.2125, in,0,9.499207735061647
+CAP-Venezuela,TEST,Venezuela,Iceland,suppress,8,12,28,1357.2125, Spanish,0,-0.07490801811218262
+CAP-Venezuela,TEST,Venezuela,Andorra,swap,8,12,33,1522.0325, the,0,6.634613990783692
+CAP-Venezuela,TEST,Venezuela,Andorra,random_inject,8,12,33,1522.0325,"
+
+
+
+
+",0,-4.560765504837038
+CAP-Venezuela,TEST,Venezuela,Andorra,suppress,8,12,33,1522.0325, Spanish,0,0.04941272735595703
+CAP-Venezuela,TEST,Venezuela,Albania,swap,8,12,24,1669.7152," """,0,33.273401737213135
+CAP-Venezuela,TEST,Venezuela,Albania,random_inject,8,12,24,1669.7152, starts,0,11.785831451416012
+CAP-Venezuela,TEST,Venezuela,Albania,suppress,8,12,24,1669.7152, Spanish,0,-0.0007848739624023438
+CAP-Albania,TEST,Albania,Bulgaria,swap,8,26,6,841.3331, the,0,20.510937690734863
+CAP-Albania,TEST,Albania,Bulgaria,random_inject,8,26,6,841.3331,",",0,9.216609954833984
+CAP-Albania,TEST,Albania,Bulgaria,suppress,8,26,6,841.3331, Albanian,0,3.5061731338500977
+CAP-Albania,TEST,Albania,Togo,swap,8,26,21,839.6985, the,0,13.768034934997559
+CAP-Albania,TEST,Albania,Togo,random_inject,8,26,21,839.6985, one,0,8.411227226257324
+CAP-Albania,TEST,Albania,Togo,suppress,8,26,21,839.6985, Albanian,0,1.7804193496704102
+CAP-Albania,TEST,Albania,Nepal,swap,8,26,26,2308.6711, Nepal,0,35.82249093055725
+CAP-Albania,TEST,Albania,Nepal,random_inject,8,26,26,2308.6711,esten,0,17.4662446975708
+CAP-Albania,TEST,Albania,Nepal,suppress,8,26,26,2308.6711, Albanian,0,2.6706085205078125
+CAP-Nepal,TEST,Nepal,Canada,swap,8,41,60,4619.1069, the,0,25.933761596679688
+CAP-Nepal,TEST,Nepal,Canada,random_inject,8,41,60,4619.1069, Central,0,27.635086059570312
+CAP-Nepal,TEST,Nepal,Canada,suppress,8,41,60,4619.1069, Nepali,0,1.4786911010742188
+CAP-Nepal,TEST,Nepal,Ghana,swap,8,41,24,2620.9395, the,0,20.024943351745605
+CAP-Nepal,TEST,Nepal,Ghana,random_inject,8,41,24,2620.9395, seeing,0,27.658423662185665
+CAP-Nepal,TEST,Nepal,Ghana,suppress,8,41,24,2620.9395, Nepali,0,1.478689193725586
+CAP-Nepal,TEST,Nepal,Mexico,swap,8,41,39,2768.4832, ,0,23.95870614051819
+CAP-Nepal,TEST,Nepal,Mexico,random_inject,8,41,39,2768.4832, “,0,10.755897760391235
+CAP-Nepal,TEST,Nepal,Mexico,suppress,8,41,39,2768.4832, Nepali,0,0.8062267303466797
+CAP-Argentina,TEST,Argentina,Guinea,swap,8,27,83,2725.7802,-,0,1.9381542205810547
+CAP-Argentina,TEST,Argentina,Guinea,random_inject,8,27,83,2725.7802,",",0,10.029297351837158
+CAP-Argentina,TEST,Argentina,Guinea,suppress,8,27,83,2725.7802, Spanish,0,1.1700515747070312
+CAP-Argentina,TEST,Argentina,United States,swap,8,27,167,10205.7263, and,0,18.00618314743042
+CAP-Argentina,TEST,Argentina,United States,random_inject,8,27,167,10205.7263,s,0,6.314606666564941
+CAP-Argentina,TEST,Argentina,United States,suppress,8,27,167,10205.7263, Spanish,0,0.837982177734375
+CAP-Argentina,TEST,Argentina,Brunei,swap,8,27,38,2499.2916, the,0,29.972195148468018
+CAP-Argentina,TEST,Argentina,Brunei,random_inject,8,27,38,2499.2916,",",0,4.932592391967773
+CAP-Argentina,TEST,Argentina,Brunei,suppress,8,27,38,2499.2916, Spanish,0,1.8677139282226562
+CAP-Croatia,TEST,Croatia,Germany,swap,8,10,25,1843.5461, Ger,0,27.265494346618652
+CAP-Croatia,TEST,Croatia,Germany,random_inject,8,10,25,1843.5461, is,0,15.255972146987915
+CAP-Croatia,TEST,Croatia,Germany,suppress,8,10,25,1843.5461, Croatian,0,0.34300994873046875
+CAP-Croatia,TEST,Croatia,Trinidad and Tobago,swap,8,10,158,2463.3962, the,0,9.640701293945312
+CAP-Croatia,TEST,Croatia,Trinidad and Tobago,random_inject,8,10,158,2463.3962, to,0,14.705446243286133
+CAP-Croatia,TEST,Croatia,Trinidad and Tobago,suppress,8,10,158,2463.3962, Croatian,0,0.14897918701171875
+CAP-Croatia,TEST,Croatia,Spain,swap,8,10,34,1874.7144, the,0,24.90818613767624
+CAP-Croatia,TEST,Croatia,Spain,random_inject,8,10,34,1874.7144, plais,0,11.865776360034943
+CAP-Croatia,TEST,Croatia,Spain,suppress,8,10,34,1874.7144, Croatian,0,0.5736255645751953
+CAP-Uzbekistan,TEST,Uzbekistan,Togo,swap,8,8,16,184.1123, Uz,0,0.3656778335571289
+CAP-Uzbekistan,TEST,Uzbekistan,Togo,random_inject,8,8,16,184.1123, Uz,0,4.147830963134766
+CAP-Uzbekistan,TEST,Uzbekistan,Togo,suppress,8,8,16,184.1123, Uz,0,-0.03533744812011719
+CAP-Uzbekistan,TEST,Uzbekistan,Angola,swap,8,8,16,222.0836, Uz,0,0.24686384201049805
+CAP-Uzbekistan,TEST,Uzbekistan,Angola,random_inject,8,8,16,222.0836, Uz,0,7.293792247772217
+CAP-Uzbekistan,TEST,Uzbekistan,Angola,suppress,8,8,16,222.0836, Uz,0,-0.05961894989013672
+CAP-Uzbekistan,TEST,Uzbekistan,Estonia,swap,8,8,11,131.7285, Uz,0,0.24176311492919922
+CAP-Uzbekistan,TEST,Uzbekistan,Estonia,random_inject,8,8,11,131.7285, Uz,0,2.759382963180542
+CAP-Uzbekistan,TEST,Uzbekistan,Estonia,suppress,8,8,11,131.7285, Uz,0,0.1011497974395752
+CAP-Grenada,TEST,Grenada,Suriname,swap,8,21,17,1162.4869, Sur,0,9.583077430725098
+CAP-Grenada,TEST,Grenada,Suriname,random_inject,8,21,17,1162.4869, announced,0,-8.408532619476315
+CAP-Grenada,TEST,Grenada,Suriname,suppress,8,21,17,1162.4869, English,0,0.23973560333251953
+CAP-Grenada,TEST,Grenada,Brunei,swap,8,21,23,1435.0655, the,0,12.345952987670898
+CAP-Grenada,TEST,Grenada,Brunei,random_inject,8,21,23,1435.0655,",",0,13.627857446670532
+CAP-Grenada,TEST,Grenada,Brunei,suppress,8,21,23,1435.0655, English,0,0.19286632537841797
+CAP-Grenada,TEST,Grenada,Lebanon,swap,8,21,40,1136.8061, the,0,8.840089797973633
+CAP-Grenada,TEST,Grenada,Lebanon,random_inject,8,21,40,1136.8061, called,0,3.665332794189453
+CAP-Grenada,TEST,Grenada,Lebanon,suppress,8,21,40,1136.8061, English,0,0.09224128723144531
+CAP-Qatar,TEST,Qatar,Grenada,swap,8,38,20,667.259, Arabic,0,-1.3725605010986333
+CAP-Qatar,TEST,Qatar,Grenada,random_inject,8,38,20,667.259, Arabic,0,-0.3999519348144531
+CAP-Qatar,TEST,Qatar,Grenada,suppress,8,38,20,667.259, Arabic,0,-0.23043060302734375
+CAP-Qatar,TEST,Qatar,Austria,swap,8,38,14,1020.7306, ,0,6.884741783142092
+CAP-Qatar,TEST,Qatar,Austria,random_inject,8,38,14,1020.7306, the,0,10.86226749420166
+CAP-Qatar,TEST,Qatar,Austria,suppress,8,38,14,1020.7306, Arabic,0,-0.4679574966430664
+CAP-Qatar,TEST,Qatar,Uzbekistan,swap,8,38,8,205.3221, Arabic,0,6.774224281311036
+CAP-Qatar,TEST,Qatar,Uzbekistan,random_inject,8,38,8,205.3221, Arabic,0,3.2384796142578125
+CAP-Qatar,TEST,Qatar,Uzbekistan,suppress,8,38,8,205.3221, Arabic,0,1.1711883544921875
+CAP-Portugal,TEST,Portugal,Cambodia,swap,8,18,11,376.402, Portuguese,0,6.539803385734558
+CAP-Portugal,TEST,Portugal,Cambodia,random_inject,8,18,11,376.402, Portuguese,0,10.663877844810486
+CAP-Portugal,TEST,Portugal,Cambodia,suppress,8,18,11,376.402, Portuguese,0,1.7463468313217163
+CAP-Portugal,TEST,Portugal,Norway,swap,8,18,16,365.2519, the,0,14.059025764465332
+CAP-Portugal,TEST,Portugal,Norway,random_inject,8,18,16,365.2519, Portuguese,0,5.0183916091918945
+CAP-Portugal,TEST,Portugal,Norway,suppress,8,18,16,365.2519, Portuguese,0,1.29730224609375
+CAP-Portugal,TEST,Portugal,Uzbekistan,swap,8,18,5,77.5882, Portuguese,0,1.806929588317871
+CAP-Portugal,TEST,Portugal,Uzbekistan,random_inject,8,18,5,77.5882, Portuguese,0,1.719275951385498
+CAP-Portugal,TEST,Portugal,Uzbekistan,suppress,8,18,5,77.5882, Portuguese,0,1.3511252403259277
+CAP-Chile,TEST,Chile,Egypt,swap,8,21,39,1692.2466, the,0,17.805429458618164
+CAP-Chile,TEST,Chile,Egypt,random_inject,8,21,39,1692.2466, has,0,18.133588194847107
+CAP-Chile,TEST,Chile,Egypt,suppress,8,21,39,1692.2466, Spanish,0,-0.29787254333496094
+CAP-Chile,TEST,Chile,Andorra,swap,8,21,33,1522.0325, then,0,5.491861343383789
+CAP-Chile,TEST,Chile,Andorra,random_inject,8,21,33,1522.0325, it,0,-10.64854645729065
+CAP-Chile,TEST,Chile,Andorra,suppress,8,21,33,1522.0325, Spanish,0,-0.22174549102783203
+CAP-Chile,TEST,Chile,Saint Kitts and Nevis,swap,8,21,230,3349.5067, the,0,3.610759735107422
+CAP-Chile,TEST,Chile,Saint Kitts and Nevis,random_inject,8,21,230,3349.5067, music,0,19.419780731201172
+CAP-Chile,TEST,Chile,Saint Kitts and Nevis,suppress,8,21,230,3349.5067, Spanish,0,0.25537109375
+CAP-Liberia,TEST,Liberia,Mongolia,swap,8,11,7,593.8793, the,0,22.218056440353394
+CAP-Liberia,TEST,Liberia,Mongolia,random_inject,8,11,7,593.8793, in,0,13.776187658309938
+CAP-Liberia,TEST,Liberia,Mongolia,suppress,8,11,7,593.8793, English,0,-0.8831424713134766
+CAP-Liberia,TEST,Liberia,Oman,swap,8,11,16,866.7986, the,0,0.7447023391723624
+CAP-Liberia,TEST,Liberia,Oman,random_inject,8,11,16,866.7986, in,0,4.226134300231934
+CAP-Liberia,TEST,Liberia,Oman,suppress,8,11,16,866.7986, English,0,-0.8455829620361328
+CAP-Liberia,TEST,Liberia,Qatar,swap,8,11,31,1085.8403, the,0,11.1629638671875
+CAP-Liberia,TEST,Liberia,Qatar,random_inject,8,11,31,1085.8403, the,0,1.9927425384521484
+CAP-Liberia,TEST,Liberia,Qatar,suppress,8,11,31,1085.8403, English,0,-0.8455829620361328
+CAP-Tajikistan,TEST,Tajikistan,Gabon,swap,8,10,7,129.3145, Taj,0,3.771754264831543
+CAP-Tajikistan,TEST,Tajikistan,Gabon,random_inject,8,10,7,129.3145, Taj,0,0.15551280975341797
+CAP-Tajikistan,TEST,Tajikistan,Gabon,suppress,8,10,7,129.3145, Taj,0,0.3700876235961914
+CAP-Tajikistan,TEST,Tajikistan,Barbados,swap,8,10,7,94.0666, Taj,0,1.3056440353393555
+CAP-Tajikistan,TEST,Tajikistan,Barbados,random_inject,8,10,7,94.0666, Taj,0,-0.43755531311035156
+CAP-Tajikistan,TEST,Tajikistan,Barbados,suppress,8,10,7,94.0666, Taj,0,-0.030892372131347656
+CAP-Tajikistan,TEST,Tajikistan,Zambia,swap,8,10,7,287.1688, Taj,0,5.087447166442871
+CAP-Tajikistan,TEST,Tajikistan,Zambia,random_inject,8,10,7,287.1688, the,0,8.548300743103027
+CAP-Tajikistan,TEST,Tajikistan,Zambia,suppress,8,10,7,287.1688, Taj,0,-0.030892372131347656
+CAP-Egypt,TEST,Egypt,Cambodia,swap,8,43,13,877.5693, the,0,12.518579006195068
+CAP-Egypt,TEST,Egypt,Cambodia,random_inject,8,43,13,877.5693, the,0,10.85553503036499
+CAP-Egypt,TEST,Egypt,Cambodia,suppress,8,43,13,877.5693, Arabic,0,1.8192992210388184
+CAP-Egypt,TEST,Egypt,Iceland,swap,8,43,27,1343.2139, Gu,0,38.94278573989868
+CAP-Egypt,TEST,Egypt,Iceland,random_inject,8,43,27,1343.2139, for,0,17.17770290374756
+CAP-Egypt,TEST,Egypt,Iceland,suppress,8,43,27,1343.2139, Arabic,0,0.720306396484375
+CAP-Egypt,TEST,Egypt,Bhutan,swap,8,43,31,1774.0476, Dz,1,36.121750354766846
+CAP-Egypt,TEST,Egypt,Bhutan,random_inject,8,43,31,1774.0476,:,0,3.933030128479004
+CAP-Egypt,TEST,Egypt,Bhutan,suppress,8,43,31,1774.0476, Arabic,0,0.9934635162353516
+CAP-Thailand,TEST,Thailand,Canada,swap,8,30,60,4619.1069, the,0,16.330806851387024
+CAP-Thailand,TEST,Thailand,Canada,random_inject,8,30,60,4619.1069,<bos>,0,4.379559516906738
+CAP-Thailand,TEST,Thailand,Canada,suppress,8,30,60,4619.1069, Thai,0,0.3043365478515625
+CAP-Thailand,TEST,Thailand,Saint Kitts and Nevis,swap,8,30,230,3349.5067, Thai,0,4.070093154907227
+CAP-Thailand,TEST,Thailand,Saint Kitts and Nevis,random_inject,8,30,230,3349.5067, supposedly,0,11.924919366836548
+CAP-Thailand,TEST,Thailand,Saint Kitts and Nevis,suppress,8,30,230,3349.5067, Thai,0,0.3043346405029297
+CAP-Thailand,TEST,Thailand,Tajikistan,swap,8,30,10,362.5232, Thai,0,0.6710634231567383
+CAP-Thailand,TEST,Thailand,Tajikistan,random_inject,8,30,10,362.5232, Thai,0,-0.7155647277832031
+CAP-Thailand,TEST,Thailand,Tajikistan,suppress,8,30,10,362.5232, Thai,0,0.6293210983276367
+CAP-Estonia,TEST,Estonia,Colombia,swap,8,18,24,1328.7103, the,0,17.799738883972168
+CAP-Estonia,TEST,Estonia,Colombia,random_inject,8,18,24,1328.7103, English,0,15.249839782714844
+CAP-Estonia,TEST,Estonia,Colombia,suppress,8,18,24,1328.7103, Estonian,0,0.8054533004760742
+CAP-Estonia,TEST,Estonia,Cuba,swap,8,18,31,1027.4703, the,0,15.118180274963379
+CAP-Estonia,TEST,Estonia,Cuba,random_inject,8,18,31,1027.4703, the,0,18.31685447692871
+CAP-Estonia,TEST,Estonia,Cuba,suppress,8,18,31,1027.4703, Estonian,0,0.805455207824707
+CAP-Estonia,TEST,Estonia,Argentina,swap,8,18,26,771.7355, Spanish,1,17.38826847076416
+CAP-Estonia,TEST,Estonia,Argentina,random_inject,8,18,26,771.7355, based,0,15.70067048072815
+CAP-Estonia,TEST,Estonia,Argentina,suppress,8,18,26,771.7355, Estonian,0,0.805455207824707
+CAP-Barbados,TEST,Barbados,Serbia,swap,8,11,10,382.3179, English,0,7.329993724822998
+CAP-Barbados,TEST,Barbados,Serbia,random_inject,8,11,10,382.3179, the,0,12.49552297592163
+CAP-Barbados,TEST,Barbados,Serbia,suppress,8,11,10,382.3179, English,0,0.6656875610351562
+CAP-Barbados,TEST,Barbados,Bahrain,swap,8,11,9,332.6954, English,0,-0.8647785186767578
+CAP-Barbados,TEST,Barbados,Bahrain,random_inject,8,11,9,332.6954, the,0,2.713987350463867
+CAP-Barbados,TEST,Barbados,Bahrain,suppress,8,11,9,332.6954, English,0,-0.16159534454345703
+CAP-Barbados,TEST,Barbados,France,swap,8,11,49,2584.847, ,0,30.411022186279297
+CAP-Barbados,TEST,Barbados,France,random_inject,8,11,49,2584.847, is,0,-1.4605929851531982
+CAP-Barbados,TEST,Barbados,France,suppress,8,11,49,2584.847, English,0,0.15872859954833984
+CAP-Jamaica,TEST,Jamaica,Iceland,swap,8,29,29,1420.4211, Gu,0,30.50161039829254
+CAP-Jamaica,TEST,Jamaica,Iceland,random_inject,8,29,29,1420.4211, ​​,0,2.960662364959717
+CAP-Jamaica,TEST,Jamaica,Iceland,suppress,8,29,29,1420.4211, English,0,0.15510177612304688
+CAP-Jamaica,TEST,Jamaica,Suriname,swap,8,29,20,1241.9044, Sur,0,9.49260139465332
+CAP-Jamaica,TEST,Jamaica,Suriname,random_inject,8,29,20,1241.9044, can,0,7.5106048583984375
+CAP-Jamaica,TEST,Jamaica,Suriname,suppress,8,29,20,1241.9044, English,0,-0.41662025451660156
+CAP-Jamaica,TEST,Jamaica,Portugal,swap,8,29,16,880.3441, actually,0,6.069891929626465
+CAP-Jamaica,TEST,Jamaica,Portugal,random_inject,8,29,16,880.3441,",",0,5.557585716247558
+CAP-Jamaica,TEST,Jamaica,Portugal,suppress,8,29,16,880.3441, English,0,0.80255126953125
+CAP-Guyana,TEST,Guyana,Tajikistan,swap,8,29,10,362.5232, English,0,6.182408332824707
+CAP-Guyana,TEST,Guyana,Tajikistan,random_inject,8,29,10,362.5232, English,0,1.8006114959716797
+CAP-Guyana,TEST,Guyana,Tajikistan,suppress,8,29,10,362.5232, English,0,-0.3724079132080078
+CAP-Guyana,TEST,Guyana,Romania,swap,8,29,19,1818.4568, the,0,28.178310811519623
+CAP-Guyana,TEST,Guyana,Romania,random_inject,8,29,19,1818.4568, meet,0,0.2667717933654803
+CAP-Guyana,TEST,Guyana,Romania,suppress,8,29,19,1818.4568, English,0,-0.05488109588623047
+CAP-Guyana,TEST,Guyana,Cambodia,swap,8,29,13,877.5693, the,0,10.572789192199707
+CAP-Guyana,TEST,Guyana,Cambodia,random_inject,8,29,13,877.5693,",",0,0.7646126747131348
+CAP-Guyana,TEST,Guyana,Cambodia,suppress,8,29,13,877.5693, English,0,0.1142425537109375
+CAP-El Salvador,TEST,El Salvador,Oman,swap,8,157,18,897.8598, the,0,-1.0971074104309064
+CAP-El Salvador,TEST,El Salvador,Oman,random_inject,8,157,18,897.8598, Bran,0,6.621062994003296
+CAP-El Salvador,TEST,El Salvador,Oman,suppress,8,157,18,897.8598, Spanish,0,-0.5908613204956055
+CAP-El Salvador,TEST,El Salvador,Liechtenstein,swap,8,157,32,763.328, a,0,12.16518783569336
+CAP-El Salvador,TEST,El Salvador,Liechtenstein,random_inject,8,157,32,763.328, is,0,9.866275787353516
+CAP-El Salvador,TEST,El Salvador,Liechtenstein,suppress,8,157,32,763.328, Spanish,0,-0.07899665832519531
+CAP-El Salvador,TEST,El Salvador,Egypt,swap,8,157,37,1427.7995, the,0,15.406291961669922
+CAP-El Salvador,TEST,El Salvador,Egypt,random_inject,8,157,37,1427.7995, ,0,18.726568937301636
+CAP-El Salvador,TEST,El Salvador,Egypt,suppress,8,157,37,1427.7995, Spanish,0,-0.5908613204956055
+CAP-Lithuania,TEST,Lithuania,Venezuela,swap,8,9,9,202.3725, Lithuanian,0,4.164556503295898
+CAP-Lithuania,TEST,Lithuania,Venezuela,random_inject,8,9,9,202.3725, Lithuanian,0,2.746145248413086
+CAP-Lithuania,TEST,Lithuania,Venezuela,suppress,8,9,9,202.3725, Lithuanian,0,1.4750871658325195
+CAP-Lithuania,TEST,Lithuania,Honduras,swap,8,9,4,53.6584, Lithuanian,0,1.9461870193481445
+CAP-Lithuania,TEST,Lithuania,Honduras,random_inject,8,9,4,53.6584, Lithuanian,0,1.6087512969970703
+CAP-Lithuania,TEST,Lithuania,Honduras,suppress,8,9,4,53.6584, Lithuanian,0,1.4750862121582031
+CAP-Lithuania,TEST,Lithuania,Russia,swap,8,9,30,2038.4986, Russian,1,24.390607118606567
+CAP-Lithuania,TEST,Lithuania,Russia,random_inject,8,9,30,2038.4986, the,0,1.0060296058654785
+CAP-Lithuania,TEST,Lithuania,Russia,suppress,8,9,30,2038.4986, Lithuanian,0,0.5902595520019531
+CAP-Poland,TEST,Poland,Albania,swap,8,49,23,1627.5305," """,0,30.02486228942871
+CAP-Poland,TEST,Poland,Albania,random_inject,8,49,23,1627.5305, of,0,8.464319229125977
+CAP-Poland,TEST,Poland,Albania,suppress,8,49,23,1627.5305, Polish,0,2.665135383605957
+CAP-Poland,TEST,Poland,Tunisia,swap,8,49,12,432.3719, Polish,0,8.135115623474121
+CAP-Poland,TEST,Poland,Tunisia,random_inject,8,49,12,432.3719, Polish,0,2.797600746154785
+CAP-Poland,TEST,Poland,Tunisia,suppress,8,49,12,432.3719, Polish,0,0.8141117095947266
+CAP-Poland,TEST,Poland,Saint Vincent and the Grenadines,swap,8,49,501,9708.9185, is,0,12.924161911010742
+CAP-Poland,TEST,Poland,Saint Vincent and the Grenadines,random_inject,8,49,501,9708.9185,<bos>,0,4.097344398498535
+CAP-Poland,TEST,Poland,Saint Vincent and the Grenadines,suppress,8,49,501,9708.9185, Polish,0,0.7062759399414062
+CAP-Romania,TEST,Romania,Jamaica,swap,8,23,21,1355.4275, Spanish,0,17.404439449310303
+CAP-Romania,TEST,Romania,Jamaica,random_inject,8,23,21,1355.4275, over,0,6.274625778198242
+CAP-Romania,TEST,Romania,Jamaica,suppress,8,23,21,1355.4275, Romanian,0,1.7196903228759766
+CAP-Romania,TEST,Romania,El Salvador,swap,8,23,159,2892.3652, a,0,11.29167366027832
+CAP-Romania,TEST,Romania,El Salvador,random_inject,8,23,159,2892.3652,s,0,11.643362522125244
+CAP-Romania,TEST,Romania,El Salvador,suppress,8,23,159,2892.3652, Romanian,0,1.9512529373168945
+CAP-Romania,TEST,Romania,Estonia,swap,8,23,15,813.6057, Estonian,1,26.83992099761963
+CAP-Romania,TEST,Romania,Estonia,random_inject,8,23,15,813.6057, the,0,9.385272741317749
+CAP-Romania,TEST,Romania,Estonia,suppress,8,23,15,813.6057, Romanian,0,4.643424034118652
+CAP-Austria,TEST,Austria,Bhutan,swap,8,19,28,1730.3327, ,0,29.624791622161865
+CAP-Austria,TEST,Austria,Bhutan,random_inject,8,19,28,1730.3327,",",0,30.09041476249695
+CAP-Austria,TEST,Austria,Bhutan,suppress,8,19,28,1730.3327, German,0,0.7862892150878906
+CAP-Austria,TEST,Austria,France,swap,8,19,47,2533.0501, ,0,24.838108777999878
+CAP-Austria,TEST,Austria,France,random_inject,8,19,47,2533.0501,.,0,1.5839790105819702
+CAP-Austria,TEST,Austria,France,suppress,8,19,47,2533.0501, German,0,0.8585538864135742
+CAP-Austria,TEST,Austria,Tajikistan,swap,8,19,9,335.9044, German,0,2.1610984802246094
+CAP-Austria,TEST,Austria,Tajikistan,random_inject,8,19,9,335.9044, German,0,-0.4820213317871094
+CAP-Austria,TEST,Austria,Tajikistan,suppress,8,19,9,335.9044, German,0,-0.7971401214599609
+CAP-Mozambique,TEST,Mozambique,Romania,swap,8,11,15,1184.4719, the,0,17.889259338378906
+CAP-Mozambique,TEST,Mozambique,Romania,random_inject,8,11,15,1184.4719, of,0,6.379519462585449
 CAP-Mozambique,TEST,Mozambique,Romania,suppress,8,11,15,1184.4719, Portuguese,0,-0.2649269104003906
-CAP-Mozambique,TEST,Mozambique,Estonia,swap,8,11,13,733.6483, Estonian,1,30.633625507354736
-CAP-Mozambique,TEST,Mozambique,Estonia,random_inject,8,11,13,733.6483, the,0,4.390561103820803
-CAP-Mozambique,TEST,Mozambique,Estonia,suppress,8,11,13,733.6483, Portuguese,0,-0.4126138687133789
+CAP-Mozambique,TEST,Mozambique,Estonia,swap,8,11,13,733.6483, Estonian,1,30.63362169265747
+CAP-Mozambique,TEST,Mozambique,Estonia,random_inject,8,11,13,733.6483, to,0,1.974541187286377
+CAP-Mozambique,TEST,Mozambique,Estonia,suppress,8,11,13,733.6483, Portuguese,0,-0.4126148223876953
 CAP-Mozambique,TEST,Mozambique,Andorra,swap,8,11,25,1187.9607, then,0,14.253260612487793
-CAP-Mozambique,TEST,Mozambique,Andorra,random_inject,8,11,25,1187.9607,",",0,-0.4579586982727033
-CAP-Mozambique,TEST,Mozambique,Andorra,suppress,8,11,25,1187.9607, Portuguese,0,0.07408714294433594
-CAP-Slovakia,TEST,Slovakia,Japan,swap,8,13,43,3189.0471, is,0,41.70825481414795
-CAP-Slovakia,TEST,Slovakia,Japan,random_inject,8,13,43,3189.0471, flag,0,20.043960094451904
-CAP-Slovakia,TEST,Slovakia,Japan,suppress,8,13,43,3189.0471, Slovak,0,0.5191946029663086
-CAP-Slovakia,TEST,Slovakia,Spain,swap,8,13,32,1864.6512, ,0,32.692065596580505
-CAP-Slovakia,TEST,Slovakia,Spain,random_inject,8,13,32,1864.6512,.,0,16.50201940536499
+CAP-Mozambique,TEST,Mozambique,Andorra,random_inject,8,11,25,1187.9607, in,0,3.060490608215332
+CAP-Mozambique,TEST,Mozambique,Andorra,suppress,8,11,25,1187.9607, Portuguese,0,0.07408905029296875
+CAP-Spain,TEST,Spain,Belize,swap,8,38,13,893.3821, Spanish,0,2.9573440551757812
+CAP-Spain,TEST,Spain,Belize,random_inject,8,38,13,893.3821, is,0,10.140640258789062
+CAP-Spain,TEST,Spain,Belize,suppress,8,38,13,893.3821, Spanish,0,2.0513381958007812
+CAP-Spain,TEST,Spain,United States,swap,8,38,164,10126.0016, and,0,17.05408215522766
+CAP-Spain,TEST,Spain,United States,random_inject,8,38,164,10126.0016, itſelf,0,15.48962128162384
+CAP-Spain,TEST,Spain,United States,suppress,8,38,164,10126.0016, Spanish,0,2.0513381958007812
+CAP-Spain,TEST,Spain,Andorra,swap,8,38,32,1511.5959, then,0,1.0841922760009766
+CAP-Spain,TEST,Spain,Andorra,random_inject,8,38,32,1511.5959, en,0,0.34529805183410467
+CAP-Spain,TEST,Spain,Andorra,suppress,8,38,32,1511.5959, Spanish,0,-0.6230316162109375
+CAP-Lebanon,TEST,Lebanon,North Korea,swap,8,44,181,4772.4055, actually,0,32.341554164886475
+CAP-Lebanon,TEST,Lebanon,North Korea,random_inject,8,44,181,4772.4055,"=>""",0,18.968774795532227
+CAP-Lebanon,TEST,Lebanon,North Korea,suppress,8,44,181,4772.4055, Arabic,0,1.380549430847168
+CAP-Lebanon,TEST,Lebanon,Chile,swap,8,44,19,787.0314, the,0,6.518115043640137
+CAP-Lebanon,TEST,Lebanon,Chile,random_inject,8,44,19,787.0314, is,0,7.757023811340332
+CAP-Lebanon,TEST,Lebanon,Chile,suppress,8,44,19,787.0314, Arabic,0,-0.008945465087890625
+CAP-Lebanon,TEST,Lebanon,Argentina,swap,8,44,26,771.7355, Arabic,0,10.489964485168457
+CAP-Lebanon,TEST,Lebanon,Argentina,random_inject,8,44,26,771.7355,"
+
+",0,-1.0242840051651
+CAP-Lebanon,TEST,Lebanon,Argentina,suppress,8,44,26,771.7355, Arabic,0,-0.008951187133789062
+CAP-Denmark,TEST,Denmark,Saint Lucia,swap,8,36,169,3234.6604,",",0,8.687956809997559
+CAP-Denmark,TEST,Denmark,Saint Lucia,random_inject,8,36,169,3234.6604,<bos>,0,5.683144569396973
+CAP-Denmark,TEST,Denmark,Saint Lucia,suppress,8,36,169,3234.6604, Danish,0,1.4691600799560547
+CAP-Denmark,TEST,Denmark,Cambodia,swap,8,36,12,772.3991, the,0,19.610280513763428
+CAP-Denmark,TEST,Denmark,Cambodia,random_inject,8,36,12,772.3991, ,0,9.234188795089722
+CAP-Denmark,TEST,Denmark,Cambodia,suppress,8,36,12,772.3991, Danish,0,1.2036442756652832
+CAP-Denmark,TEST,Denmark,Jordan,swap,8,36,79,2935.9384, is,0,16.487189292907715
+CAP-Denmark,TEST,Denmark,Jordan,random_inject,8,36,79,2935.9384,<bos>,0,9.827081680297852
+CAP-Denmark,TEST,Denmark,Jordan,suppress,8,36,79,2935.9384, Danish,0,0.9310102462768555
+CAP-Hungary,TEST,Hungary,Libya,swap,8,21,24,404.424, Hungarian,0,5.390977859497071
+CAP-Hungary,TEST,Hungary,Libya,random_inject,8,21,24,404.424, Hungarian,0,8.908985137939453
+CAP-Hungary,TEST,Hungary,Libya,suppress,8,21,24,404.424, Hungarian,0,1.7889337539672852
+CAP-Hungary,TEST,Hungary,Guinea,swap,8,21,83,2543.4771,-,0,6.485496520996093
+CAP-Hungary,TEST,Hungary,Guinea,random_inject,8,21,83,2543.4771, is,0,11.715891361236572
+CAP-Hungary,TEST,Hungary,Guinea,suppress,8,21,83,2543.4771, Hungarian,0,2.147510528564453
+CAP-Hungary,TEST,Hungary,Liberia,swap,8,21,11,298.3581, the,0,3.8575305938720708
+CAP-Hungary,TEST,Hungary,Liberia,random_inject,8,21,11,298.3581, the,0,6.01905632019043
+CAP-Hungary,TEST,Hungary,Liberia,suppress,8,21,11,298.3581, Hungarian,0,1.5164852142333984
+CAP-Cambodia,TEST,Cambodia,Ukraine,swap,8,15,47,2918.2022,",",0,36.041987895965576
+CAP-Cambodia,TEST,Cambodia,Ukraine,random_inject,8,15,47,2918.2022, is,0,22.978965759277344
+CAP-Cambodia,TEST,Cambodia,Ukraine,suppress,8,15,47,2918.2022, Khmer,0,0.7823057174682617
+CAP-Cambodia,TEST,Cambodia,Libya,swap,8,15,21,308.0123, Khmer,0,1.1287641525268555
+CAP-Cambodia,TEST,Cambodia,Libya,random_inject,8,15,21,308.0123, Khmer,0,0.690485954284668
+CAP-Cambodia,TEST,Cambodia,Libya,suppress,8,15,21,308.0123, Khmer,0,-0.6868600845336914
+CAP-Cambodia,TEST,Cambodia,France,swap,8,15,49,2679.6815, ,0,14.867026805877686
+CAP-Cambodia,TEST,Cambodia,France,random_inject,8,15,49,2679.6815,<bos>,0,4.941432952880859
+CAP-Cambodia,TEST,Cambodia,France,suppress,8,15,49,2679.6815, Khmer,0,-0.3340167999267578
+CAP-Syria,TEST,Syria,Colombia,swap,8,47,22,897.342, Arabic,0,6.397286415100098
+CAP-Syria,TEST,Syria,Colombia,random_inject,8,47,22,897.342,"
+
+",0,12.015350818634033
+CAP-Syria,TEST,Syria,Colombia,suppress,8,47,22,897.342, Arabic,0,0.4082965850830078
+CAP-Syria,TEST,Syria,Poland,swap,8,47,39,1390.1704, ,0,19.35476541519165
+CAP-Syria,TEST,Syria,Poland,random_inject,8,47,39,1390.1704, also,0,19.353105068206787
+CAP-Syria,TEST,Syria,Poland,suppress,8,47,39,1390.1704, Arabic,0,1.7173991203308105
+CAP-Syria,TEST,Syria,Bulgaria,swap,8,47,6,841.3331, Bulgarian,1,27.252514362335205
+CAP-Syria,TEST,Syria,Bulgaria,random_inject,8,47,6,841.3331, in,0,3.4115824699401855
+CAP-Syria,TEST,Syria,Bulgaria,suppress,8,47,6,841.3331, Arabic,0,0.9347896575927734
+CAP-Japan,TEST,Japan,Grenada,swap,8,55,21,765.885, Japanese,0,-0.013849258422851562
+CAP-Japan,TEST,Japan,Grenada,random_inject,8,55,21,765.885, not,0,3.0524301528930655
+CAP-Japan,TEST,Japan,Grenada,suppress,8,55,21,765.885, Japanese,0,2.890766143798828
+CAP-Japan,TEST,Japan,Germany,swap,8,55,27,2180.5542,",",0,11.174904823303223
+CAP-Japan,TEST,Japan,Germany,random_inject,8,55,27,2180.5542,kkkk,0,19.163982629776
+CAP-Japan,TEST,Japan,Germany,suppress,8,55,27,2180.5542, Japanese,0,3.718144416809082
+CAP-Japan,TEST,Japan,Zambia,swap,8,55,13,612.1588, English,1,9.317218780517578
+CAP-Japan,TEST,Japan,Zambia,random_inject,8,55,13,612.1588, Japanese,0,4.1205902099609375
+CAP-Japan,TEST,Japan,Zambia,suppress,8,55,13,612.1588, Japanese,0,2.890766143798828
+CAP-Cuba,TEST,Cuba,Nigeria,swap,8,34,39,2350.958, the,0,16.29813051223755
+CAP-Cuba,TEST,Cuba,Nigeria,random_inject,8,34,39,2350.958,<bos>,0,7.131462097167969
+CAP-Cuba,TEST,Cuba,Nigeria,suppress,8,34,39,2350.958, Spanish,0,-0.10857009887695312
+CAP-Cuba,TEST,Cuba,Germany,swap,8,34,27,2180.5542,",",0,15.455895900726318
+CAP-Cuba,TEST,Cuba,Germany,random_inject,8,34,27,2180.5542,RTEE,0,18.522287368774414
+CAP-Cuba,TEST,Cuba,Germany,suppress,8,34,27,2180.5542, Spanish,0,0.9799509048461914
+CAP-Cuba,TEST,Cuba,Japan,swap,8,34,46,3557.7955, is,0,19.66890430450439
+CAP-Cuba,TEST,Cuba,Japan,random_inject,8,34,46,3557.7955,ac,0,16.717100143432617
+CAP-Cuba,TEST,Cuba,Japan,suppress,8,34,46,3557.7955, Spanish,0,-0.19053363800048828
+CAP-Slovakia,TEST,Slovakia,Spain,swap,8,13,32,1864.6512, ,0,32.69206464290619
+CAP-Slovakia,TEST,Slovakia,Spain,random_inject,8,13,32,1864.6512, the,0,18.34354829788208
 CAP-Slovakia,TEST,Slovakia,Spain,suppress,8,13,32,1864.6512, Slovak,0,1.8054585456848145
-CAP-Slovakia,TEST,Slovakia,Jamaica,swap,8,13,18,1238.3425, Spanish,0,17.693443775177002
-CAP-Slovakia,TEST,Slovakia,Jamaica,random_inject,8,13,18,1238.3425, ,0,14.475248813629149
-CAP-Slovakia,TEST,Slovakia,Jamaica,suppress,8,13,18,1238.3425, Slovak,0,0.6297893524169922
-CAP-Latvia,TEST,Latvia,Tunisia,swap,8,7,8,301.9006, Latvian,0,1.058258056640625
-CAP-Latvia,TEST,Latvia,Tunisia,random_inject,8,7,8,301.9006, Russian,0,4.285042762756348
-CAP-Latvia,TEST,Latvia,Tunisia,suppress,8,7,8,301.9006, Latvian,0,0.3281822204589844
-CAP-Latvia,TEST,Latvia,Venezuela,swap,8,7,10,290.8194, the,0,5.404060363769531
-CAP-Latvia,TEST,Latvia,Venezuela,random_inject,8,7,10,290.8194, Russian,0,4.8486785888671875
-CAP-Latvia,TEST,Latvia,Venezuela,suppress,8,7,10,290.8194, Latvian,0,1.796523094177246
-CAP-Latvia,TEST,Latvia,Honduras,swap,8,7,5,130.1716, Latvian,0,2.3125953674316406
-CAP-Latvia,TEST,Latvia,Honduras,random_inject,8,7,5,130.1716, the,0,5.233508110046387
-CAP-Latvia,TEST,Latvia,Honduras,suppress,8,7,5,130.1716, Latvian,0,1.796523094177246
-CAP-Oman,TEST,Oman,Mongolia,swap,8,21,15,857.4667, the,0,23.58911371231079
-CAP-Oman,TEST,Oman,Mongolia,random_inject,8,21,15,857.4667, also,0,13.139183044433594
-CAP-Oman,TEST,Oman,Mongolia,suppress,8,21,15,857.4667, Arabic,0,-1.506847858428955
-CAP-Oman,TEST,Oman,Saint Kitts and Nevis,swap,8,21,226,3253.5785, the,0,1.815450668334961
-CAP-Oman,TEST,Oman,Saint Kitts and Nevis,random_inject,8,21,226,3253.5785, many,0,9.225768089294434
-CAP-Oman,TEST,Oman,Saint Kitts and Nevis,suppress,8,21,226,3253.5785, Arabic,0,-0.7604827880859375
-CAP-Oman,TEST,Oman,Belize,swap,8,21,12,716.5724, not,0,-0.5853853225708008
-CAP-Oman,TEST,Oman,Belize,random_inject,8,21,12,716.5724, is,0,6.076148986816406
-CAP-Oman,TEST,Oman,Belize,suppress,8,21,12,716.5724, Arabic,0,-0.7604846954345703
-CAP-South Korea,TEST,South Korea,Grenada,swap,8,41,19,473.0122, Korean,0,-0.3059806823730469
-CAP-South Korea,TEST,South Korea,Grenada,random_inject,8,41,19,473.0122, the,0,3.447681427001953
-CAP-South Korea,TEST,South Korea,Grenada,suppress,8,41,19,473.0122, Korean,0,-0.7789173126220703
-CAP-South Korea,TEST,South Korea,Germany,swap,8,41,26,1920.5364, the,0,15.967887282371521
-CAP-South Korea,TEST,South Korea,Germany,random_inject,8,41,26,1920.5364, S,0,22.313211202621456
-CAP-South Korea,TEST,South Korea,Germany,suppress,8,41,26,1920.5364, Korean,0,0.3952159881591797
+CAP-Slovakia,TEST,Slovakia,Liberia,swap,8,13,10,289.0508, the,0,6.597723007202148
+CAP-Slovakia,TEST,Slovakia,Liberia,random_inject,8,13,10,289.0508, Slovak,0,3.6842308044433594
+CAP-Slovakia,TEST,Slovakia,Liberia,suppress,8,13,10,289.0508, Slovak,0,0.6297893524169922
+CAP-Slovakia,TEST,Slovakia,South Sudan,swap,8,13,236,4954.2772, D,0,21.200961112976074
+CAP-Slovakia,TEST,Slovakia,South Sudan,random_inject,8,13,236,4954.2772, AssemblyTitle,0,26.38391220569611
+CAP-Slovakia,TEST,Slovakia,South Sudan,suppress,8,13,236,4954.2772, Slovak,0,0.6297893524169922
+CAP-Greece,TEST,Greece,Ghana,swap,8,64,22,2478.5728, the,0,11.498178482055664
+CAP-Greece,TEST,Greece,Ghana,random_inject,8,64,22,2478.5728, meeting,0,8.581215791404247
+CAP-Greece,TEST,Greece,Ghana,suppress,8,64,22,2478.5728, Greek,0,0.7259674072265625
+CAP-Greece,TEST,Greece,Guinea,swap,8,64,97,4184.0424,-,0,10.670033931732178
+CAP-Greece,TEST,Greece,Guinea,random_inject,8,64,97,4184.0424, and,0,7.888164520263672
+CAP-Greece,TEST,Greece,Guinea,suppress,8,64,97,4184.0424, Greek,0,3.0354480743408203
+CAP-Greece,TEST,Greece,Croatia,swap,8,64,10,291.2175, Croatian,1,13.000412940979004
+CAP-Greece,TEST,Greece,Croatia,random_inject,8,64,10,291.2175, Greek,0,4.522456169128417
+CAP-Greece,TEST,Greece,Croatia,suppress,8,64,10,291.2175, Greek,0,5.4594011306762695
+CAP-Mongolia,TEST,Mongolia,Venezuela,swap,8,19,13,331.163, the,0,4.891441345214844
+CAP-Mongolia,TEST,Mongolia,Venezuela,random_inject,8,19,13,331.163, Mongolian,0,2.8917198181152344
+CAP-Mongolia,TEST,Mongolia,Venezuela,suppress,8,19,13,331.163, Mongolian,0,2.448164939880371
+CAP-Mongolia,TEST,Mongolia,Uruguay,swap,8,19,9,167.9214, Mongolian,0,1.9536542892456055
+CAP-Mongolia,TEST,Mongolia,Uruguay,random_inject,8,19,9,167.9214, Mongolian,0,1.7707605361938477
+CAP-Mongolia,TEST,Mongolia,Uruguay,suppress,8,19,9,167.9214, Mongolian,0,2.4481639862060547
+CAP-Mongolia,TEST,Mongolia,Lithuania,swap,8,19,8,214.9116, Mongolian,0,6.630500793457031
+CAP-Mongolia,TEST,Mongolia,Lithuania,random_inject,8,19,8,214.9116, Mongolian,0,3.046536445617676
+CAP-Mongolia,TEST,Mongolia,Lithuania,suppress,8,19,8,214.9116, Mongolian,0,3.731614112854004
+CAP-Saudi Arabia,TEST,Saudi Arabia,El Salvador,swap,8,290,158,2656.7297, Arabic,0,5.486568450927735
+CAP-Saudi Arabia,TEST,Saudi Arabia,El Salvador,random_inject,8,290,158,2656.7297,"
+
+",0,10.51756477355957
+CAP-Saudi Arabia,TEST,Saudi Arabia,El Salvador,suppress,8,290,158,2656.7297, Arabic,0,-0.17242431640625
+CAP-Saudi Arabia,TEST,Saudi Arabia,Mongolia,swap,8,290,12,229.4762, Arabic,0,4.102409362792967
+CAP-Saudi Arabia,TEST,Saudi Arabia,Mongolia,random_inject,8,290,12,229.4762, Arabic,0,0.6615610122680664
+CAP-Saudi Arabia,TEST,Saudi Arabia,Mongolia,suppress,8,290,12,229.4762, Arabic,0,-0.3158292770385742
+CAP-Saudi Arabia,TEST,Saudi Arabia,Saint Kitts and Nevis,swap,8,290,229,3287.5348, Arabic,0,1.4181022644042973
+CAP-Saudi Arabia,TEST,Saudi Arabia,Saint Kitts and Nevis,random_inject,8,290,229,3287.5348, is,0,1.6078996658325195
+CAP-Saudi Arabia,TEST,Saudi Arabia,Saint Kitts and Nevis,suppress,8,290,229,3287.5348, Arabic,0,0.08805465698242188
+CAP-Latvia,TEST,Latvia,Belize,swap,8,7,9,610.7859, the,0,10.615106582641602
+CAP-Latvia,TEST,Latvia,Belize,random_inject,8,7,9,610.7859, English,1,12.723672866821289
+CAP-Latvia,TEST,Latvia,Belize,suppress,8,7,9,610.7859, Latvian,0,0.8778820037841797
+CAP-Latvia,TEST,Latvia,Brunei,swap,8,7,21,1625.1162, the,0,42.0892333984375
+CAP-Latvia,TEST,Latvia,Brunei,random_inject,8,7,21,1625.1162, in,0,6.6201698780059814
+CAP-Latvia,TEST,Latvia,Brunei,suppress,8,7,21,1625.1162, Latvian,0,2.114659309387207
+CAP-Latvia,TEST,Latvia,Zambia,swap,8,7,5,302.6779, the,0,4.523252487182617
+CAP-Latvia,TEST,Latvia,Zambia,random_inject,8,7,5,302.6779, the,0,10.004084587097168
+CAP-Latvia,TEST,Latvia,Zambia,suppress,8,7,5,302.6779, Latvian,0,0.8778820037841797
+CAP-Norway,TEST,Norway,Brazil,swap,8,14,24,925.5348, the,0,26.13669776916504
+CAP-Norway,TEST,Norway,Brazil,random_inject,8,14,24,925.5348, S,0,11.528598308563232
+CAP-Norway,TEST,Norway,Brazil,suppress,8,14,24,925.5348, Norwegian,0,0.28264808654785156
+CAP-Norway,TEST,Norway,Latvia,swap,8,14,5,387.5064, Latvian,1,24.917809009552002
+CAP-Norway,TEST,Norway,Latvia,random_inject,8,14,5,387.5064, Norwegian,0,4.911092281341553
+CAP-Norway,TEST,Norway,Latvia,suppress,8,14,5,387.5064, Norwegian,0,0.9335217475891113
+CAP-Norway,TEST,Norway,Serbia,swap,8,14,11,488.7241, Norwegian,0,11.866755485534668
+CAP-Norway,TEST,Norway,Serbia,random_inject,8,14,11,488.7241, the,0,3.326150894165039
+CAP-Norway,TEST,Norway,Serbia,suppress,8,14,11,488.7241, Norwegian,0,0.28316402435302734
+CAP-Serbia,TEST,Serbia,Thailand,swap,8,13,17,1025.0681, the,0,33.335923194885254
+CAP-Serbia,TEST,Serbia,Thailand,random_inject,8,13,17,1025.0681, only,0,13.070109844207764
+CAP-Serbia,TEST,Serbia,Thailand,suppress,8,13,17,1025.0681, Serbian,0,-0.0331573486328125
+CAP-Serbia,TEST,Serbia,Italy,swap,8,13,33,2082.4022,",",0,32.08135509490967
+CAP-Serbia,TEST,Serbia,Italy,random_inject,8,13,33,2082.4022,Demographics,0,3.2336130142211914
+CAP-Serbia,TEST,Serbia,Italy,suppress,8,13,33,2082.4022, Serbian,0,0.8175716400146484
+CAP-Serbia,TEST,Serbia,Peru,swap,8,13,16,547.9805, the,0,2.469158172607422
+CAP-Serbia,TEST,Serbia,Peru,random_inject,8,13,16,547.9805, Serbian,0,1.9574499130249023
+CAP-Serbia,TEST,Serbia,Peru,suppress,8,13,16,547.9805, Serbian,0,0.4237203598022461
 CAP-South Korea,TEST,South Korea,Togo,swap,8,41,20,709.8617, Korean,0,9.590286254882812
-CAP-South Korea,TEST,South Korea,Togo,random_inject,8,41,20,709.8617, English,0,9.522730827331543
-CAP-South Korea,TEST,South Korea,Togo,suppress,8,41,20,709.8617, Korean,0,1.039402961730957
-CAP-Sweden,TEST,Sweden,Suriname,swap,8,23,18,1171.6114, Sur,0,22.158432483673096
-CAP-Sweden,TEST,Sweden,Suriname,random_inject,8,23,18,1171.6114, Stoll,0,14.487980365753174
-CAP-Sweden,TEST,Sweden,Suriname,suppress,8,23,18,1171.6114, Swedish,0,3.7031497955322266
-CAP-Sweden,TEST,Sweden,Ghana,swap,8,23,22,2236.5871, the,0,9.402999877929688
-CAP-Sweden,TEST,Sweden,Ghana,random_inject,8,23,22,2236.5871, just,0,11.078558802604675
-CAP-Sweden,TEST,Sweden,Ghana,suppress,8,23,22,2236.5871, Swedish,0,1.9352283477783203
-CAP-Sweden,TEST,Sweden,Grenada,swap,8,23,20,667.259, the,0,3.179281234741211
-CAP-Sweden,TEST,Sweden,Grenada,random_inject,8,23,20,667.259, is,0,2.7626943588256836
-CAP-Sweden,TEST,Sweden,Grenada,suppress,8,23,20,667.259, Swedish,0,1.9352283477783203
-CAP-Iceland,TEST,Iceland,Serbia,swap,8,33,12,645.2911, the,0,19.01016664505005
-CAP-Iceland,TEST,Iceland,Serbia,random_inject,8,33,12,645.2911, the,0,13.624495267868044
-CAP-Iceland,TEST,Iceland,Serbia,suppress,8,33,12,645.2911, Icelandic,0,4.103248119354248
-CAP-Iceland,TEST,Iceland,Saint Lucia,swap,8,33,169,3234.6604,",",0,11.79638385772705
-CAP-Iceland,TEST,Iceland,Saint Lucia,random_inject,8,33,169,3234.6604, to,0,12.776574611663818
-CAP-Iceland,TEST,Iceland,Saint Lucia,suppress,8,33,169,3234.6604, Icelandic,0,1.792867660522461
-CAP-Iceland,TEST,Iceland,Cambodia,swap,8,33,13,877.5693, the,0,27.567882299423218
-CAP-Iceland,TEST,Iceland,Cambodia,random_inject,8,33,13,877.5693, to,0,4.161469221115112
-CAP-Iceland,TEST,Iceland,Cambodia,suppress,8,33,13,877.5693, Icelandic,0,5.84754490852356
-CAP-Bahrain,TEST,Bahrain,Austria,swap,8,10,14,1020.7306, ,0,6.979484081268309
-CAP-Bahrain,TEST,Bahrain,Austria,random_inject,8,10,14,1020.7306, the,0,10.503814697265625
-CAP-Bahrain,TEST,Bahrain,Austria,suppress,8,10,14,1020.7306, Arabic,0,0.48918628692626953
-CAP-Bahrain,TEST,Bahrain,Uzbekistan,swap,8,10,5,77.5882, Arabic,0,-0.009146690368652344
-CAP-Bahrain,TEST,Bahrain,Uzbekistan,random_inject,8,10,5,77.5882, Arabic,0,1.8527889251708984
-CAP-Bahrain,TEST,Bahrain,Uzbekistan,suppress,8,10,5,77.5882, Arabic,0,-0.11430835723876953
+CAP-South Korea,TEST,South Korea,Togo,random_inject,8,41,20,709.8617, Korean,0,4.1115007400512695
+CAP-South Korea,TEST,South Korea,Togo,suppress,8,41,20,709.8617, Korean,0,1.0394163131713867
+CAP-South Korea,TEST,South Korea,Norway,swap,8,41,16,378.7303, Norwegian,1,17.739840030670166
+CAP-South Korea,TEST,South Korea,Norway,random_inject,8,41,16,378.7303, English,0,11.638010501861572
+CAP-South Korea,TEST,South Korea,Norway,suppress,8,41,16,378.7303, Korean,0,1.3714728355407715
+CAP-South Korea,TEST,South Korea,Thailand,swap,8,41,23,1682.8634, ,0,23.031590461730957
+CAP-South Korea,TEST,South Korea,Thailand,random_inject,8,41,23,1682.8634, ,0,1.6401557922363281
+CAP-South Korea,TEST,South Korea,Thailand,suppress,8,41,23,1682.8634, Korean,0,1.0107135772705078
+CAP-Iceland,TEST,Iceland,Spain,swap,8,33,35,1965.4476, the,0,28.806304037570953
+CAP-Iceland,TEST,Iceland,Spain,random_inject,8,33,35,1965.4476, is,0,27.177522778511044
+CAP-Iceland,TEST,Iceland,Spain,suppress,8,33,35,1965.4476, Icelandic,0,3.035099983215332
+CAP-Iceland,TEST,Iceland,Japan,swap,8,33,47,3632.0432, Ni,0,36.35503578186035
+CAP-Iceland,TEST,Iceland,Japan,random_inject,8,33,47,3632.0432,",",0,13.895248413085938
+CAP-Iceland,TEST,Iceland,Japan,suppress,8,33,47,3632.0432, Icelandic,0,2.1166553497314453
+CAP-Iceland,TEST,Iceland,Chile,swap,8,33,19,787.0314, the,0,10.001246452331543
+CAP-Iceland,TEST,Iceland,Chile,random_inject,8,33,19,787.0314, is,0,22.423916816711426
+CAP-Iceland,TEST,Iceland,Chile,suppress,8,33,19,787.0314, Icelandic,0,3.035101890563965
 CAP-Bahrain,TEST,Bahrain,Trinidad and Tobago,swap,8,10,160,2455.7561, the,0,2.5235137939453125
-CAP-Bahrain,TEST,Bahrain,Trinidad and Tobago,random_inject,8,10,160,2455.7561, is,0,8.938619136810305
+CAP-Bahrain,TEST,Bahrain,Trinidad and Tobago,random_inject,8,10,160,2455.7561, in,0,6.082988381385803
 CAP-Bahrain,TEST,Bahrain,Trinidad and Tobago,suppress,8,10,160,2455.7561, Arabic,0,-0.08080482482910156
-CAP-Poland,TEST,Poland,Brunei,swap,8,49,51,4253.1261, Dato,0,31.530324161052704
-CAP-Poland,TEST,Poland,Brunei,random_inject,8,49,51,4253.1261,umente,0,17.02177619934082
-CAP-Poland,TEST,Poland,Brunei,suppress,8,49,51,4253.1261, Polish,0,1.6156654357910156
-CAP-Poland,TEST,Poland,Nicaragua,swap,8,49,10,364.2757, Polish,0,4.711702346801758
-CAP-Poland,TEST,Poland,Nicaragua,random_inject,8,49,10,364.2757, Polish,0,1.3142776489257812
-CAP-Poland,TEST,Poland,Nicaragua,suppress,8,49,10,364.2757, Polish,0,1.2531232833862305
-CAP-Poland,TEST,Poland,Vietnam,swap,8,49,53,3306.7478, Ha,0,30.381098747253418
-CAP-Poland,TEST,Poland,Vietnam,random_inject,8,49,53,3306.7478, and,0,4.486871242523193
-CAP-Poland,TEST,Poland,Vietnam,suppress,8,49,53,3306.7478, Polish,0,1.5557794570922852
-CAP-North Korea,TEST,North Korea,Norway,swap,8,187,16,378.7303, Norwegian,1,15.864112854003906
-CAP-North Korea,TEST,North Korea,Norway,random_inject,8,187,16,378.7303, Arabic,0,5.981420516967773
-CAP-North Korea,TEST,North Korea,Norway,suppress,8,187,16,378.7303, Korean,0,-2.303445816040039
-CAP-North Korea,TEST,North Korea,Thailand,swap,8,187,23,1682.8634, ,0,23.003093242645264
-CAP-North Korea,TEST,North Korea,Thailand,random_inject,8,187,23,1682.8634,larak,0,9.344425082206726
-CAP-North Korea,TEST,North Korea,Thailand,suppress,8,187,23,1682.8634, Korean,0,-0.1266031265258789
-CAP-North Korea,TEST,North Korea,Iceland,swap,8,187,29,1457.7232, Reykjav,0,39.52934741973877
-CAP-North Korea,TEST,North Korea,Iceland,random_inject,8,187,29,1457.7232,.,0,-2.3403096199035645
-CAP-North Korea,TEST,North Korea,Iceland,suppress,8,187,29,1457.7232, Korean,0,-0.9039087295532227
+CAP-Bahrain,TEST,Bahrain,Brazil,swap,8,10,21,736.1398, the,0,13.655754089355469
+CAP-Bahrain,TEST,Bahrain,Brazil,random_inject,8,10,21,736.1398,-,0,6.3758403062820435
+CAP-Bahrain,TEST,Bahrain,Brazil,suppress,8,10,21,736.1398, Arabic,0,-0.1977243423461914
+CAP-Bahrain,TEST,Bahrain,Antigua and Barbuda,swap,8,10,97,1319.4163, Arabic,0,1.1337032318115232
+CAP-Bahrain,TEST,Bahrain,Antigua and Barbuda,random_inject,8,10,97,1319.4163,",",0,3.565692901611328
+CAP-Bahrain,TEST,Bahrain,Antigua and Barbuda,suppress,8,10,97,1319.4163, Arabic,0,-0.08080863952636719
+CAP-Peru,TEST,Peru,South Sudan,swap,8,19,253,5172.3478, South,0,16.6545273065567
+CAP-Peru,TEST,Peru,South Sudan,random_inject,8,19,253,5172.3478, TAMBÉM,0,3.3535206317901594
+CAP-Peru,TEST,Peru,South Sudan,suppress,8,19,253,5172.3478, Spanish,0,-0.24512481689453125
+CAP-Peru,TEST,Peru,Barbados,swap,8,19,10,329.9344, Spanish,0,1.8599376678466797
+CAP-Peru,TEST,Peru,Barbados,random_inject,8,19,10,329.9344, Spanish,0,2.2678451538085938
+CAP-Peru,TEST,Peru,Barbados,suppress,8,19,10,329.9344, Spanish,0,-0.24512100219726562
+CAP-Peru,TEST,Peru,Saint Vincent and the Grenadines,swap,8,19,478,9436.8069, is,0,11.24704360961914
+CAP-Peru,TEST,Peru,Saint Vincent and the Grenadines,random_inject,8,19,478,9436.8069, the,0,12.951963126659393
+CAP-Peru,TEST,Peru,Saint Vincent and the Grenadines,suppress,8,19,478,9436.8069, Spanish,0,-0.24512481689453125
+CAP-Nigeria,TEST,Nigeria,France,swap,8,46,53,3271.9556, a,0,7.078064918518066
+CAP-Nigeria,TEST,Nigeria,France,random_inject,8,46,53,3271.9556, ,0,7.233595848083496
+CAP-Nigeria,TEST,Nigeria,France,suppress,8,46,53,3271.9556, English,0,0.41533660888671875
+CAP-Nigeria,TEST,Nigeria,Honduras,swap,8,46,6,146.3013, English,0,0.7310466766357422
+CAP-Nigeria,TEST,Nigeria,Honduras,random_inject,8,46,6,146.3013, English,0,2.696896553039551
+CAP-Nigeria,TEST,Nigeria,Honduras,suppress,8,46,6,146.3013, English,0,1.2151851654052734
+CAP-Nigeria,TEST,Nigeria,Brazil,swap,8,46,25,945.9728, the,0,14.629561424255371
+CAP-Nigeria,TEST,Nigeria,Brazil,random_inject,8,46,25,945.9728,"
+",0,9.774652004241943
+CAP-Nigeria,TEST,Nigeria,Brazil,suppress,8,46,25,945.9728, English,0,0.7580451965332031

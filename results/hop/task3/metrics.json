@@ -7,33 +7,33 @@
   8
  ],
  "dev_flip_rate_by_s": {
-  "1": 0.0,
-  "2": 0.16666666666666666,
-  "4": 0.3,
-  "8": 0.03333333333333333
+  "1": 0.03333333333333333,
+  "2": 0.06666666666666667,
+  "4": 0.1,
+  "8": 0.06666666666666667
  },
  "s_star": 8,
  "n_dev_items": 10,
- "n_test_items": 69,
+ "n_test_items": 73,
  "test": {
   "swap": {
-   "n_pairs": 207,
-   "flip_rate": 0.07729468599033816,
-   "mean_delta_logp_diff": 13.32146131866364,
+   "n_pairs": 219,
+   "flip_rate": 0.0639269406392694,
+   "mean_delta_logp_diff": 13.981270368104656,
    "pairs_with_no_injected_feature": 0,
    "pairs_with_no_suppressed_feature": 0
   },
   "random_inject": {
-   "n_pairs": 207,
-   "flip_rate": 0.0,
-   "mean_delta_logp_diff": 7.2216751417730025,
+   "n_pairs": 219,
+   "flip_rate": 0.0045662100456621,
+   "mean_delta_logp_diff": 8.10684887771431,
    "pairs_with_no_injected_feature": 0,
    "pairs_with_no_suppressed_feature": 0
   },
   "suppress": {
-   "n_pairs": 207,
+   "n_pairs": 219,
    "flip_rate": 0.0,
-   "mean_delta_logp_diff": 0.8426998404489048,
+   "mean_delta_logp_diff": 0.9478953606597909,
    "pairs_with_no_injected_feature": 0,
    "pairs_with_no_suppressed_feature": 0
   }
